@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "dev": "vitepress dev site",
+    "build": "vitepress build site",
+    "preview": "vitepress preview site"
+  },
+  "dependencies": {
+    "@theojs/lumen": "^6.4.5",
+    "recaptcha-v3": "^1.11.3"
+  },
+  "devDependencies": {
+    "vitepress": "2.0.0-alpha.15"
+  }
+}
