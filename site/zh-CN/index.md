@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: "TextGO"
-  text: "智能文本处理"
-  tagline: 一个跨平台的文本处理工具，能够自动识别文本类型并执行自定义动作
+  name: TextGO
+  text: 全能文本处理工具
+  tagline: ✨ 通过快捷键触发，自动识别选中文本类型并执行自定义动作
   image:
     src: /logo_512x512.png
     alt: TextGO
@@ -30,3 +30,4 @@ features:
   - title: 跨平台支持
     details: 原生支持 macOS 和 Windows，在各平台上提供一致的用户体验
 ---
+<Home />

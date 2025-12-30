@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: "TextGO"
-  text: "Smart Text Processing"
-  tagline: A cross-platform text processing tool that automatically recognizes text types and executes custom actions
+  name: TextGO
+  text: All-in-One Text Tool
+  tagline: ✨ Automatically recognize text types and execute custom actions via shortcuts
   image:
     src: /logo_512x512.png
     alt: TextGO
@@ -30,3 +30,4 @@ features:
   - title: Cross-Platform
     details: Native support for macOS and Windows with consistent experience across platforms
 ---
+<Home />
