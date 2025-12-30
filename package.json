@@ -5,10 +5,10 @@
     "preview": "vitepress preview site"
   },
   "dependencies": {
-    "@theojs/lumen": "^6.4.5",
-    "recaptcha-v3": "^1.11.3"
+    "@theojs/lumen": "^6.4.5"
   },
   "devDependencies": {
+    "prettier": "^3.7.4",
     "vitepress": "2.0.0-alpha.15"
   }
 }
