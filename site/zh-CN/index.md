@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /zh-cn/guide/getting-started
+      link: /zh-CN/guide/getting-started
     - theme: alt
       text: 查看 GitHub
       link: https://github.com/C5H12O5/TextGO

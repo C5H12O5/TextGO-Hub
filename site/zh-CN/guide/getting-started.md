@@ -56,5 +56,5 @@ sudo xattr -r -d com.apple.quarantine /Applications/TextGO.app
 
 ## 下一步
 
-- 了解 [功能特性](/zh-cn/guide/features) 来掌握 TextGO 的能力
-- 探索 [开发指南](/zh-cn/guide/development) 如果你想贡献或扩展 TextGO
+- 了解 [功能特性](/zh-CN/guide/features) 来掌握 TextGO 的能力
+- 探索 [开发指南](/zh-CN/guide/development) 如果你想贡献或扩展 TextGO
