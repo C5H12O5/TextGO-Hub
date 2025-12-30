@@ -13,7 +13,7 @@ hero:
       text: 立即下载
       link: https://github.com/C5H12O5/TextGO/releases/latest
     - theme: alt
-      text: 使用说明
+      text: 快速开始
       link: /zh-CN/guide/getting-started
 
 features:

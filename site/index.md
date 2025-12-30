@@ -13,7 +13,7 @@ hero:
       text: Download
       link: https://github.com/C5H12O5/TextGO/releases/latest
     - theme: alt
-      text: Quickstart
+      text: Quick Start
       link: /guide/getting-started
 
 features:
