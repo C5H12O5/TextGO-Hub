@@ -10,6 +10,9 @@ hero:
     alt: TextGO
   actions:
     - theme: brand
+      text: Download
+      link: https://github.com/C5H12O5/TextGO/releases/latest
+    - theme: alt
       text: Get Started
       link: /guide/getting-started
     - theme: alt
@@ -30,4 +33,16 @@ features:
   - title: Cross-Platform
     details: Native support for macOS and Windows with consistent experience across platforms
 ---
+<script setup>
+import { onMounted } from 'vue'
+import { data as release } from './.vitepress/data/release.data'
+
+onMounted(() => {
+  // 查找"Download"按钮并添加版本号
+  const downloadBtn = document.querySelector('a.VPButton.brand[href*="releases/latest"]')
+  if (downloadBtn && release.version) {
+    downloadBtn.textContent = `Download ${release.version}`
+  }
+})
+</script>
 <Home />

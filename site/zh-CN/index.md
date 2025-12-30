@@ -10,11 +10,11 @@ hero:
     alt: TextGO
   actions:
     - theme: brand
-      text: 快速开始
-      link: /zh-CN/guide/getting-started
+      text: 立即下载
+      link: https://github.com/C5H12O5/TextGO/releases/latest
     - theme: alt
-      text: 查看 GitHub
-      link: https://github.com/C5H12O5/TextGO
+      text: 使用说明
+      link: /zh-CN/guide/getting-started
 
 features:
   - title: 多种触发方式
@@ -30,4 +30,16 @@ features:
   - title: 跨平台支持
     details: 原生支持 macOS 和 Windows，在各平台上提供一致的用户体验
 ---
+<script setup>
+import { onMounted } from 'vue'
+import { data as release } from '../.vitepress/data/release.data'
+
+onMounted(() => {
+  // 查找"立即下载"按钮并添加版本号
+  const downloadBtn = document.querySelector('a.VPButton.brand[href*="releases/latest"]')
+  if (downloadBtn && release.version) {
+    downloadBtn.textContent = `立即下载 ${release.version}`
+  }
+})
+</script>
 <Home />
