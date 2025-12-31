@@ -15,17 +15,46 @@ export default defineConfig({
 
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/getting-started' }
+      { text: 'Guide', link: '/guide/getting-started', activeMatch: '/guide/' }
     ],
 
     sidebar: [
       {
-        text: 'Guide',
+        text: 'Introduction',
+        collapsed: false,
         items: [
-          { text: 'Getting Started', link: '/guide/getting-started' },
-          { text: 'Features', link: '/guide/features' },
-          { text: 'Development', link: '/guide/development' }
+          { text: 'What is TextGO?', link: '/guide/what-is-textgo' },
+          { text: 'Getting Started', link: '/guide/getting-started' }
         ]
+      },
+      {
+        text: 'User Manual',
+        collapsed: false,
+        items: [
+          { text: 'Register Shortcuts', link: '/guide/register-shortcuts' },
+          {
+            text: 'Custom Recognitions',
+            items: [
+              { text: 'Train Models', link: '/guide/train-models' },
+              { text: 'Regular Expressions', link: '/guide/write-regexps' }
+            ]
+          },
+          {
+            text: 'Custom Actions',
+            items: [
+              { text: 'Open URLs', link: '/guide/open-urls' },
+              { text: 'Call Local AI', link: '/guide/local-ai' },
+              { text: 'JavaScript Scripts', link: '/guide/javascript-scripts' },
+              { text: 'Python Scripts', link: '/guide/python-scripts' }
+            ]
+          }
+        ]
+      },
+      {
+        items: [{ text: 'FAQ', link: '/guide/faq' }]
+      },
+      {
+        items: [{ text: 'Contribution', link: '/guide/contribution' }]
       }
     ],
 

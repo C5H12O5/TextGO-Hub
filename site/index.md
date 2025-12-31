@@ -30,6 +30,7 @@ features:
   - title: Cross-Platform
     details: Native support for macOS and Windows with consistent experience across platforms.
 ---
+
 <script setup>
 import { onMounted } from 'vue'
 import { data as release } from './.vitepress/data/release.data'

@@ -30,6 +30,7 @@ features:
   - title: 跨平台支持
     details: 原生支持 macOS 和 Windows，在各平台上提供一致的用户体验
 ---
+
 <script setup>
 import { onMounted } from 'vue'
 import { data as release } from '../.vitepress/data/release.data'

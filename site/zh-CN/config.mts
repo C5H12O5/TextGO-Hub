@@ -5,17 +5,46 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/zh-CN/' },
-      { text: '指南', link: '/zh-CN/guide/getting-started' }
+      { text: '指南', link: '/zh-CN/guide/getting-started', activeMatch: '/zh-CN/guide/' }
     ],
 
     sidebar: [
       {
-        text: '指南',
+        text: '简介',
+        collapsed: false,
         items: [
-          { text: '快速开始', link: '/zh-CN/guide/getting-started' },
-          { text: '功能特性', link: '/zh-CN/guide/features' },
-          { text: '开发指南', link: '/zh-CN/guide/development' }
+          { text: '什么是 TextGO?', link: '/zh-CN/guide/what-is-textgo' },
+          { text: '快速开始', link: '/zh-CN/guide/getting-started' }
         ]
+      },
+      {
+        text: '使用说明',
+        collapsed: false,
+        items: [
+          { text: '注册快捷键', link: '/zh-CN/guide/register-shortcuts' },
+          {
+            text: '自定义识别类型',
+            items: [
+              { text: '训练模型', link: '/zh-CN/guide/train-models' },
+              { text: '正则表达式', link: '/zh-CN/guide/write-regexps' }
+            ]
+          },
+          {
+            text: '自定义执行动作',
+            items: [
+              { text: '打开网址', link: '/zh-CN/guide/open-urls' },
+              { text: '调用本地 AI', link: '/zh-CN/guide/local-ai' },
+              { text: 'JavaScript 脚本', link: '/zh-CN/guide/javascript-scripts' },
+              { text: 'Python 脚本', link: '/zh-CN/guide/python-scripts' }
+            ]
+          }
+        ]
+      },
+      {
+        items: [{ text: '常见问题', link: '/zh-CN/guide/faq' }]
+      },
+      {
+        items: [{ text: '贡献指南', link: '/zh-CN/guide/contribution' }]
       }
     ],
 
