@@ -51,7 +51,7 @@ TextGO uses **TensorFlow.js** to train and run machine learning models in the br
 
 ### Step 1: Access Model Management
 
-1. Open "Settings" > "Classification Models"
+1. Open "Settings" > "Classification Model"
 2. Click the "+" button to add a new model
 
 ### Step 2: Basic Information
@@ -103,7 +103,7 @@ Training data is key to determining the model's recognition capability.
 
 Trained models will automatically appear in the recognition type list:
 
-1. Open "Shortcut Settings"
+1. Open "Global Shortcuts"
 2. Add a new rule
 3. Select your trained model in "Recognition Type"
 4. Configure the corresponding action and save

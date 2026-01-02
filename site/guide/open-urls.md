@@ -14,7 +14,7 @@ Web search actions allow you to:
 ### Step 1: Access Search Configuration
 
 1. Open "Settings" > "Web Search"
-2. Click the "+" button to add a new search
+2. Click the "+" button to add a new search action
 
 ### Step 2: Basic Information
 
@@ -45,8 +45,8 @@ Use {&#123;selection&#125;} as a placeholder to represent the selected text.
 
 Created search actions can be used in shortcut rules:
 
-1. Open "Settings" > "Shortcuts"
-2. Add or edit a rule
+1. Open "Global Shortcuts"
+2. Add a new rule
 3. Select your created search action in "Execute Action"
 4. Save the rule
 

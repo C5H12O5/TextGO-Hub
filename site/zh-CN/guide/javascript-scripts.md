@@ -4,7 +4,7 @@ TextGO 支持使用 JavaScript 编写自定义脚本来处理文本。JavaScript
 
 ## 功能概述
 
-JavaScript 脚本允许您：
+JavaScript 脚本允许你：
 
 - 使用 JavaScript 处理文本
 - 利用丰富的 JavaScript 标准库和生态系统
@@ -28,7 +28,7 @@ TextGO 使用 Node.js 或 Deno 运行 JavaScript 脚本。
 
 ### 步骤 1：进入脚本管理
 
-1. 打开"设置" > "脚本执行"
+1. 打开"设置" > "执行脚本"
 2. 点击"+"号添加新脚本
 
 ### 步骤 2：基本信息
@@ -78,9 +78,9 @@ function process(data) {
 
 创建好脚本后，可以在快捷键规则中使用：
 
-1. 打开"设置" > "快捷键"
-2. 添加或编辑规则
-3. 在"执行动作"中选择您创建的 JavaScript 脚本
+1. 打开"快捷键设置"
+2. 添加一条新规则
+3. 在"执行动作"中选择你创建的 JavaScript 脚本
 4. 保存规则
 
 ## JavaScript 脚本示例

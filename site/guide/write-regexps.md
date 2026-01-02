@@ -42,7 +42,7 @@ A regular expression (Regular Expression) is a powerful tool for matching string
 
 ### Step 1: Access Regex Management
 
-1. Open "Settings" > "Regular Expressions"
+1. Open "Settings" > "Regular Expression"
 2. Click the "+" button to add a new regex
 
 ### Step 2: Basic Information
@@ -75,7 +75,7 @@ A regular expression (Regular Expression) is a powerful tool for matching string
 
 Created regular expressions will automatically appear in the recognition type list:
 
-1. Open "Shortcut Settings"
+1. Open "Global Shortcuts"
 2. Add a new rule
 3. Select your created regular expression in "Recognition Type"
 4. Configure the corresponding action and save

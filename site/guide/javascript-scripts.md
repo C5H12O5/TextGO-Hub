@@ -78,8 +78,8 @@ function process(data) {
 
 After creating the script, you can use it in shortcut rules:
 
-1. Open "Settings" > "Shortcuts"
-2. Add or edit a rule
+1. Open "Global Shortcuts"
+2. Add a new rule
 3. Select your created JavaScript script in "Execute Action"
 4. Save the rule
 

@@ -25,7 +25,7 @@ Supported platforms:
 **Action Name** (Required)
 
 - Used to identify this AI action
-- Recommend using the model name or function description
+- Recommended to use descriptive names
 
 **Action Icon** (Optional)
 
@@ -50,7 +50,7 @@ The system prompt is used to set the AI's role and behavior.
 
 After creating the prompt template, you can use it in shortcut rules:
 
-1. Open "Settings" > "Shortcuts"
-2. Add or edit a rule
+1. Open "Global Shortcuts"
+2. Add a new rule
 3. Select your created AI conversation action in "Execute Action"
 4. Save the rule
