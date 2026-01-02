@@ -50,7 +50,7 @@ Created search actions can be used in shortcut rules:
 3. Select your created search action in "Execute Action"
 4. Save the rule
 
-## Common Search Engine Templates
+## Common Templates
 
 ```
 Google:

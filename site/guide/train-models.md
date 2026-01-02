@@ -2,7 +2,7 @@
 
 TextGO supports training machine learning models to recognize custom text types. By training models, you can enable TextGO to recognize any specific text patterns, greatly expanding its recognition capabilities.
 
-## What is Machine Learning Model
+## What is Classification Model
 
 TextGO uses **TensorFlow.js** to train and run machine learning models in the browser. This approach offers the following advantages:
 
@@ -11,7 +11,7 @@ TextGO uses **TensorFlow.js** to train and run machine learning models in the br
 - **Real-time Inference**: Models can quickly recognize text after loading
 - **Lightweight**: Small model size, fast loading
 
-## When to Use Machine Learning Models
+## When to Use Classification Models
 
 ### Suitable Scenarios for Models
 
@@ -47,7 +47,7 @@ TextGO uses **TensorFlow.js** to train and run machine learning models in the br
 - Cannot tolerate any misclassification
 - Business scenarios with strict accuracy requirements
 
-## Create Model
+## Create Classification Model
 
 ### Step 1: Access Model Management
 
@@ -99,9 +99,7 @@ Training data is key to determining the model's recognition capability.
   - Increase threshold → Stricter matching, reduces false positives
   - Decrease threshold → Looser matching, increases recognition rate
 
-## Use Model
-
-### Using in Shortcut Rules
+## Use Classification Model
 
 Trained models will automatically appear in the recognition type list:
 
