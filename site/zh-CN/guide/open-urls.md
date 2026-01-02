@@ -54,29 +54,29 @@ TextGO 支持自定义网络搜索动作，可以将选中的文本在指定的�
 
 ```
 Google:
-https://www.google.com/search?q=`{{selection}}`
+https://www.google.com/search?q={{selection}}
 
 Bing:
-https://www.bing.com/search?q=`{{selection}}`
+https://www.bing.com/search?q={{selection}}
 
 DuckDuckGo:
-https://duckduckgo.com/?q=`{{selection}}`
+https://duckduckgo.com/?q={{selection}}
 
 百度:
-https://www.baidu.com/s?wd=`{{selection}}`
+https://www.baidu.com/s?wd={{selection}}
 
 必应翻译:
-https://www.bing.com/translator?text=`{{selection}}`
+https://www.bing.com/translator?text={{selection}}
 
 维基百科:
-https://zh.wikipedia.org/wiki/`{{selection}}`
+https://zh.wikipedia.org/wiki/{{selection}}
 
 YouTube:
-https://www.youtube.com/results?search_query=`{{selection}}`
+https://www.youtube.com/results?search_query={{selection}}
 
 GitHub:
-https://github.com/search?q=`{{selection}}`
+https://github.com/search?q={{selection}}
 
 Stack Overflow:
-https://stackoverflow.com/search?q=`{{selection}}`
+https://stackoverflow.com/search?q={{selection}}
 ```

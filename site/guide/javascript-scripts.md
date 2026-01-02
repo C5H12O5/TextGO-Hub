@@ -93,7 +93,7 @@ function process(data) {
 }
 ```
 
-#### Example 2: Word Count
+#### Example 2: Character Count
 
 ```javascript
 function process(data) {

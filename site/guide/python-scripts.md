@@ -38,7 +38,7 @@ TextGO automatically detects Python environments on your system.
 
 **Script Icon** (Optional)
 
-- Click the icon picker to select an icon
+- Click the icon selector to choose an icon
 - Supports built-in icon library
 - Supports uploading custom SVG icons
 
