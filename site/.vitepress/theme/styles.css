@@ -4,3 +4,7 @@
 
   --docsearch-search-button-background: #f6f6f7;
 }
+
+.wide-page .VPDoc .content {
+  max-width: 1200px !important;
+}

@@ -1,0 +1,17 @@
+{
+  "type": "script",
+  "icon": "Code",
+  "lang": "javascript",
+  "script": "function process(data) {\n    // data.clipboard - 剪贴板文本\n    // data.selection - 选中文本\n    return data.selection.toUpperCase();\n}\n",
+  "locales": {
+    "en": {
+      "name": "UpperCase",
+      "description": "Convert selected text to uppercase"
+    },
+    "zh-CN": {
+      "name": "大写转换",
+      "description": "把选中文本转换为大写"
+    }
+  },
+  "platforms": ["macOS", "windows"]
+}
