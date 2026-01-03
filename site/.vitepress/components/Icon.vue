@@ -55,12 +55,12 @@ const decodedSVG = computed(() => {
   if (isBase64SVG.value) {
     return decodeBase64SVG(props.icon as string, props.class);
   }
-  return '';
+  return null;
 });
 </script>
 
 <template>
-  <!-- render phosphor icon component or icon name -->
+  <!-- render phosphor icon component -->
   <component v-if="iconComponent" :is="iconComponent" :class="props.class" />
   <!-- render base64 SVG -->
   <span v-else-if="isBase64SVG" v-html="decodedSVG"></span>

@@ -1,66 +1,42 @@
 <script setup lang="ts">
+import { PhDownloadSimple } from "@phosphor-icons/vue";
 import { useData } from 'vitepress';
 import { computed } from 'vue';
-import { Script, data as scripts } from '../data/scripts.data';
+import { Script, data } from '../data/scripts.data';
 import Icon from './Icon.vue';
-
-defineProps<{
-  downloadLabel?: string;
-}>();
 
 const { lang } = useData();
 
-const currentLang = computed(() => {
-  return lang.value === 'zh-CN' ? 'zh-CN' : 'en';
+// localized scripts based on current language
+const scripts = computed(() => {
+  return data.map(script => ({
+    ...script,
+    name: script.locales[lang.value]?.name || '',
+    description: script.locales[lang.value]?.description || ''
+  })).filter(script => script.name);
 });
 
-const getLocalizedName = (extension: Script) => {
-  return extension.locales[currentLang.value]?.name || extension.locales['en']?.name || '';
-};
-
-const getLocalizedDescription = (extension: Script) => {
-  return extension.locales[currentLang.value]?.description || extension.locales['en']?.description || '';
-};
-
-const downloadScript = (extension: Script) => {
-  const content = JSON.stringify({
-    type: extension.type,
-    icon: extension.icon,
-    lang: extension.lang,
-    script: extension.script,
-    locales: extension.locales,
-    platforms: extension.platforms
-  }, null, 2);
-
-  const blob = new Blob([content], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  // link.download = extension.filename;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+const install = (script: Script) => {
+  // TODO
 };
 </script>
 
 <template>
   <div class="my-6">
-    <div v-for="script in scripts"
-      class="flex gap-3 py-3 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
-      <Icon :icon="script.icon" class="text-2xl" />
+    <div v-for="script in scripts" :key="script.name"
+      class="flex items-center gap-3 py-3 border-b border-(--vp-c-divider) last:border-b-0">
+      <Icon :icon="script.icon" class="size-8" />
       <div class="flex-1">
         <div class="flex gap-2 items-center mb-1">
-          <span class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-xs">{{ script.lang }}</span>
-          <span class="font-medium">{{ getLocalizedName(script) }}</span>
+          <span class="font-semibold text-(--vp-c-brand-1)">{{ script.name }}</span>
           <span v-for="platform in script.platforms" :key="platform"
-            class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-xs">{{ platform }}</span>
+            class="px-1.5 py-0.5 bg-(--vp-sidebar-bg-color) rounded-md text-xs">{{ platform }}</span>
         </div>
-        <div class="text-sm text-gray-600 dark:text-gray-400">{{ getLocalizedDescription(script) }}</div>
+        <div class="text-sm opacity-60">{{ script.description }}</div>
       </div>
-      <button @click="downloadScript(script)"
-        class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded cursor-pointer text-sm">{{ downloadLabel
-        }}</button>
+      <button @click="install(script)">
+        <PhDownloadSimple class="size-6 opacity-80" />
+      </button>
     </div>
   </div>
 </template>

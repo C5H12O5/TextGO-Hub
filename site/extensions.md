@@ -1,7 +1,8 @@
 ---
-sidebar: false
 aside: false
+sidebar: false
 editLink: false
+lastUpdated: false
 prev: false
 next: false
 pageClass: wide-page
@@ -9,4 +10,4 @@ pageClass: wide-page
 
 # Scripts
 
-<Scripts download-label="Download" />
+<Scripts />
