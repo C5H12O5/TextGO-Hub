@@ -2,6 +2,7 @@
 import { useData } from 'vitepress';
 import { computed } from 'vue';
 import { Script, data as scripts } from '../data/scripts.data';
+import Icon from './Icon.vue';
 
 defineProps<{
   downloadLabel?: string;
@@ -47,7 +48,7 @@ const downloadScript = (extension: Script) => {
   <div class="my-6">
     <div v-for="script in scripts"
       class="flex gap-3 py-3 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
-      <div class="text-2xl">{{ script.icon }}</div>
+      <Icon :icon="script.icon" class="text-2xl" />
       <div class="flex-1">
         <div class="flex gap-2 items-center mb-1">
           <span class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-xs">{{ script.lang }}</span>

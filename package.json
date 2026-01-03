@@ -5,6 +5,7 @@
     "preview": "vitepress preview site"
   },
   "dependencies": {
+    "@phosphor-icons/vue": "^2.2.1",
     "@theojs/lumen": "^6.4.5"
   },
   "devDependencies": {
