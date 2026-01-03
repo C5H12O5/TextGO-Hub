@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: Quick Start
       link: /guide/getting-started
+    - theme: alt
+      text: Extensions
+      link: /extensions
 
 features:
   - title: Multiple Triggers

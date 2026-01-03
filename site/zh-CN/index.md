@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: 快速开始
       link: /zh-CN/guide/getting-started
+    - theme: alt
+      text: 获取扩展
+      link: /zh-CN/extensions
 
 features:
   - title: 快捷触发

@@ -5,7 +5,8 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/zh-CN/' },
-      { text: '指南', link: '/zh-CN/guide/getting-started', activeMatch: '/zh-CN/guide/' }
+      { text: '指南', link: '/zh-CN/guide/getting-started', activeMatch: '/zh-CN/guide/' },
+      { text: '扩展', link: '/zh-CN/extensions' }
     ],
 
     sidebar: [
