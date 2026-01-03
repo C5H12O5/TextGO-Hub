@@ -44,98 +44,22 @@ const downloadScript = (extension: Script) => {
 </script>
 
 <template>
-  <div class="scripts-list">
-    <div v-if="scripts.length === 0" class="empty">
-      No scripts found.
-    </div>
-    <div v-else class="list">
-      <div v-for="script in scripts" class="item">
-        <div class="icon">{{ script.icon }}</div>
-        <div class="content">
-          <div class="row">
-            <span class="lang">{{ script.lang }}</span>
-            <span class="name">{{ getLocalizedName(script) }}</span>
-            <span v-for="platform in script.platforms" :key="platform" class="platform">{{ platform }}</span>
-          </div>
-          <div class="desc">{{ getLocalizedDescription(script) }}</div>
+  <div class="my-6">
+    <div v-for="script in scripts"
+      class="flex gap-3 py-3 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
+      <div class="text-2xl">{{ script.icon }}</div>
+      <div class="flex-1">
+        <div class="flex gap-2 items-center mb-1">
+          <span class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-xs">{{ script.lang }}</span>
+          <span class="font-medium">{{ getLocalizedName(script) }}</span>
+          <span v-for="platform in script.platforms" :key="platform"
+            class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-xs">{{ platform }}</span>
         </div>
-        <button @click="downloadScript(script)">{{ downloadLabel }}</button>
+        <div class="text-sm text-gray-600 dark:text-gray-400">{{ getLocalizedDescription(script) }}</div>
       </div>
+      <button @click="downloadScript(script)"
+        class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded cursor-pointer text-sm">{{ downloadLabel
+        }}</button>
     </div>
   </div>
 </template>
-
-<style scoped>
-.scripts-list {
-  margin: 24px 0;
-}
-
-.empty {
-  padding: 48px 0;
-  text-align: center;
-  color: var(--vp-c-text-2);
-}
-
-.item {
-  display: flex;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--vp-c-divider);
-}
-
-.item:last-child {
-  border-bottom: none;
-}
-
-.icon {
-  font-size: 24px;
-}
-
-.content {
-  flex: 1;
-}
-
-.row {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 4px;
-}
-
-.lang {
-  padding: 2px 6px;
-  background: var(--vp-c-bg-soft);
-  border-radius: 3px;
-  font-size: 12px;
-}
-
-.name {
-  font-weight: 500;
-}
-
-.platform {
-  padding: 2px 6px;
-  background: var(--vp-c-bg-soft);
-  border-radius: 3px;
-  font-size: 12px;
-}
-
-.desc {
-  font-size: 14px;
-  color: var(--vp-c-text-2);
-}
-
-button {
-  padding: 6px 12px;
-  background: var(--vp-c-brand-1);
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-button:hover {
-  background: var(--vp-c-brand-2);
-}
-</style>
