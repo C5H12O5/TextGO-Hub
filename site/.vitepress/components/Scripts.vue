@@ -56,7 +56,7 @@ const scripts = computed(() => {
       // localized fields
       tags: script.locales[lang.value]?.tags || [],
       name: script.locales[lang.value]?.name || '',
-      description: script.locales[lang.value]?.description || '',
+      description: script.locales[lang.value]?.description || ''
     }))
     .filter((script) => {
       if (!script.name) return false;
@@ -98,7 +98,7 @@ const install = (script: Script) => {
 </script>
 
 <template>
-  <div class="my-6">
+  <div class="mt-6 mb-12">
     <!-- Filters -->
     <div class="mb-4 space-y-3">
       <input

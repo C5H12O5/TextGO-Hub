@@ -110,5 +110,3 @@ def process(data):
     non_empty = [line for line in lines if line.strip()]
     return '\n'.join(non_empty)
 ```
-
-
