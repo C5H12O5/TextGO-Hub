@@ -16,8 +16,16 @@ const scripts = computed(() => {
   })).filter(script => script.name);
 });
 
+// install script via deep link
 const install = (script: Script) => {
-  // TODO
+  navigator.clipboard.writeText(JSON.stringify({
+    id: script.name,
+    icon: script.icon,
+    lang: script.lang,
+    script: script.script
+  })).then(() => {
+    window.location.href = `textgo://settings/${script.type}?install=true`;
+  });
 };
 </script>
 

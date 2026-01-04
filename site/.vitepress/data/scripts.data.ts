@@ -2,6 +2,7 @@ import fs from 'fs';
 import { defineLoader } from 'vitepress';
 
 export interface Script {
+  name?: string;
   type: string;
   icon: string;
   lang: string;
