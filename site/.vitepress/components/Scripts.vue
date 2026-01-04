@@ -35,14 +35,14 @@ const install = (script: Script) => {
       class="flex items-center gap-3 py-3 border-b border-(--vp-c-divider) last:border-b-0">
       <Icon :icon="script.icon" class="size-8" />
       <div class="flex-1">
-        <div class="flex gap-2 items-center mb-1">
+        <div class="flex gap-2 items-center">
           <span class="font-semibold text-(--vp-c-brand-1)">{{ script.name }}</span>
           <span v-for="platform in script.platforms" :key="platform"
             class="px-1.5 py-0.5 bg-(--vp-sidebar-bg-color) rounded-md text-xs">{{ platform }}</span>
         </div>
-        <div class="text-sm opacity-60">{{ script.description }}</div>
+        <div v-if="script.description" class="text-sm opacity-60 mt-1">{{ script.description }}</div>
       </div>
-      <button @click="install(script)">
+      <button @click="install(script)" class="p-1! hover:bg-(--vp-sidebar-bg-color)! rounded-md transition-colors">
         <PhDownloadSimple class="size-6 opacity-80" />
       </button>
     </div>

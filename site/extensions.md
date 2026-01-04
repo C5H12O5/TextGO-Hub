@@ -1,4 +1,5 @@
 ---
+title: Extensions
 aside: false
 sidebar: false
 editLink: false
