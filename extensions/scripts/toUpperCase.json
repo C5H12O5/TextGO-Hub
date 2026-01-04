@@ -5,13 +5,14 @@
   "locales": {
     "en": {
       "name": "UpperCase",
-      "description": "Convert selected text to uppercase"
+      "description": "Convert selected text to uppercase",
+      "tags": ["convert"]
     },
     "zh-CN": {
       "name": "大写转换",
-      "description": "把选中文本转换为大写"
+      "description": "把选中文本转换为大写",
+      "tags": ["转换"]
     }
   },
-  "tags": [],
   "sort": 1767519889726
 }

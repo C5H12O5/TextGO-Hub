@@ -10,7 +10,7 @@ export interface Extension {
     [key: string]: {
       name: string;
       description: string;
+      tags: string[];
     };
   };
-  tags: string[];
 }

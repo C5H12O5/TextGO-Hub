@@ -5,13 +5,14 @@
   "locales": {
     "en": {
       "name": "LowerCase",
-      "description": "Convert selected text to lowercase"
+      "description": "Convert selected text to lowercase",
+      "tags": ["convert"]
     },
     "zh-CN": {
       "name": "小写转换",
-      "description": "把选中文本转换为小写"
+      "description": "把选中文本转换为小写",
+      "tags": ["转换"]
     }
   },
-  "tags": [],
   "sort": 1767520023577
 }

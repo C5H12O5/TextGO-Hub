@@ -11,7 +11,7 @@ const props = withDefaults(
     emptyText?: string;
   }>(),
   {
-    filterText: 'Filter scripts...',
+    filterText: 'Filter by name or description...',
     emptyText: 'No scripts found'
   }
 );
@@ -26,7 +26,10 @@ const filterTags = ref<string[]>([]);
 // all available tags
 const allTags = computed(() => {
   const tags = new Set<string>();
-  data.forEach((script) => script.tags?.forEach((tag) => tags.add(tag)));
+  data.forEach((script) => {
+    const localTags = script.locales[lang.value]?.tags || [];
+    localTags.forEach((tag) => tags.add(tag));
+  });
   return Array.from(tags).sort();
 });
 
@@ -50,9 +53,10 @@ const scripts = computed(() => {
   return data
     .map((script) => ({
       ...script,
-      // localized name and description
+      // localized fields
+      tags: script.locales[lang.value]?.tags || [],
       name: script.locales[lang.value]?.name || '',
-      description: script.locales[lang.value]?.description || ''
+      description: script.locales[lang.value]?.description || '',
     }))
     .filter((script) => {
       if (!script.name) return false;
