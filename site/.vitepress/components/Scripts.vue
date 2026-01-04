@@ -9,11 +9,14 @@ const { lang } = useData();
 
 // localized scripts based on current language
 const scripts = computed(() => {
-  return data.map(script => ({
-    ...script,
-    name: script.locales[lang.value]?.name || '',
-    description: script.locales[lang.value]?.description || ''
-  })).filter(script => script.name);
+  return data
+    .map(script => ({
+      ...script,
+      name: script.locales[lang.value]?.name || '',
+      description: script.locales[lang.value]?.description || ''
+    }))
+    .filter(script => script.name)
+    .sort((a, b) => a.sort - b.sort);
 });
 
 // install script via deep link
@@ -24,21 +27,21 @@ const install = (script: Script) => {
     lang: script.lang,
     script: script.script
   })).then(() => {
-    window.location.href = `textgo://settings/${script.type}?install=true`;
+    window.location.href = `textgo://settings/script?install=true`;
   });
 };
 </script>
 
 <template>
   <div class="my-6">
-    <div v-for="script in scripts" :key="script.name"
+    <div v-for="script in scripts" :key="script.path"
       class="flex items-center gap-3 py-3 border-b border-(--vp-c-divider) last:border-b-0">
       <Icon :icon="script.icon" class="size-8" />
       <div class="flex-1">
         <div class="flex gap-2 items-center">
           <span class="font-semibold text-(--vp-c-brand-1)">{{ script.name }}</span>
-          <span v-for="platform in script.platforms" :key="platform"
-            class="px-1.5 py-0.5 bg-(--vp-sidebar-bg-color) rounded-md text-xs">{{ platform }}</span>
+          <span v-for="tag in script.tags" :key="tag"
+            class="px-1.5 py-0.5 bg-(--vp-sidebar-bg-color) rounded-md text-xs">{{ tag }}</span>
         </div>
         <div v-if="script.description" class="text-sm opacity-60 mt-1">{{ script.description }}</div>
       </div>

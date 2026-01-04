@@ -1,19 +1,10 @@
 import fs from 'fs';
 import { defineLoader } from 'vitepress';
+import type { Extension } from '../types';
 
-export interface Script {
-  name?: string;
-  type: string;
-  icon: string;
+export interface Script extends Extension {
   lang: string;
   script: string;
-  locales: {
-    [key: string]: {
-      name: string;
-      description: string;
-    };
-  };
-  platforms: string[];
 }
 
 declare const data: Script[];
@@ -24,7 +15,10 @@ export default defineLoader({
   async load(files): Promise<Script[]> {
     return files.map((file) => {
       const content = fs.readFileSync(file, 'utf-8');
-      return JSON.parse(content);
+      return {
+        path: file,
+        ...JSON.parse(content)
+      };
     });
   }
 });

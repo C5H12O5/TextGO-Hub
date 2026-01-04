@@ -1,5 +1,4 @@
 {
-  "type": "script",
   "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KCTxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTIwLjA2IDE4YTQgNCAwIDAgMS0uMi0uODljLS42Ny43LTEuNDggMS4wNS0yLjQxIDEuMDVjLS44MyAwLTEuNTItLjI0LTIuMDUtLjcxYy0uNTMtLjQ1LS44LTEuMDYtLjgtMS43OWMwLS44OC4zMy0xLjU2IDEtMi4wNXMxLjYxLS43MyAyLjgzLS43M2gxLjR2LS42NHEwLS43MzUtLjQ1LTEuMTdjLS4zLS4yOS0uNzUtLjQzLTEuMzMtLjQzYy0uNTIgMC0uOTUuMTItMS4zLjM2Yy0uMzUuMjUtLjUyLjU0LS41Mi44OWgtMS40NmMwLS40My4xNS0uODQuNDUtMS4yNGMuMjgtLjQuNzEtLjcxIDEuMjItLjk0Yy41MS0uMjEgMS4wNi0uMzUgMS42OS0uMzVjLjk4IDAgMS43NC4yNCAyLjI5Ljczcy44NCAxLjE2Ljg2IDIuMDJWMTZjMCAuOC4xIDEuNDIuMyAxLjg4VjE4em0tMi40LTEuMTJjLjQ1IDAgLjg4LS4xMSAxLjI5LS4zMmMuNC0uMjEuNy0uNDkuODgtLjgzdi0xLjU3SDE4LjdjLTEuNzcgMC0yLjY2LjQ3LTIuNjYgMS40MWMwIC40My4xNS43My40Ni45NmMuMy4yMy42OC4zNSAxLjE2LjM1bS0xMi4yLTMuMTdoNC4wN0w3LjUgOC4yOXpNNi42NCA2aDEuNzJsNC43MSAxMmgtMS45M2wtLjk3LTIuNTdINC44MkwzLjg2IDE4SDEuOTN6TTIgMjBoMTF2MkgyeiIgLz4KPC9zdmc+",
   "lang": "javascript",
   "script": "function process(data) {\n    return data.selection.toUpperCase();\n}\n",
@@ -13,5 +12,6 @@
       "description": "把选中文本转换为大写"
     }
   },
-  "platforms": ["macOS", "windows"]
+  "tags": ["macOS", "windows"],
+  "sort": 1
 }
