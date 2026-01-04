@@ -11,4 +11,4 @@ pageClass: wide-page
 
 # 脚本
 
-<Scripts />
+<Scripts filter-text="搜索脚本..." empty-text="未找到匹配的脚本" />

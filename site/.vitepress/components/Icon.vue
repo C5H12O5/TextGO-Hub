@@ -13,7 +13,9 @@ const props = defineProps<IconProps>();
 
 // mapping of phosphor icons
 const phosphorIcons = Object.fromEntries(
-  Object.entries(phosphor).filter(([name]) => name.startsWith('Ph'))
+  Object.entries(phosphor).filter(([name]) => {
+    return name.startsWith('Ph');
+  })
 ) as Record<string, Component>;
 
 /**
@@ -39,7 +41,9 @@ function decodeBase64SVG(base64: string, className?: string): string {
 }
 
 const isComponent = computed(() => typeof props.icon !== 'string');
-const isBase64SVG = computed(() => typeof props.icon === 'string' && props.icon.startsWith('data:image/svg+xml;base64,'));
+const isBase64SVG = computed(
+  () => typeof props.icon === 'string' && props.icon.startsWith('data:image/svg+xml;base64,')
+);
 
 const iconComponent = computed(() => {
   if (isComponent.value) {
