@@ -1,0 +1,18 @@
+{
+  "icon": "TextB",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return `**${data.selection}**`;\n}\n",
+  "locales": {
+    "en": {
+      "name": "Bold",
+      "description": "Markdown bold text.",
+      "tags": ["markdown"]
+    },
+    "zh-CN": {
+      "name": "粗体",
+      "description": "Markdown 粗体",
+      "tags": ["Markdown"]
+    }
+  },
+  "sort": 1767630536752
+}

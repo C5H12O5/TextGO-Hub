@@ -1,0 +1,18 @@
+{
+  "icon": "TextItalic",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return `*${data.selection}*`;\n}\n",
+  "locales": {
+    "en": {
+      "name": "Italic",
+      "description": "Markdown italic text.",
+      "tags": ["markdown"]
+    },
+    "zh-CN": {
+      "name": "斜体",
+      "description": "Markdown 斜体",
+      "tags": ["Markdown"]
+    }
+  },
+  "sort": 1767630540408
+}

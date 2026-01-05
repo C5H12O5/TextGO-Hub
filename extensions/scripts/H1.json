@@ -1,0 +1,18 @@
+{
+  "icon": "TextHOne",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return `# ${data.selection}`;\n}\n",
+  "locales": {
+    "en": {
+      "name": "H1",
+      "description": "Markdown heading level 1.",
+      "tags": ["markdown"]
+    },
+    "zh-CN": {
+      "name": "H1",
+      "description": "Markdown 一级标题",
+      "tags": ["Markdown"]
+    }
+  },
+  "sort": 1767628631463
+}
