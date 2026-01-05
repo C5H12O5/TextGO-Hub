@@ -4,7 +4,7 @@
   "locales": {
     "en": {
       "name": "Bing",
-      "description": "Search selected text with Bing",
+      "description": "Search selected text with Bing.",
       "tags": ["search-engine"]
     },
     "zh-CN": {

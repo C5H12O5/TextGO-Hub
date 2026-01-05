@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T extends Extension">
-import { PhDownloadSimple, PhFunnel } from '@phosphor-icons/vue';
+import { PhFunnel } from '@phosphor-icons/vue';
 import { useData } from 'vitepress';
 import { computed, ref } from 'vue';
 import type { Extension } from '../types';
@@ -91,7 +91,7 @@ const items = computed(() => {
         v-model="filterInput"
         type="search"
         :placeholder="props.filterText"
-        class="w-full rounded-md border! border-(--vp-c-divider)! px-3! py-2! transition-colors focus:border-(--vp-c-brand-1)!"
+        class="w-full rounded-md border! border-(--vp-c-divider)! px-3! py-2! shadow-xs transition-colors focus:border-(--vp-c-brand-1)!"
       />
       <div v-if="allTags.length > 0" class="flex flex-wrap items-center gap-2">
         <PhFunnel weight="thin" class="size-6 opacity-80" />
@@ -100,7 +100,7 @@ const items = computed(() => {
           :key="tag"
           @click="filterTags.includes(tag) ? removeTag(tag) : addTag(tag)"
           :class="[
-            'rounded-md px-3! py-1! text-sm transition-colors',
+            'rounded-md px-2! py-0.5! text-sm font-medium shadow-xs transition-all active:scale-95',
             filterTags.includes(tag)
               ? 'bg-(--vp-c-brand-1)! text-(--vp-button-alt-bg)!'
               : 'bg-(--vp-button-alt-bg)! hover:bg-(--vp-c-divider)!'
@@ -125,15 +125,23 @@ const items = computed(() => {
               v-for="tag in item.tags"
               :key="tag"
               @click="addTag(tag)"
-              class="cursor-pointer rounded-md bg-(--vp-sidebar-bg-color) px-1.5 py-0.5 text-xs opacity-80 transition-opacity hover:opacity-100"
+              class="cursor-pointer rounded-md bg-(--vp-sidebar-bg-color) px-1.5 py-0.5 text-xs opacity-80 transition-all hover:opacity-100 active:scale-95"
             >
               {{ tag }}
             </span>
           </div>
           <div v-if="item.description" class="mt-1 text-sm opacity-60">{{ item.description }}</div>
         </div>
-        <button @click="installHandler(item)" class="rounded-md p-1! transition-colors hover:bg-(--vp-button-alt-bg)!">
-          <PhDownloadSimple class="size-6 opacity-80" />
+        <button
+          @click="installHandler(item)"
+          class="rounded-md p-1! transition-all hover:bg-(--vp-button-alt-bg)! active:scale-95"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6 opacity-80">
+            <path
+              fill="currentColor"
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4.18C9.6 1.84 10.7 1 12 1s2.4.84 2.82 2zm-7 0a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M7 7V5H5v14h14V5h-2v2zm5 11l-5-5h3V9h4v4h3z"
+            />
+          </svg>
         </button>
       </div>
     </div>

@@ -97,16 +97,16 @@ def process(data):
 
 ```python
 def process(data):
-    lines = data["selection"].split('\n')
+    lines = data["selection"].split("\n")
     sorted_lines = sorted(lines)
-    return '\n'.join(sorted_lines)
+    return "\n".join(sorted_lines)
 ```
 
 #### 示例 3：移除空行
 
 ```python
 def process(data):
-    lines = data["selection"].split('\n')
+    lines = data["selection"].split("\n")
     non_empty = [line for line in lines if line.strip()]
-    return '\n'.join(non_empty)
+    return "\n".join(non_empty)
 ```

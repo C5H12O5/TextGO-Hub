@@ -4,12 +4,12 @@
   "script": "function process(data) {\n    return data.selection.toUpperCase();\n}\n",
   "locales": {
     "en": {
-      "name": "UpperCase",
-      "description": "Convert selected text to uppercase",
+      "name": "Uppercase",
+      "description": "Convert selected text to uppercase.",
       "tags": ["convert"]
     },
     "zh-CN": {
-      "name": "大写转换",
+      "name": "大写",
       "description": "把选中文本转换为大写",
       "tags": ["转换"]
     }

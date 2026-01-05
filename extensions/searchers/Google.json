@@ -4,7 +4,7 @@
   "locales": {
     "en": {
       "name": "Google",
-      "description": "Search selected text with Google",
+      "description": "Search selected text with Google.",
       "tags": ["search-engine"]
     },
     "zh-CN": {

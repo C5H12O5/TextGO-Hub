@@ -4,12 +4,12 @@
   "script": "function process(data) {\n    return data.selection.toLowerCase();\n}\n",
   "locales": {
     "en": {
-      "name": "LowerCase",
-      "description": "Convert selected text to lowercase",
+      "name": "Lowercase",
+      "description": "Convert selected text to lowercase.",
       "tags": ["convert"]
     },
     "zh-CN": {
-      "name": "小写转换",
+      "name": "小写",
       "description": "把选中文本转换为小写",
       "tags": ["转换"]
     }

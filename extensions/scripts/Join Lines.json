@@ -1,0 +1,18 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KCTxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CgkJPHBhdGggZD0iTTI0IDB2MjRIMFYwek0xMi41OTMgMjMuMjU4bC0uMDExLjAwMmwtLjA3MS4wMzVsLS4wMi4wMDRsLS4wMTQtLjAwNGwtLjA3MS0uMDM1cS0uMDE2LS4wMDUtLjAyNC4wMDVsLS4wMDQuMDFsLS4wMTcuNDI4bC4wMDUuMDJsLjAxLjAxM2wuMTA0LjA3NGwuMDE1LjAwNGwuMDEyLS4wMDRsLjEwNC0uMDc0bC4wMTItLjAxNmwuMDA0LS4wMTdsLS4wMTctLjQyN3EtLjAwNC0uMDE2LS4wMTctLjAxOG0uMjY1LS4xMTNsLS4wMTMuMDAybC0uMTg1LjA5M2wtLjAxLjAxbC0uMDAzLjAxMWwuMDE4LjQzbC4wMDUuMDEybC4wMDguMDA3bC4yMDEuMDkzcS4wMTkuMDA1LjAyOS0uMDA4bC4wMDQtLjAxNGwtLjAzNC0uNjE0cS0uMDA1LS4wMTktLjAyLS4wMjJtLS43MTUuMDAyYS4wMi4wMiAwIDAgMC0uMDI3LjAwNmwtLjAwNi4wMTRsLS4wMzQuNjE0cS4wMDEuMDE4LjAxNy4wMjRsLjAxNS0uMDAybC4yMDEtLjA5M2wuMDEtLjAwOGwuMDA0LS4wMTFsLjAxNy0uNDNsLS4wMDMtLjAxMmwtLjAxLS4wMXoiIC8+CgkJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMy4wNzYgNS42MTdBMSAxIDAgMCAxIDQgNWgxMGE3IDcgMCAxIDEgMCAxNEg1YTEgMSAwIDEgMSAwLTJoOWE1IDUgMCAxIDAgMC0xMEg2LjQxNGwxLjc5MyAxLjc5M2ExIDEgMCAwIDEtMS40MTQgMS40MTRsLTMuNS0zLjVhMSAxIDAgMCAxLS4yMTctMS4wOSIgLz4KCTwvZz4KPC9zdmc+",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return data.selection.replace(/[\\r\\n]+/g, ' ');\n}\n",
+  "locales": {
+    "en": {
+      "name": "Join Lines",
+      "description": "Replace line breaks in the selected text with spaces.",
+      "tags": ["convert"]
+    },
+    "zh-CN": {
+      "name": "合并行",
+      "description": "将选中文本中的换行符替换为空格",
+      "tags": ["转换"]
+    }
+  },
+  "sort": 1767621906158
+}
