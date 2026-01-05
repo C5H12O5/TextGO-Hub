@@ -2,17 +2,17 @@ import fs from 'fs';
 import { defineLoader } from 'vitepress';
 import type { Extension } from '../types';
 
-export interface Script extends Extension {
-  lang: string;
-  script: string;
+export interface Searcher extends Extension {
+  browser?: string;
+  url: string;
 }
 
-declare const data: Script[];
+declare const data: Searcher[];
 export { data };
 
 export default defineLoader({
-  watch: ['../../../extensions/scripts/*.json'],
-  async load(files): Promise<Script[]> {
+  watch: ['../../../extensions/searchers/*.json'],
+  async load(files): Promise<Searcher[]> {
     return files.map((file) => {
       const contents = fs.readFileSync(file, 'utf-8');
       return {

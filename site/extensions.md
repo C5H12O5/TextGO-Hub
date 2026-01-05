@@ -11,4 +11,8 @@ pageClass: wide-page
 
 # Scripts
 
-<Scripts />
+<Scripts empty-text="No scripts found" />
+
+# Websites
+
+<Searchers empty-text="No websites found" />

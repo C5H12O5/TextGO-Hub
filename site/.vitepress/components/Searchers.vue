@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Script, data } from '../data/scripts.data';
+import { Searcher, data } from '../data/searchers.data';
 import Extensions from './Extensions.vue';
 
 const props = defineProps<{
@@ -7,19 +7,19 @@ const props = defineProps<{
   filterText?: string;
 }>();
 
-// install script via clipboard and deep-link
-const install = (script: Script) => {
+// install website searcher via clipboard and deep-link
+const install = (searcher: Searcher) => {
   navigator.clipboard
     .writeText(
       JSON.stringify({
-        id: script.name,
-        icon: script.icon,
-        lang: script.lang,
-        script: script.script
+        id: searcher.name,
+        icon: searcher.icon,
+        browser: searcher.browser,
+        url: searcher.url
       })
     )
     .then(() => {
-      window.location.href = `textgo://settings/script?install=true`;
+      window.location.href = `textgo://settings/searcher?install=true`;
     });
 };
 </script>
