@@ -1,0 +1,17 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KCTxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjEiPgoJCTxwYXRoIGQ9Ik02LjcyIDIyLjAyNEw1LjUgMjAuNWg0bC0xLjIyIDEuNTI0YTEgMSAwIDAgMS0xLjU2IDBabTkgMEwxNC41IDIwLjVoNGwtMS4yMiAxLjUyNGExIDEgMCAwIDEtMS41NiAwWiIgLz4KCQk8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Im03IDEuNWw0IDRtNi00bC00IDQiIC8+CgkJPHBhdGggZD0iTTcgMTMuNWEuNS41IDAgMCAxIDAtMW0wIDFhLjUuNSAwIDAgMCAwLTFtOS41LS41YS41LjUgMCAwIDEgMC0xbTAgMWEuNS41IDAgMCAwIDAtMSIgLz4KCQk8cGF0aCBkPSJNNCAxOFY4aDE2djEweiIgLz4KCQk8cGF0aCBkPSJNMTQgMTZoLTRsMi0yeiIgLz4KCQk8cGF0aCBkPSJNMS41IDIwLjV2LTE1aDIxdjE1eiIgLz4KCTwvZz4KPC9zdmc+",
+  "url": "https://www.nicovideo.jp/search/{{selection}}",
+  "locales": {
+    "en": {
+      "name": "Niconico",
+      "description": "Search selected text with Niconico.",
+      "tags": ["video", "danmaku"]
+    },
+    "zh-CN": {
+      "name": "ニコニコ",
+      "description": "使用 ニコニコ 搜索选中文本",
+      "tags": ["视频", "弹幕"]
+    }
+  },
+  "sort": 1767712038016
+}

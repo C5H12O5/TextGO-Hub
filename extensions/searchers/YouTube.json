@@ -1,0 +1,17 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMTgwIiB2aWV3Qm94PSIwIDAgMjU2IDE4MCI+Cgk8cGF0aCBmaWxsPSIjZjAwIiBkPSJNMjUwLjM0NiAyOC4wNzVBMzIuMTggMzIuMTggMCAwIDAgMjI3LjY5IDUuNDE4QzIwNy44MjQgMCAxMjcuODcgMCAxMjcuODcgMFM0Ny45MTIuMTY0IDI4LjA0NiA1LjU4MkEzMi4xOCAzMi4xOCAwIDAgMCA1LjM5IDI4LjI0Yy02LjAwOSAzNS4yOTgtOC4zNCA4OS4wODQuMTY1IDEyMi45N2EzMi4xOCAzMi4xOCAwIDAgMCAyMi42NTYgMjIuNjU3YzE5Ljg2NiA1LjQxOCA5OS44MjIgNS40MTggOTkuODIyIDUuNDE4czc5Ljk1NSAwIDk5LjgyLTUuNDE4YTMyLjE4IDMyLjE4IDAgMCAwIDIyLjY1Ny0yMi42NTdjNi4zMzgtMzUuMzQ4IDguMjkxLTg5LjEtLjE2NC0xMjMuMTM0IiAvPgoJPHBhdGggZmlsbD0iI2ZmZiIgZD0ibTEwMi40MjEgMTI4LjA2bDY2LjMyOC0zOC40MThsLTY2LjMyOC0zOC40MTh6IiAvPgo8L3N2Zz4=",
+  "url": "https://www.youtube.com/results?search_query={{selection}}",
+  "locales": {
+    "en": {
+      "name": "YouTube",
+      "description": "Search selected text with YouTube.",
+      "tags": ["video"]
+    },
+    "zh-CN": {
+      "name": "YouTube",
+      "description": "使用 YouTube 搜索选中文本",
+      "tags": ["视频"]
+    }
+  },
+  "sort": 1767712034709
+}

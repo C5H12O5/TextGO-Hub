@@ -1,0 +1,17 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgNDggNDgiIHdpZHRoPSI0OHB4IiBoZWlnaHQ9IjQ4cHgiPjxsaW5lYXJHcmFkaWVudCBpZD0ibHBhN2hTWnF6X1MzNzZ2NzZFOWtpYSIgeDE9IjEzLjIzOSIgeDI9IjM3LjkwNiIgeTE9IjEuOTA3IiB5Mj0iMzMuNDc5IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjUyNTM3Ii8+PHN0b3Agb2Zmc2V0PSIuMjkzIiBzdG9wLWNvbG9yPSIjZjMyNTM2Ii8+PHN0b3Agb2Zmc2V0PSIuNDY1IiBzdG9wLWNvbG9yPSIjZWEyNDM0Ii8+PHN0b3Agb2Zmc2V0PSIuNjA1IiBzdG9wLWNvbG9yPSIjZGMyMjMxIi8+PHN0b3Agb2Zmc2V0PSIuNzI5IiBzdG9wLWNvbG9yPSIjYzgyMDJjIi8+PHN0b3Agb2Zmc2V0PSIuODQxIiBzdG9wLWNvbG9yPSIjYWUxZTI1Ii8+PHN0b3Agb2Zmc2V0PSIuOTQ0IiBzdG9wLWNvbG9yPSIjOGYxYTFkIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjN2ExODE4Ii8+PC9saW5lYXJHcmFkaWVudD48cGF0aCBmaWxsPSJ1cmwoI2xwYTdoU1pxel9TMzc2djc2RTlraWEpIiBkPSJNMzIsMjRoLTdsOC0xOGg3TDMyLDI0eiBNMjcsMzYuNjg5CWMwLTQuMTY4LTAuOTUzLTguMzU3LTIuNzU4LTEyLjExN0wxNSw2SDhsMTAuODMzLDIxLjE2OUMyMC4yNTEsMzAuMTIzLDIxLDMzLjQxNSwyMSwzNi42ODlWNDJoNlYzNi42ODl6Ii8+PC9zdmc+",
+  "url": "https://yandex.com/search/?text={{selection}}",
+  "locales": {
+    "en": {
+      "name": "Yandex",
+      "description": "Search selected text with Yandex.",
+      "tags": ["search-engine"]
+    },
+    "zh-CN": {
+      "name": "Yandex",
+      "description": "使用 Yandex 搜索选中文本",
+      "tags": ["搜索引擎"]
+    }
+  },
+  "sort": 1767712029116
+}
