@@ -1,0 +1,18 @@
+{
+  "icon": "ArrowLineLeft",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return data.selection.replace(/^[ \\t]+/gm, '');\n}\n",
+  "locales": {
+    "en": {
+      "name": "LTrim Lines",
+      "description": "Trim leading whitespace from each line.",
+      "tags": ["convert", "multiline"]
+    },
+    "zh-CN": {
+      "name": "左侧修剪行",
+      "description": "去除每行开头的空白字符",
+      "tags": ["转换", "多行"]
+    }
+  },
+  "sort": 1767624102758
+}

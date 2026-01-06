@@ -1,0 +1,18 @@
+{
+  "icon": "ArrowsInLineHorizontal",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return data.selection.replace(/^[ \\t]+|[ \\t]+$/gm, '');\n}\n",
+  "locales": {
+    "en": {
+      "name": "Trim Lines",
+      "description": "Trim leading and trailing whitespace from each line.",
+      "tags": ["convert", "multiline"]
+    },
+    "zh-CN": {
+      "name": "修剪行",
+      "description": "去除每行开头和结尾的空白字符",
+      "tags": ["转换", "多行"]
+    }
+  },
+  "sort": 1767624102658
+}
