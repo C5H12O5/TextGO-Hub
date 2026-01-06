@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T extends Extension">
-import { PhFunnel } from '@phosphor-icons/vue';
+import { PhFunnel, PhInfo } from '@phosphor-icons/vue';
 import { useData } from 'vitepress';
 import { computed, ref } from 'vue';
 import type { Extension } from '../types';
@@ -53,13 +53,17 @@ const removeTag = (tag: string) => {
 // filtered and sorted items
 const items = computed(() => {
   return props.data
-    .map((item) => ({
-      ...item,
-      // localized fields
-      tags: item.locales[lang.value]?.tags || [],
-      name: item.locales[lang.value]?.name || '',
-      description: item.locales[lang.value]?.description || ''
-    }))
+    .map((item) => {
+      const locale = item.locales[lang.value];
+      return {
+        ...item,
+        // localized fields
+        name: locale?.name || '',
+        description: locale?.description || '',
+        tags: locale?.tags || [],
+        tip: locale?.tip || ''
+      };
+    })
     .filter((item) => {
       if (!item.name) return false;
 
@@ -118,7 +122,7 @@ const items = computed(() => {
         class="flex items-center gap-3 border-b border-(--vp-c-divider) py-3 last:border-b-0"
       >
         <Icon :icon="item.icon" class="size-8" />
-        <div class="flex-1">
+        <div class="flex-2">
           <div class="flex items-center gap-2">
             <span class="font-semibold text-(--vp-c-brand-1)">{{ item.name }}</span>
             <span
@@ -131,6 +135,10 @@ const items = computed(() => {
             </span>
           </div>
           <div v-if="item.description" class="mt-1 text-sm opacity-60">{{ item.description }}</div>
+        </div>
+        <div v-if="item.tip" class="mr-2 flex flex-1 items-center justify-end gap-0.5 opacity-60">
+          <PhInfo class="size-4 shrink-0" />
+          <span class="text-xs italic">{{ item.tip }}</span>
         </div>
         <button
           @click="installHandler(item)"

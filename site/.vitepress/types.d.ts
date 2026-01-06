@@ -11,6 +11,7 @@ export interface Extension {
       name: string;
       description: string;
       tags: string[];
+      tip?: string;
     };
   };
 }

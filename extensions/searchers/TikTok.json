@@ -5,7 +5,8 @@
     "en": {
       "name": "TikTok",
       "description": "Search selected text with TikTok.",
-      "tags": ["video"]
+      "tags": ["video"],
+      "tip": "Login required"
     },
     "zh-CN": {
       "name": "",
