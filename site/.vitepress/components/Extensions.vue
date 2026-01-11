@@ -124,7 +124,13 @@ const items = computed(() => {
         <Icon :icon="item.icon" class="size-8" />
         <div class="flex-2">
           <div class="flex items-center gap-2">
-            <span class="font-semibold text-(--vp-c-brand-1)">{{ item.name }}</span>
+            <a
+              :href="`https://github.com/C5H12O5/TextGO-Hub/blob/main/${item.path.split('/').slice(-3).join('/')}`"
+              target="_blank"
+              class="font-semibold text-(--vp-c-brand-1) no-underline! hover:underline!"
+            >
+              {{ item.name }}
+            </a>
             <span
               v-for="tag in item.tags"
               :key="tag"
