@@ -1,0 +1,18 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KCTxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTI0IDIxVjloLTJ2MTRoOHYtMnptLTQtNnYtNGMwLTEuMTAzLS44OTctMi0yLTJoLTZ2MTRoMnYtNmgxLjQ4bDIuMzM1IDZoMi4xNDVsLTIuMzMzLTZIMThjMS4xMDMgMCAyLS44OTcgMi0ybS02LTRoNHY0aC00ek04IDIzSDRjLTEuMTAzIDAtMi0uODk3LTItMlY5aDJ2MTJoNFY5aDJ2MTJjMCAxLjEwMy0uODk3IDItMiAyIiAvPgo8L3N2Zz4=",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return decodeURI(data.selection);\n}\n",
+  "locales": {
+    "en": {
+      "name": "URL Decode",
+      "description": "Decode selected text from URL encoding.",
+      "tags": ["codec"]
+    },
+    "zh-CN": {
+      "name": "URL 解码",
+      "description": "将选中文本从 URL 编码解码",
+      "tags": ["编解码"]
+    }
+  },
+  "sort": 1768135735581
+}
