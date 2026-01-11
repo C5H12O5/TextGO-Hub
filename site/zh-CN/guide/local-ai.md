@@ -11,7 +11,8 @@ AI 动作允许你：
 
 支持的平台：
 
--  [Ollama](https://ollama.ai/)：Ollama 是一个简单易用的本地 AI 平台，支持下载和使用多种预训练模型。
+- [Ollama](https://ollama.ai/)
+- [LM Studio](https://lmstudio.ai/)
 
 ## 创建 AI 动作
 

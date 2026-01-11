@@ -11,7 +11,8 @@ AI actions allow you to:
 
 Supported platforms:
 
-- [Ollama](https://ollama.ai/): Ollama is a simple and easy-to-use local AI platform that supports downloading and using various pre-trained models.
+- [Ollama](https://ollama.ai/)
+- [LM Studio](https://lmstudio.ai/)
 
 ## Create AI Action
 
