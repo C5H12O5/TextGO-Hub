@@ -1,5 +1,5 @@
 {
-  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KCTxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTIgMTdhMiAyIDAgMCAwIDIgMmgxNmEyIDIgMCAwIDAgMi0ydi01aC0ydjVINHYtNUgybTEyLjEyLTYuNTRsMS40MiAxLjQyTDEzLjQxIDlsMi4xMyAyLjEybC0xLjQyIDEuNDJMMTIgMTAuNDFsLTIuMTIgMi4xM2wtMS40Mi0xLjQyTDEwLjU5IDlMOC40NiA2Ljg4bDEuNDItMS40MkwxMiA3LjU5WiIgLz4KPC9zdmc+",
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KCTxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41IiBkPSJNNCAxMHYzYTEgMSAwIDAgMCAxIDFoOW00IDBoMWExIDEgMCAwIDAgMS0xdi0zTTMgM2wxOCAxOCIgLz4KPC9zdmc+",
   "lang": "javascript",
   "script": "function process(data) {\n    return data.selection.replace(/\\s/g, '');\n}\n",
   "locales": {
