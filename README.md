@@ -10,12 +10,12 @@ TextGO is a cross-platform desktop application designed to help you quickly reco
 
 - **Official Website**: Landing page and project overview
 - **Documentation**: Comprehensive guides and tutorials for TextGO
-- **Extensions**: Community scripts, regular expressions, and AI prompts
+- **Extensions**: Collection of extensions to enhance TextGO's functionality
 
 ## Contributing
 
-Contributions are welcome! Whether it's improving documentation, fixing typos, or adding new examples and guides, your help is appreciated.
+Contributions are welcome! Whether it's improving documentation, fixing typos, or adding new extensions, your help is appreciated.
 
 ## License
 
-This project is released under the [**MIT**](LICENSE) open source license.
+This project is released under the [MIT](LICENSE) open source license.
