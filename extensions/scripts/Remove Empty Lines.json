@@ -9,8 +9,8 @@
       "tags": ["convert", "multiline"]
     },
     "zh-CN": {
-      "name": "移除空行",
-      "description": "移除选中文本中的空行",
+      "name": "去除空行",
+      "description": "去除选中文本中的空行",
       "tags": ["转换", "多行"]
     }
   },

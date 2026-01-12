@@ -102,7 +102,7 @@ def process(data):
     return "\n".join(sorted_lines)
 ```
 
-#### 示例 3：移除空行
+#### 示例 3：去除空行
 
 ```python
 def process(data):

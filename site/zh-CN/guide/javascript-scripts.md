@@ -102,7 +102,7 @@ function process(data) {
 }
 ```
 
-#### 示例 3：移除重复行
+#### 示例 3：去除重复行
 
 ```javascript
 function process(data) {
