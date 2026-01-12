@@ -7,7 +7,7 @@ This guide will help you quickly install and configure TextGO to improve text pr
 ### macOS
 
 - macOS 11 or higher
-- Requires Accessibility and Input Monitoring permissions
+- Requires Accessibility permission
 
 ### Windows
 
@@ -35,16 +35,6 @@ Used to simulate keyboard input and enable text replacement features.
 **Setup Steps**:
 
 1. Open "System Settings" > "Privacy & Security" > "Accessibility"
-2. Find TextGO and check it
-3. If not listed, click the "+" button to manually add TextGO
-
-#### 2. Input Monitoring Permission
-
-Used to listen to mouse events for double-click and drag triggering.
-
-**Setup Steps**:
-
-1. Open "System Settings" > "Privacy & Security" > "Input Monitoring"
 2. Find TextGO and check it
 3. If not listed, click the "+" button to manually add TextGO
 
