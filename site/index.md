@@ -4,7 +4,7 @@ layout: home
 hero:
   name: TextGO
   text: All-in-One Text Tool
-  tagline: ✨ Automatically recognize text types and execute custom actions via shortcuts
+  tagline: Automatically recognize text types and execute custom actions via shortcuts
   image:
     src: /logo_512x512.png
     alt: TextGO

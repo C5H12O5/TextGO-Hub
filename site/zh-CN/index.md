@@ -4,7 +4,7 @@ layout: home
 hero:
   name: TextGO
   text: 全能文本处理工具
-  tagline: ✨ 通过快捷键触发，自动识别选中文本类型并执行自定义动作
+  tagline: 通过快捷键触发，自动识别选中文本类型并执行自定义动作
   image:
     src: /logo_512x512.png
     alt: TextGO

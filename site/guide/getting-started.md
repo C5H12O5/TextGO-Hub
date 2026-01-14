@@ -24,13 +24,9 @@ This guide will help you quickly install and configure TextGO to improve text pr
 
 ## Permission Settings
 
-### macOS Required Permissions
+### macOS
 
-TextGO requires the following permissions on macOS to function properly:
-
-#### 1. Accessibility Permission
-
-Used to simulate keyboard input and enable text replacement features.
+TextGO requires the `Accessibility` permission on macOS to function properly.
 
 **Setup Steps**:
 
@@ -38,9 +34,9 @@ Used to simulate keyboard input and enable text replacement features.
 2. Find TextGO and check it
 3. If not listed, click the "+" button to manually add TextGO
 
-> 💡 The system will automatically prompt for authorization when the app first uses these features.
+> 💡 The system will automatically prompt for authorization when the app is used for the first time.
 
-### Windows Permissions
+### Windows
 
 Windows version requires no additional permission settings and is ready to use after installation.
 
