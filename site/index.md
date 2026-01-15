@@ -6,7 +6,7 @@ hero:
   text: All-in-One Text Tool
   tagline: Automatically recognize text types and execute custom actions via shortcuts
   image:
-    src: /logo_512x512.png
+    src: /512x512.png
     alt: TextGO
   actions:
     - theme: brand
