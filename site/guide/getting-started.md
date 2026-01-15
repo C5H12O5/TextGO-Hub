@@ -34,7 +34,8 @@ TextGO requires the `Accessibility` permission on macOS to function properly.
 2. Find TextGO and check it
 3. If not listed, click the "+" button to manually add TextGO
 
-> 💡 The system will automatically prompt for authorization when the app is used for the first time.
+> [!TIP]
+> The system will automatically prompt for authorization when the app is used for the first time.
 
 ### Windows
 
