@@ -6,7 +6,7 @@ hero:
   text: 全能文本处理工具
   tagline: 通过快捷键触发，自动识别选中文本类型并执行自定义动作
   image:
-    src: /512x512.png
+    src: /icon_512x512.png
     alt: TextGO
   actions:
     - theme: brand

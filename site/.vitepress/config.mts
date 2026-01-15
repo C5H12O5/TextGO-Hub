@@ -5,12 +5,12 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   title: 'TextGO',
 
-  head: [['link', { rel: 'icon', href: '/32x32.png' }]],
+  head: [['link', { rel: 'icon', href: '/icon.ico' }]],
 
   lastUpdated: true,
 
   themeConfig: {
-    logo: { src: '/32x32.png', width: 24, height: 24 },
+    logo: { src: '/icon.ico', width: 24, height: 24 },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/C5H12O5/TextGO' }],
 
