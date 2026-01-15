@@ -50,7 +50,7 @@ Windows version requires no additional permission settings and is ready to use a
 2. **System Tray**
 
    After launch, the app icon will appear in the system tray. Click it to:
-   - Show/hide main window
+   - Show main window
    - Open settings page
    - Quit the app
 

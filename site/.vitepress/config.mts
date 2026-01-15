@@ -47,7 +47,8 @@ export default defineConfig({
               { text: 'Open URLs', link: '/guide/open-urls' },
               { text: 'Call Local AI', link: '/guide/local-ai' },
               { text: 'JavaScript Scripts', link: '/guide/javascript-scripts' },
-              { text: 'Python Scripts', link: '/guide/python-scripts' }
+              { text: 'Python Scripts', link: '/guide/python-scripts' },
+              { text: 'Shell Scripts', link: '/guide/shell-scripts' }
             ]
           }
         ]

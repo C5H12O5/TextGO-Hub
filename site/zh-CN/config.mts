@@ -36,7 +36,8 @@ export default defineConfig({
               { text: '打开网址', link: '/zh-CN/guide/open-urls' },
               { text: '调用本地 AI', link: '/zh-CN/guide/local-ai' },
               { text: 'JavaScript 脚本', link: '/zh-CN/guide/javascript-scripts' },
-              { text: 'Python 脚本', link: '/zh-CN/guide/python-scripts' }
+              { text: 'Python 脚本', link: '/zh-CN/guide/python-scripts' },
+              { text: 'Shell 脚本', link: '/zh-CN/guide/shell-scripts' }
             ]
           }
         ]
