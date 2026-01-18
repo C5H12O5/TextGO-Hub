@@ -1,4 +1,4 @@
-# Open URLs
+# Web Search
 
 TextGO supports custom web search actions that can open selected text in specified search engines or websites. This feature can greatly improve information search efficiency.
 

@@ -4,7 +4,7 @@ layout: home
 hero:
   name: TextGO
   text: All-in-One Text Tool
-  tagline: Automatically recognize text types and execute custom actions via shortcuts
+  tagline: Pop up toolbar on text selection, trigger custom actions with one click
   image:
     src: /icon_512x512.png
     alt: TextGO
@@ -21,7 +21,7 @@ hero:
 
 features:
   - title: Multiple Triggers
-    details: Hotkeys, double-click, or text selection, each with independent rule configurations.
+    details: Hotkeys, double-click, or drag-select, each with independent rule configurations.
   - title: Flexible Modes
     details: Choose instant execution or interactive toolbar mode based on your workflow.
   - title: Customizable Icons
@@ -29,7 +29,7 @@ features:
   - title: Ready to Use
     details: Built-in rich text types and processing actions, simple configuration for immediate use.
   - title: Highly Extensible
-    details: Extend with regex, ML models, scripts, or local AI for custom recognition and processing.
+    details: Extend with regex, ML models, scripts, or local/cloud AI for custom recognition and processing.
   - title: Cross-Platform
     details: Native support for macOS and Windows with consistent experience across platforms.
 ---

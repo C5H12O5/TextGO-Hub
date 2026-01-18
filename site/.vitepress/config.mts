@@ -37,15 +37,15 @@ export default defineConfig({
           {
             text: 'Custom Recognitions',
             items: [
-              { text: 'Train Models', link: '/guide/train-models' },
+              { text: 'Machine Learning Models', link: '/guide/train-models' },
               { text: 'Regular Expressions', link: '/guide/write-regexps' }
             ]
           },
           {
             text: 'Custom Actions',
             items: [
-              { text: 'Open URLs', link: '/guide/open-urls' },
-              { text: 'Call Local AI', link: '/guide/local-ai' },
+              { text: 'Web Search', link: '/guide/web-search' },
+              { text: 'Call LLM API', link: '/guide/llm-api' },
               { text: 'JavaScript Scripts', link: '/guide/javascript-scripts' },
               { text: 'Python Scripts', link: '/guide/python-scripts' },
               { text: 'Shell Scripts', link: '/guide/shell-scripts' }

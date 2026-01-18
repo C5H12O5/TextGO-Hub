@@ -26,15 +26,15 @@ export default defineConfig({
           {
             text: '自定义识别类型',
             items: [
-              { text: '训练模型', link: '/zh-CN/guide/train-models' },
+              { text: '机器学习模型', link: '/zh-CN/guide/train-models' },
               { text: '正则表达式', link: '/zh-CN/guide/write-regexps' }
             ]
           },
           {
             text: '自定义执行动作',
             items: [
-              { text: '打开网址', link: '/zh-CN/guide/open-urls' },
-              { text: '调用本地 AI', link: '/zh-CN/guide/local-ai' },
+              { text: '网页搜索', link: '/zh-CN/guide/web-search' },
+              { text: '调用 LLM API', link: '/zh-CN/guide/llm-api' },
               { text: 'JavaScript 脚本', link: '/zh-CN/guide/javascript-scripts' },
               { text: 'Python 脚本', link: '/zh-CN/guide/python-scripts' },
               { text: 'Shell 脚本', link: '/zh-CN/guide/shell-scripts' }

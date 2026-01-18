@@ -7,6 +7,10 @@
   --docsearch-search-button-background: #f6f6f7;
 }
 
+.VPHero .tagline {
+  margin-top: 0.5rem !important;
+}
+
 .wide-page .VPDoc .content {
   max-width: 1024px !important;
 }

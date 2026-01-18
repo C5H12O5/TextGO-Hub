@@ -4,7 +4,7 @@ layout: home
 hero:
   name: TextGO
   text: 全能文本处理工具
-  tagline: 通过快捷键触发，自动识别选中文本类型并执行自定义动作
+  tagline: 选中文本后弹出工具栏，一键执行自定义动作
   image:
     src: /icon_512x512.png
     alt: TextGO
@@ -29,7 +29,7 @@ features:
   - title: 开箱即用
     details: 内置丰富的文本类型和处理动作，简单配置即可使用
   - title: 灵活扩展
-    details: 支持通过正则、机器学习模型、脚本或接入本地 AI 等方式扩展能力
+    details: 支持通过正则表达式、机器学习模型、脚本或接入本地/在线 AI 等方式扩展能力
   - title: 跨平台支持
     details: 原生支持 macOS 和 Windows，在各平台上提供一致的用户体验
 ---

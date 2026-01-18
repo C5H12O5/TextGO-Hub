@@ -1,18 +1,26 @@
-# Call Local AI
+# Call LLM API
 
-TextGO supports calling local AI models to process text, currently supporting only the Ollama platform. With local AI, you can accomplish various text processing tasks like translation, rewriting, summarization, Q&A, and more, with all data processed locally to fully protect your privacy.
+TextGO supports calling AI models to process text, including both local and cloud AI platforms. You can accomplish various text processing tasks like translation, rewriting, summarization, Q&A, and more.
 
 ## Feature Overview
 
 AI actions allow you to:
 
-- Use local AI models to process text
+- Use local or cloud AI models to process text
 - Create custom prompt templates
 
 Supported platforms:
 
+**Local:**
 - [Ollama](https://ollama.ai/)
 - [LM Studio](https://lmstudio.ai/)
+
+**Cloud:**
+- [OpenRouter](https://openrouter.ai/)
+- [OpenAI](https://openai.com/)
+- [Anthropic](https://www.anthropic.com/)
+- [Google Gemini](https://gemini.google.com/)
+- [xAI](https://x.ai/)
 
 ## Create AI Action
 

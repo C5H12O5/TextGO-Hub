@@ -1,18 +1,26 @@
-# 调用本地 AI
+# 调用 LLM API
 
-TextGO 支持调用本地 AI 模型来处理文本，目前仅支持 Ollama 平台。通过本地 AI，你可以实现翻译、改写、摘要、问答等各种文本处理任务，且数据完全在本地处理，充分保护隐私。
+TextGO 支持调用 AI 模型来处理文本，包括本地和在线 AI 平台。你可以实现翻译、改写、摘要、问答等各种文本处理任务。
 
 ## 功能概述
 
 AI 动作允许你：
 
-- 使用本地 AI 模型处理文本
+- 使用本地或在线 AI 模型处理文本
 - 创建自定义提示词模板
 
 支持的平台：
 
+**本地：**
 - [Ollama](https://ollama.ai/)
 - [LM Studio](https://lmstudio.ai/)
+
+**在线：**
+- [OpenRouter](https://openrouter.ai/)
+- [OpenAI](https://openai.com/)
+- [Anthropic](https://www.anthropic.com/)
+- [Google Gemini](https://gemini.google.com/)
+- [xAI](https://x.ai/)
 
 ## 创建 AI 动作
 
