@@ -1,0 +1,20 @@
+{
+  "icon": "WarningOctagon",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return `\n> [!CAUTION]\n> ${data.selection}`.trimStart();\n}\n",
+  "locales": {
+    "en": {
+      "name": "Caution",
+      "description": "Advises about risks or negative outcomes of certain actions.",
+      "tags": ["markdown"],
+      "tip": "Extended syntax"
+    },
+    "zh-CN": {
+      "name": "CAUTION",
+      "description": "关于某些操作的风险或负面结果的告知",
+      "tags": ["Markdown"],
+      "tip": "扩展语法"
+    }
+  },
+  "sort": 1767631141969
+}

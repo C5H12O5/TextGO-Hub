@@ -6,12 +6,14 @@
     "en": {
       "name": "Strikethrough",
       "description": "Markdown strikethrough text.",
-      "tags": ["markdown"]
+      "tags": ["markdown"],
+      "tip": "Extended syntax"
     },
     "zh-CN": {
       "name": "删除线",
       "description": "Markdown 删除线",
-      "tags": ["Markdown"]
+      "tags": ["Markdown"],
+      "tip": "扩展语法"
     }
   },
   "sort": 1767631141469

@@ -1,0 +1,20 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KCTxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTEyIDYuNWEuNzUuNzUgMCAwIDEgLjc1Ljc1djYuMjVhLjc1Ljc1IDAgMCAxLTEuNSAwVjcuMjVBLjc1Ljc1IDAgMCAxIDEyIDYuNW0wIDEwLjk5OGExIDEgMCAxIDAgMC0yYTEgMSAwIDAgMCAwIDJNMTIgMmM1LjUyMyAwIDEwIDQuNDc3IDEwIDEwcy00LjQ3NyAxMC0xMCAxMGE5Ljk2IDkuOTYgMCAwIDEtNC41ODctMS4xMTJsLTMuODI2IDEuMDY3YTEuMjUgMS4yNSAwIDAgMS0xLjU0LTEuNTRsMS4wNjgtMy44MjNBOS45NiA5Ljk2IDAgMCAxIDIgMTJDMiA2LjQ3NyA2LjQ3NyAyIDEyIDJtMCAxLjVBOC41IDguNSAwIDAgMCAzLjUgMTJjMCAxLjQ3LjM3MyAyLjg4MyAxLjA3MyA0LjEzN2wuMTUuMjdsLTEuMTEyIDMuOTg0bDMuOTg3LTEuMTEybC4yNy4xNUE4LjUgOC41IDAgMSAwIDEyIDMuNSIgLz4KPC9zdmc+",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return `\n> [!IMPORTANT]\n> ${data.selection}`.trimStart();\n}\n",
+  "locales": {
+    "en": {
+      "name": "Important",
+      "description": "Key information users need to know to achieve their goal.",
+      "tags": ["markdown"],
+      "tip": "Extended syntax"
+    },
+    "zh-CN": {
+      "name": "IMPORTANT",
+      "description": "用户需要了解以实现其目标的关键信息",
+      "tags": ["Markdown"],
+      "tip": "扩展语法"
+    }
+  },
+  "sort": 1767631141769
+}

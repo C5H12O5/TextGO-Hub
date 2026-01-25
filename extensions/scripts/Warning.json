@@ -1,0 +1,20 @@
+{
+  "icon": "Warning",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return `\n> [!WARNING]\n> ${data.selection}`.trimStart();\n}\n",
+  "locales": {
+    "en": {
+      "name": "Warning",
+      "description": "Urgent info that needs immediate user attention to avoid problems.",
+      "tags": ["markdown"],
+      "tip": "Extended syntax"
+    },
+    "zh-CN": {
+      "name": "WARNING",
+      "description": "需要用户立即注意以避免问题的紧急信息",
+      "tags": ["Markdown"],
+      "tip": "扩展语法"
+    }
+  },
+  "sort": 1767631141869
+}

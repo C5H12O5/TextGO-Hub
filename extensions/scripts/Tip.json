@@ -1,0 +1,20 @@
+{
+  "icon": "Lightbulb",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return `\n> [!TIP]\n> ${data.selection}`.trimStart();\n}\n",
+  "locales": {
+    "en": {
+      "name": "Tip",
+      "description": "Helpful advice for doing things better or more easily.",
+      "tags": ["markdown"],
+      "tip": "Extended syntax"
+    },
+    "zh-CN": {
+      "name": "TIP",
+      "description": "有助于更好地完成任务的建议",
+      "tags": ["Markdown"],
+      "tip": "扩展语法"
+    }
+  },
+  "sort": 1767631141669
+}
