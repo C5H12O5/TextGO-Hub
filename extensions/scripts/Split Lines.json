@@ -1,0 +1,18 @@
+{
+  "icon": "List",
+  "lang": "javascript",
+  "script": "function process(data) {\n    return data.selection.replace(/\\s+/g, '\\n');\n}\n",
+  "locales": {
+    "en": {
+      "name": "Split Lines",
+      "description": "Replace whitespace characters in the selected text with line breaks.",
+      "tags": ["convert"]
+    },
+    "zh-CN": {
+      "name": "拆分行",
+      "description": "将选中文本中的空白字符替换为换行符",
+      "tags": ["转换"]
+    }
+  },
+  "sort": 1767621906168
+}
