@@ -28,9 +28,9 @@ features:
     details: 工具栏图标支持上传自定义的 SVG 图片，打造专属风格
   - title: 开箱即用
     details: 内置丰富的文本类型和处理动作，简单配置即可使用
-  - title: 灵活扩展
+  - title: 支持扩展
     details: 支持通过正则表达式、机器学习模型、脚本或接入本地/在线 AI 等方式扩展能力
-  - title: 跨平台支持
+  - title: 跨平台
     details: 原生支持 macOS 和 Windows，在各平台上提供一致的用户体验
 ---
 
