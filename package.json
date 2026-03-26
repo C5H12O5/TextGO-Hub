@@ -6,15 +6,15 @@
   },
   "dependencies": {
     "@phosphor-icons/vue": "^2.2.1",
-    "@theojs/lumen": "^6.4.5"
+    "@theojs/lumen": "^6.4.6"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.2.1",
+    "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^25.5.0",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "tailwindcss": "^4.2.1",
+    "tailwindcss": "^4.2.2",
     "vitepress": "2.0.0-alpha.15",
-    "vue": "^3.5.30"
+    "vue": "^3.5.31"
   }
 }

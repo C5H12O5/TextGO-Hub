@@ -1,0 +1,17 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSI0IDQgNDAgNDAiIHdpZHRoPSI0OHB4IiBoZWlnaHQ9IjQ4cHgiPjxwYXRoIGZpbGw9IiNDRkQ4REMiIGQ9Ik0xNSwxM2gyNWMxLjEwNCwwLDIsMC44OTYsMiwydjI1YzAsMS4xMDQtMC44OTYsMi0yLDJIMjZMMTUsMTN6Ii8+PHBhdGggZmlsbD0iIzU0NkU3QSIgZD0iTTI2LjgzMiwzNC44NTRsLTAuOTE2LTEuNzc2bDAuODg5LTAuNDU5YzAuMDYxLTAuMDMxLDYuMTAxLTMuMjA4LDkuMDQzLTkuMTA0bDAuNDQ2LTAuODk1bDEuNzksMC44OTNsLTAuNDQ3LDAuODk1Yy0zLjI0MSw2LjQ5Ni05LjY0NSw5Ljg1LTkuOTE2LDkuOTg5TDI2LjgzMiwzNC44NTR6Ii8+PHBhdGggZmlsbD0iIzU0NkU3QSIgZD0iTTM4LjAxOSAzNGwtLjg3LS40OWMtLjIwNy0uMTE2LTUuMDkyLTIuOTAxLTguNDk2LTcuNjY3bDEuNjI3LTEuMTYyYzMuMTM5IDQuMzk0IDcuODA1IDcuMDYxIDcuODUxIDcuMDg3TDM5IDMyLjI2IDM4LjAxOSAzNHpNMjYgMjJINDBWMjRIMjZ6Ii8+PHBhdGggZmlsbD0iIzU0NkU3QSIgZD0iTTMyIDIwSDM0VjI0SDMyeiIvPjxwYXRoIGZpbGw9IiMyMTk2RjMiIGQ9Ik0zMywzNUg4Yy0xLjEwNCwwLTItMC44OTYtMi0yVjhjMC0xLjEwNCwwLjg5Ni0yLDItMmgxNEwzMywzNXoiLz48cGF0aCBmaWxsPSIjM0Y1MUI1IiBkPSJNMjYgNDJMMjMgMzUgMzMgMzV6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE5LjE3MiwyNGgtNC4zNmwtMS4wMDgsM0gxMWw0Ljc2NC0xM2gyLjQ0NEwyMywyN2gtMi44MDVMMTkuMTcyLDI0eiBNMTUuNDQ0LDIyaDMuMTAxbC0xLjU1OS00LjcxNEwxNS40NDQsMjJ6Ii8+PC9zdmc+",
+  "url": "https://translate.google.com/?op=translate&sl=auto&tl=zh-CN&text={{selection}}",
+  "locales": {
+    "en": {
+      "name": "",
+      "description": "",
+      "tags": []
+    },
+    "zh-CN": {
+      "name": "Google 翻译",
+      "description": "使用 Google 翻译选中文本",
+      "tags": ["翻译"]
+    }
+  },
+  "sort": 1774488719820
+}
