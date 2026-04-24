@@ -9,6 +9,8 @@ export default defineConfig({
 
   lastUpdated: true,
 
+  cleanUrls: true,
+
   themeConfig: {
     logo: { src: '/icon.ico', width: 24, height: 24 },
 
