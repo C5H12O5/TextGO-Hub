@@ -2,7 +2,7 @@
 
 This page collects common questions and solutions for using TextGO.
 
-<details>
+<details class="faq-item">
 <summary>1. macOS shows "App is damaged and can't be opened."</summary>
 
 <br>
@@ -15,7 +15,7 @@ sudo xattr -r -d com.apple.quarantine /Applications/TextGO.app
 
 </details>
 
-<details>
+<details class="faq-item">
 <summary>2. macOS shows "Apple can't check app for malicious software."</summary>
 
 <br>
@@ -29,7 +29,7 @@ _Follow these steps to resolve:_
 
 </details>
 
-<details>
+<details class="faq-item">
 <summary>3. macOS accessibility permission not working after update.</summary>
 
 <br>

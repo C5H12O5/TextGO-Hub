@@ -14,3 +14,15 @@
 .wide-page .VPDoc .content {
   max-width: 1024px !important;
 }
+
+.vp-doc details.faq-item {
+  margin-bottom: 24px;
+}
+
+.vp-doc details.faq-item[open] {
+  margin-bottom: 48px;
+}
+
+.vp-doc details.faq-item > summary {
+  font-weight: 500;
+}

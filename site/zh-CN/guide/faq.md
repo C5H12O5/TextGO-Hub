@@ -2,7 +2,7 @@
 
 本页面收集了 TextGO 使用过程中的常见问题和解决方案。
 
-<details>
+<details class="faq-item">
 <summary>1. macOS 安装后打开提示"App 已损坏，无法打开。"</summary>
 
 <br>
@@ -15,7 +15,7 @@ sudo xattr -r -d com.apple.quarantine /Applications/TextGO.app
 
 </details>
 
-<details>
+<details class="faq-item">
 <summary>2. macOS 安装后打开提示"Apple 无法检查 App 是否包含恶意软件。"</summary>
 
 <br>
@@ -29,7 +29,7 @@ _可以按照以下步骤解决：_
 
 </details>
 
-<details>
+<details class="faq-item">
 <summary>3. macOS 更新后辅助功能权限失效。</summary>
 
 <br>
