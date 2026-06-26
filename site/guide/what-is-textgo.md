@@ -35,14 +35,14 @@ TextGO's workflow:
 - Process email addresses, IDs, and timestamps
 - Search selected text on commonly used websites
 
+### Content Creation
+
+- Clean up and format text content
+- Quick search for word definitions and references
+- AI-assisted translation, rewriting, and polishing
+
 ### Programming Development
 
 - Quick conversion of naming styles
 - Format or transform code snippets with scripts
 - Use AI to explain or review selected code
-
-### Content Creation
-
-- Quick search for word definitions and references
-- AI-assisted translation, rewriting, and polishing
-- Clean up and format text content
