@@ -1,6 +1,6 @@
 # Getting Started
 
-This guide will help you quickly install and configure TextGO to improve text processing efficiency.
+Install TextGO, grant required permissions, and create your first shortcut.
 
 ## System Requirements
 
@@ -17,7 +17,7 @@ This guide will help you quickly install and configure TextGO to improve text pr
 ## Download and Installation
 
 1. Visit the [GitHub Releases](https://github.com/C5H12O5/TextGO/releases) page
-2. Download the installation package for your system:
+2. Download the package for your system:
    - macOS (Apple Silicon): `TextGO_x.x.x_aarch64.dmg`
    - macOS (Intel): `TextGO_x.x.x_x64.dmg`
    - Windows: `TextGO_x.x.x_x64-setup.exe`
@@ -26,16 +26,19 @@ This guide will help you quickly install and configure TextGO to improve text pr
 
 ### macOS
 
-TextGO requires the `Accessibility` permission on macOS to function properly.
+On macOS, TextGO needs the `Accessibility` permission to read selected text.
 
 **Setup Steps**:
 
 1. Open "System Settings" > "Privacy & Security" > "Accessibility"
-2. Find TextGO and check it
-3. If not listed, click the "+" button to manually add TextGO
+2. Find TextGO and enable it
+3. If TextGO is not listed, click the "+" button to add it manually
 
 > [!TIP]
 > The system will automatically prompt for authorization when the app is used for the first time.
+
+> [!WARNING]
+> TextGO is not signed. After updating the app on macOS, remove the old TextGO entry from Accessibility and add it again.
 
 ### Windows
 
@@ -49,20 +52,22 @@ Windows version requires no additional permission settings and is ready to use a
 
 2. **System Tray**
 
-   After launch, the app icon will appear in the system tray. Click it to:
+   After launch, the app icon will appear in the system tray. Use the tray menu to:
    - Show main window
-   - Open settings page
+   - Manage shortcuts
+   - View history
+   - Open settings
    - Quit the app
 
 ## Basic Usage
 
-1. Open the shortcuts settings page
+1. Open the main window
 2. Click the `"Register Shortcut"` button
 3. Select `"Double-Click"` or `"Drag-Select"`
 4. Use the default `"Toolbar Mode"` for execution mode
 5. Click the `"+"` button in the rules list to add a new rule
 6. Select recognition type and execution action
-7. Click `"Confirm"` to save configuration
+7. Click `"Confirm"` to save the configuration
 
 Now, after double-clicking or dragging to select text, a floating toolbar will appear where you can select preset actions to process the text.
 
