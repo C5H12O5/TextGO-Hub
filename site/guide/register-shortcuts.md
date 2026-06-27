@@ -1,6 +1,6 @@
 # Register Shortcuts
 
-TextGO supports three types of trigger methods: keyboard shortcuts, mouse double-click, and drag selection. Each method can be configured with independent rules. This guide will detail how to register and manage shortcuts.
+TextGO supports drag-select, mouse double-click, Shift-click, and keyboard shortcut triggers. Each trigger can have independent rules.
 
 ## Add Shortcuts
 
@@ -14,8 +14,9 @@ TextGO supports three types of trigger methods: keyboard shortcuts, mouse double
 
 Choose a shortcut type from the dropdown list:
 
-- **Double-Click**
 - **Drag-Select**
+- **Double-Click**
+- **Shift-Click**
 - **Keyboard**
 
 ### Step 3: Add Rules
@@ -32,7 +33,7 @@ Applies to all text without requiring recognition
 
 **Built-in Types**
 
-- General: Common text types including email, URL, etc.
+- General: Common text types including email, URL, path, etc.
 - Text Case: Code naming formats including camelCase, snake_case, etc.
 - Natural Language: Natural language text including English, Chinese, etc.
 - Programming Language: Code snippets in programming languages including JavaScript, Python, etc.
@@ -40,7 +41,7 @@ Applies to all text without requiring recognition
 **Custom Types**
 
 - Regular Expression: Match specific text using custom regular expressions
-- Machine Learning Model: Perform text classification using pre-trained machine learning models
+- Machine Learning Model: Classify text using trained machine learning models
 
 #### 2. Execute Action
 
@@ -55,9 +56,9 @@ Select the action to execute after text recognition:
 
 **Custom Actions**
 
-- Search: Search text content using a specified search engine
-- Script: Execute custom JavaScript or Python scripts to process text
-- AI Conversation: Process text content using local AI models
+- Web Search: Search selected text with a specified website
+- Script Execution: Execute custom JavaScript, Python, Shell, or PowerShell scripts
+- AI Conversation: Process text with local or cloud AI models
 
 #### 3. Advanced Options
 
@@ -90,7 +91,7 @@ After selecting a rule, you can adjust the rule execution order using the up and
 
 ## Switch Execution Mode
 
-TextGO provides two execution modes: **Quiet Mode** and **Toolbar Mode**. Different modes are suitable for different usage scenarios, and choosing wisely can significantly improve work efficiency.
+TextGO provides two execution modes: **Quiet Mode** and **Toolbar Mode**.
 
 ### Quiet Mode
 
