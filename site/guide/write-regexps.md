@@ -86,52 +86,52 @@ Created regular expressions will automatically appear in the recognition type li
 
 **Character Matching**
 
-| Syntax   | Description                  | Example                          |
-| -------- | ---------------------------- | -------------------------------- |
-| `.`      | Match any single character   | `a.c` matches `abc`, `a1c`       |
-| `\d`     | Match digit (0-9)            | `\d{3}` matches `123`            |
-| `\D`     | Match non-digit              | `\D+` matches `abc`              |
-| `\w`     | Match word character         | `\w+` matches `hello_123`        |
-| `\W`     | Match non-word character     | `\W+` matches `@#$`              |
-| `\s`     | Match whitespace             | `\s+` matches space, tab         |
-| `\S`     | Match non-whitespace         | `\S+` matches `hello`            |
-| `[abc]`  | Match a or b or c            | `[0-9]` matches any digit        |
-| `[^abc]` | Not match a, b, c            | `[^0-9]` matches non-digit       |
+| Syntax   | Description                | Example                    |
+| -------- | -------------------------- | -------------------------- |
+| `.`      | Match any single character | `a.c` matches `abc`, `a1c` |
+| `\d`     | Match digit (0-9)          | `\d{3}` matches `123`      |
+| `\D`     | Match non-digit            | `\D+` matches `abc`        |
+| `\w`     | Match word character       | `\w+` matches `hello_123`  |
+| `\W`     | Match non-word character   | `\W+` matches `@#$`        |
+| `\s`     | Match whitespace           | `\s+` matches space, tab   |
+| `\S`     | Match non-whitespace       | `\S+` matches `hello`      |
+| `[abc]`  | Match a or b or c          | `[0-9]` matches any digit  |
+| `[^abc]` | Not match a, b, c          | `[^0-9]` matches non-digit |
 
 **Quantifiers**
 
-| Syntax  | Description      | Example                                |
-| ------- | ---------------- | -------------------------------------- |
-| `*`     | 0 or more times  | `ab*` matches `a`, `ab`, `abb`         |
-| `+`     | 1 or more times  | `ab+` matches `ab`, `abb`              |
-| `?`     | 0 or 1 time      | `ab?` matches `a`, `ab`                |
-| `{n}`   | Exactly n times  | `a{3}` matches `aaa`                   |
-| `{n,}`  | At least n times | `a{2,}` matches `aa`, `aaa`            |
-| `{n,m}` | n to m times     | `a{2,4}` matches `aa`, `aaa`, `aaaa`   |
+| Syntax  | Description      | Example                              |
+| ------- | ---------------- | ------------------------------------ |
+| `*`     | 0 or more times  | `ab*` matches `a`, `ab`, `abb`       |
+| `+`     | 1 or more times  | `ab+` matches `ab`, `abb`            |
+| `?`     | 0 or 1 time      | `ab?` matches `a`, `ab`              |
+| `{n}`   | Exactly n times  | `a{3}` matches `aaa`                 |
+| `{n,}`  | At least n times | `a{2,}` matches `aa`, `aaa`          |
+| `{n,m}` | n to m times     | `a{2,4}` matches `aa`, `aaa`, `aaaa` |
 
 **Position Matching**
 
-| Syntax | Description        | Example                                |
-| ------ | ------------------ | -------------------------------------- |
-| `^`    | Start of string    | `^hello` must start with hello         |
-| `$`    | End of string      | `world$` must end with world           |
-| `\b`   | Word boundary      | `\bword\b` matches complete word       |
-| `\B`   | Non-word boundary  | `\Bword` word inside another word      |
+| Syntax | Description       | Example                           |
+| ------ | ----------------- | --------------------------------- |
+| `^`    | Start of string   | `^hello` must start with hello    |
+| `$`    | End of string     | `world$` must end with world      |
+| `\b`   | Word boundary     | `\bword\b` matches complete word  |
+| `\B`   | Non-word boundary | `\Bword` word inside another word |
 
 **Grouping and Alternation**
 
-| Syntax      | Description         | Example                           |
-| ----------- | ------------------- | --------------------------------- |
-| `(abc)`     | Group               | `(ab)+` matches `ab`, `abab`      |
-| `a\|b`      | a or b              | `cat\|dog` matches cat or dog     |
-| `(?:abc)`   | Non-capturing group | `(?:ab)+` matches but not capture |
+| Syntax    | Description         | Example                           |
+| --------- | ------------------- | --------------------------------- |
+| `(abc)`   | Group               | `(ab)+` matches `ab`, `abab`      |
+| `a\|b`    | a or b              | `cat\|dog` matches cat or dog     |
+| `(?:abc)` | Non-capturing group | `(?:ab)+` matches but not capture |
 
 **Escape Characters**
 
-| Syntax | Description         |
-| ------ | ------------------- |
-| `\.`   | Literal dot         |
-| `\*`   | Literal asterisk    |
-| `\\`   | Literal backslash   |
-| `\[`   | Literal left bracket|
-| `\(`   | Literal left paren  |
+| Syntax | Description          |
+| ------ | -------------------- |
+| `\.`   | Literal dot          |
+| `\*`   | Literal asterisk     |
+| `\\`   | Literal backslash    |
+| `\[`   | Literal left bracket |
+| `\(`   | Literal left paren   |

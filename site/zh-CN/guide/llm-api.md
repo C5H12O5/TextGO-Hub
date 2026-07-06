@@ -12,10 +12,12 @@ AI 动作允许你：
 支持的平台：
 
 **本地：**
+
 - [Ollama](https://ollama.ai/)
 - [LM Studio](https://lmstudio.ai/)
 
 **在线：**
+
 - [OpenRouter](https://openrouter.ai/)
 - [OpenAI](https://openai.com/)
 - [Anthropic](https://www.anthropic.com/)

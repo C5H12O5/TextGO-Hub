@@ -30,6 +30,7 @@
 提供复现步骤
 
 **系统信息**
+
 - 系统：[例如 macOS 26]
 - 版本：[例如 v1.0.0]
 
@@ -93,6 +94,7 @@ git checkout -b feature/my-new-feature  # 或 fix/bug-description
 ```
 
 **代码规范**：
+
 - TypeScript：遵循 Prettier 和 ESLint 规则，运行 `pnpm lint` 检查
 - Rust：使用 `cargo fmt` 格式化，`cargo clippy` 检查
 

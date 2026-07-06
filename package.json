@@ -2,19 +2,20 @@
   "scripts": {
     "dev": "vitepress dev site",
     "build": "vitepress build site",
-    "preview": "vitepress preview site"
+    "preview": "vitepress preview site",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@phosphor-icons/vue": "^2.2.1",
     "@theojs/lumen": "^6.4.7"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.0",
-    "@types/node": "^25.9.2",
-    "prettier": "^3.8.4",
+    "@tailwindcss/vite": "^4.3.2",
+    "@types/node": "^26.1.0",
+    "prettier": "^3.9.4",
     "prettier-plugin-tailwindcss": "^0.8.0",
-    "tailwindcss": "^4.3.0",
+    "tailwindcss": "^4.3.2",
     "vitepress": "2.0.0-alpha.17",
-    "vue": "^3.5.35"
+    "vue": "^3.5.39"
   }
 }

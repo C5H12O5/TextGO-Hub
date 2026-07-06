@@ -30,6 +30,7 @@ Briefly describe the issue
 Provide steps to reproduce
 
 **Environment**
+
 - OS: [e.g., macOS 26]
 - Version: [e.g., v1.0.0]
 
@@ -93,6 +94,7 @@ git checkout -b feature/my-new-feature  # or fix/bug-description
 ```
 
 **Code Standards**:
+
 - TypeScript: Follow Prettier and ESLint rules, run `pnpm lint` to check
 - Rust: Use `cargo fmt` to format, `cargo clippy` to check
 

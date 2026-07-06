@@ -12,10 +12,12 @@ AI actions allow you to:
 Supported platforms:
 
 **Local:**
+
 - [Ollama](https://ollama.ai/)
 - [LM Studio](https://lmstudio.ai/)
 
 **Cloud:**
+
 - [OpenRouter](https://openrouter.ai/)
 - [OpenAI](https://openai.com/)
 - [Anthropic](https://www.anthropic.com/)
