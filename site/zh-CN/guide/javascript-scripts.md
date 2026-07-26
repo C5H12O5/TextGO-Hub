@@ -136,7 +136,7 @@ TextGO 会按顺序执行多次调用，并在按键队列完成后结束脚本�
 
 ```javascript
 function process(data) {
-  return data.selection.split('').reverse().join('');
+  return [...data.selection].reverse().join('');
 }
 ```
 
@@ -144,8 +144,7 @@ function process(data) {
 
 ```javascript
 function process(data) {
-  const text = data.selection.trim();
-  return text.length;
+  return [...data.selection].length;
 }
 ```
 
@@ -156,5 +155,27 @@ function process(data) {
   const lines = data.selection.split('\n');
   const unique = [...new Set(lines)];
   return unique.join('\n');
+}
+```
+
+### 示例 4：统计词频
+
+此示例使用 `es-toolkit` 提供的 WebView 专用全局变量 `_`。
+
+```javascript
+function process(data) {
+  const words = data.selection.toLowerCase().match(/\p{L}+/gu) ?? [];
+  return _.countBy(words, (word) => word);
+}
+```
+
+### 示例 5：保存当前文档
+
+此示例使用 `_keyboard`，因此会自动在 WebView 中运行。
+
+```javascript
+function process() {
+  _keyboard.press(['CmdOrCtrl'], 's');
+  return '';
 }
 ```

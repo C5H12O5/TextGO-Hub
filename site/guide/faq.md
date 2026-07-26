@@ -30,7 +30,7 @@ _Follow these steps:_
 </details>
 
 <details class="faq-item">
-<summary>3. Accessibility permission stops working after a macOS update.</summary>
+<summary>3. Accessibility permission stops working after a TextGO update.</summary>
 
 <br>
 

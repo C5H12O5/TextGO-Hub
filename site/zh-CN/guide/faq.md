@@ -30,7 +30,7 @@ _按以下步骤操作：_
 </details>
 
 <details class="faq-item">
-<summary>3. macOS 更新后辅助功能权限失效。</summary>
+<summary>3. TextGO 更新后，macOS 辅助功能权限失效。</summary>
 
 <br>
 

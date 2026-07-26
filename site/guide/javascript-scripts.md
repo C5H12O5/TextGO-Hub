@@ -136,7 +136,7 @@ After creating a script, add it to a shortcut rule:
 
 ```javascript
 function process(data) {
-  return data.selection.split('').reverse().join('');
+  return [...data.selection].reverse().join('');
 }
 ```
 
@@ -144,8 +144,7 @@ function process(data) {
 
 ```javascript
 function process(data) {
-  const text = data.selection.trim();
-  return text.length;
+  return [...data.selection].length;
 }
 ```
 
@@ -156,5 +155,27 @@ function process(data) {
   const lines = data.selection.split('\n');
   const unique = [...new Set(lines)];
   return unique.join('\n');
+}
+```
+
+### Example 4: Word Frequency
+
+This example uses the WebView-only `_` global provided by `es-toolkit`.
+
+```javascript
+function process(data) {
+  const words = data.selection.toLowerCase().match(/\p{L}+/gu) ?? [];
+  return _.countBy(words, (word) => word);
+}
+```
+
+### Example 5: Save the Current Document
+
+This example uses `_keyboard` and automatically runs in the WebView.
+
+```javascript
+function process() {
+  _keyboard.press(['CmdOrCtrl'], 's');
+  return '';
 }
 ```

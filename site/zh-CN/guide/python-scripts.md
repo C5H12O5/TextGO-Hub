@@ -81,15 +81,11 @@ def process(data):
 
 ## Python 脚本示例
 
-### 示例 1：计算器
+### 示例 1：统计单词数
 
 ```python
 def process(data):
-    try:
-        result = eval(data["selection"])
-        return str(result)
-    except Exception as e:
-        return f"计算错误: {e}"
+    return len(data["selection"].split())
 ```
 
 ### 示例 2：排序行

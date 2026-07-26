@@ -81,15 +81,11 @@ After creating a script, add it to a shortcut rule:
 
 ## Python Script Examples
 
-### Example 1: Calculator
+### Example 1: Word Count
 
 ```python
 def process(data):
-    try:
-        result = eval(data["selection"])
-        return str(result)
-    except Exception as e:
-        return f"Calculation Error: {e}"
+    return len(data["selection"].split())
 ```
 
 ### Example 2: Sort Lines
