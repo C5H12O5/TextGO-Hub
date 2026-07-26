@@ -24,6 +24,10 @@ Supported platforms:
 - [Google Gemini](https://gemini.google.com/)
 - [xAI](https://x.ai/)
 
+Configure local service addresses and cloud API keys from the model provider options:
+
+![TextGO model provider options](/screenshots/en/model-provider-options.png)
+
 ## Create AI Action
 
 ### Step 1: Access AI Conversation Configuration
@@ -56,6 +60,8 @@ The prompt determines how AI processes your text.
 **Configure System Prompt (Optional)**:
 
 The system prompt is used to set the AI's role and behavior.
+
+![TextGO AI prompt editor](/screenshots/en/ai-prompt-editor.png)
 
 ## Use AI Action
 

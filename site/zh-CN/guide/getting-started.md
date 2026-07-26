@@ -26,13 +26,15 @@
 
 ### macOS
 
-TextGO 在 macOS 上需要开启`辅助功能`权限，才能读取选中文本。
+TextGO 在 macOS 上需要开启`辅助功能`权限，才能读取选中文本和模拟键盘输入。
 
 **设置步骤**：
 
 1. 打开"系统设置" > "隐私与安全性" > "辅助功能"
 2. 找到 TextGO 并启用
 3. 如未出现，点击"+"号手动添加 TextGO
+
+![在 macOS“辅助功能”设置中启用 TextGO](/screenshots/zh-CN/macos-accessibility-permission.png)
 
 > [!TIP]
 > 应用首次使用时，系统会自动提示授权。
@@ -71,6 +73,12 @@ Windows 版本无需额外权限设置，安装后即可使用。
 
 现在，双击或拖拽选中文本后会出现浮动工具栏，选择预设动作即可处理文本。
 
+![TextGO 快捷键触发方式菜单](/screenshots/zh-CN/shortcut-trigger-menu.png)
+
+开启“将执行结果保存到历史记录”的规则，会将结果保存在历史记录窗口中：
+
+![TextGO 历史记录窗口](/screenshots/zh-CN/history-window.png)
+
 ## 配置说明
 
 ### 执行模式
@@ -82,6 +90,14 @@ Windows 版本无需额外权限设置，安装后即可使用。
 
 - **替换**：执行结果直接替换选中文本
 - **弹窗**：在弹窗中显示执行结果，可进一步编辑或复制
+
+设置页面还可以调整工具栏、文本选择、鼠标触发方式、外观及应用行为：
+
+![TextGO 显示设置](/screenshots/zh-CN/display-settings.png)
+
+![TextGO 鼠标设置](/screenshots/zh-CN/mouse-settings.png)
+
+![TextGO 常规设置](/screenshots/zh-CN/general-settings.png)
 
 ## 获取帮助
 

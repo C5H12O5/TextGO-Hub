@@ -99,6 +99,8 @@ TextGO 使用 **TensorFlow.js** 在浏览器端训练和运行机器学习模型
   - 提高阈值 → 匹配更严格，减少误判率
   - 降低阈值 → 匹配更宽松，提高识别率
 
+![TextGO 分类模型编辑窗口](/screenshots/zh-CN/classification-model-editor.png)
+
 ## 使用分类模型
 
 训练完成的模型会自动出现在识别类型列表中：

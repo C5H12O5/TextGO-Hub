@@ -41,6 +41,8 @@ TextGO 会根据你的操作系统自动检测并使用相应的 Shell 环境。
 
 - 选择 **Shell/PowerShell**
 
+![TextGO Shell 脚本编辑窗口](/screenshots/zh-CN/shell-script-editor.png)
+
 ### 步骤 3：编写脚本
 
 Shell 脚本可以通过预定义的变量访问选中的文本。
@@ -49,6 +51,7 @@ Shell 脚本可以通过预定义的变量访问选中的文本。
 
 - `${clipboard}`：剪贴板内容
 - `${selection}`：选中的文本
+- `${datetime}`：ISO 8601 格式的执行时间
 
 **输出**：
 

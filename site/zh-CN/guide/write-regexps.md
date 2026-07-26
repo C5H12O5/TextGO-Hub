@@ -71,6 +71,8 @@
 - `m`：^ 和 $ 匹配每行的开头和结尾
 - `s`：点号匹配换行符
 
+![TextGO 正则表达式编辑窗口](/screenshots/zh-CN/regular-expression-editor.png)
+
 ## 使用正则表达式
 
 创建好的正则表达式会自动出现在识别类型列表中：

@@ -75,7 +75,13 @@ Select the action to execute after text recognition:
 - Set whether to save results to history
 - Set whether to automatically copy results to clipboard
 
+![TextGO shortcut rule editor](/screenshots/en/shortcut-rule-editor.png)
+
 ## Manage Shortcuts
+
+Use the blacklist to prevent TextGO shortcuts from triggering in specified applications or websites:
+
+![TextGO blacklist dialog](/screenshots/en/blacklist-dialog.png)
 
 ### Edit Rules
 

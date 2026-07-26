@@ -41,6 +41,8 @@ TextGO automatically detects and uses the appropriate shell environment based on
 
 - Select **Shell/PowerShell**
 
+![TextGO Shell script editor](/screenshots/en/shell-script-editor.png)
+
 ### Step 3: Write Your Script
 
 Shell scripts can access selected text through predefined variables.
@@ -49,6 +51,7 @@ Shell scripts can access selected text through predefined variables.
 
 - `${clipboard}`: Clipboard content
 - `${selection}`: Selected text
+- `${datetime}`: Execution time in ISO 8601 format
 
 **Output**:
 

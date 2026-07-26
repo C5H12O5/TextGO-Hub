@@ -41,6 +41,8 @@ TextGO 支持自定义网络搜索动作，可以将选中的文本在指定的�
 
 使用 {&#123;selection&#125;} 作为占位符，表示选中的文本。
 
+![TextGO 网页搜索动作编辑窗口](/screenshots/zh-CN/web-search-editor.png)
+
 ## 使用搜索动作
 
 创建好搜索动作后，可以在快捷键规则中使用：

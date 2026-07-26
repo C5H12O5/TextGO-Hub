@@ -75,7 +75,13 @@ TextGO 支持鼠标拖拽选中、鼠标双击选中、Shift+点击选中和键�
 - 设置是否将结果保存到历史记录
 - 设置是否自动复制结果到剪贴板
 
+![TextGO 快捷键规则编辑窗口](/screenshots/zh-CN/shortcut-rule-editor.png)
+
 ## 管理快捷键
+
+可以使用黑名单，阻止 TextGO 快捷键在指定应用或网站中触发：
+
+![TextGO 黑名单窗口](/screenshots/zh-CN/blacklist-dialog.png)
 
 ### 编辑规则
 

@@ -24,6 +24,10 @@ AI 动作允许你：
 - [Google Gemini](https://gemini.google.com/)
 - [xAI](https://x.ai/)
 
+可以在模型提供商选项中配置本地服务地址和云端 API Key：
+
+![TextGO 模型提供商选项](/screenshots/zh-CN/model-provider-options.png)
+
 ## 创建 AI 动作
 
 ### 步骤 1：进入 AI 对话配置
@@ -56,6 +60,8 @@ AI 动作允许你：
 **配置系统提示词（可选）**：
 
 系统提示词（System Prompt）用于设置 AI 的角色和行为方式。
+
+![TextGO AI 提示词编辑窗口](/screenshots/zh-CN/ai-prompt-editor.png)
 
 ## 使用 AI 动作
 

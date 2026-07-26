@@ -71,6 +71,8 @@ A regular expression (Regular Expression) is a powerful tool for matching string
 - `m`: ^ and $ match start/end of line
 - `s`: Dot matches newline
 
+![TextGO regular expression editor](/screenshots/en/regular-expression-editor.png)
+
 ## Use Regular Expression
 
 Created regular expressions will automatically appear in the recognition type list:

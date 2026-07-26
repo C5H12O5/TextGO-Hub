@@ -26,13 +26,15 @@ Install TextGO, grant required permissions, and create your first shortcut.
 
 ### macOS
 
-On macOS, TextGO needs the `Accessibility` permission to read selected text.
+On macOS, TextGO needs the `Accessibility` permission to read selected text and simulate keyboard input.
 
 **Setup Steps**:
 
 1. Open "System Settings" > "Privacy & Security" > "Accessibility"
 2. Find TextGO and enable it
 3. If TextGO is not listed, click the "+" button to add it manually
+
+![TextGO enabled in macOS Accessibility settings](/screenshots/en/macos-accessibility-permission.png)
 
 > [!TIP]
 > The system will automatically prompt for authorization when the app is used for the first time.
@@ -71,6 +73,12 @@ Windows version requires no additional permission settings and is ready to use a
 
 Now, after double-clicking or dragging to select text, a floating toolbar will appear where you can select preset actions to process the text.
 
+![TextGO shortcut trigger menu](/screenshots/en/shortcut-trigger-menu.png)
+
+Rules with "Save result to history" enabled store their results in the history window:
+
+![TextGO history window](/screenshots/en/history-window.png)
+
 ## Configuration
 
 ### Execution Modes
@@ -82,6 +90,14 @@ Now, after double-clicking or dragging to select text, a floating toolbar will a
 
 - **Replace**: Execution result directly replaces selected text
 - **Popup**: Display execution result in a popup window for further editing or copying
+
+The settings pages provide detailed controls for the toolbar, text selection, mouse triggers, appearance, and app behavior:
+
+![TextGO display settings](/screenshots/en/display-settings.png)
+
+![TextGO mouse settings](/screenshots/en/mouse-settings.png)
+
+![TextGO general settings](/screenshots/en/general-settings.png)
 
 ## Get Help
 

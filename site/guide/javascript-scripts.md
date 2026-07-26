@@ -6,23 +6,26 @@ TextGO supports using JavaScript to write custom scripts for text processing. Ja
 
 JavaScript scripts allow you to:
 
-- Use JavaScript to process text
-- Leverage the rich JavaScript standard library and ecosystem
+- Process selected text and clipboard content
+- Use WebView helpers or a configured Node.js/Deno runtime
+- Simulate keys and cross-platform keyboard shortcuts
 
 ## Runtime Environment
 
-TextGO uses Node.js or Deno to run JavaScript scripts.
+TextGO runs JavaScript in the app's WebView by default. If you configure a custom Node.js or Deno executable in settings, TextGO uses that runtime instead. Without a custom runtime, TextGO falls back to the system Node.js and then Deno only when WebView execution fails.
 
-**Supported Runtimes**:
+Scripts that reference `_keyboard` always run in the WebView because keyboard simulation is only available there.
 
-- **Node.js**: The most widely used JavaScript runtime
-- **Deno**: Modern, secure JavaScript/TypeScript runtime
+**Available Environments**:
 
-**Auto-Detection**:
+- **WebView**: Default environment; provides `fetch`, `_`, and `_keyboard`
+- **Node.js**: Used when its custom runtime path is configured
+- **Deno**: Used when its custom runtime path is configured
+- **System fallback**: Tries Node.js first, then Deno
 
-- TextGO automatically detects available runtimes on your system
-- Node.js is prioritized; if unavailable, Deno is used
-- Custom runtime paths can be specified in settings
+You can configure custom runtime paths from the Script Execution options:
+
+![TextGO script runtime options](/screenshots/en/script-runtime-options.png)
 
 ## Create JavaScript Script
 
@@ -48,6 +51,8 @@ TextGO uses Node.js or Deno to run JavaScript scripts.
 
 - Select **JavaScript**
 
+![TextGO JavaScript script editor](/screenshots/en/javascript-script-editor.png)
+
 ### Step 3: Write the Script
 
 JavaScript scripts must contain a `process` function:
@@ -56,6 +61,7 @@ JavaScript scripts must contain a `process` function:
 function process(data) {
   // data.clipboard - Clipboard content
   // data.selection - Selected text
+  // data.datetime - Execution time in ISO 8601 format
 
   // Return processed text
   return '';
@@ -67,12 +73,54 @@ function process(data) {
 - `data`: Object containing input data
   - `data.clipboard`: Current clipboard text content
   - `data.selection`: Selected text content
+  - `data.datetime`: Execution time in ISO 8601 format
 
 **Return Value**:
 
-- Must return a string
-- Returned content serves as the processing result
+- Strings are returned directly; other serializable values are converted to JSON
+- WebView scripts may define `process` as an `async` function
 - Can return an empty string
+
+## WebView APIs
+
+WebView scripts can use these predefined globals:
+
+- `_`: Utility functions from `es-toolkit`
+- `_keyboard`: Keyboard simulation
+
+### Simulate Keyboard Input
+
+`_keyboard.press()` supports a single key or a key with modifiers:
+
+```javascript
+_keyboard.press(key);
+_keyboard.press(modifiers, key);
+```
+
+- `key`: A single character or a supported key name
+- `modifiers`: An array of modifier names
+
+Supported key names include `Enter`, `Tab`, `Escape`, `Space`, `Backspace`, `Delete`, arrow keys, `Home`, `End`, `PageUp`, `PageDown`, and `F1` through `F12`.
+
+Modifier aliases:
+
+| Modifier | Aliases                                             |
+| -------- | --------------------------------------------------- |
+| Command  | `Meta`, `Cmd`, `Command`, `Super`, `Win`, `Windows` |
+| Control  | `Control`, `Ctrl`                                   |
+| Alt      | `Alt`, `Option`                                     |
+| Shift    | `Shift`                                             |
+
+For cross-platform shortcuts, join one Command alias and one Control alias with `Or`. The aliases are case-insensitive and may appear in either order. For example, `CmdOrCtrl`, `CommandOrControl`, and `ControlOrWindows` use Command on macOS and Control on Windows and other platforms.
+
+```javascript
+function process(data) {
+  _keyboard.press(['CmdOrCtrl'], 'c');
+  return data.selection;
+}
+```
+
+Multiple calls are executed in order, and TextGO waits for the keyboard queue before completing the script. A failed key operation fails the script. Because keyboard actions have side effects, TextGO does not run these scripts to generate toolbar previews.
 
 ## Use JavaScript Script
 
@@ -85,7 +133,7 @@ After creating the script, you can use it in shortcut rules:
 
 ## JavaScript Script Examples
 
-#### Example 1: Text Reversal
+### Example 1: Text Reversal
 
 ```javascript
 function process(data) {
@@ -93,7 +141,7 @@ function process(data) {
 }
 ```
 
-#### Example 2: Character Count
+### Example 2: Character Count
 
 ```javascript
 function process(data) {
@@ -102,7 +150,7 @@ function process(data) {
 }
 ```
 
-#### Example 3: Remove Duplicate Lines
+### Example 3: Remove Duplicate Lines
 
 ```javascript
 function process(data) {

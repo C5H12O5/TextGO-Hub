@@ -46,6 +46,8 @@ TextGO 会自动检测系统中的 Python 环境。
 
 - 选择 **Python**
 
+![TextGO Python 脚本编辑窗口](/screenshots/zh-CN/python-script-editor.png)
+
 ### 步骤 3：编写脚本
 
 Python 脚本必须包含一个 `process` 函数：
@@ -54,6 +56,7 @@ Python 脚本必须包含一个 `process` 函数：
 def process(data):
     # data["clipboard"] - 剪贴板内容
     # data["selection"] - 选中的文本
+    # data["datetime"] - ISO 8601 格式的执行时间
 
     # 返回处理后的文本
     return ""
@@ -64,11 +67,11 @@ def process(data):
 - `data`：包含输入数据的字典
   - `data["clipboard"]`：当前剪贴板的文本内容
   - `data["selection"]`：选中的文本内容
+  - `data["datetime"]`：ISO 8601 格式的执行时间
 
 **返回值**：
 
-- 必须返回字符串
-- 返回的内容将作为处理结果
+- 字符串会直接返回，其他可序列化值会转换为 JSON
 - 可以返回空字符串
 
 ## 使用 Python 脚本

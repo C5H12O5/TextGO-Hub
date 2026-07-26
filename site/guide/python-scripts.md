@@ -46,6 +46,8 @@ TextGO automatically detects Python environments on your system.
 
 - Select **Python**
 
+![TextGO Python script editor](/screenshots/en/python-script-editor.png)
+
 ### Step 3: Write Your Script
 
 Python scripts must include a `process` function:
@@ -54,6 +56,7 @@ Python scripts must include a `process` function:
 def process(data):
     # data["clipboard"] - Clipboard content
     # data["selection"] - Selected text
+    # data["datetime"] - Execution time in ISO 8601 format
 
     # Return processed text
     return ""
@@ -64,11 +67,11 @@ def process(data):
 - `data`: Dictionary containing input data
   - `data["clipboard"]`: Current clipboard text content
   - `data["selection"]`: Selected text content
+  - `data["datetime"]`: Execution time in ISO 8601 format
 
 **Return value**:
 
-- Must return a string
-- Returned content will be the processing result
+- Strings are returned directly; other serializable values are converted to JSON
 - Can return an empty string
 
 ## Use Python Script

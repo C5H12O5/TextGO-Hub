@@ -99,6 +99,8 @@ Training data is key to determining the model's recognition capability.
   - Increase threshold → Stricter matching, reduces false positives
   - Decrease threshold → Looser matching, increases recognition rate
 
+![TextGO classification model editor](/screenshots/en/classification-model-editor.png)
+
 ## Use Classification Model
 
 Trained models will automatically appear in the recognition type list:

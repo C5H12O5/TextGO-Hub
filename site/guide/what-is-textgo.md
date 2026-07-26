@@ -45,4 +45,5 @@ TextGO's workflow:
 
 - Quick conversion of naming styles
 - Format or transform code snippets with scripts
+- Automate cross-platform keyboard shortcuts with JavaScript
 - Use AI to explain or review selected code

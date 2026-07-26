@@ -41,6 +41,8 @@ You can specify which browser to use to open search results. If not specified, t
 
 Use {&#123;selection&#125;} as a placeholder to represent the selected text.
 
+![TextGO web search action editor](/screenshots/en/web-search-editor.png)
+
 ## Use Search Action
 
 Created search actions can be used in shortcut rules:
