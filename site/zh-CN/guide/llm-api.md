@@ -24,7 +24,9 @@ AI 动作允许你：
 - [Google Gemini](https://gemini.google.com/)
 - [xAI](https://x.ai/)
 
-可以在模型提供商选项中配置本地服务地址和云端 API Key：
+还可以通过提供商名称、Base URL 和 API Key 添加兼容 OpenAI 接口的自定义提供商。
+
+可以在模型提供商选项中配置本地服务地址、云端 API Key 和自定义提供商：
 
 ![TextGO 模型提供商选项](/screenshots/zh-CN/model-provider-options.png)
 
@@ -56,10 +58,13 @@ AI 动作允许你：
 
 - {&#123;selection&#125;}：选中的文本
 - {&#123;clipboard&#125;}：剪贴板内容
+- {&#123;datetime&#125;}：ISO 8601 格式的执行时间
 
 **配置系统提示词（可选）**：
 
 系统提示词（System Prompt）用于设置 AI 的角色和行为方式。
+
+“更多选项”还支持设置最大 Token 数、温度和 Top P。
 
 ![TextGO AI 提示词编辑窗口](/screenshots/zh-CN/ai-prompt-editor.png)
 
@@ -67,7 +72,9 @@ AI 动作允许你：
 
 创建好提示词模板后，可以在快捷键规则中使用：
 
-1. 打开"快捷键设置"
+1. 打开"全局快捷键"
 2. 添加一条新规则
 3. 在"执行动作"中选择你创建的 AI 对话动作
 4. 保存规则
+
+AI 动作始终在弹窗中显示结果，并可在弹窗中继续对话。

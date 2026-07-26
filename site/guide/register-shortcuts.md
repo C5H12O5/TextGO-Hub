@@ -19,6 +19,8 @@ Choose a shortcut type from the dropdown list:
 - **Shift-Click**
 - **Keyboard**
 
+Mouse triggers use Toolbar Mode by default, while keyboard shortcuts use Quiet Mode by default. You can switch either mode after registration.
+
 ### Step 3: Add Rules
 
 In the rule list below the corresponding shortcut, click the "+" button to add a new rule and configure the following:
@@ -49,7 +51,7 @@ Select the action to execute after text recognition:
 
 **Built-in Actions**
 
-- Copy: Copy text to clipboard
+- Copy, Cut, and Paste: Perform clipboard operations
 - General: Common operations including opening links, opening files, etc.
 - Convert Case: Convert between naming formats such as camelCase and snake_case
 - Text Processing: Text processing operations including trimming spaces, etc.
@@ -74,6 +76,8 @@ Select the action to execute after text recognition:
   - **Popup**: Display execution result in a popup window for further editing or copying
 - Set whether to save results to history
 - Set whether to automatically copy results to clipboard
+
+These options depend on the selected action. AI actions always use a popup, and actions without text results disable result-related options.
 
 ![TextGO shortcut rule editor](/screenshots/en/shortcut-rule-editor.png)
 
@@ -107,7 +111,7 @@ After selecting text and triggering, the **action is executed immediately** with
 
 - Fast and efficient, seamless workflow
 - Suitable for deterministic processing tasks
-- No interface interruption, focus on current work
+- Skips the toolbar selection step; configured popup output may still appear
 
 **Applicable Scenarios**:
 
@@ -123,7 +127,7 @@ After selecting text and triggering, a **floating toolbar is displayed** where y
 
 - Intuitive visual interface
 - Supports multiple processing methods
-- Allows previewing execution results
+- Can optionally preview supported action results as toolbar labels
 
 **Applicable Scenarios**:
 

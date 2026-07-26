@@ -39,7 +39,7 @@ You can specify which browser to use to open search results. If not specified, t
 
 **URL Template** (Required)
 
-Use {&#123;selection&#125;} as a placeholder to represent the selected text.
+Use {&#123;selection&#125;} as a placeholder for the selected text. TextGO trims the selection and URL-encodes it before replacing every occurrence of the placeholder.
 
 ![TextGO web search action editor](/screenshots/en/web-search-editor.png)
 

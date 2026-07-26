@@ -1,6 +1,6 @@
 # What is TextGO?
 
-TextGO is a cross-platform desktop application for quickly recognizing and processing selected text. Select text in any application, then trigger preset actions using hotkeys, double-click, or drag-select.
+TextGO is a cross-platform desktop application for quickly recognizing and processing selected text. Select text in any application, then trigger preset actions using hotkeys, double-click, Shift-click, or drag-select.
 
 Common tasks include:
 
@@ -18,13 +18,13 @@ TextGO's workflow:
 ```
 1. Select text
    ↓
-2. Trigger (hotkeys/double-click/drag-select)
+2. Trigger (hotkeys/double-click/Shift-click/drag-select)
    ↓
 3. Recognize type (built-in/custom rules)
    ↓
-4. Execute action (silent/toolbar)
+4. Execute immediately or choose an action from the toolbar
    ↓
-5. View result (replace/popup/copy)
+5. Handle result (replace/popup/copy/history)
 ```
 
 ## Usage Scenarios

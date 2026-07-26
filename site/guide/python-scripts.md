@@ -11,16 +11,13 @@ Python scripts allow you to:
 
 ## Runtime Environment
 
-TextGO automatically detects Python environments on your system.
+TextGO uses the custom Python executable configured in Script Execution options when provided. Otherwise, it tries `python3` and then `python`, using the system `PATH` plus common installation locations.
 
 **Supported Python Versions**:
 
 - Python 3.9+
 
-**Auto-detection Paths**:
-
-- TextGO automatically detects available runtimes on your system
-- Custom runtime paths can be specified in settings
+Packages imported by a script must be installed in the Python environment selected by TextGO.
 
 ## Create Python Script
 

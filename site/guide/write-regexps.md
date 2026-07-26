@@ -71,6 +71,8 @@ A regular expression (Regular Expression) is a powerful tool for matching string
 - `m`: ^ and $ match start/end of line
 - `s`: Dot matches newline
 
+TextGO uses JavaScript regular expression semantics and considers the type matched when the pattern matches any part of the selected text. Add `^` and `$` when the entire selection must match.
+
 ![TextGO regular expression editor](/screenshots/en/regular-expression-editor.png)
 
 ## Use Regular Expression

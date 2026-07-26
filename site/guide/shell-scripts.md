@@ -12,10 +12,10 @@ Shell scripts allow you to:
 
 ## Runtime Environment
 
-TextGO automatically detects and uses the appropriate shell environment based on your operating system.
+TextGO provides the script type appropriate for the current operating system:
 
-- **macOS**: Shell
-- **Windows**: PowerShell
+- **macOS**: Shell scripts run with `sh`
+- **Windows**: PowerShell scripts run with `powershell`
 
 ## Create Shell Script
 
@@ -39,7 +39,7 @@ TextGO automatically detects and uses the appropriate shell environment based on
 
 **Script Type**
 
-- Select **Shell/PowerShell**
+- Select **Shell** on macOS or **PowerShell** on Windows
 
 ![TextGO Shell script editor](/screenshots/en/shell-script-editor.png)
 
@@ -64,5 +64,5 @@ After creating the script, you can use it in shortcut rules:
 
 1. Open "Global Shortcuts"
 2. Add a new rule
-3. Select your created Shell script in "Execute Action"
+3. Select your created Shell or PowerShell script in "Execute Action"
 4. Save the rule

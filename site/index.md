@@ -4,7 +4,7 @@ layout: home
 hero:
   name: TextGO
   text: All-in-One Text Tool
-  tagline: Pop up toolbar on text selection, trigger custom actions with one click
+  tagline: Select text and run custom actions instantly or from a toolbar
   image:
     src: /icon_512x512.png
     alt: TextGO
@@ -21,7 +21,7 @@ hero:
 
 features:
   - title: Multiple Triggers
-    details: Hotkeys, double-click, or drag-select, each with independent rule configurations.
+    details: Hotkeys, double-click, Shift-click, or drag-select, each with independent rule configurations.
   - title: Flexible Modes
     details: Choose instant execution or interactive toolbar mode based on your workflow.
   - title: Customizable Icons

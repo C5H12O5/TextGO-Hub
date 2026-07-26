@@ -4,7 +4,7 @@ layout: home
 hero:
   name: TextGO
   text: 全能文本处理工具
-  tagline: 选中文本后弹出工具栏，一键执行自定义动作
+  tagline: 选中文本后立即执行动作，或从浮动工具栏中选择
   image:
     src: /icon_512x512.png
     alt: TextGO
@@ -21,7 +21,7 @@ hero:
 
 features:
   - title: 快捷触发
-    details: 可通过键盘快捷键、鼠标双击或拖拽选中触发，每种方式独立配置规则
+    details: 可通过键盘快捷键、鼠标双击、Shift+点击或拖拽选中触发，每种方式独立配置规则
   - title: 灵活模式
     details: 支持立即执行或工具栏交互两大模式，自由切换应对不同场景
   - title: 个性图标

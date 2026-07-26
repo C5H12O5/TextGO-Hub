@@ -12,10 +12,10 @@ Shell 脚本允许你：
 
 ## 运行环境
 
-TextGO 会根据你的操作系统自动检测并使用相应的 Shell 环境。
+TextGO 会根据当前操作系统提供对应的脚本类型：
 
-- **macOS**：Shell
-- **Windows**：PowerShell
+- **macOS**：Shell 脚本使用 `sh` 运行
+- **Windows**：PowerShell 脚本使用 `powershell` 运行
 
 ## 创建 Shell 脚本
 
@@ -39,7 +39,7 @@ TextGO 会根据你的操作系统自动检测并使用相应的 Shell 环境。
 
 **脚本类型**
 
-- 选择 **Shell/PowerShell**
+- macOS 上选择 **Shell**，Windows 上选择 **PowerShell**
 
 ![TextGO Shell 脚本编辑窗口](/screenshots/zh-CN/shell-script-editor.png)
 
@@ -62,7 +62,7 @@ Shell 脚本可以通过预定义的变量访问选中的文本。
 
 创建好脚本后，可以在快捷键规则中使用：
 
-1. 打开"快捷键设置"
+1. 打开"全局快捷键"
 2. 添加一条新规则
-3. 在"执行动作"中选择你创建的 Shell 脚本
+3. 在"执行动作"中选择你创建的 Shell 或 PowerShell 脚本
 4. 保存规则

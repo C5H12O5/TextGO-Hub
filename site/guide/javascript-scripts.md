@@ -12,16 +12,16 @@ JavaScript scripts allow you to:
 
 ## Runtime Environment
 
-TextGO runs JavaScript in the app's WebView by default. If you configure a custom Node.js or Deno executable in settings, TextGO uses that runtime instead. Without a custom runtime, TextGO falls back to the system Node.js and then Deno only when WebView execution fails.
+TextGO runs JavaScript in the app's WebView by default. If you configure a custom Node.js or Deno executable in settings, TextGO uses that runtime instead; Node.js takes precedence when both paths are configured. Without a custom runtime, TextGO tries system Node.js and then Deno only when WebView execution fails.
 
 Scripts that reference `_keyboard` always run in the WebView because keyboard simulation is only available there.
 
 **Available Environments**:
 
-- **WebView**: Default environment; provides `fetch`, `_`, and `_keyboard`
+- **WebView**: Default environment; standard WebView APIs such as `fetch` remain available, and TextGO adds `_` and `_keyboard`
 - **Node.js**: Used when its custom runtime path is configured
 - **Deno**: Used when its custom runtime path is configured
-- **System fallback**: Tries Node.js first, then Deno
+- **System fallback**: After a WebView failure, tries Node.js first and then Deno when no custom runtime is configured
 
 You can configure custom runtime paths from the Script Execution options:
 
@@ -100,7 +100,7 @@ _keyboard.press(modifiers, key);
 - `key`: A single character or a supported key name
 - `modifiers`: An array of modifier names
 
-Supported key names include `Enter`, `Tab`, `Escape`, `Space`, `Backspace`, `Delete`, arrow keys, `Home`, `End`, `PageUp`, `PageDown`, and `F1` through `F12`.
+Supported key names include `Enter`/`Return`, `Tab`, `Escape`/`Esc`, `Space`, `Backspace`, `Delete`/`Del`, arrow keys such as `ArrowUp`, `Home`, `End`, `PageUp`, `PageDown`, and `F1` through `F12`. Named keys and modifiers are case-insensitive.
 
 Modifier aliases:
 
@@ -111,7 +111,7 @@ Modifier aliases:
 | Alt      | `Alt`, `Option`                                     |
 | Shift    | `Shift`                                             |
 
-For cross-platform shortcuts, join one Command alias and one Control alias with `Or`. The aliases are case-insensitive and may appear in either order. For example, `CmdOrCtrl`, `CommandOrControl`, and `ControlOrWindows` use Command on macOS and Control on Windows and other platforms.
+For cross-platform shortcuts, join one Command alias and one Control alias with `Or`. The aliases may appear in either order. For example, `CmdOrCtrl`, `CommandOrControl`, and `ControlOrWindows` use Command on macOS and Control on Windows.
 
 ```javascript
 function process(data) {

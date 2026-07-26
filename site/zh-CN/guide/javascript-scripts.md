@@ -12,16 +12,16 @@ JavaScript 脚本允许你：
 
 ## 运行环境
 
-TextGO 默认在应用的 WebView 中运行 JavaScript。若在设置中配置了自定义 Node.js 或 Deno 可执行文件，TextGO 会改用对应运行时。未配置自定义运行时时，仅当 WebView 执行失败后，TextGO 才会依次尝试系统中的 Node.js 和 Deno。
+TextGO 默认在应用的 WebView 中运行 JavaScript。若在设置中配置了自定义 Node.js 或 Deno 可执行文件，TextGO 会改用对应运行时；两者都配置时优先使用 Node.js。未配置自定义运行时时，仅当 WebView 执行失败后，TextGO 才会依次尝试系统中的 Node.js 和 Deno。
 
 引用 `_keyboard` 的脚本始终在 WebView 中运行，因为按键模拟 API 仅在该环境中可用。
 
 **可用环境**：
 
-- **WebView**：默认环境，提供 `fetch`、`_` 和 `_keyboard`
+- **WebView**：默认环境，可使用 `fetch` 等标准 WebView API；TextGO 另外提供 `_` 和 `_keyboard`
 - **Node.js**：配置其自定义运行时路径后使用
 - **Deno**：配置其自定义运行时路径后使用
-- **系统回退**：先尝试 Node.js，再尝试 Deno
+- **系统回退**：未配置自定义运行时时，在 WebView 失败后先尝试 Node.js，再尝试 Deno
 
 可以在“执行脚本”选项中配置自定义运行时路径：
 
@@ -100,7 +100,7 @@ _keyboard.press(modifiers, key);
 - `key`：单个字符或支持的按键名称
 - `modifiers`：修饰键名称数组
 
-支持的按键名称包括 `Enter`、`Tab`、`Escape`、`Space`、`Backspace`、`Delete`、方向键、`Home`、`End`、`PageUp`、`PageDown`，以及 `F1` 至 `F12`。
+支持的按键名称包括 `Enter`/`Return`、`Tab`、`Escape`/`Esc`、`Space`、`Backspace`、`Delete`/`Del`、`ArrowUp` 等方向键、`Home`、`End`、`PageUp`、`PageDown`，以及 `F1` 至 `F12`。命名按键和修饰键均不区分大小写。
 
 修饰键别名：
 
@@ -111,7 +111,7 @@ _keyboard.press(modifiers, key);
 | Alt     | `Alt`、`Option`                                     |
 | Shift   | `Shift`                                             |
 
-编写跨平台快捷键时，可以使用 `Or` 连接一个 Command 别名和一个 Control 别名。别名不区分大小写，顺序也可以互换。例如 `CmdOrCtrl`、`CommandOrControl` 和 `ControlOrWindows` 在 macOS 上使用 Command，在 Windows 及其他平台上使用 Control。
+编写跨平台快捷键时，可以使用 `Or` 连接一个 Command 别名和一个 Control 别名，顺序也可以互换。例如 `CmdOrCtrl`、`CommandOrControl` 和 `ControlOrWindows` 在 macOS 上使用 Command，在 Windows 上使用 Control。
 
 ```javascript
 function process(data) {
@@ -126,7 +126,7 @@ function process(data) {
 
 创建好脚本后，可以在快捷键规则中使用：
 
-1. 打开"快捷键设置"
+1. 打开"全局快捷键"
 2. 添加一条新规则
 3. 在"执行动作"中选择你创建的 JavaScript 脚本
 4. 保存规则

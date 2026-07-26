@@ -24,7 +24,9 @@ Supported platforms:
 - [Google Gemini](https://gemini.google.com/)
 - [xAI](https://x.ai/)
 
-Configure local service addresses and cloud API keys from the model provider options:
+You can also add custom OpenAI-compatible providers with a provider name, base URL, and API key.
+
+Configure local service addresses, cloud API keys, and custom providers from the model provider options:
 
 ![TextGO model provider options](/screenshots/en/model-provider-options.png)
 
@@ -56,10 +58,13 @@ The prompt determines how AI processes your text.
 
 - {&#123;selection&#125;}: Selected text
 - {&#123;clipboard&#125;}: Clipboard content
+- {&#123;datetime&#125;}: Execution time in ISO 8601 format
 
 **Configure System Prompt (Optional)**:
 
 The system prompt is used to set the AI's role and behavior.
+
+The "More Options" section also supports maximum tokens, temperature, and top-p.
 
 ![TextGO AI prompt editor](/screenshots/en/ai-prompt-editor.png)
 
@@ -71,3 +76,5 @@ After creating the prompt template, you can use it in shortcut rules:
 2. Add a new rule
 3. Select your created AI conversation action in "Execute Action"
 4. Save the rule
+
+AI actions always open the result in a popup, where the conversation can continue.

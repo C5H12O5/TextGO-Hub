@@ -1,10 +1,10 @@
 # Train Classification Models
 
-TextGO supports training machine learning models to recognize custom text types. By training models, you can enable TextGO to recognize any specific text patterns, greatly expanding its recognition capabilities.
+TextGO supports training machine learning models to recognize custom text types and expand its recognition capabilities.
 
 ## What is Classification Model
 
-TextGO uses **TensorFlow.js** to train and run machine learning models in the browser. This approach offers the following advantages:
+TextGO uses **TensorFlow.js** to train and run machine learning models locally in the app's WebView. This approach offers the following advantages:
 
 - **No Backend Required**: All training and inference are completed locally
 - **Privacy and Security**: Data never leaves your device
@@ -22,7 +22,7 @@ TextGO uses **TensorFlow.js** to train and run machine learning models in the br
 
 ✅ **Sufficient Training Data**
 
-- At least 10-20 positive samples required
+- At least 3 unique, non-empty positive samples are required; more diverse samples generally improve results
 - Samples should cover main variations
 
 ✅ **Recognition Accuracy Requirements Not 100%**
@@ -39,7 +39,7 @@ TextGO uses **TensorFlow.js** to train and run machine learning models in the br
 
 ❌ **Insufficient Training Data**
 
-- Only a few samples available
+- Fewer than 3 valid unique samples cannot be used for training
 - Samples don't cover all variations
 
 ❌ **Requires 100% Accuracy**
@@ -78,6 +78,7 @@ Training data is key to determining the model's recognition capability.
 - One sample per line
 - Samples separated by line breaks
 - Supports any type of text content
+- Blank lines are ignored and duplicate samples are removed
 
 **Sample Quality Requirements**:
 
@@ -91,10 +92,10 @@ Training data is key to determining the model's recognition capability.
 
 #### Basic Parameters
 
-**Confidence Threshold** (0.0 - 1.0)
+**Confidence Threshold** (0.01 - 0.99)
 
 - Default: 0.5
-- Description: Model output confidence must exceed this threshold to be judged as a match
+- Description: Model output confidence must meet or exceed this threshold to be judged as a match
 - Adjustment recommendations:
   - Increase threshold → Stricter matching, reduces false positives
   - Decrease threshold → Looser matching, increases recognition rate

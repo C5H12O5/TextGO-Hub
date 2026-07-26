@@ -88,8 +88,11 @@ Rules with "Save result to history" enabled store their results in the history w
 
 ### Output Modes
 
-- **Replace**: Execution result directly replaces selected text
-- **Popup**: Display execution result in a popup window for further editing or copying
+- **Replace**: Directly replace the selected text when the action returns a result
+- **Popup**: Display the result in a popup window for further editing or copying
+- **No visual output**: Leave both options unselected; the result can still be copied to the clipboard
+
+Available output options depend on the action. AI actions always open a popup, while actions such as web search, copy, cut, and paste do not return text results.
 
 The settings pages provide detailed controls for the toolbar, text selection, mouse triggers, appearance, and app behavior:
 
