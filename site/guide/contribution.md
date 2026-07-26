@@ -1,33 +1,31 @@
 # Contribution Guide
 
-Thank you for your interest in contributing to TextGO! This guide will help you understand how to participate in the project.
+Thank you for contributing to TextGO. This guide explains how to get involved.
 
 ## Ways to Contribute
 
-You can contribute to TextGO in the following ways:
-
-- 🐛 **Report Bugs**: Discover issues and submit Issues
+- 🐛 **Report Bugs**: Submit an issue when you find a problem
 - 💡 **Suggest Features**: Share your ideas and feature requests
-- 📝 **Improve Documentation**: Enhance documentation and examples
-- 🔧 **Fix Issues**: Submit Pull Requests to fix bugs
+- 📝 **Improve Documentation**: Refine guides and examples
+- 🔧 **Fix Issues**: Submit pull requests that fix bugs
 - ✨ **Add Features**: Develop new features
-- 🌍 **Help Translate**: Help translate the interface and documentation
-- 📚 **Share Scripts**: Share your custom scripts and regular expressions
+- 🌍 **Help Translate**: Translate the interface and documentation
+- 📚 **Share Scripts**: Share custom scripts and regular expressions
 
-## Submit Issue
+## Submit an Issue
 
-Please search existing Issues before submitting to avoid duplicates.
+Search existing issues before submitting a new one.
 
 ### 1. Report Bugs
 
-Follow the template below to submit a bug report on [GitHub Issues](https://github.com/C5H12O5/TextGO/issues):
+Use this template to report a bug on [GitHub Issues](https://github.com/C5H12O5/TextGO/issues):
 
 ```markdown
 **Describe the bug**
-Briefly describe the issue
+Briefly describe the problem.
 
 **To Reproduce**
-Provide steps to reproduce
+List the steps to reproduce it.
 
 **Environment**
 
@@ -35,29 +33,29 @@ Provide steps to reproduce
 - Version: [e.g., v1.0.0]
 
 **Screenshots (optional)**
-Attach screenshots or recordings
+Attach screenshots or recordings.
 ```
 
 ### 2. Feature Suggestions
 
-Follow the template below to submit feature suggestions on [GitHub Issues](https://github.com/C5H12O5/TextGO/issues):
+Use this template to suggest a feature on [GitHub Issues](https://github.com/C5H12O5/TextGO/issues):
 
 ```markdown
 **What feature would you like to add?**
-Clearly describe the feature you want
+Clearly describe the feature.
 
 **Why do you need this feature?**
-Explain the necessity of the feature
+Explain why it would be useful.
 
 **Additional context (optional)**
-Provide any additional information
+Provide any other relevant information.
 ```
 
-## Submit Pull Request
+## Submit a Pull Request
 
 ### 1. Prepare Development Environment
 
-**Required Tools**: Node.js, pnpm, Rust, Git
+**Required tools:** Node.js, pnpm, Rust, Git
 
 ```bash
 # After forking the project, clone your repository
@@ -93,14 +91,14 @@ git pull upstream main
 git checkout -b feature/my-new-feature  # or fix/bug-description
 ```
 
-**Code Standards**:
+**Code standards:**
 
-- TypeScript: Follow Prettier and ESLint rules, run `pnpm lint` to check
-- Rust: Use `cargo fmt` to format, `cargo clippy` to check
+- TypeScript: Follow the Prettier and ESLint rules; run `pnpm lint`
+- Rust: Format with `cargo fmt` and check with `cargo clippy`
 
 ### 4. Commit Changes
 
-Use [Conventional Commits](https://www.conventionalcommits.org/) specification:
+Follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
 
 ```bash
 git add .
@@ -115,19 +113,19 @@ git commit -m "feat: add keyboard shortcut customization"
 git push origin feature/my-new-feature
 ```
 
-Create PR on GitHub, clearly describe the changes and reasons, reference Issue numbers if applicable
+Create a pull request on GitHub. Describe what changed and why, and reference related issues.
 
 ## Documentation Contribution
 
 ### Improve Existing Documentation
 
 1. Find errors or unclear parts
-2. Modify in the corresponding `.md` file
-3. Submit PR
+2. Edit the corresponding `.md` file
+3. Submit a pull request
 
 ### Translate Documentation to Other Languages
 
-1. Copy English documentation to new language directory
+1. Copy the English documentation to a new language directory
 2. Translate content
 3. Keep structure consistent
-4. Submit PR
+4. Submit a pull request

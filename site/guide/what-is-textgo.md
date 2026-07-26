@@ -1,19 +1,18 @@
-# What is TextGO?
+# What Is TextGO?
 
-TextGO is a cross-platform desktop application for quickly recognizing and processing selected text. Select text in any application, then trigger preset actions using hotkeys, double-click, Shift-click, or drag-select.
+TextGO is a cross-platform desktop app that recognizes and processes selected text. Select text in any app, then trigger preset actions using hotkeys, double-click, Shift-click, or drag-select.
 
 Common tasks include:
 
-- Remove extra spaces and line breaks from selected text
-- Convert code variable naming styles
+- Remove extra spaces and line breaks
+- Convert variable naming styles
 - Open selected URLs or file paths
-- Search selected text on a specific website
+- Search for selected text on a website
 - Analyze or polish text using AI
-- ...
 
 ## Workflow
 
-TextGO's workflow:
+TextGO follows this workflow:
 
 ```
 1. Select text
@@ -31,19 +30,19 @@ TextGO's workflow:
 
 ### Daily Office Work
 
-- Quickly open URLs, files, and folders
+- Open URLs, files, and folders
 - Process email addresses, IDs, and timestamps
-- Search selected text on commonly used websites
+- Search for selected text on frequently used websites
 
 ### Content Creation
 
 - Clean up and format text content
-- Quick search for word definitions and references
+- Look up definitions and references
 - AI-assisted translation, rewriting, and polishing
 
 ### Programming Development
 
-- Quick conversion of naming styles
+- Convert naming styles
 - Format or transform code snippets with scripts
 - Automate cross-platform keyboard shortcuts with JavaScript
 - Use AI to explain or review selected code

@@ -1,13 +1,13 @@
-# Execute Python Scripts
+# Run Python Scripts
 
-TextGO supports using Python to write custom scripts for text processing. Python has a rich third-party library ecosystem, making it ideal for handling complex data processing, scientific computing, and text analysis tasks.
+Use Python and its third-party libraries for data processing, scientific computing, and text analysis.
 
 ## Feature Overview
 
-Python scripts allow you to:
+Python scripts can:
 
 - Use Python to process text
-- Leverage the rich Python third-party library ecosystem
+- Use third-party Python libraries
 
 ## Runtime Environment
 
@@ -19,7 +19,7 @@ TextGO uses the custom Python executable configured in Script Execution options 
 
 Packages imported by a script must be installed in the Python environment selected by TextGO.
 
-## Create Python Script
+## Create a Python Script
 
 ### Step 1: Access Script Management
 
@@ -30,14 +30,13 @@ Packages imported by a script must be installed in the Python environment select
 
 **Script Name** (Required)
 
-- Used to identify this script
-- Recommended to use descriptive names
+- Identifies the script
+- Use a descriptive name
 
 **Script Icon** (Optional)
 
-- Click the icon selector to choose an icon
-- Supports built-in icon library
-- Supports uploading custom SVG icons
+- Choose an icon from the built-in library
+- You can also upload a custom SVG icon
 
 **Script Type**
 
@@ -59,30 +58,30 @@ def process(data):
     return ""
 ```
 
-**Parameter description**:
+**Parameters:**
 
-- `data`: Dictionary containing input data
+- `data`: Input dictionary
   - `data["clipboard"]`: Current clipboard text content
   - `data["selection"]`: Selected text content
   - `data["datetime"]`: Execution time in ISO 8601 format
 
-**Return value**:
+**Return value:**
 
 - Strings are returned directly; other serializable values are converted to JSON
 - Can return an empty string
 
-## Use Python Script
+## Use a Python Script
 
-After creating the script, you can use it in shortcut rules:
+After creating a script, add it to a shortcut rule:
 
 1. Open "Global Shortcuts"
 2. Add a new rule
-3. Select your created Python script in "Execute Action"
+3. Select the Python script in "Execute Action"
 4. Save the rule
 
 ## Python Script Examples
 
-#### Example 1: Calculator
+### Example 1: Calculator
 
 ```python
 def process(data):
@@ -93,7 +92,7 @@ def process(data):
         return f"Calculation Error: {e}"
 ```
 
-#### Example 2: Sort Lines
+### Example 2: Sort Lines
 
 ```python
 def process(data):
@@ -102,7 +101,7 @@ def process(data):
     return "\n".join(sorted_lines)
 ```
 
-#### Example 3: Remove Empty Lines
+### Example 3: Remove Empty Lines
 
 ```python
 def process(data):

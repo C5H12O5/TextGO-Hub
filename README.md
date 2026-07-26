@@ -4,17 +4,17 @@ This repository contains the official website, documentation, and extensions for
 
 ## About TextGO
 
-TextGO is a cross-platform desktop application designed to help you quickly recognize and process text through simple operations. You can select text in any application and trigger preset text processing actions using hotkeys, double-click, Shift-click, or drag-select.
+TextGO is a cross-platform desktop app that recognizes and processes selected text. Select text in any app, then trigger preset actions using hotkeys, double-click, Shift-click, or drag-select.
 
 ## What's Inside
 
 - **Official Website**: Landing page and project overview
-- **Documentation**: Comprehensive guides and tutorials for TextGO
-- **Extensions**: Collection of extensions to enhance TextGO's functionality
+- **Documentation**: TextGO guides and tutorials
+- **Extensions**: Extensions that add TextGO functionality
 
 ## Contributing
 
-Contributions are welcome! Whether it's improving documentation, fixing typos, or adding new extensions, your help is appreciated.
+Contributions are welcome, including documentation improvements, typo fixes, and new extensions.
 
 ## License
 

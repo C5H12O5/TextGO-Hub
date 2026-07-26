@@ -1,15 +1,15 @@
 # Web Search
 
-TextGO supports custom web search actions that can open selected text in specified search engines or websites. This feature can greatly improve information search efficiency.
+Custom web search actions open a search engine or website with the selected text.
 
 ## Feature Overview
 
-Web search actions allow you to:
+Web search actions can:
 
 - Specify search engines or target websites
-- Choose default browser or specify a specific browser
+- Use the default browser or a specific browser
 
-## Create Search Action
+## Create a Search Action
 
 ### Step 1: Access Search Configuration
 
@@ -20,20 +20,19 @@ Web search actions allow you to:
 
 **Search Name** (Required)
 
-- Used to identify this search action
-- Recommend using the search engine or website name
+- Identifies the search action
+- Use the search engine or website name
 
 **Search Icon** (Optional)
 
-- Click the icon selector to choose an icon
-- Supports built-in icon library
-- Supports uploading custom SVG icons
+- Choose an icon from the built-in library
+- You can also upload a custom SVG icon
 
 ### Step 3: Configure Browser
 
 **Browser Selection** (Optional)
 
-You can specify which browser to use to open search results. If not specified, the system default browser will be used.
+Choose a browser for search results, or leave this unset to use the system default.
 
 ### Step 4: Configure Search URL
 
@@ -43,13 +42,13 @@ Use {&#123;selection&#125;} as a placeholder for the selected text. TextGO trims
 
 ![TextGO web search action editor](/screenshots/en/web-search-editor.png)
 
-## Use Search Action
+## Use a Search Action
 
-Created search actions can be used in shortcut rules:
+After creating a search action, add it to a shortcut rule:
 
 1. Open "Global Shortcuts"
 2. Add a new rule
-3. Select your created search action in "Execute Action"
+3. Select the search action in "Execute Action"
 4. Save the rule
 
 ## Common Templates

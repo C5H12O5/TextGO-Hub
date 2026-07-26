@@ -1,15 +1,15 @@
 # Train Classification Models
 
-TextGO supports training machine learning models to recognize custom text types and expand its recognition capabilities.
+TextGO can train machine learning models to recognize custom text types.
 
-## What is Classification Model
+## What Is a Classification Model?
 
-TextGO uses **TensorFlow.js** to train and run machine learning models locally in the app's WebView. This approach offers the following advantages:
+TextGO uses **TensorFlow.js** to train and run models locally in the app's WebView:
 
-- **No Backend Required**: All training and inference are completed locally
+- **No Backend Required**: Training and inference run locally
 - **Privacy and Security**: Data never leaves your device
-- **Real-time Inference**: Models can quickly recognize text after loading
-- **Lightweight**: Small model size, fast loading
+- **Real-time Inference**: Loaded models recognize text quickly
+- **Lightweight**: Models are small and load quickly
 
 ## When to Use Classification Models
 
@@ -17,37 +17,37 @@ TextGO uses **TensorFlow.js** to train and run machine learning models locally i
 
 ✅ **Complex Text Patterns**
 
-- Text patterns that are difficult to describe with simple regular expressions
-- Text with certain variations but overall similar patterns
+- Patterns that are difficult to describe with regular expressions
+- Text with variations but consistent overall characteristics
 
 ✅ **Sufficient Training Data**
 
-- At least 3 unique, non-empty positive samples are required; more diverse samples generally improve results
+- At least 3 unique, non-empty positive samples; more diverse samples generally improve results
 - Samples should cover main variations
 
-✅ **Recognition Accuracy Requirements Not 100%**
+✅ **Some Misclassification Is Acceptable**
 
 - Can tolerate a small amount of misclassification
-- Suitable for fuzzy matching scenarios
+- Suitable for fuzzy matching
 
 ### Unsuitable Scenarios for Models
 
 ❌ **Simple and Precise Patterns**
 
-- Cases that can be precisely described with regular expressions
-- For example: phone numbers, ID numbers, and other fixed formats
+- Patterns that regular expressions can describe precisely
+- Phone numbers, ID numbers, and other fixed formats
 
 ❌ **Insufficient Training Data**
 
 - Fewer than 3 valid unique samples cannot be used for training
-- Samples don't cover all variations
+- Samples do not cover the main variations
 
-❌ **Requires 100% Accuracy**
+❌ **Zero Errors Are Acceptable**
 
 - Cannot tolerate any misclassification
-- Business scenarios with strict accuracy requirements
+- Workflows with strict accuracy requirements
 
-## Create Classification Model
+## Create a Classification Model
 
 ### Step 1: Access Model Management
 
@@ -60,14 +60,13 @@ Fill in the model's basic information:
 
 **Model Name** (Required)
 
-- Used to identify the model
-- Recommend using a descriptive name
+- Identifies the model
+- Use a descriptive name
 
 **Model Icon** (Optional)
 
-- Click the icon selector to choose an icon
-- Supports built-in icon library
-- Supports uploading custom SVG icons
+- Choose an icon from the built-in library
+- You can also upload a custom SVG icon
 
 ### Step 3: Prepare Training Data
 
@@ -75,16 +74,15 @@ Training data is key to determining the model's recognition capability.
 
 **Data Format**:
 
-- One sample per line
-- Samples separated by line breaks
-- Supports any type of text content
+- Enter one sample per line
+- Samples can contain any text
 - Blank lines are ignored and duplicate samples are removed
 
 **Sample Quality Requirements**:
 
 - ✅ Samples should cover main text variations
 - ✅ Samples should include typical characteristics of this text type
-- ✅ Clean irrelevant content from samples
+- ✅ Remove irrelevant content from samples
 - ❌ Avoid providing identical samples
 - ❌ Avoid including erroneous or invalid samples
 
@@ -92,21 +90,21 @@ Training data is key to determining the model's recognition capability.
 
 #### Basic Parameters
 
-**Confidence Threshold** (0.01 - 0.99)
+**Confidence Threshold** (0.01–0.99)
 
 - Default: 0.5
-- Description: Model output confidence must meet or exceed this threshold to be judged as a match
-- Adjustment recommendations:
+- A model output must meet or exceed this value to count as a match
+- Adjust as needed:
   - Increase threshold → Stricter matching, reduces false positives
   - Decrease threshold → Looser matching, increases recognition rate
 
 ![TextGO classification model editor](/screenshots/en/classification-model-editor.png)
 
-## Use Classification Model
+## Use a Classification Model
 
-Trained models will automatically appear in the recognition type list:
+Trained models appear in the recognition type list:
 
 1. Open "Global Shortcuts"
 2. Add a new rule
-3. Select your trained model in "Recognition Type"
-4. Configure the corresponding action and save
+3. Select the trained model in "Recognition Type"
+4. Configure an action and save

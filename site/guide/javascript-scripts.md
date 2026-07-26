@@ -1,10 +1,10 @@
-# Execute JavaScript Scripts
+# Run JavaScript Scripts
 
-TextGO supports using JavaScript to write custom scripts for text processing. JavaScript scripts can perform various complex text transformation and processing operations, greatly extending TextGO's capabilities.
+Use JavaScript for custom text transformations, WebView APIs, and keyboard automation.
 
 ## Feature Overview
 
-JavaScript scripts allow you to:
+JavaScript scripts can:
 
 - Process selected text and clipboard content
 - Use WebView helpers or a configured Node.js/Deno runtime
@@ -12,22 +12,22 @@ JavaScript scripts allow you to:
 
 ## Runtime Environment
 
-TextGO runs JavaScript in the app's WebView by default. If you configure a custom Node.js or Deno executable in settings, TextGO uses that runtime instead; Node.js takes precedence when both paths are configured. Without a custom runtime, TextGO tries system Node.js and then Deno only when WebView execution fails.
+TextGO runs JavaScript in the app's WebView by default. If you configure a custom Node.js or Deno executable, TextGO uses that runtime instead. Node.js takes precedence when both paths are configured. Without a custom runtime, TextGO tries system Node.js and then Deno only if WebView execution fails.
 
 Scripts that reference `_keyboard` always run in the WebView because keyboard simulation is only available there.
 
-**Available Environments**:
+**Available environments:**
 
 - **WebView**: Default environment; standard WebView APIs such as `fetch` remain available, and TextGO adds `_` and `_keyboard`
 - **Node.js**: Used when its custom runtime path is configured
 - **Deno**: Used when its custom runtime path is configured
-- **System fallback**: After a WebView failure, tries Node.js first and then Deno when no custom runtime is configured
+- **System fallback**: If WebView execution fails and no custom runtime is configured, tries Node.js and then Deno
 
 You can configure custom runtime paths from the Script Execution options:
 
 ![TextGO script runtime options](/screenshots/en/script-runtime-options.png)
 
-## Create JavaScript Script
+## Create a JavaScript Script
 
 ### Step 1: Access Script Management
 
@@ -38,14 +38,13 @@ You can configure custom runtime paths from the Script Execution options:
 
 **Script Name** (Required)
 
-- Used to identify this script
-- Recommend using a descriptive name
+- Identifies the script
+- Use a descriptive name
 
 **Script Icon** (Optional)
 
-- Click the icon selector to choose an icon
-- Supports built-in icon library
-- Supports uploading custom SVG icons
+- Choose an icon from the built-in library
+- You can also upload a custom SVG icon
 
 **Script Type**
 
@@ -68,14 +67,14 @@ function process(data) {
 }
 ```
 
-**Parameter Description**:
+**Parameters:**
 
-- `data`: Object containing input data
+- `data`: Input object
   - `data.clipboard`: Current clipboard text content
   - `data.selection`: Selected text content
   - `data.datetime`: Execution time in ISO 8601 format
 
-**Return Value**:
+**Return value:**
 
 - Strings are returned directly; other serializable values are converted to JSON
 - WebView scripts may define `process` as an `async` function
@@ -100,7 +99,7 @@ _keyboard.press(modifiers, key);
 - `key`: A single character or a supported key name
 - `modifiers`: An array of modifier names
 
-Supported key names include `Enter`/`Return`, `Tab`, `Escape`/`Esc`, `Space`, `Backspace`, `Delete`/`Del`, arrow keys such as `ArrowUp`, `Home`, `End`, `PageUp`, `PageDown`, and `F1` through `F12`. Named keys and modifiers are case-insensitive.
+Supported key names include `Enter`/`Return`, `Tab`, `Escape`/`Esc`, `Space`, `Backspace`, `Delete`/`Del`, arrow keys such as `ArrowUp`, `Home`, `End`, `PageUp`, `PageDown`, and `F1` through `F12`. Key and modifier names are case-insensitive.
 
 Modifier aliases:
 
@@ -111,7 +110,7 @@ Modifier aliases:
 | Alt      | `Alt`, `Option`                                     |
 | Shift    | `Shift`                                             |
 
-For cross-platform shortcuts, join one Command alias and one Control alias with `Or`. The aliases may appear in either order. For example, `CmdOrCtrl`, `CommandOrControl`, and `ControlOrWindows` use Command on macOS and Control on Windows.
+For cross-platform shortcuts, join one Command alias and one Control alias with `Or`, in either order. For example, `CmdOrCtrl`, `CommandOrControl`, and `ControlOrWindows` use Command on macOS and Control on Windows.
 
 ```javascript
 function process(data) {
@@ -120,15 +119,15 @@ function process(data) {
 }
 ```
 
-Multiple calls are executed in order, and TextGO waits for the keyboard queue before completing the script. A failed key operation fails the script. Because keyboard actions have side effects, TextGO does not run these scripts to generate toolbar previews.
+TextGO executes multiple calls in order and waits for the keyboard queue before completing the script. A failed key operation fails the script. Because keyboard actions have side effects, these scripts do not generate toolbar previews.
 
-## Use JavaScript Script
+## Use a JavaScript Script
 
-After creating the script, you can use it in shortcut rules:
+After creating a script, add it to a shortcut rule:
 
 1. Open "Global Shortcuts"
 2. Add a new rule
-3. Select your created JavaScript script in "Execute Action"
+3. Select the JavaScript script in "Execute Action"
 4. Save the rule
 
 ## JavaScript Script Examples

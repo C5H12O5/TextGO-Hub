@@ -1,44 +1,44 @@
 # Write Regular Expressions
 
-In addition to machine learning models, TextGO also supports using regular expressions to precisely match text patterns. Regular expressions are suitable for matching text types with clear structures and rules.
+TextGO can use regular expressions to match text with a clear structure or pattern.
 
-## What is Regular Expression
+## What Is a Regular Expression?
 
-A regular expression (Regular Expression) is a powerful tool for matching string patterns. It uses special syntax to describe the structure and characteristics of text.
+A regular expression describes a text pattern with a compact, specialized syntax.
 
 ## When to Use Regular Expressions
 
 ### Suitable Scenarios for Regular Expressions
 
-✅ **Text with Clear Structure**
+✅ **Clearly Structured Text**
 
-- Including phone numbers, ID numbers, postal codes, etc.
+- Phone numbers, ID numbers, and postal codes
 - Specific format codes or numbers
-- Fixed format dates and times
+- Fixed-format dates and times
 
-✅ **Requires 100% Accuracy**
+✅ **Deterministic Matching**
 
-- Critical business domains like finance and healthcare
-- Scenarios requiring strict validation
+- Strictly defined business formats
+- Input that requires exact validation
 
 ✅ **Simple and Clear Patterns**
 
-- Cases that can be described with simple rules
-- Limited and controllable variation range
+- Patterns that simple rules can describe
+- Limited, predictable variations
 
 ### Unsuitable Scenarios for Regular Expressions
 
 ❌ **Fuzzy or Complex Patterns**
 
-- Requires understanding contextual semantics
-- Highly variable, difficult to enumerate all cases
+- Requires contextual understanding
+- Has too many variations to enumerate
 
 ❌ **Patterns That Need Learning**
 
 - No clear fixed rules
-- Needs to learn characteristics from many samples
+- Characteristics must be learned from samples
 
-## Create Regular Expression
+## Create a Regular Expression
 
 ### Step 1: Access Regex Management
 
@@ -49,14 +49,13 @@ A regular expression (Regular Expression) is a powerful tool for matching string
 
 **Regex Name** (Required)
 
-- Used to identify the regular expression
-- Recommend using a descriptive name
+- Identifies the regular expression
+- Use a descriptive name
 
 **Regex Icon** (Optional)
 
-- Click the icon selector to choose an icon
-- Supports built-in icon library
-- Supports uploading custom SVG icons
+- Choose an icon from the built-in library
+- You can also upload a custom SVG icon
 
 ### Step 3: Write Regular Expression
 
@@ -66,23 +65,23 @@ A regular expression (Regular Expression) is a powerful tool for matching string
 
 **Match Flags** (Optional)
 
-- `i`: Case insensitive match
-- `u`: Match with full unicode
-- `m`: ^ and $ match start/end of line
-- `s`: Dot matches newline
+- `i`: Case-insensitive matching
+- `u`: Full Unicode matching
+- `m`: `^` and `$` match the start and end of each line
+- `s`: Dot matches newline characters
 
-TextGO uses JavaScript regular expression semantics and considers the type matched when the pattern matches any part of the selected text. Add `^` and `$` when the entire selection must match.
+TextGO uses JavaScript regular expression semantics. A type matches when the pattern matches any part of the selected text. Add `^` and `$` when the entire selection must match.
 
 ![TextGO regular expression editor](/screenshots/en/regular-expression-editor.png)
 
-## Use Regular Expression
+## Use a Regular Expression
 
-Created regular expressions will automatically appear in the recognition type list:
+Saved regular expressions appear in the recognition type list:
 
 1. Open "Global Shortcuts"
 2. Add a new rule
-3. Select your created regular expression in "Recognition Type"
-4. Configure the corresponding action and save
+3. Select the saved regular expression in "Recognition Type"
+4. Configure an action and save
 
 ## Regular Expression Syntax
 
@@ -90,17 +89,17 @@ Created regular expressions will automatically appear in the recognition type li
 
 **Character Matching**
 
-| Syntax   | Description                | Example                    |
-| -------- | -------------------------- | -------------------------- |
-| `.`      | Match any single character | `a.c` matches `abc`, `a1c` |
-| `\d`     | Match digit (0-9)          | `\d{3}` matches `123`      |
-| `\D`     | Match non-digit            | `\D+` matches `abc`        |
-| `\w`     | Match word character       | `\w+` matches `hello_123`  |
-| `\W`     | Match non-word character   | `\W+` matches `@#$`        |
-| `\s`     | Match whitespace           | `\s+` matches space, tab   |
-| `\S`     | Match non-whitespace       | `\S+` matches `hello`      |
-| `[abc]`  | Match a or b or c          | `[0-9]` matches any digit  |
-| `[^abc]` | Not match a, b, c          | `[^0-9]` matches non-digit |
+| Syntax   | Description                            | Example                    |
+| -------- | -------------------------------------- | -------------------------- |
+| `.`      | Match any single character             | `a.c` matches `abc`, `a1c` |
+| `\d`     | Match a digit (0-9)                    | `\d{3}` matches `123`      |
+| `\D`     | Match a non-digit                      | `\D+` matches `abc`        |
+| `\w`     | Match a word character                 | `\w+` matches `hello_123`  |
+| `\W`     | Match a non-word character             | `\W+` matches `@#$`        |
+| `\s`     | Match whitespace                       | `\s+` matches space, tab   |
+| `\S`     | Match non-whitespace                   | `\S+` matches `hello`      |
+| `[abc]`  | Match `a`, `b`, or `c`                 | `[0-9]` matches any digit  |
+| `[^abc]` | Match anything except `a`, `b`, or `c` | `[^0-9]` matches non-digit |
 
 **Quantifiers**
 
@@ -115,20 +114,20 @@ Created regular expressions will automatically appear in the recognition type li
 
 **Position Matching**
 
-| Syntax | Description       | Example                           |
-| ------ | ----------------- | --------------------------------- |
-| `^`    | Start of string   | `^hello` must start with hello    |
-| `$`    | End of string     | `world$` must end with world      |
-| `\b`   | Word boundary     | `\bword\b` matches complete word  |
-| `\B`   | Non-word boundary | `\Bword` word inside another word |
+| Syntax | Description       | Example                                          |
+| ------ | ----------------- | ------------------------------------------------ |
+| `^`    | Start of string   | `^hello` matches `hello` at the start            |
+| `$`    | End of string     | `world$` matches `world` at the end              |
+| `\b`   | Word boundary     | `\bword\b` matches the whole word                |
+| `\B`   | Non-word boundary | `\Bword` matches without a leading word boundary |
 
 **Grouping and Alternation**
 
-| Syntax    | Description         | Example                           |
-| --------- | ------------------- | --------------------------------- |
-| `(abc)`   | Group               | `(ab)+` matches `ab`, `abab`      |
-| `a\|b`    | a or b              | `cat\|dog` matches cat or dog     |
-| `(?:abc)` | Non-capturing group | `(?:ab)+` matches but not capture |
+| Syntax    | Description         | Example                             |
+| --------- | ------------------- | ----------------------------------- |
+| `(abc)`   | Group               | `(ab)+` matches `ab`, `abab`        |
+| `a\|b`    | a or b              | `cat\|dog` matches cat or dog       |
+| `(?:abc)` | Non-capturing group | `(?:ab)+` matches without capturing |
 
 **Escape Characters**
 

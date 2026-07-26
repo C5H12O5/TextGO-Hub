@@ -28,7 +28,7 @@ Install TextGO, grant required permissions, and create your first shortcut.
 
 On macOS, TextGO needs the `Accessibility` permission to read selected text and simulate keyboard input.
 
-**Setup Steps**:
+**Setup steps:**
 
 1. Open "System Settings" > "Privacy & Security" > "Accessibility"
 2. Find TextGO and enable it
@@ -44,7 +44,7 @@ On macOS, TextGO needs the `Accessibility` permission to read selected text and 
 
 ### Windows
 
-Windows version requires no additional permission settings and is ready to use after installation.
+TextGO on Windows requires no additional permissions.
 
 ## First Launch
 
@@ -64,14 +64,14 @@ Windows version requires no additional permission settings and is ready to use a
 ## Basic Usage
 
 1. Open the main window
-2. Click the `"Register Shortcut"` button
-3. Select `"Double-Click"` or `"Drag-Select"`
-4. Use the default `"Toolbar Mode"` for execution mode
-5. Click the `"+"` button in the rules list to add a new rule
+2. Click **Register Shortcut**
+3. Select **Double-Click** or **Drag-Select**
+4. Keep the default **Toolbar Mode**
+5. Click **+** in the rules list to add a rule
 6. Select recognition type and execution action
-7. Click `"Confirm"` to save the configuration
+7. Click **Confirm** to save
 
-Now, after double-clicking or dragging to select text, a floating toolbar will appear where you can select preset actions to process the text.
+Double-click or drag to select text. The floating toolbar then lets you choose a preset action.
 
 ![TextGO shortcut trigger menu](/screenshots/en/shortcut-trigger-menu.png)
 
@@ -83,14 +83,14 @@ Rules with "Save result to history" enabled store their results in the history w
 
 ### Execution Modes
 
-- **Quiet Mode**: Execute action immediately after selecting text, suitable for simple conversion operations
-- **Toolbar Mode**: Display floating toolbar for selection, suitable for scenarios requiring multiple actions
+- **Quiet Mode**: Runs an action immediately after text selection; ideal for simple conversions
+- **Toolbar Mode**: Shows a floating toolbar for choosing from multiple actions
 
 ### Output Modes
 
-- **Replace**: Directly replace the selected text when the action returns a result
-- **Popup**: Display the result in a popup window for further editing or copying
-- **No visual output**: Leave both options unselected; the result can still be copied to the clipboard
+- **Replace**: Replaces the selected text with the result
+- **Popup**: Shows the result for further editing or copying
+- **No visual output**: Leaves both options unselected; the result can still be copied to the clipboard
 
 Available output options depend on the action. AI actions always open a popup, while actions such as web search, copy, cut, and paste do not return text results.
 
@@ -104,7 +104,5 @@ The settings pages provide detailed controls for the toolbar, text selection, mo
 
 ## Get Help
 
-If you encounter issues or need assistance:
-
 - Check the [FAQ](./faq.md)
-- Submit issues on [GitHub Issues](https://github.com/C5H12O5/TextGO/issues)
+- Report a problem on [GitHub Issues](https://github.com/C5H12O5/TextGO/issues)

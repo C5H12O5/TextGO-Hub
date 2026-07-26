@@ -1,13 +1,13 @@
 # FAQ
 
-This page collects common questions and solutions for using TextGO.
+Find solutions to common TextGO issues below.
 
 <details class="faq-item">
-<summary>1. macOS shows "App is damaged and can't be opened."</summary>
+<summary>1. macOS says the app is damaged and cannot be opened.</summary>
 
 <br>
 
-_Run the following command in the terminal to resolve:_
+_Run this command in Terminal:_
 
 ```bash
 sudo xattr -r -d com.apple.quarantine /Applications/TextGO.app
@@ -16,11 +16,11 @@ sudo xattr -r -d com.apple.quarantine /Applications/TextGO.app
 </details>
 
 <details class="faq-item">
-<summary>2. macOS shows "Apple can't check app for malicious software."</summary>
+<summary>2. macOS says Apple cannot check the app for malicious software.</summary>
 
 <br>
 
-_Follow these steps to resolve:_
+_Follow these steps:_
 
 1. Open "System Settings" > "Privacy & Security"
 2. Find the blocked application in the "Security" section
@@ -30,13 +30,13 @@ _Follow these steps to resolve:_
 </details>
 
 <details class="faq-item">
-<summary>3. macOS accessibility permission not working after update.</summary>
+<summary>3. Accessibility permission stops working after a macOS update.</summary>
 
 <br>
 
-_TextGO is not a signed app, so macOS binds the accessibility permission to the current binary. After each update, the new binary has a different identity, and the permission no longer applies — even though it still appears checked in System Settings._
+_TextGO is unsigned, so macOS binds Accessibility permission to its current binary. An update changes the binary identity and invalidates the permission, even if System Settings still shows it as enabled._
 
-_To fix this:_
+_To restore permission:_
 
 1. Open "System Settings" > "Privacy & Security" > "Accessibility"
 2. Select TextGO from the list and remove it with the "−" button

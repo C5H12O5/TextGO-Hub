@@ -1,10 +1,10 @@
 # 执行 JavaScript 脚本
 
-TextGO 支持使用 JavaScript 编写自定义脚本来处理文本。JavaScript 脚本可以执行各种复杂的文本转换和处理操作，极大地扩展 TextGO 的功能。
+使用 JavaScript 可以自定义文本转换、调用 WebView API，并模拟键盘输入。
 
 ## 功能概述
 
-JavaScript 脚本允许你：
+JavaScript 脚本可以：
 
 - 处理选中文本和剪贴板内容
 - 使用 WebView 辅助 API 或配置的 Node.js/Deno 运行时
@@ -12,7 +12,7 @@ JavaScript 脚本允许你：
 
 ## 运行环境
 
-TextGO 默认在应用的 WebView 中运行 JavaScript。若在设置中配置了自定义 Node.js 或 Deno 可执行文件，TextGO 会改用对应运行时；两者都配置时优先使用 Node.js。未配置自定义运行时时，仅当 WebView 执行失败后，TextGO 才会依次尝试系统中的 Node.js 和 Deno。
+TextGO 默认在应用的 WebView 中运行 JavaScript。若配置了自定义 Node.js 或 Deno 可执行文件，TextGO 会改用对应运行时。两者均已配置时，优先使用 Node.js。若未配置自定义运行时，仅在 WebView 执行失败后依次尝试系统中的 Node.js 和 Deno。
 
 引用 `_keyboard` 的脚本始终在 WebView 中运行，因为按键模拟 API 仅在该环境中可用。
 
@@ -23,7 +23,7 @@ TextGO 默认在应用的 WebView 中运行 JavaScript。若在设置中配置�
 - **Deno**：配置其自定义运行时路径后使用
 - **系统回退**：未配置自定义运行时时，在 WebView 失败后先尝试 Node.js，再尝试 Deno
 
-可以在“执行脚本”选项中配置自定义运行时路径：
+在“执行脚本”选项中配置自定义运行时路径：
 
 ![TextGO 脚本运行时选项](/screenshots/zh-CN/script-runtime-options.png)
 
@@ -31,21 +31,20 @@ TextGO 默认在应用的 WebView 中运行 JavaScript。若在设置中配置�
 
 ### 步骤 1：进入脚本管理
 
-1. 打开"设置" > "执行脚本"
-2. 点击"+"号添加新脚本
+1. 打开“设置”>“执行脚本”
+2. 点击“+”按钮添加脚本
 
 ### 步骤 2：基本信息
 
 **脚本名称**（必填）
 
-- 用于标识这个脚本
+- 标识脚本
 - 建议使用描述性的名称
 
 **脚本图标**（可选）
 
-- 点击图标选择器选择图标
-- 支持内置图标库
-- 支持上传自定义 SVG 图标
+- 从内置图标库中选择图标
+- 也可以上传自定义 SVG 图标
 
 **脚本类型**
 
@@ -70,7 +69,7 @@ function process(data) {
 
 **参数说明**：
 
-- `data`：包含输入数据的对象
+- `data`：输入数据对象
   - `data.clipboard`：当前剪贴板的文本内容
   - `data.selection`：选中的文本内容
   - `data.datetime`：ISO 8601 格式的执行时间
@@ -83,7 +82,7 @@ function process(data) {
 
 ## WebView API
 
-WebView 脚本可以使用以下预定义全局变量：
+WebView 脚本可使用以下预定义全局变量：
 
 - `_`：`es-toolkit` 提供的工具函数
 - `_keyboard`：按键模拟 API
@@ -111,7 +110,7 @@ _keyboard.press(modifiers, key);
 | Alt     | `Alt`、`Option`                                     |
 | Shift   | `Shift`                                             |
 
-编写跨平台快捷键时，可以使用 `Or` 连接一个 Command 别名和一个 Control 别名，顺序也可以互换。例如 `CmdOrCtrl`、`CommandOrControl` 和 `ControlOrWindows` 在 macOS 上使用 Command，在 Windows 上使用 Control。
+编写跨平台快捷键时，使用 `Or` 连接一个 Command 别名和一个 Control 别名，顺序不限。例如，`CmdOrCtrl`、`CommandOrControl` 和 `ControlOrWindows` 在 macOS 上使用 Command，在 Windows 上使用 Control。
 
 ```javascript
 function process(data) {
@@ -120,15 +119,15 @@ function process(data) {
 }
 ```
 
-多次调用会按顺序执行，TextGO 会等待按键队列完成后再结束脚本；任一按键操作失败都会使脚本执行失败。由于按键操作具有副作用，TextGO 不会执行这类脚本来生成工具栏预览。
+TextGO 会按顺序执行多次调用，并在按键队列完成后结束脚本。任一按键操作失败都会使脚本执行失败。由于按键操作具有副作用，这类脚本不会生成工具栏预览。
 
 ## 使用 JavaScript 脚本
 
-创建好脚本后，可以在快捷键规则中使用：
+创建脚本后，将其添加到快捷键规则：
 
-1. 打开"全局快捷键"
+1. 打开“全局快捷键”
 2. 添加一条新规则
-3. 在"执行动作"中选择你创建的 JavaScript 脚本
+3. 在“执行动作”中选择创建的 JavaScript 脚本
 4. 保存规则
 
 ## JavaScript 脚本示例

@@ -1,15 +1,15 @@
-# Call LLM API
+# Call an LLM API
 
-TextGO supports calling AI models to process text, including both local and cloud AI platforms. You can accomplish various text processing tasks like translation, rewriting, summarization, Q&A, and more.
+TextGO connects to local and cloud AI models for translation, rewriting, summarization, Q&A, and other text-processing tasks.
 
 ## Feature Overview
 
-AI actions allow you to:
+AI actions can:
 
 - Use local or cloud AI models to process text
 - Create custom prompt templates
 
-Supported platforms:
+Supported providers:
 
 **Local:**
 
@@ -24,13 +24,13 @@ Supported platforms:
 - [Google Gemini](https://gemini.google.com/)
 - [xAI](https://x.ai/)
 
-You can also add custom OpenAI-compatible providers with a provider name, base URL, and API key.
+You can also add OpenAI-compatible providers by entering a name, base URL, and API key.
 
 Configure local service addresses, cloud API keys, and custom providers from the model provider options:
 
 ![TextGO model provider options](/screenshots/en/model-provider-options.png)
 
-## Create AI Action
+## Create an AI Action
 
 ### Step 1: Access AI Conversation Configuration
 
@@ -41,40 +41,39 @@ Configure local service addresses, cloud API keys, and custom providers from the
 
 **Action Name** (Required)
 
-- Used to identify this AI action
-- Recommended to use descriptive names
+- Identifies the AI action
+- Use a descriptive name
 
 **Action Icon** (Optional)
 
-- Click the icon selector to choose an icon
-- Supports built-in icon library
-- Supports uploading custom SVG icons
+- Choose an icon from the built-in library
+- You can also upload a custom SVG icon
 
-### Step 3: Create Prompt Template
+### Step 3: Create a Prompt Template
 
 The prompt determines how AI processes your text.
 
-**Variable Description**:
+**Variables:**
 
 - {&#123;selection&#125;}: Selected text
 - {&#123;clipboard&#125;}: Clipboard content
 - {&#123;datetime&#125;}: Execution time in ISO 8601 format
 
-**Configure System Prompt (Optional)**:
+**System prompt (optional):**
 
-The system prompt is used to set the AI's role and behavior.
+Use the system prompt to define the AI's role and behavior.
 
-The "More Options" section also supports maximum tokens, temperature, and top-p.
+**More Options** includes maximum tokens, temperature, and top-p.
 
 ![TextGO AI prompt editor](/screenshots/en/ai-prompt-editor.png)
 
-## Use AI Action
+## Use an AI Action
 
-After creating the prompt template, you can use it in shortcut rules:
+After creating a prompt template, add it to a shortcut rule:
 
 1. Open "Global Shortcuts"
 2. Add a new rule
-3. Select your created AI conversation action in "Execute Action"
+3. Select the AI conversation action in "Execute Action"
 4. Save the rule
 
 AI actions always open the result in a popup, where the conversation can continue.
