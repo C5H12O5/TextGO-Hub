@@ -1,16 +1,16 @@
 # TextGO Hub
 
-This repository contains the official website, documentation, and extensions for [**TextGO**](https://github.com/C5H12O5/TextGO).
+This repository hosts the official website, documentation, and extensions for [**TextGO**](https://github.com/C5H12O5/TextGO).
 
 ## About TextGO
 
-TextGO is a cross-platform desktop app that recognizes and processes selected text. Select text in any app, then trigger preset actions using hotkeys, double-click, shift-click, or drag-select.
+TextGO is a cross-platform text processing tool that recognizes text types and runs custom actions.
 
 ## What's Inside
 
-- **Official Website**: Landing page and project overview
-- **Documentation**: TextGO guides and tutorials
-- **Extensions**: Extensions that add TextGO functionality
+- **Official Website**: Product homepage and overview
+- **Documentation**: Guides and tutorials
+- **Extensions**: Add-ons that extend TextGO
 
 ## Contributing
 
@@ -18,4 +18,4 @@ Contributions are welcome, including documentation improvements, typo fixes, and
 
 ## License
 
-This project is released under the [MIT](LICENSE) open source license.
+This project is licensed under the [MIT License](LICENSE).
