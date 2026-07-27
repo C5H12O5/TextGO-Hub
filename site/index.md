@@ -21,7 +21,7 @@ hero:
 
 features:
   - title: Multiple Triggers
-    details: Hotkeys, double-click, Shift-click, or drag-select, each with independent rule configurations.
+    details: Hotkeys, double-click, shift-click, or drag-select, each with independent rule configurations.
   - title: Flexible Modes
     details: Choose instant execution or interactive toolbar mode based on your workflow.
   - title: Customizable Icons

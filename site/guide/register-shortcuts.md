@@ -1,6 +1,6 @@
 # Register Shortcuts
 
-TextGO supports drag-select, double-click, Shift-click, and keyboard triggers. Each trigger has its own rules.
+TextGO supports drag-select, double-click, shift-click, and keyboard triggers. Each trigger has its own rules.
 
 ## Add Shortcuts
 
