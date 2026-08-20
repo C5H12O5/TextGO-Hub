@@ -36,6 +36,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Register Shortcuts', link: '/guide/register-shortcuts' },
+          { text: 'Appearance and Themes', link: '/guide/appearance' },
           {
             text: 'Custom Recognitions',
             items: [

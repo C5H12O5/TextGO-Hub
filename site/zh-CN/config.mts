@@ -23,6 +23,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: '注册快捷键', link: '/zh-CN/guide/register-shortcuts' },
+          { text: '外观与主题', link: '/zh-CN/guide/appearance' },
           {
             text: '自定义识别类型',
             items: [

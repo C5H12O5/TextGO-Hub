@@ -24,8 +24,8 @@ features:
     details: Hotkeys, double-click, shift-click, or drag-select, each with independent rule configurations.
   - title: Flexible Modes
     details: Choose instant execution or interactive toolbar mode based on your workflow.
-  - title: Customizable Icons
-    details: Upload custom SVG icons to create your personalized toolbar style.
+  - title: Customizable Appearance
+    details: Use custom SVG toolbar icons and customize light and dark themes separately.
   - title: Ready to Use
     details: Built-in rich text types and processing actions, simple configuration for immediate use.
   - title: Highly Extensible

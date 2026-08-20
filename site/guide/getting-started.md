@@ -71,16 +71,6 @@ TextGO on Windows requires no additional permissions.
 6. Select recognition type and execution action
 7. Click **Confirm** to save
 
-Double-click or drag to select text. The floating toolbar then lets you choose a preset action.
-
-![TextGO shortcut trigger menu](/screenshots/en/shortcut-trigger-menu.png)
-
-Rules with "Save result to history" enabled store their results in the history window:
-
-![TextGO history window](/screenshots/en/history-window.png)
-
-## Configuration
-
 ### Execution Modes
 
 - **Quiet Mode**: Runs an action immediately after text selection; ideal for simple conversions
@@ -94,13 +84,25 @@ Rules with "Save result to history" enabled store their results in the history w
 
 Available output options depend on the action. AI actions always open a popup, while actions such as web search, copy, cut, and paste do not return text results.
 
-The settings pages provide detailed controls for the toolbar, text selection, mouse triggers, appearance, and app behavior:
+Double-click or drag to select text. The floating toolbar then lets you choose a preset action.
 
-![TextGO display settings](/screenshots/en/display-settings.png)
+![TextGO shortcut trigger menu](/screenshots/en/shortcut-trigger-menu.png)
 
-![TextGO mouse settings](/screenshots/en/mouse-settings.png)
+Rules with "Save result to history" enabled store their results in the history window:
 
-![TextGO general settings](/screenshots/en/general-settings.png)
+![TextGO history window](/screenshots/en/history-window.png)
+
+## Settings Overview
+
+The settings pages group related options:
+
+- **Custom Recognitions**: Manage classification models and regular expressions
+- **Custom Actions**: Configure AI conversations, script execution, and web searches
+- **Display Settings**: Adjust the toolbar and popup appearance and behavior
+- **Mouse Settings**: Configure text selection, cursor behavior, and long-press triggers
+- **General Settings**: Set the language, [theme](./appearance.md), history retention, behavior, and permissions
+
+Use the buttons in the upper right corner to import or export all settings. Click the version number in the lower left corner to check for updates and install a newer version.
 
 ## Get Help
 

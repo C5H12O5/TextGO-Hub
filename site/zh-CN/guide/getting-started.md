@@ -71,16 +71,6 @@ Windows 版本无需额外权限设置，安装后即可使用。
 6. 选择识别类型和执行动作
 7. 点击“确定”保存
 
-双击或拖拽选中文本后，浮动工具栏会随即出现。选择预设动作即可处理文本。
-
-![TextGO 快捷键触发方式菜单](/screenshots/zh-CN/shortcut-trigger-menu.png)
-
-开启“将执行结果保存到历史记录”的规则，会将结果保存在历史记录窗口中：
-
-![TextGO 历史记录窗口](/screenshots/zh-CN/history-window.png)
-
-## 配置说明
-
 ### 执行模式
 
 - **静默模式**：选中文本后立即执行动作，适合简单转换操作
@@ -94,13 +84,25 @@ Windows 版本无需额外权限设置，安装后即可使用。
 
 可选的输出方式取决于动作类型。AI 动作始终使用弹窗，网页搜索、复制、剪切和粘贴等动作不返回文本结果。
 
-设置页面还可以调整工具栏、文本选择、鼠标触发方式、外观及应用行为：
+双击或拖拽选中文本后，浮动工具栏会随即出现。选择预设动作即可处理文本。
 
-![TextGO 显示设置](/screenshots/zh-CN/display-settings.png)
+![TextGO 快捷键触发方式菜单](/screenshots/zh-CN/shortcut-trigger-menu.png)
 
-![TextGO 鼠标设置](/screenshots/zh-CN/mouse-settings.png)
+开启“将执行结果保存到历史记录”的规则，会将结果保存在历史记录窗口中：
 
-![TextGO 常规设置](/screenshots/zh-CN/general-settings.png)
+![TextGO 历史记录窗口](/screenshots/zh-CN/history-window.png)
+
+## 设置说明
+
+设置页面按功能分为：
+
+- **自定义识别类型**：管理分类模型和正则表达式
+- **自定义执行动作**：配置 AI 对话、脚本执行和网页搜索
+- **显示设置**：调整工具栏和弹窗的外观与行为
+- **鼠标设置**：配置划词、指针和长按触发
+- **常规设置**：设置语言、[主题](./appearance.md)、历史记录、行为与权限
+
+右上角可导入或导出全部设置。点击左下角的版本号可检查更新，并在有新版本时下载安装。
 
 ## 获取帮助
 
