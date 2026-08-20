@@ -14,42 +14,7 @@
 
 ## 提交 Issue
 
-提交前请先搜索现有 Issues，避免重复。
-
-### 1. 报告 Bug
-
-使用以下模板在 [GitHub Issues](https://github.com/C5H12O5/TextGO/issues) 提交 Bug 报告：
-
-```markdown
-**问题描述**
-简要描述问题
-
-**复现步骤**
-提供复现步骤
-
-**系统信息**
-
-- 系统：[例如 macOS 26]
-- 版本：[例如 v1.0.0]
-
-**截屏（可选）**
-附上截图或录屏
-```
-
-### 2. 功能建议
-
-使用以下模板在 [GitHub Issues](https://github.com/C5H12O5/TextGO/issues) 提交功能建议：
-
-```markdown
-**希望添加什么功能？**
-清晰描述你想要的功能
-
-**为什么需要这个功能？**
-说明该功能的必要性
-
-**补充说明（可选）**
-提供任何额外信息
-```
+提交前请先搜索[现有 Issue](https://github.com/C5H12O5/TextGO/issues)，避免重复。创建 Issue 时请选择合适的[模板](https://github.com/C5H12O5/TextGO/issues/new/choose)，并按提示填写信息。
 
 ## 提交 Pull Request
 

@@ -14,42 +14,7 @@ Thank you for contributing to TextGO. This guide explains how to get involved.
 
 ## Submit an Issue
 
-Search existing issues before submitting a new one.
-
-### 1. Report Bugs
-
-Use this template to report a bug on [GitHub Issues](https://github.com/C5H12O5/TextGO/issues):
-
-```markdown
-**Describe the bug**
-Briefly describe the problem.
-
-**To Reproduce**
-List the steps to reproduce it.
-
-**Environment**
-
-- OS: [e.g., macOS 26]
-- Version: [e.g., v1.0.0]
-
-**Screenshots (optional)**
-Attach screenshots or recordings.
-```
-
-### 2. Feature Suggestions
-
-Use this template to suggest a feature on [GitHub Issues](https://github.com/C5H12O5/TextGO/issues):
-
-```markdown
-**What feature would you like to add?**
-Clearly describe the feature.
-
-**Why do you need this feature?**
-Explain why it would be useful.
-
-**Additional context (optional)**
-Provide any other relevant information.
-```
+Search [existing issues](https://github.com/C5H12O5/TextGO/issues) before submitting to avoid duplicates. When creating an issue, choose the appropriate [template](https://github.com/C5H12O5/TextGO/issues/new/choose) and provide the requested information.
 
 ## Submit a Pull Request
 
