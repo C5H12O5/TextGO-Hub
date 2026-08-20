@@ -47,28 +47,28 @@ A regular expression describes a text pattern with a compact, specialized syntax
 
 ### Step 2: Basic Information
 
-**Regex Name** (Required)
+**Type Name** (Required)
 
 - Identifies the regular expression
 - Use a descriptive name
 
-**Regex Icon** (Optional)
+**Change Icon** (Optional)
 
-- Choose an icon from the built-in library
-- You can also upload a custom SVG icon
+- Click the current icon to open the "Change Icon" dialog
+- Select from "Built-in Icons" or use "Upload Custom SVG"
 
 ### Step 3: Write Regular Expression
 
-**Regex Pattern** (Required)
+**Regular Expression** (Required)
 
-- Enter the regular expression pattern
+- Enter a regular expression to match the type
 
-**Match Flags** (Optional)
+**Match Options** (Optional)
 
-- `i`: Case-insensitive matching
-- `u`: Enables Unicode-aware matching
-- `m`: `^` and `$` match the start and end of each line
-- `s`: Dot matches newline characters
+- `i` (**insensitive**): Case-insensitive matching
+- `u` (**unicode**): Enable Unicode-aware matching
+- `m` (**multiline**): `^` and `$` match at line boundaries
+- `s` (**single line**): Dot matches line terminators
 
 TextGO uses JavaScript regular expression semantics. A type matches when the pattern matches any part of the selected text. Add `^` and `$` when the entire selection must match.
 
