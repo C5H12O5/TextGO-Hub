@@ -4,7 +4,7 @@ layout: home
 hero:
   name: TextGO
   text: 全能文本处理工具
-  tagline: 选中文本后立即执行动作，或从浮动工具栏中选择
+  tagline: 让每一次选中，都直达所需动作
   image:
     src: /icon_512x512.png
     alt: TextGO

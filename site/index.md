@@ -4,7 +4,7 @@ layout: home
 hero:
   name: TextGO
   text: All-in-One Text Tool
-  tagline: Select text and run custom actions instantly or from a toolbar
+  tagline: Turn every selection into the action you need
   image:
     src: /icon_512x512.png
     alt: TextGO
