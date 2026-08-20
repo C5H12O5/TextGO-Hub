@@ -40,7 +40,7 @@ export default defineConfig({
           {
             text: 'Custom Recognitions',
             items: [
-              { text: 'Machine Learning Models', link: '/guide/train-models' },
+              { text: 'Classification Models', link: '/guide/train-models' },
               { text: 'Regular Expressions', link: '/guide/write-regexps' }
             ]
           },
@@ -48,7 +48,7 @@ export default defineConfig({
             text: 'Custom Actions',
             items: [
               { text: 'Web Search', link: '/guide/web-search' },
-              { text: 'Call LLM API', link: '/guide/llm-api' },
+              { text: 'Call an LLM API', link: '/guide/llm-api' },
               { text: 'JavaScript Scripts', link: '/guide/javascript-scripts' },
               { text: 'Python Scripts', link: '/guide/python-scripts' },
               { text: 'Shell Scripts', link: '/guide/shell-scripts' }
@@ -75,7 +75,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the <a href="https://github.com/C5H12O5/TextGO/blob/main/LICENSE">GPLv3</a> License.',
-      copyright: 'Copyright © 2025-present <a href="https://github.com/C5H12O5">C5H12O5</a>'
+      copyright: 'Copyright © 2025–present <a href="https://github.com/C5H12O5">C5H12O5</a>'
     },
 
     lastUpdated: {

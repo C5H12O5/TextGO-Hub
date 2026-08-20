@@ -14,7 +14,7 @@ export default defineConfig({
         text: '简介',
         collapsed: false,
         items: [
-          { text: '什么是 TextGO?', link: '/zh-CN/guide/what-is-textgo' },
+          { text: '什么是 TextGO？', link: '/zh-CN/guide/what-is-textgo' },
           { text: '快速开始', link: '/zh-CN/guide/getting-started' }
         ]
       },
@@ -25,14 +25,14 @@ export default defineConfig({
           { text: '注册快捷键', link: '/zh-CN/guide/register-shortcuts' },
           { text: '外观与主题', link: '/zh-CN/guide/appearance' },
           {
-            text: '自定义识别类型',
+            text: '自定义识别',
             items: [
-              { text: '机器学习模型', link: '/zh-CN/guide/train-models' },
+              { text: '分类模型', link: '/zh-CN/guide/train-models' },
               { text: '正则表达式', link: '/zh-CN/guide/write-regexps' }
             ]
           },
           {
-            text: '自定义执行动作',
+            text: '自定义动作',
             items: [
               { text: '网页搜索', link: '/zh-CN/guide/web-search' },
               { text: '调用 LLM API', link: '/zh-CN/guide/llm-api' },
@@ -84,7 +84,7 @@ export default defineConfig({
 
     footer: {
       message: '基于 <a href="https://github.com/C5H12O5/TextGO/blob/main/LICENSE">GPLv3</a> 开源协议发布',
-      copyright: '版权所有 © 2025-至今 <a href="https://github.com/C5H12O5">C5H12O5</a>'
+      copyright: '版权所有 © 2025 至今 <a href="https://github.com/C5H12O5">C5H12O5</a>'
     },
 
     docFooter: {

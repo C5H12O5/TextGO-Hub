@@ -7,7 +7,7 @@
 JavaScript 脚本可以：
 
 - 处理选中文本和剪贴板内容
-- 使用 WebView 辅助 API 或配置的 Node.js/Deno 运行时
+- 使用 WebView 辅助 API 或配置的 Node.js 或 Deno 运行时
 - 模拟按键和跨平台键盘快捷键
 
 ## 运行环境

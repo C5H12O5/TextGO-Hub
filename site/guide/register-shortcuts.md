@@ -6,7 +6,7 @@ TextGO supports drag-select, double-click, shift-click, and keyboard triggers. E
 
 ### Step 1: Access Shortcut Settings
 
-1. Click the system tray icon
+1. Click the TextGO icon in the macOS menu bar or Windows system tray
 2. Select "Manage Shortcuts"
 3. Click the "Register Shortcut" button in the upper right corner
 
@@ -43,7 +43,7 @@ Matches all text without recognition.
 **Custom Types**
 
 - Regular Expression: Match specific text using custom regular expressions
-- Machine Learning Model: Classify text using trained machine learning models
+- Classification Model: Classify text using trained machine learning models
 
 #### 2. Execute Action
 
@@ -66,7 +66,7 @@ Select the action to execute after text recognition:
 
 **Toolbar Display**
 
-- Choose whether the toolbar shows an icon or label
+- Choose whether the toolbar shows an icon, a label, or both
 - Choose whether the toolbar shows execution results
 
 **Execution Result**
@@ -97,7 +97,7 @@ Use the blacklist to prevent TextGO shortcuts from triggering in specified appli
 Select a rule, then use the up and down arrows to change its order:
 
 1. In quiet mode, rules are matched sequentially from top to bottom
-2. In toolbar mode, rules are displayed in the toolbar from top to bottom
+2. In toolbar mode, matching rules are displayed in the toolbar from top to bottom
 
 ## Switch Execution Mode
 
@@ -113,7 +113,7 @@ When triggered after text selection, the **action runs immediately**.
 - Well suited to deterministic tasks
 - Skips the toolbar; configured popup output may still appear
 
-**Applicable Scenarios**:
+**Use Cases**:
 
 - Simple conversions, such as changing naming styles
 - Direct actions, such as opening URLs or copying text
@@ -129,7 +129,7 @@ When triggered after text selection, a **floating toolbar appears** for choosing
 - Offers multiple processing methods
 - Can preview supported action results as toolbar labels
 
-**Applicable Scenarios**:
+**Use Cases**:
 
 - The same text may need different processing methods
 - You want to preview results before choosing

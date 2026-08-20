@@ -7,7 +7,7 @@ Use JavaScript for custom text transformations, WebView APIs, and keyboard autom
 JavaScript scripts can:
 
 - Process selected text and clipboard content
-- Use WebView helpers or a configured Node.js/Deno runtime
+- Use WebView helpers or a configured Node.js or Deno runtime
 - Simulate keys and cross-platform keyboard shortcuts
 
 ## Runtime Environment

@@ -52,14 +52,14 @@ TextGO on Windows requires no additional permissions.
    - macOS: Launch from Launchpad or Applications folder
    - Windows: Launch from Start menu or desktop shortcut
 
-2. **System Tray**
+2. **Menu Bar or System Tray**
 
-   After launch, the app icon will appear in the system tray. Use the tray menu to:
-   - Show main window
-   - Manage shortcuts
-   - View history
-   - Open settings
-   - Quit the app
+   After launch, the app icon appears in the macOS menu bar or Windows system tray. The menu provides:
+   - Open TextGO
+   - Manage Shortcuts
+   - View History
+   - Settings...
+   - Quit
 
 ## Basic Usage
 

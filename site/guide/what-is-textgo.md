@@ -40,7 +40,7 @@ TextGO follows this workflow:
 - Look up definitions and references
 - AI-assisted translation, rewriting, and polishing
 
-### Programming Development
+### Software Development
 
 - Convert naming styles
 - Format or transform code snippets with scripts

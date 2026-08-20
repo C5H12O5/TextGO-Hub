@@ -26,6 +26,7 @@
 # Fork 项目后，克隆你的仓库
 git clone https://github.com/YOUR_USERNAME/TextGO.git
 cd TextGO
+git remote add upstream https://github.com/C5H12O5/TextGO.git
 
 # 安装依赖
 pnpm install
@@ -58,8 +59,8 @@ git checkout -b feature/my-new-feature  # 或 fix/bug-description
 
 **代码规范：**
 
-- TypeScript：遵循 Prettier 和 ESLint 规则，运行 `pnpm lint`
-- Rust：使用 `cargo fmt` 格式化，使用 `cargo clippy` 检查
+- 前端：运行 `pnpm check` 和 `pnpm lint`
+- Rust：运行 `cargo fmt --manifest-path ./src-tauri/Cargo.toml` 和 `cargo clippy --manifest-path ./src-tauri/Cargo.toml -- -D warnings`
 
 ### 4. 提交更改
 
@@ -81,6 +82,8 @@ git push origin feature/my-new-feature
 在 GitHub 上创建 PR，说明更改内容和原因；如有相关 Issue，请引用编号。
 
 ## 文档贡献
+
+文档维护在 [TextGO Hub](https://github.com/C5H12O5/TextGO-Hub) 仓库中。进行以下修改前，请先 Fork 并克隆该仓库。
 
 ### 改进现有文档
 

@@ -9,7 +9,7 @@ AI actions can:
 - Use local or cloud AI models to process text
 - Create custom prompt templates
 
-Supported providers:
+Supported model providers:
 
 **Local:**
 

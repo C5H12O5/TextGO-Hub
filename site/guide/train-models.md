@@ -27,7 +27,7 @@ TextGO uses **TensorFlow.js** to train and run models locally in the app's WebVi
 
 ✅ **Some Misclassification Is Acceptable**
 
-- Can tolerate a small amount of misclassification
+- Workflows can tolerate occasional misclassification
 - Suitable for fuzzy matching
 
 ### Unsuitable Scenarios for Models
@@ -42,9 +42,8 @@ TextGO uses **TensorFlow.js** to train and run models locally in the app's WebVi
 - Fewer than 3 valid unique samples cannot be used for training
 - Samples do not cover the main variations
 
-❌ **Zero Errors Are Acceptable**
+❌ **Misclassification Is Unacceptable**
 
-- Cannot tolerate any misclassification
 - Workflows with strict accuracy requirements
 
 ## Create a Classification Model
@@ -106,5 +105,5 @@ Trained models appear in the recognition type list:
 
 1. Open "Global Shortcuts"
 2. Add a new rule
-3. Select the trained model in "Recognition Type"
+3. Select the trained model in "Recognize Type"
 4. Configure an action and save

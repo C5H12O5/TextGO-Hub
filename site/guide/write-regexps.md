@@ -66,7 +66,7 @@ A regular expression describes a text pattern with a compact, specialized syntax
 **Match Flags** (Optional)
 
 - `i`: Case-insensitive matching
-- `u`: Full Unicode matching
+- `u`: Enables Unicode-aware matching
 - `m`: `^` and `$` match the start and end of each line
 - `s`: Dot matches newline characters
 
@@ -80,7 +80,7 @@ Saved regular expressions appear in the recognition type list:
 
 1. Open "Global Shortcuts"
 2. Add a new rule
-3. Select the saved regular expression in "Recognition Type"
+3. Select the saved regular expression in "Recognize Type"
 4. Configure an action and save
 
 ## Regular Expression Syntax

@@ -27,7 +27,7 @@ features:
   - title: Customizable Appearance
     details: Use custom SVG toolbar icons and customize light and dark themes separately.
   - title: Ready to Use
-    details: Built-in rich text types and processing actions, simple configuration for immediate use.
+    details: A rich set of built-in text types and processing actions, ready to use with minimal configuration.
   - title: Highly Extensible
     details: Extend with regex, ML models, scripts, or local/cloud AI for custom recognition and processing.
   - title: Cross-Platform

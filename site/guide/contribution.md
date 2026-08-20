@@ -26,6 +26,7 @@ Search [existing issues](https://github.com/C5H12O5/TextGO/issues) before submit
 # After forking the project, clone your repository
 git clone https://github.com/YOUR_USERNAME/TextGO.git
 cd TextGO
+git remote add upstream https://github.com/C5H12O5/TextGO.git
 
 # Install dependencies
 pnpm install
@@ -58,8 +59,8 @@ git checkout -b feature/my-new-feature  # or fix/bug-description
 
 **Code standards:**
 
-- TypeScript: Follow the Prettier and ESLint rules; run `pnpm lint`
-- Rust: Format with `cargo fmt` and check with `cargo clippy`
+- Frontend: Run `pnpm check` and `pnpm lint`
+- Rust: Run `cargo fmt --manifest-path ./src-tauri/Cargo.toml` and `cargo clippy --manifest-path ./src-tauri/Cargo.toml -- -D warnings`
 
 ### 4. Commit Changes
 
@@ -68,7 +69,7 @@ Follow the [Conventional Commits](https://www.conventionalcommits.org/) specific
 ```bash
 git add .
 git commit -m "feat: add keyboard shortcut customization"
-# or fix/docs/refactor/perf/test/chore etc.
+# or fix/docs/refactor/perf/test/chore, etc.
 ```
 
 ### 5. Submit Pull Request
@@ -81,6 +82,8 @@ git push origin feature/my-new-feature
 Create a pull request on GitHub. Describe what changed and why, and reference related issues.
 
 ## Documentation Contribution
+
+The documentation is maintained in the [TextGO Hub](https://github.com/C5H12O5/TextGO-Hub) repository. Fork and clone that repository before making the changes below.
 
 ### Improve Existing Documentation
 

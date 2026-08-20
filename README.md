@@ -10,7 +10,7 @@ TextGO is a cross-platform text processing tool that recognizes text types and r
 
 - **Official Website**: Product homepage and overview
 - **Documentation**: Guides and tutorials
-- **Extensions**: Add-ons that extend TextGO
+- **Extensions**: Installable scripts and search actions
 
 ## Contributing
 
