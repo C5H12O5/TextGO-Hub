@@ -35,7 +35,7 @@ const installConsentText = computed(() => {
     return {
       title: '安装扩展',
       description:
-        '为了将此扩展安装到 TextGO，网站会先把扩展配置复制到系统剪贴板（会覆盖当前剪贴板内容），再打开 TextGO 完成安装。',
+        '为了安装此扩展，网站会先把扩展配置复制到系统剪贴板（会覆盖当前剪贴板内容），再打开 TextGO 完成安装。',
       question: '是否继续？',
       cancel: '取消',
       confirm: '同意并安装'
@@ -45,7 +45,7 @@ const installConsentText = computed(() => {
   return {
     title: 'Install extension',
     description:
-      'To install this extension in TextGO, this site will first copy its configuration to your system clipboard (replacing the current clipboard contents), then open TextGO to complete the installation.',
+      'To install this extension, this site will first copy its configuration to your system clipboard (replacing the current clipboard contents), then open TextGO to complete the installation.',
     question: 'Do you want to continue?',
     cancel: 'Cancel',
     confirm: 'Agree and install'
