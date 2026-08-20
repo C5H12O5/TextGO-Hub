@@ -104,6 +104,8 @@ Windows 版本无需额外权限设置，安装后即可使用。
 
 右上角可导入或导出全部设置。点击左下角的版本号可检查更新，并在有新版本时下载安装。
 
+![TextGO 显示设置](/screenshots/zh-CN/display-settings.png)
+
 ## 获取帮助
 
 - 查看 [常见问题](./faq.md)

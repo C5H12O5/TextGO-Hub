@@ -104,6 +104,8 @@ The settings pages group related options:
 
 Use the buttons in the upper right corner to import or export all settings. Click the version number in the lower left corner to check for updates and install a newer version.
 
+![TextGO display settings](/screenshots/en/display-settings.png)
+
 ## Get Help
 
 - Check the [FAQ](./faq.md)
