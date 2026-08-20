@@ -16,11 +16,10 @@
 TextGO 支持使用 [daisyUI Theme Generator](https://daisyui.com/theme-generator/) 生成的主题 CSS。
 
 1. 在生成器中创建主题
-2. 根据主题设置“Dark color scheme”
-3. 在“Add theme to your CSS file”区域点击“Copy to clipboard”
-4. 在 TextGO 中打开“设置”>“常规设置”
-5. 在“自定义主题”中选择“自定义浅色主题”或“自定义深色主题”
-6. 粘贴完整的 `@plugin "daisyui/theme" { ... }` 代码块，然后点击“确定”
+2. 点击“{} CSS”按钮复制 CSS
+3. 在 TextGO 中打开“设置”>“常规设置”
+4. 在“自定义主题”中选择“自定义浅色主题”或“自定义深色主题”
+5. 粘贴完整的 `@plugin "daisyui/theme" { ... }` 代码块，然后点击“确定”
 
 浅色和深色编辑器会分别覆盖对应的内置主题。“跟随系统”和“跟随系统（反向）”切换到浅色或深色后，也会使用相应的自定义主题。
 
