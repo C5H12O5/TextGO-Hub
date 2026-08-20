@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T extends Extension">
-import { PhFunnel, PhInfo } from '@phosphor-icons/vue';
+import { PhClipboardText, PhFunnel, PhInfo } from '@phosphor-icons/vue';
 import { useData } from 'vitepress';
-import { computed, ref } from 'vue';
+import { computed, nextTick, ref, shallowRef, useId } from 'vue';
 import type { Extension } from '../types';
 import Icon from './Icon.vue';
 
@@ -20,6 +20,73 @@ const props = withDefaults(
 
 // current language
 const { lang } = useData();
+
+// extension installation consent
+const installConsentDialogId = useId();
+const installConsentDialog = ref<HTMLElement>();
+const installTrigger = ref<HTMLElement>();
+const pendingInstall = shallowRef<T>();
+const isInstallConsentDialogOpen = ref(false);
+const installConsentStorageKey = 'textgo:extension-install:clipboard-consent:v1';
+const installConsentGrantedValue = 'granted';
+
+const installConsentText = computed(() => {
+  if (lang.value.startsWith('zh')) {
+    return {
+      title: '安装扩展',
+      description:
+        '为了将此扩展安装到 TextGO，网站会先把扩展配置复制到系统剪贴板（会覆盖当前剪贴板内容），再打开 TextGO 完成安装。',
+      question: '是否继续？',
+      cancel: '取消',
+      confirm: '同意并安装'
+    };
+  }
+
+  return {
+    title: 'Install extension',
+    description:
+      'To install this extension in TextGO, this site will first copy its configuration to your system clipboard (replacing the current clipboard contents), then open TextGO to complete the installation.',
+    question: 'Do you want to continue?',
+    cancel: 'Cancel',
+    confirm: 'Agree and install'
+  };
+});
+
+const restoreInstallTriggerFocus = async () => {
+  await nextTick();
+  installTrigger.value?.focus();
+};
+
+const requestInstall = async (item: T, event: MouseEvent) => {
+  installTrigger.value = event.currentTarget as HTMLElement;
+
+  if (window.localStorage.getItem(installConsentStorageKey) === installConsentGrantedValue) {
+    props.installHandler(item);
+    return;
+  }
+
+  pendingInstall.value = item;
+  isInstallConsentDialogOpen.value = true;
+  await nextTick();
+  installConsentDialog.value?.focus();
+};
+
+const cancelInstall = () => {
+  pendingInstall.value = undefined;
+  isInstallConsentDialogOpen.value = false;
+  void restoreInstallTriggerFocus();
+};
+
+const confirmInstall = () => {
+  const item = pendingInstall.value;
+  if (item === undefined) return;
+
+  pendingInstall.value = undefined;
+  isInstallConsentDialogOpen.value = false;
+  window.localStorage.setItem(installConsentStorageKey, installConsentGrantedValue);
+  props.installHandler(item);
+  void restoreInstallTriggerFocus();
+};
 
 // filter states
 const filterInput = ref('');
@@ -147,7 +214,9 @@ const items = computed(() => {
           <span class="text-xs italic">{{ item.tip }}</span>
         </div>
         <button
-          @click="installHandler(item)"
+          type="button"
+          :aria-label="`${installConsentText.confirm}: ${item.name}`"
+          @click="requestInstall(item, $event)"
           class="rounded-md p-1! transition-all hover:bg-(--vp-button-alt-bg)! active:scale-95"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6 opacity-80">
@@ -163,4 +232,54 @@ const items = computed(() => {
       <p class="text-sm opacity-50">{{ props.emptyText }}</p>
     </div>
   </div>
+
+  <Teleport to="body">
+    <div
+      v-if="isInstallConsentDialogOpen"
+      class="fixed inset-0 z-1000 flex items-center justify-center bg-black/50 px-4"
+      @click.self="cancelInstall"
+      @keydown.esc.prevent.stop="cancelInstall"
+    >
+      <section
+        ref="installConsentDialog"
+        role="alertdialog"
+        aria-modal="true"
+        :aria-labelledby="`${installConsentDialogId}-title`"
+        :aria-describedby="`${installConsentDialogId}-description`"
+        tabindex="-1"
+        class="w-full max-w-md rounded-xl bg-(--vp-c-bg) p-6 text-(--vp-c-text-1) shadow-2xl outline-none"
+      >
+        <div class="flex items-start gap-4">
+          <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-(--vp-c-brand-soft)">
+            <PhClipboardText class="size-6 text-(--vp-c-brand-1)" />
+          </div>
+          <div>
+            <h2 :id="`${installConsentDialogId}-title`" class="m-0 text-lg font-semibold">
+              {{ installConsentText.title }}
+            </h2>
+            <div :id="`${installConsentDialogId}-description`" class="mt-2 text-sm leading-6 text-(--vp-c-text-2)">
+              <p class="m-0">{{ installConsentText.description }}</p>
+              <p class="mt-2 mb-0">{{ installConsentText.question }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 flex justify-end gap-3">
+          <button
+            type="button"
+            class="rounded-md bg-(--vp-button-alt-bg) px-4! py-2! text-sm font-medium transition-colors hover:bg-(--vp-button-alt-hover-bg)"
+            @click="cancelInstall"
+          >
+            {{ installConsentText.cancel }}
+          </button>
+          <button
+            type="button"
+            class="rounded-md bg-(--vp-button-brand-bg) px-4! py-2! text-sm font-medium text-(--vp-button-brand-text) transition-colors hover:bg-(--vp-button-brand-hover-bg)"
+            @click="confirmInstall"
+          >
+            {{ installConsentText.confirm }}
+          </button>
+        </div>
+      </section>
+    </div>
+  </Teleport>
 </template>
