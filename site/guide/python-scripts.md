@@ -11,7 +11,7 @@ Python scripts can:
 
 ## Runtime Environment
 
-TextGO uses the custom Python executable configured in Script Execution options when provided. Otherwise, it tries `python3` and then `python`, using the system `PATH` plus common installation locations.
+TextGO uses the executable configured under "Python Path" in "Script Execution Options" when provided. Otherwise, it tries `python3` and then `python`, using the system `PATH` plus common installation locations.
 
 **Supported Python Versions**:
 
@@ -24,27 +24,29 @@ Packages imported by a script must be installed in the Python environment select
 ### Step 1: Access Script Management
 
 1. Open "Settings" > "Script Execution"
-2. Click the "+" button to add a new script
+2. Click the "+" button to open the "New Script" dialog
 
 ### Step 2: Basic Information
 
-**Script Name** (Required)
+**Action Name** (Required)
 
 - Identifies the script
 - Use a descriptive name
 
-**Script Icon** (Optional)
+**Action Icon** (Optional)
 
-- Choose an icon from the built-in library
-- You can also upload a custom SVG icon
+- Click the current action icon to open the icon selector
+- Select from "Built-in Icons" or use "Upload Custom SVG"
 
-**Script Type**
+**Script Type** (Required)
 
 - Select **Python**
 
 ![TextGO Python script editor](/screenshots/en/python-script-editor.png)
 
 ### Step 3: Write Your Script
+
+**Script** (Required)
 
 Python scripts must include a `process` function:
 

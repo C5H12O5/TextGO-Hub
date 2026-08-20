@@ -22,27 +22,29 @@ TextGO provides the script type appropriate for the current operating system:
 ### Step 1: Access Script Management
 
 1. Open "Settings" > "Script Execution"
-2. Click the "+" button to add a new script
+2. Click the "+" button to open the "New Script" dialog
 
 ### Step 2: Basic Information
 
-**Script Name** (Required)
+**Action Name** (Required)
 
 - Identifies the script
 - Use a descriptive name
 
-**Script Icon** (Optional)
+**Action Icon** (Optional)
 
-- Choose an icon from the built-in library
-- You can also upload a custom SVG icon
+- Click the current action icon to open the icon selector
+- Select from "Built-in Icons" or use "Upload Custom SVG"
 
-**Script Type**
+**Script Type** (Required)
 
 - Select **Shell** on macOS or **PowerShell** on Windows
 
 ![TextGO Shell script editor](/screenshots/en/shell-script-editor.png)
 
 ### Step 3: Write Your Script
+
+**Script** (Required)
 
 Shell and PowerShell scripts receive predefined variables.
 

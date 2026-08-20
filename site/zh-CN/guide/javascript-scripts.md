@@ -12,9 +12,9 @@ JavaScript 脚本可以：
 
 ## 运行环境
 
-TextGO 默认在应用的 WebView 中运行 JavaScript。若配置了自定义 Node.js 或 Deno 可执行文件，TextGO 会改用对应运行时。两者均已配置时，优先使用 Node.js。若未配置自定义运行时，仅在 WebView 执行失败后依次尝试系统中的 Node.js 和 Deno。
+JavaScript 默认在 WebView 中运行，也可使用配置的 Node.js/Deno 运行时；调用 `_keyboard.press()` 时会自动切换回 WebView。
 
-引用 `_keyboard` 的脚本始终在 WebView 中运行，因为按键模拟 API 仅在该环境中可用。
+若配置了自定义 Node.js 或 Deno 可执行文件，TextGO 会改用对应运行时。两者均已配置时，优先使用 Node.js。若未配置自定义运行时，仅在 WebView 执行失败后依次尝试系统中的 Node.js 和 Deno。
 
 **可用环境**：
 
@@ -23,7 +23,7 @@ TextGO 默认在应用的 WebView 中运行 JavaScript。若配置了自定义 N
 - **Deno**：配置其自定义运行时路径后使用
 - **系统回退**：未配置自定义运行时时，在 WebView 失败后先尝试 Node.js，再尝试 Deno
 
-在“执行脚本”选项中配置自定义运行时路径：
+在“脚本执行选项”中配置“Node.js 路径”和“Deno 路径”：
 
 ![TextGO 脚本运行时选项](/screenshots/zh-CN/script-runtime-options.png)
 
@@ -32,27 +32,29 @@ TextGO 默认在应用的 WebView 中运行 JavaScript。若配置了自定义 N
 ### 步骤 1：进入脚本管理
 
 1. 打开“设置”>“执行脚本”
-2. 点击“+”按钮添加脚本
+2. 点击“+”按钮打开“新增脚本”窗口
 
 ### 步骤 2：基本信息
 
-**脚本名称**（必填）
+**动作名称**（必填）
 
 - 标识脚本
 - 建议使用描述性的名称
 
-**脚本图标**（可选）
+**动作图标**（可选）
 
-- 从内置图标库中选择图标
-- 也可以上传自定义 SVG 图标
+- 点击当前动作图标打开图标选择窗口
+- 可选择“内置图标”或“上传自定义 SVG”
 
-**脚本类型**
+**脚本类型**（必填）
 
 - 选择 **JavaScript**
 
 ![TextGO JavaScript 脚本编辑窗口](/screenshots/zh-CN/javascript-script-editor.png)
 
 ### 步骤 3：编写脚本
+
+**脚本**（必填）
 
 JavaScript 脚本必须包含一个 `process` 函数：
 

@@ -51,25 +51,27 @@ TextGO uses **TensorFlow.js** to train and run models locally in the app's WebVi
 ### Step 1: Access Model Management
 
 1. Open "Settings" > "Classification Model"
-2. Click the "+" button to add a new model
+2. Click the "+" button to open the "New Classification Model" dialog
 
 ### Step 2: Basic Information
 
 Fill in the model's basic information:
 
-**Model Name** (Required)
+**Type Name** (Required)
 
 - Identifies the model
 - Use a descriptive name
 
-**Model Icon** (Optional)
+**Type Icon** (Optional)
 
-- Choose an icon from the built-in library
-- You can also upload a custom SVG icon
+- Click the current type icon to open the icon selector
+- Select from "Built-in Icons" or use "Upload Custom SVG"
 
 ### Step 3: Prepare Training Data
 
-Training data is key to determining the model's recognition capability.
+**Positive Samples** (Required)
+
+Positive samples are key to determining the model's recognition capability.
 
 **Data Format**:
 
@@ -89,10 +91,10 @@ Training data is key to determining the model's recognition capability.
 
 #### Basic Parameters
 
-**Confidence Threshold** (0.01–0.99)
+**Confidence Threshold** (Required, 1%–99%)
 
-- Default: 0.5
-- A model output must meet or exceed this value to count as a match
+- Default: 50%
+- Text with similarity greater than or equal to this threshold will be recognized as this type
 - Adjust as needed:
   - Increase threshold → Stricter matching, reduces false positives
   - Decrease threshold → Looser matching, increases recognition rate

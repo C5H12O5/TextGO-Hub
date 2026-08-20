@@ -14,31 +14,31 @@ Web search actions can:
 ### Step 1: Access Search Configuration
 
 1. Open "Settings" > "Web Search"
-2. Click the "+" button to add a new search action
+2. Click the "+" button to open the "New Search Action" dialog
 
 ### Step 2: Basic Information
 
-**Search Name** (Required)
+**Action Name** (Required)
 
 - Identifies the search action
 - Use the search engine or website name
 
-**Search Icon** (Optional)
+**Action Icon** (Optional)
 
-- Choose an icon from the built-in library
-- You can also upload a custom SVG icon
+- Click the current action icon to open the icon selector
+- Select from "Built-in Icons" or use "Upload Custom SVG"
 
 ### Step 3: Configure Browser
 
-**Browser Selection** (Optional)
+**Browser** (Optional)
 
-Choose a browser for search results, or leave this unset to use the system default.
+Choose a browser for search results. Leave empty to use default browser.
 
 ### Step 4: Configure Search URL
 
-**URL Template** (Required)
+**Search URL** (Required)
 
-Use {&#123;selection&#125;} as a placeholder for the selected text. TextGO trims the selection and URL-encodes it before replacing every occurrence of the placeholder.
+Use {&#123;selection&#125;} to insert selected text. TextGO trims the selection and URL-encodes it before replacing every occurrence of the placeholder in the URL.
 
 ![TextGO web search action editor](/screenshots/en/web-search-editor.png)
 

@@ -52,9 +52,9 @@ A regular expression describes a text pattern with a compact, specialized syntax
 - Identifies the regular expression
 - Use a descriptive name
 
-**Change Icon** (Optional)
+**Type Icon** (Optional)
 
-- Click the current icon to open the "Change Icon" dialog
+- Click the current type icon to open the icon selector
 - Select from "Built-in Icons" or use "Upload Custom SVG"
 
 ### Step 3: Write Regular Expression

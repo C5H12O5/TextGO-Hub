@@ -12,9 +12,9 @@ JavaScript scripts can:
 
 ## Runtime Environment
 
-TextGO runs JavaScript in the app's WebView by default. If you configure a custom Node.js or Deno executable, TextGO uses that runtime instead. Node.js takes precedence when both paths are configured. Without a custom runtime, TextGO tries system Node.js and then Deno only if WebView execution fails.
+JavaScript runs in the WebView by default or in the configured Node.js/Deno runtime. Scripts using `_keyboard.press()` automatically switch back to the WebView.
 
-Scripts that reference `_keyboard` always run in the WebView because keyboard simulation is only available there.
+If you configure a custom Node.js or Deno executable, TextGO uses that runtime instead. Node.js takes precedence when both paths are configured. Without a custom runtime, TextGO tries system Node.js and then Deno only if WebView execution fails.
 
 **Available environments:**
 
@@ -23,7 +23,7 @@ Scripts that reference `_keyboard` always run in the WebView because keyboard si
 - **Deno**: Used when its custom runtime path is configured
 - **System fallback**: If WebView execution fails and no custom runtime is configured, tries Node.js and then Deno
 
-You can configure custom runtime paths from the Script Execution options:
+Configure "Node.js Path" and "Deno Path" under "Script Execution Options":
 
 ![TextGO script runtime options](/screenshots/en/script-runtime-options.png)
 
@@ -32,27 +32,29 @@ You can configure custom runtime paths from the Script Execution options:
 ### Step 1: Access Script Management
 
 1. Open "Settings" > "Script Execution"
-2. Click the "+" button to add a new script
+2. Click the "+" button to open the "New Script" dialog
 
 ### Step 2: Basic Information
 
-**Script Name** (Required)
+**Action Name** (Required)
 
 - Identifies the script
 - Use a descriptive name
 
-**Script Icon** (Optional)
+**Action Icon** (Optional)
 
-- Choose an icon from the built-in library
-- You can also upload a custom SVG icon
+- Click the current action icon to open the icon selector
+- Select from "Built-in Icons" or use "Upload Custom SVG"
 
-**Script Type**
+**Script Type** (Required)
 
 - Select **JavaScript**
 
 ![TextGO JavaScript script editor](/screenshots/en/javascript-script-editor.png)
 
 ### Step 3: Write the Script
+
+**Script** (Required)
 
 JavaScript scripts must contain a `process` function:
 
