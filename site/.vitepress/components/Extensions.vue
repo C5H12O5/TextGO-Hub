@@ -163,8 +163,11 @@ const items = computed(() => {
         :placeholder="props.filterText"
         class="w-full rounded-md border! border-(--vp-c-divider)! px-3! py-2! shadow-xs transition-colors focus:border-(--vp-c-brand-1)!"
       />
-      <div v-if="allTags.length > 0" class="flex flex-wrap items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2">
         <PhFunnel weight="thin" class="size-6 opacity-80" />
+        <output aria-live="polite" class="mr-1 -ml-1.5 shrink-0 text-sm tabular-nums opacity-50">
+          ({{ items.length }})
+        </output>
         <button
           v-for="tag in allTags"
           :key="tag"
@@ -246,7 +249,7 @@ const items = computed(() => {
         :aria-labelledby="`${installConsentDialogId}-title`"
         :aria-describedby="`${installConsentDialogId}-description`"
         tabindex="-1"
-        class="w-full max-w-md rounded-xl bg-(--vp-c-bg) p-6 text-(--vp-c-text-1) shadow-2xl outline-none"
+        class="w-full max-w-120 rounded-xl bg-(--vp-c-bg) p-6 text-(--vp-c-text-1) shadow-2xl outline-none"
       >
         <div class="flex items-start gap-4">
           <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-(--vp-c-brand-soft)">
