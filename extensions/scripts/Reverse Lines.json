@@ -1,0 +1,18 @@
+{
+  "icon": "ArrowsDownUp",
+  "lang": "javascript",
+  "script": "function splitLines(text) {\n  const match = text.match(/\\r\\n|\\n|\\r/);\n  const newline = match ? match[0] : '\\n';\n  const hasFinalNewline = /(?:\\r\\n|\\n|\\r)$/.test(text);\n  const lines = text.split(/\\r\\n|\\n|\\r/);\n\n  if (hasFinalNewline) {\n    lines.pop();\n  }\n\n  return { lines, newline, hasFinalNewline };\n}\n\nfunction process(data) {\n  const text = data && data.selection;\n  if (typeof text !== 'string') {\n    throw new TypeError('selection must be a string');\n  }\n\n  const { lines, newline, hasFinalNewline } = splitLines(text);\n  const output = lines.reverse().join(newline);\n  return output + (hasFinalNewline ? newline : '');\n}\n",
+  "locales": {
+    "en": {
+      "name": "Reverse Lines",
+      "description": "Reverse the order of lines without reversing characters within each line.",
+      "tags": ["convert", "multiline"]
+    },
+    "zh-CN": {
+      "name": "反转行序",
+      "description": "反转各行顺序，不反转行内字符",
+      "tags": ["转换", "多行"]
+    }
+  },
+  "sort": 1767624103068
+}

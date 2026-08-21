@@ -216,7 +216,9 @@ const itemGroups = computed(() => {
     <!-- Items -->
     <div v-if="items.length > 0">
       <section v-for="group in itemGroups" :key="group.label || 'items'" :class="group.label ? 'mt-8 first:mt-0' : ''">
-        <h3 v-if="group.label" class="m-0! text-lg font-medium! text-(--vp-c-text-2)">{{ group.label }}</h3>
+        <h4 v-if="group.label" class="m-0! pt-2 tracking-wide! opacity-50">
+          {{ group.label }}
+        </h4>
         <div
           v-for="item in group.items"
           :key="item.path"

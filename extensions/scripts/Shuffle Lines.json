@@ -1,0 +1,18 @@
+{
+  "icon": "Shuffle",
+  "lang": "javascript",
+  "script": "function splitLines(text) {\n  const match = text.match(/\\r\\n|\\n|\\r/);\n  const newline = match ? match[0] : '\\n';\n  const hasFinalNewline = /(?:\\r\\n|\\n|\\r)$/.test(text);\n  const lines = text.split(/\\r\\n|\\n|\\r/);\n\n  if (hasFinalNewline) {\n    lines.pop();\n  }\n\n  return { lines, newline, hasFinalNewline };\n}\n\nfunction process(data) {\n  const text = data && data.selection;\n  if (typeof text !== 'string') {\n    throw new TypeError('selection must be a string');\n  }\n\n  const { lines, newline, hasFinalNewline } = splitLines(text);\n  for (let index = lines.length - 1; index > 0; index -= 1) {\n    const target = Math.floor(Math.random() * (index + 1));\n    [lines[index], lines[target]] = [lines[target], lines[index]];\n  }\n\n  const output = lines.join(newline);\n  return output + (hasFinalNewline ? newline : '');\n}\n",
+  "locales": {
+    "en": {
+      "name": "Shuffle Lines",
+      "description": "Randomize the order of selected lines with an unbiased Fisher–Yates shuffle.",
+      "tags": ["convert", "multiline"]
+    },
+    "zh-CN": {
+      "name": "随机打乱行",
+      "description": "使用无偏 Fisher–Yates 洗牌随机调整各行顺序",
+      "tags": ["转换", "多行"]
+    }
+  },
+  "sort": 1767624103078
+}
