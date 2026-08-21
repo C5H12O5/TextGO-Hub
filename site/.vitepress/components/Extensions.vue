@@ -10,6 +10,8 @@ const props = withDefaults(
     data: T[];
     emptyText?: string;
     filterText?: string;
+    groupBy?: (item: T) => string;
+    groupOrder?: string[];
     installHandler: (item: T) => void;
   }>(),
   {
@@ -116,7 +118,7 @@ const removeTag = (tag: string) => {
   }
 };
 
-// filtered and sorted items
+// filtered items
 const items = computed(() => {
   return props.data
     .map((item) => {
@@ -148,8 +150,36 @@ const items = computed(() => {
       }
 
       return true;
-    })
-    .sort((a, b) => a.sort - b.sort);
+    });
+});
+
+// group items first, then sort within each group
+const itemGroups = computed(() => {
+  if (!props.groupBy) {
+    return [{ label: '', items: [...items.value].sort((a, b) => a.sort - b.sort) }];
+  }
+
+  const groups = new Map<string, typeof items.value>();
+  items.value.forEach((item) => {
+    const label = props.groupBy?.(item) || '';
+    const group = groups.get(label);
+    if (group) {
+      group.push(item);
+    } else {
+      groups.set(label, [item]);
+    }
+  });
+
+  const order = props.groupOrder || [];
+  const orderIndex = (label: string) => {
+    const index = order.indexOf(label);
+    return index === -1 ? order.length : index;
+  };
+
+  return Array.from(groups, ([label, groupItems]) => ({
+    label,
+    items: groupItems.sort((a, b) => a.sort - b.sort)
+  })).sort((a, b) => orderIndex(a.label) - orderIndex(b.label) || a.label.localeCompare(b.label));
 });
 </script>
 
@@ -185,50 +215,53 @@ const items = computed(() => {
     </div>
     <!-- Items -->
     <div v-if="items.length > 0">
-      <div
-        v-for="item in items"
-        :key="item.path"
-        class="flex items-center gap-3 border-b border-(--vp-c-divider) py-3 last:border-b-0"
-      >
-        <Icon :icon="item.icon" class="size-8" />
-        <div class="flex-2">
-          <div class="flex items-center gap-2">
-            <a
-              :href="`https://github.com/C5H12O5/TextGO-Hub/blob/main/${item.path.split('/').slice(-3).join('/')}`"
-              target="_blank"
-              class="font-semibold text-(--vp-c-brand-1) no-underline! hover:underline!"
-            >
-              {{ item.name }}
-            </a>
-            <span
-              v-for="tag in item.tags"
-              :key="tag"
-              @click="addTag(tag)"
-              class="cursor-pointer rounded-md bg-(--vp-sidebar-bg-color) px-1.5 py-0.5 text-xs opacity-80 transition-all hover:opacity-100 active:scale-95"
-            >
-              {{ tag }}
-            </span>
-          </div>
-          <div v-if="item.description" class="mt-1 text-sm opacity-60">{{ item.description }}</div>
-        </div>
-        <div v-if="item.tip" class="mr-2 flex flex-1 items-center justify-end gap-0.5 opacity-60">
-          <PhInfo class="size-4 shrink-0" />
-          <span class="text-xs italic">{{ item.tip }}</span>
-        </div>
-        <button
-          type="button"
-          :aria-label="`${installConsentText.confirm}: ${item.name}`"
-          @click="requestInstall(item, $event)"
-          class="rounded-md p-1! transition-all hover:bg-(--vp-button-alt-bg)! active:scale-95"
+      <section v-for="group in itemGroups" :key="group.label || 'items'" :class="group.label ? 'mt-8 first:mt-0' : ''">
+        <h3 v-if="group.label" class="m-0! text-lg font-medium! text-(--vp-c-text-2)">{{ group.label }}</h3>
+        <div
+          v-for="item in group.items"
+          :key="item.path"
+          class="flex items-center gap-3 border-b border-(--vp-c-divider) py-3 last:border-b-0"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6 opacity-80">
-            <path
-              fill="currentColor"
-              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4.18C9.6 1.84 10.7 1 12 1s2.4.84 2.82 2zm-7 0a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M7 7V5H5v14h14V5h-2v2zm5 11l-5-5h3V9h4v4h3z"
-            />
-          </svg>
-        </button>
-      </div>
+          <Icon :icon="item.icon" class="size-8" />
+          <div class="flex-2">
+            <div class="flex items-center gap-2">
+              <a
+                :href="`https://github.com/C5H12O5/TextGO-Hub/blob/main/${item.path.split('/').slice(-3).join('/')}`"
+                target="_blank"
+                class="font-semibold text-(--vp-c-brand-1) no-underline! hover:underline!"
+              >
+                {{ item.name }}
+              </a>
+              <span
+                v-for="tag in item.tags"
+                :key="tag"
+                @click="addTag(tag)"
+                class="cursor-pointer rounded-md bg-(--vp-sidebar-bg-color) px-1.5 py-0.5 text-xs opacity-80 transition-all hover:opacity-100 active:scale-95"
+              >
+                {{ tag }}
+              </span>
+            </div>
+            <div v-if="item.description" class="mt-1 text-sm opacity-60">{{ item.description }}</div>
+          </div>
+          <div v-if="item.tip" class="mr-2 flex flex-1 items-center justify-end gap-0.5 opacity-60">
+            <PhInfo class="size-4 shrink-0" />
+            <span class="text-xs italic">{{ item.tip }}</span>
+          </div>
+          <button
+            type="button"
+            :aria-label="`${installConsentText.confirm}: ${item.name}`"
+            @click="requestInstall(item, $event)"
+            class="rounded-md p-1! transition-all hover:bg-(--vp-button-alt-bg)! active:scale-95"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6 opacity-80">
+              <path
+                fill="currentColor"
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4.18C9.6 1.84 10.7 1 12 1s2.4.84 2.82 2zm-7 0a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M7 7V5H5v14h14V5h-2v2zm5 11l-5-5h3V9h4v4h3z"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
     </div>
     <div v-else class="flex items-center justify-center py-4">
       <p class="text-sm opacity-50">{{ props.emptyText }}</p>

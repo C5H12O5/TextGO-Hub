@@ -7,6 +7,15 @@ const props = defineProps<{
   filterText?: string;
 }>();
 
+const scriptGroupLabels: Record<string, string> = {
+  javascript: 'JavaScript',
+  python: 'Python',
+  shell: 'Shell',
+  powershell: 'PowerShell'
+};
+const scriptGroupOrder = Object.values(scriptGroupLabels);
+const groupByLanguage = (script: Script) => scriptGroupLabels[script.lang] || script.lang;
+
 // install script via clipboard and deep-link
 const install = (script: Script) => {
   navigator.clipboard
@@ -25,5 +34,12 @@ const install = (script: Script) => {
 </script>
 
 <template>
-  <Extensions :data="data" :empty-text="props.emptyText" :filter-text="props.filterText" :install-handler="install" />
+  <Extensions
+    :data="data"
+    :empty-text="props.emptyText"
+    :filter-text="props.filterText"
+    :group-by="groupByLanguage"
+    :group-order="scriptGroupOrder"
+    :install-handler="install"
+  />
 </template>

@@ -6,7 +6,7 @@
     "en": {
       "name": "MyBatis Log",
       "description": "Parse MyBatis log to extract SQL statements with parameters.",
-      "tags": ["dev"],
+      "tags": ["developer"],
       "tip": "Not for all dialects"
     },
     "zh-CN": {

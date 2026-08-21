@@ -5,7 +5,7 @@
     "en": {
       "name": "Google Translate",
       "description": "Translate selected text with Google Translate.",
-      "tags": ["translate"]
+      "tags": ["translation"]
     },
     "zh-CN": {
       "name": "",
