@@ -1,0 +1,18 @@
+{
+  "icon": "TextAa",
+  "lang": "javascript",
+  "script": "const abbreviations = new Set([\n  'mr.',\n  'mrs.',\n  'ms.',\n  'dr.',\n  'prof.',\n  'sr.',\n  'jr.',\n  'st.',\n  'vs.',\n  'fig.',\n  'no.',\n  'dept.',\n  'inc.',\n  'ltd.',\n  'co.'\n]);\n\nfunction isProtectedPeriod(text, index) {\n  const previous = text[index - 1] || '';\n  const next = text[index + 1] || '';\n\n  if (/\\d/u.test(previous) && /\\d/u.test(next)) {\n    return true;\n  }\n\n  if (/[\\p{L}\\p{N}]/u.test(previous) && /[\\p{L}\\p{N}]/u.test(next)) {\n    return true;\n  }\n\n  let start = index;\n  while (start > 0 && /[\\p{L}.]/u.test(text[start - 1])) {\n    start -= 1;\n  }\n\n  const token = text.slice(start, index + 1).toLowerCase();\n  return abbreviations.has(token) || /^(?:\\p{L}\\.){2,}$/u.test(token);\n}\n\nfunction process(data) {\n  const text = data && data.selection;\n  if (typeof text !== 'string') {\n    throw new TypeError('selection must be a string');\n  }\n\n  let output = '';\n  let capitalizeNext = true;\n\n  for (let index = 0; index < text.length; ) {\n    const character = String.fromCodePoint(text.codePointAt(index));\n    const hasCase = character.toUpperCase() !== character.toLowerCase();\n\n    if (capitalizeNext && hasCase) {\n      output += character.toUpperCase();\n      capitalizeNext = false;\n    } else {\n      output += character;\n    }\n\n    if ('!?。！？\\n\\r\\u2028\\u2029'.includes(character)) {\n      capitalizeNext = true;\n    } else if (character === '.' && !isProtectedPeriod(text, index)) {\n      capitalizeNext = true;\n    }\n\n    index += character.length;\n  }\n\n  return output;\n}\n",
+  "locales": {
+    "en": {
+      "name": "Sentence Case",
+      "description": "Capitalize the first cased letter of each sentence without changing the remaining text.",
+      "tags": ["text-case", "convert"]
+    },
+    "zh-CN": {
+      "name": "句首大写",
+      "description": "将每个句子的首个有大小写字母改为大写，其余文本保持不变",
+      "tags": ["大小写", "转换"]
+    }
+  },
+  "sort": 1020
+}

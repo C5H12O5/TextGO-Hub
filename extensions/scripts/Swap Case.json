@@ -1,0 +1,18 @@
+{
+  "icon": "ArrowsLeftRight",
+  "lang": "javascript",
+  "script": "function process(data) {\n  const text = data && data.selection;\n  if (typeof text !== 'string') {\n    throw new TypeError('selection must be a string');\n  }\n\n  let output = '';\n  for (const character of text) {\n    if (/[\\p{Lu}\\p{Lt}]/u.test(character)) {\n      output += character.toLowerCase();\n    } else if (/\\p{Ll}/u.test(character)) {\n      output += character.toUpperCase();\n    } else {\n      output += character;\n    }\n  }\n\n  return output;\n}\n",
+  "locales": {
+    "en": {
+      "name": "Swap Case",
+      "description": "Swap uppercase and lowercase letters while leaving uncased characters unchanged.",
+      "tags": ["text-case", "convert"]
+    },
+    "zh-CN": {
+      "name": "大小写互换",
+      "description": "互换大写与小写字母，不改变无大小写字符",
+      "tags": ["大小写", "转换"]
+    }
+  },
+  "sort": 1030
+}

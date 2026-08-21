@@ -1,0 +1,18 @@
+{
+  "icon": "Quotes",
+  "lang": "javascript",
+  "script": "function process(data) {\n  const text = data && data.selection;\n  if (typeof text !== 'string') {\n    throw new TypeError('selection must be a string');\n  }\n\n  return text.replace(/[‘’‚‛]/g, \"'\").replace(/[“”„‟]/g, '\"');\n}\n",
+  "locales": {
+    "en": {
+      "name": "Straighten Quotes",
+      "description": "Convert smart quotation marks and apostrophes to plain ASCII quotes.",
+      "tags": ["convert"]
+    },
+    "zh-CN": {
+      "name": "直引号",
+      "description": "将弯引号和弯撇号转换为 ASCII 直引号",
+      "tags": ["转换"]
+    }
+  },
+  "sort": 1040
+}
