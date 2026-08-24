@@ -6,12 +6,12 @@
     "en": {
       "name": "Number Lines",
       "description": "Prefix non-empty lines with sequential numbers.",
-      "tags": ["convert", "multiline"]
+      "tags": ["convert", "multiline", "markdown"]
     },
     "zh-CN": {
       "name": "行编号",
       "description": "为非空行依次添加序号",
-      "tags": ["转换", "多行"]
+      "tags": ["转换", "多行", "Markdown"]
     }
   },
   "sort": 21200

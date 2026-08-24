@@ -1,0 +1,18 @@
+{
+  "icon": "TextOutdent",
+  "lang": "javascript",
+  "script": "function process(data) {\n  const text = data && data.selection;\n  if (typeof text !== 'string') {\n    throw new TypeError('selection must be a string');\n  }\n\n  return text\n    .split(/(\\r\\n|\\n|\\r)/)\n    .map((part, index) => {\n      if (index % 2 !== 0 || part.trim() === '') {\n        return part;\n      }\n      return part.startsWith('\\t') ? part.slice(1) : part.replace(/^ {1,4}/, '');\n    })\n    .join('');\n}\n",
+  "locales": {
+    "en": {
+      "name": "Outdent Lines",
+      "description": "Remove one leading tab or up to four leading spaces from each non-blank line.",
+      "tags": ["convert", "multiline"]
+    },
+    "zh-CN": {
+      "name": "减少行缩进",
+      "description": "从每个非空白行去除一个制表符或最多四个前导空格",
+      "tags": ["转换", "多行"]
+    }
+  },
+  "sort": 20660
+}
