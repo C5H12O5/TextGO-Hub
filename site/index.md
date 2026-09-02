@@ -29,7 +29,7 @@ features:
   - title: Ready to Use
     details: A rich set of built-in text types and processing actions, ready to use with minimal configuration.
   - title: Highly Extensible
-    details: Extend with regex, ML models, scripts, or local/cloud AI for custom recognition and processing.
+    details: Extend with regex, ML models, scripts, or local/cloud AI for recognition and processing.
   - title: Cross-Platform
     details: Native support for macOS and Windows with consistent experience across platforms.
 ---

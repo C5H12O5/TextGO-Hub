@@ -34,7 +34,7 @@ _Follow these steps:_
 
 <br>
 
-_TextGO is unsigned, so macOS binds Accessibility permission to its current binary. An update changes the binary identity and invalidates the permission, even if System Settings still shows it as enabled._
+TextGO is unsigned, so macOS binds Accessibility permission to its current binary. An update changes the binary identity and invalidates the permission, even if System Settings still shows it as enabled.
 
 _To restore permission:_
 
