@@ -6,12 +6,12 @@
     "en": {
       "name": "Uppercase",
       "description": "Convert selected text to uppercase.",
-      "tags": ["text-case", "convert"]
+      "tags": ["text-case"]
     },
     "zh-CN": {
       "name": "大写",
       "description": "将选中文本转换为大写",
-      "tags": ["大小写", "转换"]
+      "tags": ["大小写"]
     }
   },
   "sort": 10000

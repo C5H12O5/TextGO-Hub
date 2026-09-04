@@ -6,12 +6,12 @@
     "en": {
       "name": "RTrim Lines",
       "description": "Trim trailing whitespace from each line.",
-      "tags": ["convert", "multiline"]
+      "tags": ["whitespace", "multiline"]
     },
     "zh-CN": {
       "name": "右侧修剪行",
       "description": "去除每行结尾的空白字符",
-      "tags": ["转换", "多行"]
+      "tags": ["空白", "多行"]
     }
   },
   "sort": 20600

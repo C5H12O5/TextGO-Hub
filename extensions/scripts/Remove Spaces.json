@@ -6,12 +6,12 @@
     "en": {
       "name": "Remove Spaces",
       "description": "Remove all whitespace characters (spaces, tabs, newlines) from the selected text.",
-      "tags": ["convert"]
+      "tags": ["whitespace"]
     },
     "zh-CN": {
       "name": "去除空格",
       "description": "去除选中文本中的所有空白字符（空格、制表符、换行符）",
-      "tags": ["转换"]
+      "tags": ["空白"]
     }
   },
   "sort": 20200

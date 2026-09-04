@@ -6,12 +6,12 @@
     "en": {
       "name": "Outdent Lines",
       "description": "Remove one leading tab or up to four leading spaces from each non-blank line.",
-      "tags": ["convert", "multiline"]
+      "tags": ["whitespace", "multiline"]
     },
     "zh-CN": {
       "name": "减少行缩进",
       "description": "从每个非空白行去除一个制表符或最多四个前导空格",
-      "tags": ["转换", "多行"]
+      "tags": ["空白", "多行"]
     }
   },
   "sort": 20660

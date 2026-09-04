@@ -6,12 +6,12 @@
     "en": {
       "name": "Remove Duplicate Lines",
       "description": "Remove duplicate lines from the selected text.",
-      "tags": ["convert", "multiline"]
+      "tags": ["multiline"]
     },
     "zh-CN": {
       "name": "去除重复行",
       "description": "去除选中文本中的重复行",
-      "tags": ["转换", "多行"]
+      "tags": ["多行"]
     }
   },
   "sort": 20700

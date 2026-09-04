@@ -6,12 +6,12 @@
     "en": {
       "name": "Normalize Unicode",
       "description": "Normalize selected text to Unicode NFC form.",
-      "tags": ["convert"]
+      "tags": ["normalization"]
     },
     "zh-CN": {
       "name": "Unicode 规范化",
       "description": "将选中文本规范化为 Unicode NFC 形式",
-      "tags": ["转换"]
+      "tags": ["规范化"]
     }
   },
   "sort": 10500

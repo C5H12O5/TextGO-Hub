@@ -6,12 +6,12 @@
     "en": {
       "name": "Normalize Whitespace",
       "description": "Trim spaces and tabs at each line edge and collapse internal runs to a single space.",
-      "tags": ["convert", "multiline"]
+      "tags": ["whitespace", "normalization", "multiline"]
     },
     "zh-CN": {
       "name": "规范化空白",
       "description": "去除每行首尾的空格和制表符，并将行内连续空格和制表符合并为一个空格",
-      "tags": ["转换", "多行"]
+      "tags": ["空白", "规范化", "多行"]
     }
   },
   "sort": 20620

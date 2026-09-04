@@ -6,12 +6,12 @@
     "en": {
       "name": "Sentence Case",
       "description": "Capitalize the first cased letter of each sentence without changing the remaining text.",
-      "tags": ["text-case", "convert"]
+      "tags": ["text-case"]
     },
     "zh-CN": {
       "name": "句首大写",
       "description": "将每个句子的首个有大小写字母改为大写，其余文本保持不变",
-      "tags": ["大小写", "转换"]
+      "tags": ["大小写"]
     }
   },
   "sort": 10200

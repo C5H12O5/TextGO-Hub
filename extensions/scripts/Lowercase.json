@@ -6,12 +6,12 @@
     "en": {
       "name": "Lowercase",
       "description": "Convert selected text to lowercase.",
-      "tags": ["text-case", "convert"]
+      "tags": ["text-case"]
     },
     "zh-CN": {
       "name": "小写",
       "description": "将选中文本转换为小写",
-      "tags": ["大小写", "转换"]
+      "tags": ["大小写"]
     }
   },
   "sort": 10100

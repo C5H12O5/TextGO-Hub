@@ -6,12 +6,12 @@
     "en": {
       "name": "Indent Lines",
       "description": "Indent each non-blank line by four spaces.",
-      "tags": ["convert", "multiline"]
+      "tags": ["whitespace", "multiline"]
     },
     "zh-CN": {
       "name": "增加行缩进",
       "description": "为每个非空白行增加四个空格缩进",
-      "tags": ["转换", "多行"]
+      "tags": ["空白", "多行"]
     }
   },
   "sort": 20640

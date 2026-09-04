@@ -6,12 +6,12 @@
     "en": {
       "name": "Remove Empty Lines",
       "description": "Remove empty lines from the selected text.",
-      "tags": ["convert", "multiline"]
+      "tags": ["whitespace", "multiline"]
     },
     "zh-CN": {
       "name": "去除空行",
       "description": "去除选中文本中的空行",
-      "tags": ["转换", "多行"]
+      "tags": ["空白", "多行"]
     }
   },
   "sort": 20300

@@ -6,12 +6,12 @@
     "en": {
       "name": "Straighten Quotes",
       "description": "Convert smart quotation marks and apostrophes to plain ASCII quotes.",
-      "tags": ["convert"]
+      "tags": ["normalization"]
     },
     "zh-CN": {
       "name": "直引号",
       "description": "将弯引号和弯撇号转换为 ASCII 直引号",
-      "tags": ["转换"]
+      "tags": ["规范化"]
     }
   },
   "sort": 10400

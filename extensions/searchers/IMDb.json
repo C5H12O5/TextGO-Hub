@@ -5,12 +5,12 @@
     "en": {
       "name": "IMDb",
       "description": "Search selected text with IMDb.",
-      "tags": ["rating"]
+      "tags": ["movie"]
     },
     "zh-CN": {
       "name": "IMDb",
       "description": "使用 IMDb 搜索选中文本",
-      "tags": ["评分"]
+      "tags": ["影视"]
     }
   },
   "sort": 30000

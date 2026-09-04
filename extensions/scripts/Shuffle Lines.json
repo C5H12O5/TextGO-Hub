@@ -6,12 +6,12 @@
     "en": {
       "name": "Shuffle Lines",
       "description": "Randomize the order of selected lines with an unbiased Fisher–Yates shuffle.",
-      "tags": ["convert", "multiline"]
+      "tags": ["line-order", "multiline"]
     },
     "zh-CN": {
       "name": "随机打乱行",
       "description": "使用无偏 Fisher–Yates 洗牌随机调整各行顺序",
-      "tags": ["转换", "多行"]
+      "tags": ["行顺序", "多行"]
     }
   },
   "sort": 21100

@@ -5,12 +5,12 @@
     "en": {
       "name": "TMDB",
       "description": "Search selected text with TMDB.",
-      "tags": ["rating"]
+      "tags": ["movie"]
     },
     "zh-CN": {
       "name": "TMDB",
       "description": "使用 TMDB 搜索选中文本",
-      "tags": ["评分"]
+      "tags": ["影视"]
     }
   },
   "sort": 30100

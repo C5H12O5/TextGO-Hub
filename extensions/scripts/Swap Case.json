@@ -6,12 +6,12 @@
     "en": {
       "name": "Swap Case",
       "description": "Swap uppercase and lowercase letters while leaving uncased characters unchanged.",
-      "tags": ["text-case", "convert"]
+      "tags": ["text-case"]
     },
     "zh-CN": {
       "name": "大小写互换",
       "description": "互换大写与小写字母，不改变无大小写字符",
-      "tags": ["大小写", "转换"]
+      "tags": ["大小写"]
     }
   },
   "sort": 10300

@@ -6,12 +6,12 @@
     "en": {
       "name": "Join Lines",
       "description": "Replace line breaks in the selected text with spaces.",
-      "tags": ["convert"]
+      "tags": ["whitespace", "multiline"]
     },
     "zh-CN": {
       "name": "合并行",
       "description": "将选中文本中的换行符替换为空格",
-      "tags": ["转换"]
+      "tags": ["空白", "多行"]
     }
   },
   "sort": 20000

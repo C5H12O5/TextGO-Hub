@@ -6,12 +6,12 @@
     "en": {
       "name": "Sort Lines Ascending",
       "description": "Sort lines ascending (natural order, case-insensitive)",
-      "tags": ["convert", "multiline"]
+      "tags": ["line-order", "multiline"]
     },
     "zh-CN": {
       "name": "升序排序行",
       "description": "按升序排列行（自然顺序，忽略大小写）",
-      "tags": ["转换", "多行"]
+      "tags": ["行顺序", "多行"]
     }
   },
   "sort": 20800

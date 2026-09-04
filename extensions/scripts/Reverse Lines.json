@@ -6,12 +6,12 @@
     "en": {
       "name": "Reverse Lines",
       "description": "Reverse the order of lines without reversing characters within each line.",
-      "tags": ["convert", "multiline"]
+      "tags": ["line-order", "multiline"]
     },
     "zh-CN": {
       "name": "反转行序",
       "description": "反转各行顺序，不反转行内字符",
-      "tags": ["转换", "多行"]
+      "tags": ["行顺序", "多行"]
     }
   },
   "sort": 21000
