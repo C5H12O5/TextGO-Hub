@@ -1,0 +1,20 @@
+{
+  "icon": "Link",
+  "lang": "javascript",
+  "script": "function invalidClipboard() {\n  throw new Error(\n    'Clipboard must contain an HTTP(S) URL / 剪贴板必须包含 HTTP(S) URL'\n  );\n}\n\nfunction escapeMarkdown(text, characters) {\n  const slash = String.fromCharCode(92);\n  let escaped = '';\n  for (const character of text) {\n    escaped +=\n      character === slash || characters.includes(character)\n        ? slash + character\n        : character;\n  }\n  return escaped;\n}\n\nfunction process(data) {\n  const text = data && data.selection;\n  if (typeof text !== 'string') {\n    throw new TypeError('selection must be a string');\n  }\n\n  const clipboard = data && data.clipboard;\n  if (typeof clipboard !== 'string') {\n    invalidClipboard();\n  }\n\n  const target = clipboard.trim();\n  const lowerTarget = target.toLowerCase();\n  if (!lowerTarget.startsWith('http://') && !lowerTarget.startsWith('https://')) {\n    invalidClipboard();\n  }\n  for (const character of target) {\n    const code = character.charCodeAt(0);\n    if (code <= 31 || code === 127) {\n      invalidClipboard();\n    }\n  }\n\n  let url;\n  try {\n    url = new URL(target);\n  } catch {\n    invalidClipboard();\n  }\n  if ((url.protocol !== 'http:' && url.protocol !== 'https:') || !url.hostname) {\n    invalidClipboard();\n  }\n\n  const label = escapeMarkdown(text, '[]');\n  const destination = escapeMarkdown(url.href, '()');\n  return `[${label}](${destination})`;\n}\n",
+  "locales": {
+    "en": {
+      "name": "Link",
+      "description": "Create a Markdown link using selected text and the clipboard URL.",
+      "tags": ["markdown"],
+      "tip": "Uses the clipboard URL"
+    },
+    "zh-CN": {
+      "name": "链接",
+      "description": "使用选中文本和剪贴板 URL 创建 Markdown 链接",
+      "tags": ["Markdown"],
+      "tip": "使用剪贴板 URL"
+    }
+  },
+  "sort": 31500
+}

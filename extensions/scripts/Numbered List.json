@@ -4,14 +4,14 @@
   "script": "function splitLines(text) {\n  const match = text.match(/\\r\\n|\\n|\\r/);\n  const newline = match ? match[0] : '\\n';\n  const hasFinalNewline = /(?:\\r\\n|\\n|\\r)$/.test(text);\n  const lines = text.split(/\\r\\n|\\n|\\r/);\n\n  if (hasFinalNewline) {\n    lines.pop();\n  }\n\n  return { lines, newline, hasFinalNewline };\n}\n\nfunction process(data) {\n  const text = data && data.selection;\n  if (typeof text !== 'string') {\n    throw new TypeError('selection must be a string');\n  }\n\n  const { lines, newline, hasFinalNewline } = splitLines(text);\n  let number = 1;\n  const output = lines\n    .map((line) => {\n      if (line.trim() === '') {\n        return line;\n      }\n\n      const numbered = `${number}. ${line}`;\n      number += 1;\n      return numbered;\n    })\n    .join(newline);\n\n  return output + (hasFinalNewline ? newline : '');\n}\n",
   "locales": {
     "en": {
-      "name": "Number Lines",
-      "description": "Prefix non-empty lines with sequential numbers.",
-      "tags": ["convert", "multiline", "markdown"]
+      "name": "Numbered List",
+      "description": "Convert non-empty lines to a Markdown numbered list.",
+      "tags": ["markdown", "multiline"]
     },
     "zh-CN": {
-      "name": "行编号",
-      "description": "为非空行依次添加序号",
-      "tags": ["转换", "多行", "Markdown"]
+      "name": "有序列表",
+      "description": "将非空行转换为 Markdown 有序列表",
+      "tags": ["Markdown", "多行"]
     }
   },
   "sort": 21200

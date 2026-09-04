@@ -1,0 +1,18 @@
+{
+  "icon": "CodeBlock",
+  "lang": "javascript",
+  "script": "function maxBacktickRun(text) {\n  const runs = text.match(/`+/g);\n  return runs ? runs.reduce((max, run) => Math.max(max, run.length), 0) : 0;\n}\n\nfunction process(data) {\n  const text = data && data.selection;\n  if (typeof text !== 'string') {\n    throw new TypeError('selection must be a string');\n  }\n  if (text === '') {\n    return '';\n  }\n\n  const longestRun = maxBacktickRun(text);\n  if (!/\\r\\n|\\n|\\r/.test(text)) {\n    const fence = '`'.repeat(longestRun + 1);\n    const needsPadding =\n      text.startsWith('`') ||\n      text.endsWith('`') ||\n      (text.startsWith(' ') && text.endsWith(' ') && !/^ +$/.test(text));\n    return needsPadding ? `${fence} ${text} ${fence}` : `${fence}${text}${fence}`;\n  }\n\n  const newline = text.match(/\\r\\n|\\n|\\r/)[0];\n  const fence = '`'.repeat(Math.max(3, longestRun + 1));\n  const separator = /(?:\\r\\n|\\n|\\r)$/.test(text) ? '' : newline;\n  return `${fence}${newline}${text}${separator}${fence}`;\n}\n",
+  "locales": {
+    "en": {
+      "name": "Code",
+      "description": "Wrap selected text as inline or fenced Markdown code.",
+      "tags": ["markdown", "multiline"]
+    },
+    "zh-CN": {
+      "name": "代码",
+      "description": "将单行包裹为行内代码，将多行包裹为围栏代码块",
+      "tags": ["Markdown", "多行"]
+    }
+  },
+  "sort": 31200
+}

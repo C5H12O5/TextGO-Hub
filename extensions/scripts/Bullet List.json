@@ -1,0 +1,18 @@
+{
+  "icon": "ListBullets",
+  "lang": "javascript",
+  "script": "function process(data) {\n  const text = data && data.selection;\n  if (typeof text !== 'string') {\n    throw new TypeError('selection must be a string');\n  }\n\n  const parts = text.split(/(\\r\\n|\\n|\\r)/);\n  return parts\n    .map((part, index) => {\n      if (\n        index % 2 !== 0 ||\n        (part === '' && index === parts.length - 1) ||\n        part.trim() === ''\n      ) {\n        return part;\n      }\n\n      const match = part.match(/^([ \\t]*)(?:[-+*](?:[ \\t]+|$))?(.*)$/);\n      return `${match[1]}- ${match[2]}`;\n    })\n    .join('');\n}\n",
+  "locales": {
+    "en": {
+      "name": "Bullet List",
+      "description": "Convert non-empty lines to a normalized Markdown bullet list.",
+      "tags": ["markdown", "multiline"]
+    },
+    "zh-CN": {
+      "name": "无序列表",
+      "description": "将非空行转换为规范的 Markdown 无序列表",
+      "tags": ["Markdown", "多行"]
+    }
+  },
+  "sort": 21300
+}
