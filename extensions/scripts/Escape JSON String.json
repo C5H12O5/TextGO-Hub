@@ -1,0 +1,18 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSItMzIgLTMyIDU3NiA1NzYiPgoJPHBhdGggZD0iTTAgMGg1MTJ2NTEySDB6IiBmaWxsPSJub25lIiAvPgoJPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjg0LjA5NiAzODIuNzU1YzEyNi40MS05Ni4wNjcgMzkuNjA5LTI5NC44OTYtNjkuNTEzLTI3Ny44NkM5LjMxNSAxMzYuOTQgNjAuNjU4IDQyMi4yMjMgMTI5LjA0NyA0NzUuMjU4QzIyLjA0MiA0MjIuMzktMjIuNDI2IDI5MS4yMTcgMTAuODIgMTc5Ljc0QzM3LjE2MSA5MS40MjcgMTE5LjI4NyAzLjk2MiAyNDMuNzA4LjYxYzE5Ni4zNjctMTcuOTEgMjU0Ljg3MyAzNjQuMTY1IDQwLjM4OCAzODIuMTQ1TTIxOS4yNDcgMTMwLjJjLTExMi4zIDUuNzI4LTEzNi41MjIgMTE5LjE1OC0xMjcuMjkgMjAxLjExNGMxMy40NjcgMTE5LjU3NyA4OS4yNDIgMTk3LjIxNiAyMDcuNTUzIDE3Ny42ODRjMTgxLjc3Ny0zMC4wMSAzMzEuOTA0LTMxOC43MjYgNzYuNDQxLTQ4MC4wMTVjOTQuMTEgMTA5LjYyNCA5NC45ODMgMzMxLjcxMy01OS42MjQgMzcxLjEzYy0xNDIuOTgxIDQzLjEwMi0yMDguMDc2LTE4Ny43MjUtOTcuMDgtMjY5LjkxMyIgLz4KPC9zdmc+Cg==",
+  "lang": "javascript",
+  "script": "function process(data) {\n  return JSON.stringify(data.selection);\n}\n",
+  "locales": {
+    "en": {
+      "name": "Escape JSON String",
+      "description": "Encode selected text as a valid JSON string literal.",
+      "tags": ["json", "codec"]
+    },
+    "zh-CN": {
+      "name": "JSON 字符串转义",
+      "description": "将选中文本编码为有效的 JSON 字符串字面量",
+      "tags": ["JSON", "编解码"]
+    }
+  },
+  "sort": 40700
+}

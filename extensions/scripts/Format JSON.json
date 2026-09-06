@@ -1,0 +1,18 @@
+{
+  "icon": "BracketsCurly",
+  "lang": "javascript",
+  "script": "function process(data) {\n  return JSON.stringify(JSON.parse(data.selection), null, 2);\n}\n",
+  "locales": {
+    "en": {
+      "name": "Format JSON",
+      "description": "Validate and pretty-print JSON with two-space indentation.",
+      "tags": ["json", "format"]
+    },
+    "zh-CN": {
+      "name": "格式化 JSON",
+      "description": "校验 JSON 并使用两个空格缩进进行格式化",
+      "tags": ["JSON", "格式化"]
+    }
+  },
+  "sort": 40500
+}

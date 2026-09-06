@@ -1,0 +1,18 @@
+{
+  "icon": "ArrowsInSimple",
+  "lang": "javascript",
+  "script": "function process(data) {\n  return JSON.stringify(JSON.parse(data.selection));\n}\n",
+  "locales": {
+    "en": {
+      "name": "Minify JSON",
+      "description": "Validate JSON and remove insignificant whitespace.",
+      "tags": ["json", "format"]
+    },
+    "zh-CN": {
+      "name": "压缩 JSON",
+      "description": "校验 JSON 并去除无意义空白",
+      "tags": ["JSON", "格式化"]
+    }
+  },
+  "sort": 40600
+}
