@@ -1,0 +1,20 @@
+{
+  "icon": "IdentificationCard",
+  "lang": "javascript",
+  "script": "function invalidJwt() {\n  throw new Error('Invalid JWT / 无效的 JWT');\n}\n\nfunction decodePart(part) {\n  if (!/^[A-Za-z0-9_-]+$/.test(part) || part.length % 4 === 1) {\n    invalidJwt();\n  }\n\n  const base64 = part.replace(/-/g, '+').replace(/_/g, '/');\n  const binary = atob(base64.padEnd(Math.ceil(base64.length / 4) * 4, '='));\n  const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));\n  return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));\n}\n\nfunction process(data) {\n  try {\n    const parts = data.selection.trim().split('.');\n    if (parts.length !== 3 || !/^[A-Za-z0-9_-]*$/.test(parts[2])) {\n      invalidJwt();\n    }\n\n    const header = decodePart(parts[0]);\n    const payload = decodePart(parts[1]);\n    if (\n      [header, payload].some(\n        (value) => value === null || typeof value !== 'object' || Array.isArray(value)\n      )\n    ) {\n      invalidJwt();\n    }\n\n    return JSON.stringify({ header, payload }, null, 2);\n  } catch {\n    invalidJwt();\n  }\n}\n",
+  "locales": {
+    "en": {
+      "name": "Decode JWT",
+      "description": "Decode JWT header and payload without verifying the signature.",
+      "tags": ["developer", "codec"],
+      "tip": "Does not verify signatures"
+    },
+    "zh-CN": {
+      "name": "解析 JWT",
+      "description": "解码 JWT 头部和载荷，但不验证签名",
+      "tags": ["开发", "编解码"],
+      "tip": "不验证签名"
+    }
+  },
+  "sort": 41000
+}

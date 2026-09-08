@@ -1,0 +1,18 @@
+{
+  "icon": "ChartBar",
+  "lang": "javascript",
+  "sort": 41300,
+  "script": "function graphemeSegments(text) {\n  if (typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function') {\n    return Array.from(\n      new Intl.Segmenter(\"en\", { granularity: 'grapheme' }).segment(text),\n      (item) => item.segment\n    );\n  }\n  return Array.from(text.normalize('NFC'));\n}\n\nfunction countWords(text) {\n  if (typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function') {\n    return Array.from(\n      new Intl.Segmenter(\"en\", { granularity: 'word' }).segment(text)\n    ).filter((item) => item.isWordLike).length;\n  }\n  const words = text.match(/[\\p{L}\\p{N}]+(?:['’][\\p{L}\\p{N}]+)*/gu);\n  return words ? words.length : 0;\n}\n\nfunction process(data) {\n  const text = data.selection;\n  const graphemes = graphemeSegments(text);\n  const nonWhitespace = graphemes.filter((segment) => !/\\s/u.test(segment)).length;\n  const lines = text === '' ? 0 : text.split(/\\r\\n|\\r|\\n/).length;\n  const bytes = new TextEncoder().encode(text).length;\n\n  return [\n    \"Graphemes: \" + graphemes.length,\n    \"Non-whitespace characters: \" + nonWhitespace,\n    \"Words: \" + countWords(text),\n    \"Lines: \" + lines,\n    \"UTF-8 bytes: \" + bytes\n  ].join('\\n');\n}\n",
+  "locales": {
+    "en": {
+      "name": "Text Statistics",
+      "description": "Count graphemes, non-whitespace characters, words, lines, and UTF-8 bytes.",
+      "tags": ["statistics"]
+    },
+    "zh-CN": {
+      "name": "",
+      "description": "",
+      "tags": []
+    }
+  }
+}

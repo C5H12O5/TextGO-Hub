@@ -1,0 +1,18 @@
+{
+  "icon": "ChartBar",
+  "lang": "javascript",
+  "sort": 41300,
+  "script": "function graphemeSegments(text) {\n  if (typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function') {\n    return Array.from(\n      new Intl.Segmenter(\"zh-CN\", { granularity: 'grapheme' }).segment(text),\n      (item) => item.segment\n    );\n  }\n  return Array.from(text.normalize('NFC'));\n}\n\nfunction countWords(text) {\n  if (typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function') {\n    return Array.from(\n      new Intl.Segmenter(\"zh-CN\", { granularity: 'word' }).segment(text)\n    ).filter((item) => item.isWordLike).length;\n  }\n  const words = text.match(/[\\p{L}\\p{N}]+(?:['’][\\p{L}\\p{N}]+)*/gu);\n  return words ? words.length : 0;\n}\n\nfunction process(data) {\n  const text = data.selection;\n  const graphemes = graphemeSegments(text);\n  const nonWhitespace = graphemes.filter((segment) => !/\\s/u.test(segment)).length;\n  const lines = text === '' ? 0 : text.split(/\\r\\n|\\r|\\n/).length;\n  const bytes = new TextEncoder().encode(text).length;\n\n  return [\n    \"字素：\" + graphemes.length,\n    \"非空白字符：\" + nonWhitespace,\n    \"词语：\" + countWords(text),\n    \"行数：\" + lines,\n    \"UTF-8 字节：\" + bytes\n  ].join('\\n');\n}\n",
+  "locales": {
+    "en": {
+      "name": "",
+      "description": "",
+      "tags": []
+    },
+    "zh-CN": {
+      "name": "文本统计",
+      "description": "统计字素、非空白字符、词语、行数与 UTF-8 字节数",
+      "tags": ["统计"]
+    }
+  }
+}
