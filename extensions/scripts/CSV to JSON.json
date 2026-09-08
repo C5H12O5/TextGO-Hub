@@ -1,0 +1,18 @@
+{
+  "icon": "FileCsv",
+  "lang": "python",
+  "script": "import csv\nimport io\nimport json\n\ndef process(data):\n    text = data[\"selection\"]\n    if not text:\n        raise ValueError(\"CSV input is empty\")\n\n    try:\n        rows = list(csv.reader(io.StringIO(text, newline=\"\"), strict=True))\n    except csv.Error as error:\n        raise ValueError(f\"Invalid CSV: {error}\") from error\n\n    if not rows or not rows[0]:\n        raise ValueError(\"CSV header row is missing\")\n\n    headers = rows[0]\n    if headers[0].startswith(\"\\ufeff\"):\n        headers[0] = headers[0][1:]\n    if any(header == \"\" for header in headers):\n        raise ValueError(\"CSV headers cannot be empty\")\n    if len(set(headers)) != len(headers):\n        raise ValueError(\"Duplicate CSV headers\")\n\n    result = []\n    for index, row in enumerate(rows[1:], start=2):\n        if len(row) != len(headers):\n            raise ValueError(\n                f\"CSV row {index} has {len(row)} fields; expected {len(headers)}\"\n            )\n        result.append(dict(zip(headers, row)))\n\n    return json.dumps(result, ensure_ascii=False, indent=2)\n",
+  "locales": {
+    "en": {
+      "name": "CSV to JSON",
+      "description": "Convert CSV with a header row to pretty-printed JSON.",
+      "tags": ["json"]
+    },
+    "zh-CN": {
+      "name": "CSV 转 JSON",
+      "description": "将带标题行的 CSV 转换为格式化 JSON",
+      "tags": ["JSON"]
+    }
+  },
+  "sort": 50000
+}

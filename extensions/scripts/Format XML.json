@@ -1,0 +1,18 @@
+{
+  "icon": "BracketsAngle",
+  "lang": "python",
+  "script": "import re\nfrom xml.dom import Node, minidom\nfrom xml.parsers.expat import ExpatError\n\nMAX_BYTES = 1024 * 1024\nMAX_DEPTH = 200\n\ndef start_tag(node):\n    text = node.cloneNode(False).toxml()\n    return text[:-2] + \">\" if text.endswith(\"/>\") else text\n\ndef check_depth(root):\n    stack = [(root, 0)]\n    while stack:\n        node, depth = stack.pop()\n        if depth > MAX_DEPTH:\n            raise ValueError(\"XML nesting is too deep\")\n        stack.extend(\n            (child, depth + 1)\n            for child in node.childNodes\n            if child.nodeType == Node.ELEMENT_NODE\n        )\n\ndef render_element(node, depth):\n    significant_text = any(\n        child.nodeType == Node.CDATA_SECTION_NODE\n        or (child.nodeType == Node.TEXT_NODE and child.data.strip())\n        for child in node.childNodes\n    )\n    if significant_text:\n        return \"  \" * depth + node.toxml()\n\n    children = [\n        child\n        for child in node.childNodes\n        if child.nodeType != Node.TEXT_NODE or child.data.strip()\n    ]\n    if not children:\n        return \"  \" * depth + node.toxml()\n\n    indent = \"  \" * depth\n    lines = [indent + start_tag(node)]\n    for child in children:\n        if child.nodeType == Node.ELEMENT_NODE:\n            lines.append(render_element(child, depth + 1))\n        else:\n            child_indent = \"  \" * (depth + 1)\n            lines.extend(child_indent + line for line in child.toxml().splitlines())\n    lines.append(indent + f\"</{node.tagName}>\")\n    return \"\\n\".join(lines)\n\ndef process(data):\n    text = data[\"selection\"]\n    if not text.strip():\n        raise ValueError(\"XML input is empty\")\n    if len(text.encode(\"utf-8\", \"surrogatepass\")) > MAX_BYTES:\n        raise ValueError(\"XML input exceeds 1 MiB\")\n\n    source = text[1:] if text.startswith(\"\\ufeff\") else text\n    scan = re.sub(r\"<!--.*?-->|<!\\[CDATA\\[.*?\\]\\]>\", \"\", source, flags=re.DOTALL)\n    if re.search(r\"<!\\s*(?:DOCTYPE|ENTITY)\\b\", scan, flags=re.IGNORECASE):\n        raise ValueError(\n            \"DTD and entity declarations are not supported\"\n        )\n\n    try:\n        document = minidom.parseString(source)\n    except ExpatError as error:\n        raise ValueError(f\"Invalid XML: {error}\") from error\n\n    check_depth(document.documentElement)\n    declaration = re.match(r\"\\s*(<\\?xml\\s+.*?\\?>)\", source, flags=re.DOTALL | re.IGNORECASE)\n    lines = [declaration.group(1)] if declaration else []\n    for child in document.childNodes:\n        if child.nodeType == Node.ELEMENT_NODE:\n            lines.append(render_element(child, 0))\n        elif child.nodeType in (Node.COMMENT_NODE, Node.PROCESSING_INSTRUCTION_NODE):\n            lines.extend(child.toxml().splitlines())\n    return \"\\n\".join(lines)\n",
+  "locales": {
+    "en": {
+      "name": "Format XML",
+      "description": "Validate and format XML without changing mixed text content.",
+      "tags": ["developer", "format"]
+    },
+    "zh-CN": {
+      "name": "格式化 XML",
+      "description": "校验并格式化 XML，同时保持混合文本内容不变",
+      "tags": ["开发", "格式化"]
+    }
+  },
+  "sort": 50200
+}

@@ -1,0 +1,18 @@
+{
+  "icon": "Binary",
+  "lang": "python",
+  "script": "import unicodedata\n\nMAX_CHARACTERS = 10000\nCONTROL_NAMES = {\n    \"\\t\": \"CHARACTER TABULATION\",\n    \"\\n\": \"LINE FEED\",\n    \"\\r\": \"CARRIAGE RETURN\",\n}\n\ndef escape_character(character, category):\n    if character == \"\\t\":\n        return \"\\\\t\"\n    if character == \"\\n\":\n        return \"\\\\n\"\n    if character == \"\\r\":\n        return \"\\\\r\"\n    if category[0] in \"CMZ\":\n        code = ord(character)\n        return f\"\\\\u{code:04X}\" if code <= 0xFFFF else f\"\\\\U{code:08X}\"\n    return character\n\ndef process(data):\n    text = data[\"selection\"]\n    if not text:\n        raise ValueError(\"Text is empty\")\n    if len(text) > MAX_CHARACTERS:\n        raise ValueError(\n            \"Text exceeds 10,000 Unicode code points\"\n        )\n\n    lines = []\n    for character in text:\n        code = ord(character)\n        category = unicodedata.category(character)\n        display = escape_character(character, category)\n        name = CONTROL_NAMES.get(\n            character, unicodedata.name(character, \"<unnamed>\")\n        )\n        lines.append(f\"U+{code:04X}\\t{display}\\t{name}\\t{category}\")\n    return \"\\n\".join(lines)\n",
+  "locales": {
+    "en": {
+      "name": "Unicode Inspector",
+      "description": "List the code point, visible form, Unicode name, and category of each character.",
+      "tags": ["developer"]
+    },
+    "zh-CN": {
+      "name": "Unicode 检查",
+      "description": "列出每个字符的码位、可见形式、Unicode 名称和类别",
+      "tags": ["开发"]
+    }
+  },
+  "sort": 50300
+}

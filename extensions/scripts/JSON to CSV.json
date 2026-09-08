@@ -1,0 +1,18 @@
+{
+  "icon": "BracketsCurly",
+  "lang": "python",
+  "script": "import csv\nimport io\nimport json\n\ndef reject_constant(value):\n    raise ValueError(f\"Invalid JSON number: {value}\")\n\ndef process(data):\n    try:\n        value = json.loads(data[\"selection\"], parse_constant=reject_constant)\n    except json.JSONDecodeError as error:\n        raise ValueError(\n            f\"Invalid JSON: {error.msg} \"\n            f\"(line {error.lineno}, column {error.colno})\"\n        ) from error\n\n    if isinstance(value, dict):\n        rows = [value]\n    elif isinstance(value, list) and all(isinstance(row, dict) for row in value):\n        rows = value\n    else:\n        raise ValueError(\n            \"Expected a JSON object or array of objects\"\n        )\n    if not rows:\n        raise ValueError(\"JSON array is empty\")\n\n    headers = []\n    for row in rows:\n        for header in row:\n            if header not in headers:\n                headers.append(header)\n    if not headers:\n        raise ValueError(\"JSON objects have no fields\")\n\n    def cell(value, row, header):\n        if isinstance(value, (dict, list)):\n            raise ValueError(\n                f\"Nested JSON values are not supported: row {row}, field {header}\"\n            )\n        if value is None:\n            return \"\"\n        if isinstance(value, bool):\n            return \"true\" if value else \"false\"\n        return str(value)\n\n    buffer = io.StringIO(newline=\"\")\n    writer = csv.writer(buffer, lineterminator=\"\\n\")\n    writer.writerow(headers)\n    for index, row in enumerate(rows, start=1):\n        writer.writerow([cell(row.get(header), index, header) for header in headers])\n\n    result = buffer.getvalue()\n    return result[:-1] if result.endswith(\"\\n\") else result\n",
+  "locales": {
+    "en": {
+      "name": "JSON to CSV",
+      "description": "Convert flat JSON objects to CSV with a header row.",
+      "tags": ["json"]
+    },
+    "zh-CN": {
+      "name": "JSON 转 CSV",
+      "description": "将扁平 JSON 对象转换为带标题行的 CSV",
+      "tags": ["JSON"]
+    }
+  },
+  "sort": 50100
+}
