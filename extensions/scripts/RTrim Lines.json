@@ -1,7 +1,7 @@
 {
   "icon": "ArrowLineRight",
   "lang": "javascript",
-  "script": "function process(data) {\n    return data.selection.replace(/[ \\t]+$/gm, '');\n}\n",
+  "script": "function process(data) {\n  return data.selection.replace(/[ \\t]+$/gm, '');\n}\n",
   "locales": {
     "en": {
       "name": "RTrim Lines",

@@ -1,7 +1,7 @@
 {
   "icon": "SortDescending",
   "lang": "javascript",
-  "script": "function process(data) {\n    const lines = data.selection.match(/[^\\r\\n]+/g) || [];\n    return lines\n        .sort((a, b) =>\n            b.localeCompare(a, undefined, {\n                numeric: true,\n                sensitivity: 'base',\n            }),\n        )\n        .join('\\n');\n}\n",
+  "script": "function process(data) {\n  const lines = data.selection.match(/[^\\r\\n]+/g) || [];\n  return lines\n    .sort((a, b) =>\n      b.localeCompare(a, undefined, {\n        numeric: true,\n        sensitivity: 'base',\n      }),\n    )\n    .join('\\n');\n}\n",
   "locales": {
     "en": {
       "name": "Sort Lines Descending",

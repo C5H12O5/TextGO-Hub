@@ -1,7 +1,7 @@
 {
   "icon": "WarningCircle",
   "lang": "javascript",
-  "script": "function process(data) {\n    return `\n> [!NOTE]\n> ${data.selection}`.trimStart();\n}\n",
+  "script": "function process(data) {\n  return `\n> [!NOTE]\n> ${data.selection}`.trimStart();\n}\n",
   "locales": {
     "en": {
       "name": "Note",

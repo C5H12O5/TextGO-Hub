@@ -1,7 +1,7 @@
 {
   "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMiAyIDIwIDIwIj4KCTxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE2Ljg5MyAxNy40MzRxLS4xNDMtLjE0NC0uMTQzLS4zNTd2LTYuNTQ2bC0xLjc0NiAxLjc0NnEtLjE0LjE0LS4zNDQuMTV0LS4zNjQtLjE1dC0uMTYtLjM1NHQuMTYtLjM1NGwyLjM4OC0yLjM4OHEuMjQzLS4yNDIuNTY2LS4yNDJ0LjU2Ni4yNDJsMi4zODggMi4zODhxLjE0LjE0LjE1LjM0NXEuMDEuMjAzLS4xNS4zNjN0LS4zNTQuMTZ0LS4zNTQtLjE2bC0xLjc0Ni0xLjc0NnY2LjU0NnEwIC4yMTQtLjE0My4zNTd0LS4zNTcuMTQzdC0uMzU3LS4xNDNtLTEwLjgtMi44MTdsLS45MTYgMi42MzVxLS4wNjEuMTYtLjE4LjI0MnQtLjI4LjA4M3EtLjI2MyAwLS40MS0uMjE1cS0uMTQ4LS4yMTQtLjA1LS40NjZsMy4zNzQtOS4yMTlxLjA2MS0uMTYuMTk2LS4yNDVxLjEzNC0uMDg2LjI5NC0uMDg2aC4zNjdxLjE2IDAgLjI5Ni4wODZ0LjE5Ny4yNDRsMy40MjggOS4yMDhxLjA5OS4yNS0uMDU4LjQ3MnQtLjQxOS4yMjFxLS4xNjIgMC0uMjk2LS4wOTV0LS4xOTYtLjI1NWwtLjkxNy0yLjYxem0uMzQ0LS45MDdoMy43NTVMOC4zMzYgOC40ODdoLS4wNjF6IiBzdHJva2Utd2lkdGg9IjAuMyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+Cjwvc3ZnPg==",
   "lang": "javascript",
-  "script": "function process(data) {\n    return data.selection.toUpperCase();\n}\n",
+  "script": "function process(data) {\n  return data.selection.toUpperCase();\n}\n",
   "locales": {
     "en": {
       "name": "Uppercase",

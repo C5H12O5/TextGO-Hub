@@ -1,7 +1,7 @@
 {
   "icon": "WarningOctagon",
   "lang": "javascript",
-  "script": "function process(data) {\n    return `\n> [!CAUTION]\n> ${data.selection}`.trimStart();\n}\n",
+  "script": "function process(data) {\n  return `\n> [!CAUTION]\n> ${data.selection}`.trimStart();\n}\n",
   "locales": {
     "en": {
       "name": "Caution",

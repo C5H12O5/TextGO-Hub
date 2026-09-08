@@ -1,7 +1,7 @@
 {
   "icon": "ArrowsInLineVertical",
   "lang": "javascript",
-  "script": "function process(data) {\n    return data.selection.replace(/^\\s*$[\\r\\n]+/gm, '');\n}\n",
+  "script": "function process(data) {\n  return data.selection.replace(/^\\s*$[\\r\\n]+/gm, '');\n}\n",
   "locales": {
     "en": {
       "name": "Remove Empty Lines",

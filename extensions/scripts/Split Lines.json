@@ -1,7 +1,7 @@
 {
   "icon": "List",
   "lang": "javascript",
-  "script": "function process(data) {\n    return data.selection.replace(/\\s+/g, '\\n');\n}\n",
+  "script": "function process(data) {\n  return data.selection.replace(/\\s+/g, '\\n');\n}\n",
   "locales": {
     "en": {
       "name": "Split Lines",

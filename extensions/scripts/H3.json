@@ -1,7 +1,7 @@
 {
   "icon": "TextHThree",
   "lang": "javascript",
-  "script": "function process(data) {\n    return `### ${data.selection}`;\n}\n",
+  "script": "function process(data) {\n  return `### ${data.selection}`;\n}\n",
   "locales": {
     "en": {
       "name": "H3",

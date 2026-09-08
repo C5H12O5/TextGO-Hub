@@ -1,7 +1,7 @@
 {
   "icon": "Warning",
   "lang": "javascript",
-  "script": "function process(data) {\n    return `\n> [!WARNING]\n> ${data.selection}`.trimStart();\n}\n",
+  "script": "function process(data) {\n  return `\n> [!WARNING]\n> ${data.selection}`.trimStart();\n}\n",
   "locales": {
     "en": {
       "name": "Warning",
