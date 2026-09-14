@@ -1,0 +1,18 @@
+{
+  "icon": "NotePencil",
+  "lang": "shell",
+  "script": "set -eu\nunset LC_ALL\nexport LC_CTYPE=UTF-8\n\ncase \"$selection\" in\n  *[![:space:]]*) ;;\n  *)\n    printf '%s\\n' 'Text is empty' >&2\n    exit 1\n    ;;\nesac\n\n/usr/bin/osascript - \"$selection\" <<'APPLESCRIPT'\non replaceText(findText, replacementText, sourceText)\n    set previousDelimiters to AppleScript's text item delimiters\n    set AppleScript's text item delimiters to findText\n    set textItems to text items of sourceText\n    set AppleScript's text item delimiters to replacementText\n    set replacedText to textItems as text\n    set AppleScript's text item delimiters to previousDelimiters\n    return replacedText\nend replaceText\n\non run arguments\n    set noteText to item 1 of arguments\n\n    set noteBody to my replaceText(\"&\", \"&amp;\", noteText)\n    set noteBody to my replaceText(\"<\", \"&lt;\", noteBody)\n    set noteBody to my replaceText(\">\", \"&gt;\", noteBody)\n    set noteBody to my replaceText(return & linefeed, \"<br>\", noteBody)\n    set noteBody to my replaceText(return, \"<br>\", noteBody)\n    set noteBody to my replaceText(linefeed, \"<br>\", noteBody)\n    set noteBody to \"<div>\" & noteBody & \"</div>\"\n\n    tell application \"/System/Applications/Notes.app\"\n        set targetFolder to default folder of default account\n        make new note at targetFolder with properties {body:noteBody}\n    end tell\n    return \"\"\nend run\nAPPLESCRIPT\n",
+  "locales": {
+    "en": {
+      "name": "Create Apple Note",
+      "description": "Create an Apple Note from the selected text.",
+      "tags": ["macos"]
+    },
+    "zh-CN": {
+      "name": "新建 Apple 备忘录",
+      "description": "使用选中文本新建 Apple 备忘录",
+      "tags": ["macOS"]
+    }
+  },
+  "sort": 80100
+}

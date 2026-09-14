@@ -1,0 +1,18 @@
+{
+  "icon": "SpeakerHigh",
+  "lang": "shell",
+  "script": "set -eu\nunset LC_ALL\nexport LC_CTYPE=UTF-8\n\ncase \"$selection\" in\n  *[![:space:]]*) ;;\n  *)\n    printf '%s\\n' 'Text is empty' >&2\n    exit 1\n    ;;\nesac\n\nprintf '%s' \"$selection\" | /usr/bin/say -f -\n",
+  "locales": {
+    "en": {
+      "name": "Speak Text",
+      "description": "Read the selected text aloud with the macOS system voice.",
+      "tags": ["macos"]
+    },
+    "zh-CN": {
+      "name": "朗读文本",
+      "description": "使用 macOS 系统语音朗读选中文本",
+      "tags": ["macOS"]
+    }
+  },
+  "sort": 80000
+}

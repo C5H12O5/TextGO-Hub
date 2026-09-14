@@ -1,0 +1,18 @@
+{
+  "icon": "Bell",
+  "lang": "shell",
+  "script": "set -eu\nunset LC_ALL\nexport LC_CTYPE=UTF-8\n\ncase \"$selection\" in\n  *[![:space:]]*) ;;\n  *)\n    printf '%s\\n' 'Text is empty' >&2\n    exit 1\n    ;;\nesac\n\n/usr/bin/osascript - \"$selection\" <<'APPLESCRIPT'\non hasText(sourceText)\n    repeat with characterText in characters of sourceText\n        set characterValue to characterText as text\n        if characterValue is not space and characterValue is not tab then\n            return true\n        end if\n    end repeat\n    return false\nend hasText\n\non joinLines(linesToJoin)\n    set previousDelimiters to AppleScript's text item delimiters\n    set AppleScript's text item delimiters to linefeed\n    set joinedText to linesToJoin as text\n    set AppleScript's text item delimiters to previousDelimiters\n    return joinedText\nend joinLines\n\non run arguments\n    set reminderText to item 1 of arguments\n    set reminderName to \"\"\n    set reminderLines to {}\n    set foundName to false\n\n    repeat with lineText in paragraphs of reminderText\n        set candidate to lineText as text\n        if foundName then\n            set end of reminderLines to candidate\n        else if my hasText(candidate) then\n            set reminderName to candidate\n            set foundName to true\n        end if\n    end repeat\n    if not foundName then error \"Text is empty\"\n\n    set reminderNotes to my joinLines(reminderLines)\n    tell application \"/System/Applications/Reminders.app\"\n        make new reminder at default list with properties {name:reminderName, body:reminderNotes}\n    end tell\n    return \"\"\nend run\nAPPLESCRIPT\n",
+  "locales": {
+    "en": {
+      "name": "Create Apple Reminder",
+      "description": "Create a reminder in the default Reminders list from the selected text.",
+      "tags": ["macos"]
+    },
+    "zh-CN": {
+      "name": "新建 Apple 提醒事项",
+      "description": "使用选中文本在默认提醒事项列表中创建提醒",
+      "tags": ["macOS"]
+    }
+  },
+  "sort": 80200
+}

@@ -1,0 +1,18 @@
+{
+  "icon": "MagnifyingGlass",
+  "lang": "shell",
+  "script": "set -eu\nunset LC_ALL\nexport LC_CTYPE=UTF-8\n\ncase \"$selection\" in\n  *[![:space:]]*) ;;\n  *)\n    printf '%s\\n' 'Query is empty' >&2\n    exit 1\n    ;;\nesac\n\nrestore_clipboard() {\n  printf '%s' \"$clipboard\" | /usr/bin/pbcopy\n}\ntrap restore_clipboard 0\n\nprintf '%s' \"$selection\" | /usr/bin/pbcopy\n/usr/bin/open \"spotlight://apps\"\n\n/usr/bin/osascript <<'APPLESCRIPT'\ndelay 0.5\ntell application \"/System/Library/CoreServices/System Events.app\"\n    keystroke \"v\" using command down\nend tell\ndelay 0.2\nAPPLESCRIPT\n",
+  "locales": {
+    "en": {
+      "name": "Search with Spotlight",
+      "description": "Open Spotlight and search for the selected text.",
+      "tags": ["macos"]
+    },
+    "zh-CN": {
+      "name": "使用 Spotlight 搜索",
+      "description": "打开 Spotlight 并搜索选中文本",
+      "tags": ["macOS"]
+    }
+  },
+  "sort": 80300
+}
