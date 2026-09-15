@@ -1,0 +1,18 @@
+{
+  "icon": "Fingerprint",
+  "lang": "powershell",
+  "script": "$ErrorActionPreference = 'Stop'\n\n$path = ([string]$selection).Trim()\nif ($path.Length -ge 2 -and $path[0] -eq $path[-1] -and $path[0] -in @('\"', \"'\")) {\n  $path = $path.Substring(1, $path.Length - 2)\n}\nif ([string]::IsNullOrWhiteSpace($path)) {\n  throw 'File path is empty'\n}\nif (-not (Test-Path -LiteralPath $path -PathType Leaf)) {\n  throw 'Path must point to an existing file'\n}\n\n(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash\n",
+  "locales": {
+    "en": {
+      "name": "File SHA-256",
+      "description": "Calculate the SHA-256 hash of the file at the selected path.",
+      "tags": ["windows"]
+    },
+    "zh-CN": {
+      "name": "文件 SHA-256",
+      "description": "计算选中路径对应文件的 SHA-256 哈希值",
+      "tags": ["Windows"]
+    }
+  },
+  "sort": 90300
+}

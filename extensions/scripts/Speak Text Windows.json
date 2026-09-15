@@ -1,0 +1,18 @@
+{
+  "icon": "SpeakerHigh",
+  "lang": "powershell",
+  "script": "$ErrorActionPreference = 'Stop'\n\nif ([string]::IsNullOrWhiteSpace($selection)) {\n  throw 'Text is empty'\n}\n\nAdd-Type -AssemblyName System.Speech\n$speaker = New-Object System.Speech.Synthesis.SpeechSynthesizer\ntry {\n  $speaker.SetOutputToDefaultAudioDevice()\n  $speaker.Speak($selection)\n} finally {\n  $speaker.Dispose()\n}\n",
+  "locales": {
+    "en": {
+      "name": "Speak Text",
+      "description": "Read the selected text aloud with the Windows system voice.",
+      "tags": ["windows"]
+    },
+    "zh-CN": {
+      "name": "朗读文本",
+      "description": "使用 Windows 系统语音朗读选中文本",
+      "tags": ["Windows"]
+    }
+  },
+  "sort": 90000
+}

@@ -1,0 +1,18 @@
+{
+  "icon": "Notepad",
+  "lang": "powershell",
+  "script": "$ErrorActionPreference = 'Stop'\n\nif ([string]::IsNullOrWhiteSpace($selection)) {\n  throw 'Text is empty'\n}\n\n$path = [IO.Path]::GetTempFileName()\ntry {\n  [IO.File]::WriteAllText($path, $selection, [Text.UTF8Encoding]::new($true))\n  Start-Process -FilePath \"$env:SystemRoot\\System32\\notepad.exe\" -ArgumentList ('\"{0}\"' -f $path)\n} catch {\n  Remove-Item -LiteralPath $path -ErrorAction SilentlyContinue\n  throw\n}\n",
+  "locales": {
+    "en": {
+      "name": "Open in Notepad",
+      "description": "Open the selected text in a temporary UTF-8 file in Notepad.",
+      "tags": ["windows"]
+    },
+    "zh-CN": {
+      "name": "在记事本中打开",
+      "description": "将选中文本写入临时 UTF-8 文件并用记事本打开",
+      "tags": ["Windows"]
+    }
+  },
+  "sort": 90100
+}

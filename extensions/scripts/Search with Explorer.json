@@ -1,0 +1,18 @@
+{
+  "icon": "FileMagnifyingGlass",
+  "lang": "powershell",
+  "script": "$ErrorActionPreference = 'Stop'\n\nif ([string]::IsNullOrWhiteSpace($selection)) {\n  throw 'Query is empty'\n}\n\n$query = [Uri]::EscapeDataString($selection.Trim())\nStart-Process -FilePath ('search-ms:query=' + $query)\n",
+  "locales": {
+    "en": {
+      "name": "Search with Explorer",
+      "description": "Open File Explorer search with the selected text.",
+      "tags": ["windows"]
+    },
+    "zh-CN": {
+      "name": "使用资源管理器搜索",
+      "description": "使用选中文本在文件资源管理器中搜索",
+      "tags": ["Windows"]
+    }
+  },
+  "sort": 90200
+}
