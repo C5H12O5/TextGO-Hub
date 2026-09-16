@@ -1,0 +1,17 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDNDNzVBIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TmF2ZXI8L3RpdGxlPjxwYXRoIGQ9Ik0xNi4yNzMgMTIuODQ1IDcuMzc2IDBIMHYyNGg3LjcyNlYxMS4xNTZMMTYuNjI0IDI0SDI0VjBoLTcuNzI3djEyLjg0NVoiLz48L3N2Zz4K",
+  "url": "https://search.naver.com/search.naver?query={{selection}}",
+  "locales": {
+    "en": {
+      "name": "Naver",
+      "description": "Search selected text with Naver.",
+      "tags": ["search-engine"]
+    },
+    "zh-CN": {
+      "name": "Naver",
+      "description": "使用 Naver 搜索选中文本",
+      "tags": ["搜索引擎"]
+    }
+  },
+  "sort": 10800
+}
