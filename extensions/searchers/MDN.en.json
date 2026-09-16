@@ -1,0 +1,17 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHZpZXdCb3g9IjAgMCA1NiA1NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TUROIExvZ288L3RpdGxlPjxyZWN0IHdpZHRoPSI1NiIgaGVpZ2h0PSI1NiIgZmlsbD0iIzE1MTQxQSIgLz48cGF0aCBkPSJNMjIuNDIwMyAxMi41MzY3TDEyLjg1MjkgNDMuNDE5Mkg4LjkxOTM3TDE4LjQ4NzkgMTIuNTMyMkwyMi40MjAzIDEyLjUzNjdaIiBmaWxsPSJ3aGl0ZSIgLz48cGF0aCBkPSJNMjUuOTA3OSAxMi41MzY5VjQzLjQxOTNIMjIuNDI4MlYxMi41MzY5SDI1LjkwNzlaIiBmaWxsPSJ3aGl0ZSIgLz48cGF0aCBkPSJNMzkuNDM5MyAxMi41MzY3TDI5Ljg3MTkgNDMuNDE5MkgyNS45MzQ5TDM1LjUwMjQgMTIuNTMyMkwzOS40MzkzIDEyLjUzNjdaIiBmaWxsPSJ3aGl0ZSIgLz48cGF0aCBkPSJNNDIuOTE5IDEyLjUzNjlWNDMuNDE5M0gzOS40MzkzVjEyLjUzNjlINDIuOTE5WiIgZmlsbD0id2hpdGUiIC8+PC9zdmc+",
+  "url": "https://developer.mozilla.org/en-US/search?q={{selection}}",
+  "locales": {
+    "en": {
+      "name": "MDN Web Docs",
+      "description": "Search the English MDN Web Docs.",
+      "tags": ["developer", "documentation"]
+    },
+    "zh-CN": {
+      "name": "",
+      "description": "",
+      "tags": []
+    }
+  },
+  "sort": 50200
+}

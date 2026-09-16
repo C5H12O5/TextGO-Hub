@@ -1,0 +1,17 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjMzMCA3NCAzMDYgMzA2IiBmaWxsPSIjRkY1RTAwIj48dGl0bGU+U3RhY2sgT3ZlcmZsb3c8L3RpdGxlPjxwYXRoIGQ9Ik01NjguMjI5IDIzOS4zODRMNTY4LjYzIDIzOS41OTNMNTY4LjUyNCAyMzkuNjk3TDU2OC4yMjkgMjM5LjQwNUM1NTkuMjEgMjUwLjkzNiA1NTEuNjQ4IDI2My42MzUgNTQ1LjgxOCAyNzcuMjFDNTQ1LjczMyAyNzcuNDE5IDU0NS42NDkgMjc3LjYwNyA1NDUuNTY0IDI3Ny44MTVDNTM5Ljk0NiAyOTEuMDU2IDUzNS45NTQgMzA1LjEzMiA1MzMuODYzIDMxOS44MzNDNTMzLjg0MiAzMTkuOTE2IDUzMy44NDIgMzIwLjAyIDUzMy44NDIgMzIwLjEwNEM1MzIuNzIyIDMyNy45MDIgNTMyLjE1MiAzMzUuODY4IDUzMi4xNTIgMzQzLjk1OUM1MzIuMTUyIDM1MC44NCA1MzIuNTc0IDM1Ny42MzggNTMzLjM3NyAzNjQuMzExTDM2NS44NzYgMzY0LjMxMUwzNjUuODc2IDMxOS44MzNMNTExLjMyNSAzMTkuODMzQzUxMS42IDMxNy45OTggNTExLjkxNyAzMTYuMjA0IDUxMi4yNTUgMzE0LjM5TDM3Mi4xMjkgMjc3LjMxNUwzODMuNzg4IDIzNC4zMzhMNTI1LjY0NiAyNzEuODcyQzUyNi4zMDEgMjcwLjQzMyA1MjYuOTc3IDI2OS4wMTUgNTI3LjY1MyAyNjcuNTk3TDQwMC4zNDggMTk1LjAzMUw0MjIuODY1IDE1Ni41MTdMNTUyLjA3IDIzMC4xNDdDNTUzLjA4NCAyMjguOTM3IDU1NC4xMTkgMjI3LjcyOCA1NTUuMTk2IDIyNi41MzlMNDQ5LjMzMSAxMjIuMDQ4TDQ4MS4yMDUgOTAuNTgyTDU4OC43NiAxOTYuNzgzTDYwMC4xMjQgMjA4LjAwMUM1ODguMTY4IDIxNy4wNTEgNTc3LjQzOCAyMjcuNjAzIDU2OC4yMjkgMjM5LjM4NFoiLz48L3N2Zz4=",
+  "url": "https://stackoverflow.com/search?q={{selection}}",
+  "locales": {
+    "en": {
+      "name": "Stack Overflow",
+      "description": "Search Stack Overflow questions and answers.",
+      "tags": ["developer", "question"]
+    },
+    "zh-CN": {
+      "name": "Stack Overflow",
+      "description": "搜索 Stack Overflow 问题与回答",
+      "tags": ["开发", "提问"]
+    }
+  },
+  "sort": 50100
+}
