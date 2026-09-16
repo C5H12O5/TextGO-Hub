@@ -1,0 +1,17 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMzI2NTk5IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UHViTWVkPC90aXRsZT48cGF0aCBkPSJNOC4yMyA3Ljk4MmwuMDA2LTEuMDA1QzcuODQ2IDEuNDE3IDUuMDk2IDAgNS4wOTYgMGwuMDQ4IDIuMjkxQzMuNzMgMS4wNTYgMi42IDEuNDQ0IDIuNiAxLjQ0NGwuMTE4IDE1LjMwN3M0LjIxOC0xLjc5NiA1LjQyOCA1LjUwNUMxMC4yMzggMTMuNTM1IDIxLjQwMSAyNCAyMS40MDEgMjRWOVMxMC41Mi0uMTggOC4yMzEgNy45ODJ6bTkuNzkgOS45NDFsLTEuMDQ2LTUuMjMyLTEuOTA0IDQuNTA3aC0uOTZsLTEuNzItNC4zMDEtMS4wNDYgNS4wNEg5LjMyMWwyLjA5My05LjM5aC44MDJsMi40OTEgNS41NDMgMi41MDgtNS41NTdoLjg2OWwyLjA3NSA5LjM5aC0yLjEzOHoiLz48L3N2Zz4=",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/?term={{selection}}",
+  "locales": {
+    "en": {
+      "name": "PubMed",
+      "description": "Search biomedical and life-science literature in PubMed.",
+      "tags": ["academic"]
+    },
+    "zh-CN": {
+      "name": "PubMed",
+      "description": "在 PubMed 中搜索生物医学与生命科学文献",
+      "tags": ["学术"]
+    }
+  },
+  "sort": 40100
+}
