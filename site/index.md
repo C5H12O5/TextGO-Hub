@@ -46,4 +46,6 @@ onMounted(() => {
 })
 </script>
 
-<Home />
+<ClientOnly>
+  <Home />
+</ClientOnly>
