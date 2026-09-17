@@ -1,0 +1,9 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzIgMzIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PHBhdGggZD0iTTMwIDhoLTd2MjRoMi41YTQuNSA0LjUgMCAwIDAgNC41LTQuNVY4WiIgZmlsbD0iIzg2QjgxNyIvPjxwYXRoIGZpbGw9IiNGNUFGMDIiIGQ9Ik0xNiA4aDd2MjRoLTd6Ii8+PHBhdGggZmlsbD0iIzAwNjREMiIgZD0iTTkgOGg3djI0SDl6Ii8+PHBhdGggZD0iTTIgOGg3djI0SDYuNUE0LjUgNC41IDAgMCAxIDIgMjcuNVY4WiIgZmlsbD0iI0U1MzIzOCIvPjxwYXRoIGQ9Ik0yMyA4QTcgNyAwIDEgMCA5IDgiIHN0cm9rZT0iIzcwNzA3MCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==",
+  "url": "https://www.ebay.com/sch/i.html?_nkw={{selection}}",
+  "locales": {
+    "en": { "name": "eBay", "description": "Search listings on eBay.", "tags": ["shopping"] },
+    "zh-CN": { "name": "eBay", "description": "在 eBay 搜索商品", "tags": ["购物"] }
+  },
+  "sort": 70100
+}

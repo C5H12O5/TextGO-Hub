@@ -1,0 +1,9 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNTQ2IDg2OSI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjZGYyNzFjIiBkPSJtNjg5IDg2MC45di04NTIuNGgzODUuOXEyMjMuMiAwIDM1MS4xIDEyMy4zIDExOS44IDExNS4xIDExOS44IDMwMi45IDAgMTg4LjQtMTE5LjggMzAzLjUtMTI3LjkgMTIyLjctMzUxLjEgMTIyLjd6bTE5OS40LTE1My41aDE4NnExMjkuMSAwIDE5OC4yLTczLjMgNjcuNS03MS41IDY3LjUtMTk5LjQgMC0xMjkuMS02Ny41LTE5OS40LTY5LjEtNzMuMy0xOTguMi03My4zaC0xODZ6Ii8+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjZGYyNzFjIiBkPSJtMTAwLjcgODY4LjRxMTYxIDAgMjQ1LjMtNzQuNCA4OC40LTc3LjkgODguNC0yMzMuOHYtNTU5LjNoLTE5OS40djU2OC4xcTAgNzMuOC0zNC45IDEwOS45LTM0LjMgMzYtMTA1LjggMzZoLTkzLjZ2MTUzLjV6Ii8+PC9zdmc+",
+  "url": "https://search.jd.com/Search?keyword={{selection}}",
+  "locales": {
+    "en": { "name": "", "description": "", "tags": [] },
+    "zh-CN": { "name": "京东", "description": "在京东搜索商品", "tags": ["购物"], "tip": "需要登录" }
+  },
+  "sort": 70300
+}
