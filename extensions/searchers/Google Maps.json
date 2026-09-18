@@ -1,0 +1,17 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5Mi4zIDEzMi4zIj48cGF0aCBmaWxsPSIjMWE3M2U4IiBkPSJNNjAuMiAyLjJDNTUuOC44IDUxIDAgNDYuMSAwIDMyIDAgMTkuMyA2LjQgMTAuOCAxNi41bDIxLjggMTguM0w2MC4yIDIuMnoiLz48cGF0aCBmaWxsPSIjZWE0MzM1IiBkPSJNMTAuOCAxNi41QzQuMSAyNC41IDAgMzQuOSAwIDQ2LjFjMCA4LjcgMS43IDE1LjcgNC42IDIybDI4LTMzLjMtMjEuOC0xOC4zeiIvPjxwYXRoIGZpbGw9IiM0Mjg1ZjQiIGQ9Ik00Ni4yIDI4LjVjOS44IDAgMTcuNyA3LjkgMTcuNyAxNy43IDAgNC4zLTEuNiA4LjMtNC4yIDExLjQgMCAwIDEzLjktMTYuNiAyNy41LTMyLjctNS42LTEwLjgtMTUuMy0xOS0yNy0yMi43TDMyLjYgMzQuOGMzLjMtMy44IDguMS02LjMgMTMuNi02LjMiLz48cGF0aCBmaWxsPSIjZmJiYzA0IiBkPSJNNDYuMiA2My44Yy05LjggMC0xNy43LTcuOS0xNy43LTE3LjcgMC00LjMgMS41LTguMyA0LjEtMTEuM2wtMjggMzMuM2M0LjggMTAuNiAxMi44IDE5LjIgMjEgMjkuOWwzNC4xLTQwLjVjLTMuMyAzLjktOC4xIDYuMy0xMy41IDYuMyIvPjxwYXRoIGZpbGw9IiMzNGE4NTMiIGQ9Ik01OS4xIDEwOS4yYzE1LjQtMjQuMSAzMy4zLTM1IDMzLjMtNjMgMC03LjctMS45LTE0LjktNS4yLTIxLjNMMjUuNiA5OGMyLjYgMy40IDUuMyA3LjMgNy45IDExLjMgOS40IDE0LjUgNi44IDIzLjEgMTIuOCAyMy4xczMuNC04LjcgMTIuOC0yMy4yIi8+PC9zdmc+",
+  "url": "https://www.google.com/maps/search/?api=1&query={{selection}}",
+  "locales": {
+    "en": {
+      "name": "Google Maps",
+      "description": "Search a place or address in Google Maps.",
+      "tags": ["map"]
+    },
+    "zh-CN": {
+      "name": "Google 地图",
+      "description": "在 Google 地图中搜索地点或地址",
+      "tags": ["地图"]
+    }
+  },
+  "sort": 80000
+}

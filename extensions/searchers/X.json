@@ -1,0 +1,19 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+WDwvdGl0bGU+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMTQuMjM0IDEwLjE2MiAyMi45NzcgMGgtMi4wNzJsLTcuNTkxIDguODI0TDcuMjUxIDBILjI1OGw5LjE2OCAxMy4zNDNMLjI1OCAyNEgyLjMzbDguMDE2LTkuMzE4TDE2Ljc0OSAyNGg2Ljk5M3ptLTIuODM3IDMuMjk5LS45MjktMS4zMjlMMy4wNzYgMS41NmgzLjE4Mmw1Ljk2NSA4LjUzMi45MjkgMS4zMjkgNy43NTQgMTEuMDloLTMuMTgyeiIvPjwvc3ZnPg==",
+  "url": "https://x.com/search?q={{selection}}&src=typed_query",
+  "locales": {
+    "en": {
+      "name": "X Search",
+      "description": "Search public posts on X.",
+      "tags": ["community"],
+      "tip": "Login required"
+    },
+    "zh-CN": {
+      "name": "X 搜索",
+      "description": "搜索 X 上的公开帖子",
+      "tags": ["社区"],
+      "tip": "需要登录"
+    }
+  },
+  "sort": 90100
+}

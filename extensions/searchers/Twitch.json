@@ -1,0 +1,17 @@
+{
+  "icon": "data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+VHdpdGNoPC90aXRsZT48cGF0aCBmaWxsPSIjOTE0NkZGIiBkPSJNMTEuNTcxIDQuNzE0aDEuNzE1djUuMTQzSDExLjU3em00LjcxNSAwSDE4djUuMTQzaC0xLjcxNHpNNiAwTDEuNzE0IDQuMjg2djE1LjQyOGg1LjE0M1YyNGw0LjI4Ni00LjI4NmgzLjQyOEwyMi4yODYgMTJWMHptMTQuNTcxIDExLjE0M2wtMy40MjggMy40MjhoLTMuNDI5bC0zIDN2LTNINi44NTdWMS43MTRoMTMuNzE0WiIvPjwvc3ZnPg==",
+  "url": "https://www.twitch.tv/search?term={{selection}}",
+  "locales": {
+    "en": {
+      "name": "Twitch",
+      "description": "Search live channels, categories, and videos on Twitch.",
+      "tags": ["live-streaming"]
+    },
+    "zh-CN": {
+      "name": "Twitch",
+      "description": "在 Twitch 搜索直播频道、分类和视频",
+      "tags": ["直播"]
+    }
+  },
+  "sort": 20500
+}
