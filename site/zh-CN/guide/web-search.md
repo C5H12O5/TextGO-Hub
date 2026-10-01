@@ -8,6 +8,8 @@
 
 - 指定搜索引擎或目标网站
 - 使用默认浏览器或指定浏览器
+- 在一次执行中打开多个网址
+- 在网址中插入选中文本或剪贴板文本
 
 ## 创建搜索动作
 
@@ -38,7 +40,23 @@
 
 **搜索网址**（必填）
 
-使用 {&#123;selection&#125;} 插入选中的文本。TextGO 会先去除选中文本首尾的空白并完成 URL 编码，再替换网址中的所有同名占位符。
+每行填写一个网址。一次执行会打开所有非空行，空行会被忽略。
+
+可使用以下占位符：
+
+- {&#123;selection&#125;}：选中的文本
+- {&#123;clipboard&#125;}：动作执行时读取的剪贴板文本
+
+TextGO 会分别去除这两种文本首尾的空白并完成 URL 编码，再替换所有同名占位符。两种占位符可出现在同一网址中，也可在多行网址中重复使用。
+
+例如，同时使用 Google 和 GitHub 搜索选中文本：
+
+```text
+https://www.google.com/search?q={{selection}}
+https://github.com/search?q={{selection}}
+```
+
+如果希望搜索剪贴板内容，可将模板改为 `https://www.google.com/search?q={{clipboard}}`。该动作仍需通过快捷键或划词触发。
 
 ![TextGO 网页搜索动作编辑窗口](/screenshots/zh-CN/web-search-editor.png)
 

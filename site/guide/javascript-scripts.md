@@ -81,6 +81,7 @@ function process(data) {
 - Strings are returned directly; other serializable values are converted to JSON
 - WebView scripts may define `process` as an `async` function
 - Can return an empty string
+- Leading and trailing spaces and newlines in strings are preserved; `console.log()` is for debugging and does not become the return value
 
 ## WebView APIs
 

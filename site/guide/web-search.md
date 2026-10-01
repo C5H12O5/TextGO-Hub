@@ -8,6 +8,8 @@ Web search actions can:
 
 - Specify search engines or target websites
 - Use the default browser or a specific browser
+- Open multiple URLs with one action
+- Insert selected text or clipboard text into URLs
 
 ## Create a Search Action
 
@@ -38,7 +40,23 @@ Choose a browser for search results. Leave empty to use default browser.
 
 **Search URL** (Required)
 
-Use {&#123;selection&#125;} to insert selected text. TextGO trims the selection and URL-encodes it before replacing every occurrence of the placeholder in the URL.
+Enter one URL per line. Each execution opens all non-empty lines; blank lines are ignored.
+
+Available placeholders:
+
+- {&#123;selection&#125;}: Selected text
+- {&#123;clipboard&#125;}: Clipboard text read when the action runs
+
+TextGO trims and URL-encodes each text value before replacing every occurrence of its placeholder. Both placeholders can appear in the same URL or be reused across multiple lines.
+
+For example, search selected text on Google and GitHub together:
+
+```text
+https://www.google.com/search?q={{selection}}
+https://github.com/search?q={{selection}}
+```
+
+To search clipboard content instead, use a template such as `https://www.google.com/search?q={{clipboard}}`. The action still needs a shortcut or text-selection trigger.
 
 ![TextGO web search action editor](/screenshots/en/web-search-editor.png)
 

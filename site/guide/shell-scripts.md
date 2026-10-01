@@ -56,7 +56,8 @@ Shell and PowerShell scripts receive predefined variables.
 
 **Output:**
 
-- Standard output (`stdout`) becomes the processing result
+- Standard output (`stdout`) becomes the processing result after trimming leading and trailing whitespace
+- Send debugging messages to standard error (`stderr`) to keep them out of the result
 - Use `echo` or a similar command to output processed text
 
 ## Use a Shell Script

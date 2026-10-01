@@ -1,6 +1,6 @@
 # Register Shortcuts
 
-TextGO supports drag-select, double-click, shift-click, and keyboard triggers. Each trigger has its own rules.
+TextGO supports drag-select, double-click, triple-click, shift-click, and keyboard triggers. Each trigger has its own rules.
 
 ## Add Shortcuts
 
@@ -16,10 +16,13 @@ Choose a shortcut type from the dropdown list:
 
 - **Drag-Select**
 - **Double-Click**
+- **Triple-Click**
 - **Shift-Click**
 - **Keyboard**
 
 Mouse triggers use Toolbar Mode by default, while keyboard shortcuts use Quiet Mode by default. You can switch either mode after registration.
+
+Registered mouse triggers no longer appear in the menu, and keyboard combinations cannot be registered twice. Once Triple-Click is registered, double-click waits about 0.5 seconds to distinguish a possible third click. A triple-click does not run the double-click rules first. Without Triple-Click registered, double-click has no such delay.
 
 ### Step 3: Add Rules
 
@@ -37,7 +40,7 @@ Matches all text without recognition.
 
 - General: Common types such as email addresses, URLs, and paths
 - Text Case: Naming formats such as camelCase and snake_case
-- Natural Language: Languages such as English and Chinese
+- Natural Language: English, Chinese, Japanese, Korean, Russian, French, German, Spanish, Portuguese, and Arabic; recognition runs locally
 - Programming Language: Code such as JavaScript and Python
 
 **Custom Types**
@@ -77,7 +80,7 @@ Select the action to execute after text recognition:
 - Choose whether to save results to history
 - Choose whether to copy results to the clipboard automatically
 
-These options depend on the selected action. AI actions always use a popup, and actions without text results disable result-related options.
+These options depend on the selected action. AI actions always use a popup. Actions without text results, such as web search, disable Replace, Popup, and automatic copying, but can still save an operation record.
 
 ![TextGO shortcut rule editor](/screenshots/en/shortcut-rule-editor.png)
 
@@ -87,17 +90,30 @@ Use the blacklist to prevent TextGO shortcuts from triggering in specified appli
 
 ![TextGO blacklist dialog](/screenshots/en/blacklist-dialog.png)
 
+### Enable and Disable
+
+Click "Disable Shortcut" beside a shortcut group to pause it and collapse its rules. Click "Restore Shortcut" to enable it and expand the list again. Disabling preserves the rules and releases a keyboard shortcut's registered key combination.
+
+Use the arrow at the left of a rule list's header to collapse or expand it separately. This does not change whether the shortcut is enabled.
+
+### Copy a Shortcut
+
+Click "Copy Shortcut" beside an existing group, then choose an unregistered mouse trigger or record a new keyboard combination.
+
+The new shortcut copies all source rules, their order, and their rule options; the two groups can then be edited independently. The new group's mode follows its trigger type: Toolbar Mode for mouse triggers and Quiet Mode for keyboard shortcuts. It does not inherit the source group's mode or disabled state.
+
 ### Edit Rules
 
 1. Click the edit icon beside a rule to change its configuration
-2. Select a rule, then click the delete icon to remove it
+2. Click rows or their checkboxes to select multiple rules; click again to deselect
+3. Click the delete icon and confirm to remove all selected rules
 
 ### Adjust Order
 
-Select a rule, then use the up and down arrows to change its order:
+Select one or more rules, then use the up and down arrows to move them together. Their relative order is preserved:
 
-1. In quiet mode, rules are matched sequentially from top to bottom
-2. In toolbar mode, matching rules are displayed in the toolbar from top to bottom
+1. In Quiet Mode, rules are matched from top to bottom, and only the first matching rule runs
+2. In Toolbar Mode, all matching actions appear in rule order, with duplicate actions shown only once
 
 ## Switch Execution Mode
 
@@ -134,3 +150,5 @@ When triggered after text selection, a **floating toolbar appears** for choosing
 - The same text may need different processing methods
 - You want to preview results before choosing
 - You are unsure which action to use
+
+Configure toolbar size, position, maximum action count, and hiding behavior under "Settings" > "Display Settings". See [Toolbar Settings](./appearance.md#toolbar-settings).

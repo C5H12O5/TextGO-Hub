@@ -81,6 +81,7 @@ function process(data) {
 - 字符串会直接返回，其他可序列化值会转换为 JSON
 - WebView 脚本可以将 `process` 定义为 `async` 函数
 - 可以返回空字符串
+- 字符串首尾的空格和换行会保留；`console.log()` 用于调试，不会成为返回结果
 
 ## WebView API
 

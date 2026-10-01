@@ -1,6 +1,6 @@
 # Appearance and Themes
 
-Open "Settings" > "General Settings" to change TextGO's appearance.
+Open "Settings" > "General Settings" to change the theme, or "Settings" > "Display Settings" to adjust the toolbar and popup appearance and behavior.
 
 ## Theme Modes
 
@@ -25,3 +25,35 @@ The light and dark editors override their corresponding built-in themes. "System
 
 > [!TIP]
 > Clear an editor and confirm to restore the built-in theme.
+
+## Toolbar Settings
+
+Open "Settings" > "Display Settings" and configure the following under "Toolbar Settings":
+
+| Option          | Description                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------ |
+| Size            | Small, Medium, or Large; defaults to Medium and scales icons, text, and buttons together   |
+| Position        | Top, Top Right, Right, Bottom Right, or Bottom; defaults to Bottom Right                   |
+| Max Actions     | 0–12, default 6; extra actions appear in the "More" menu, while 0 opens menu mode directly |
+| Corner Radius   | 0–24 pixels, default 8                                                                     |
+| Opacity         | 50%–100%, default 95%; lower values make the background more transparent                   |
+| Auto Hide       | Off by default; hides the toolbar after the configured period of inactivity                |
+| Auto Hide Delay | 1–10 seconds, default 5; applies when Auto Hide is enabled                                 |
+| Hide on Scroll  | On by default; can be disabled                                                             |
+
+Mouse triggers position the toolbar relative to the pointer. Keyboard triggers use the selection location reported by the system, falling back to the pointer when that location is unavailable. Placement adjusts near screen edges to keep the toolbar visible, so its actual position may differ slightly from the selected direction.
+
+## Popup Settings
+
+The "Popup Settings" section on the same page provides:
+
+| Option        | Description                                                                       |
+| ------------- | --------------------------------------------------------------------------------- |
+| Corner Radius | 0–18 pixels, default 8                                                            |
+| Opacity       | 80%–100%, default 100%                                                            |
+| Font Size     | 12–18 pixels, default 14; applies to result content, including AI responses       |
+| Word Wrap     | Off by default; wraps long lines to the window width in non-AI popup results only |
+
+Non-AI results can be edited in the popup. Use "Reset Content", "Format", "Copy", or "Insert" as needed. "Insert" sends the current result back to the source app to replace its selection and leaves the inserted text on the clipboard. For AI response controls, see [Call an LLM API](./llm-api.md#ai-conversations-in-the-popup).
+
+Drag the title bar to move the popup, or its edges to resize it. The window size is remembered across app restarts. By default, the popup hides when it loses focus; use the pin in the upper left corner to keep it open.

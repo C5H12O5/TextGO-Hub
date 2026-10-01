@@ -84,7 +84,7 @@ TextGO on Windows requires no additional permissions.
 
 Available output options depend on the action. AI actions always open a popup, while actions such as web search, copy, cut, and paste do not return text results.
 
-Double-click or drag to select text. The floating toolbar then lets you choose a preset action.
+After the setup above, double-click or drag to select text and choose an action from the floating toolbar. You can also register Triple-Click, Shift-Click, or a keyboard shortcut; see [Register Shortcuts](./register-shortcuts.md).
 
 ![TextGO shortcut trigger menu](/screenshots/en/shortcut-trigger-menu.png)
 
@@ -98,13 +98,31 @@ The settings pages group related options:
 
 - **Custom Recognitions**: Manage classification models and regular expressions
 - **Custom Actions**: Configure AI conversations, script execution, and web searches
-- **Display Settings**: Adjust the toolbar and popup appearance and behavior
+- **Display Settings**: Adjust [toolbar size, position, hiding behavior, and popup word wrap](./appearance.md#toolbar-settings)
 - **Mouse Settings**: Configure text selection, cursor behavior, and long-press triggers
 - **General Settings**: Set the language, [theme](./appearance.md), history retention, behavior, and permissions
 
-Use the buttons in the upper right corner to import or export all settings. Click the version number in the lower left corner to check for updates and install a newer version.
+Click the version number in the lower left corner to check for updates and install a newer version.
 
 ![TextGO display settings](/screenshots/en/display-settings.png)
+
+## Batch-Manage Rules and Extensions
+
+Rule, classification model, regular expression, prompt template, script, and search action lists support multiple selection. Click rows or their checkboxes to select them, and click again to deselect.
+
+- Use the up and down arrows to move selected items while preserving their relative order
+- Click the delete icon and confirm to remove the selected items together
+- Custom recognition and action lists also support JSON import and export. Exporting one item opens a file save dialog; exporting multiple items asks for a directory and creates a separate JSON file for each item. If a filename already exists, a save dialog lets you rename it or confirm overwriting
+
+To reuse a whole shortcut group's rules, see [Copy a Shortcut](./register-shortcuts.md#copy-a-shortcut).
+
+## Import and Export All Settings
+
+The buttons in the upper right corner of Settings import or export all settings, separately from individual extension transfers in lists. The app restarts after a successful import.
+
+When importing between macOS and Windows, TextGO clears incompatible runtime paths, browser choices, application blacklist entries, and platform scripts, and resets the copy key combination and popup size. Website blacklist entries are preserved. Reconfigure runtimes and browsers for the current machine and review your shortcut rules after import.
+
+Exported files can contain API keys; the app asks for confirmation when keys are detected. Keep these files secure.
 
 ## Get Help
 

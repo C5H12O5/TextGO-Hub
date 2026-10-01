@@ -71,6 +71,7 @@ def process(data):
 
 - Strings are returned directly; other serializable values are converted to JSON
 - Can return an empty string
+- Leading and trailing spaces and newlines in strings are preserved; `print()` is for debugging and does not become the return value
 
 ## Use a Python Script
 

@@ -20,7 +20,9 @@
 
 ### 1. 准备开发环境
 
-**必需工具**：Node.js、pnpm、Rust、Git
+**必需工具**：Node.js LTS、pnpm 11、Rust stable、Git
+
+请在 macOS 或 Windows 上开发并验证桌面行为；当前平台实现和发布构建不覆盖 Linux。前端使用 Svelte 5 / SvelteKit 2，桌面端使用 Tauri 2 / Rust。
 
 ```bash
 # Fork 项目后，克隆你的仓库
@@ -35,10 +37,10 @@ pnpm install
 ### 2. 开发和测试
 
 ```bash
-# 启动开发服务器
+# 启动完整桌面开发环境
 pnpm tauri dev
 
-# 启用调试日志（macOS/Linux）
+# 启用调试日志（macOS）
 RUST_LOG=debug pnpm tauri dev
 
 # 启用调试日志（Windows PowerShell）
@@ -47,6 +49,8 @@ $env:RUST_LOG="debug"; pnpm tauri dev
 # 构建生产版本
 pnpm tauri build
 ```
+
+仅启动前端可使用 `pnpm dev`（端口 1420），但普通浏览器不具备 Tauri API，桌面功能仍需通过 `pnpm tauri dev` 验证。
 
 ### 3. 创建分支并开发
 
@@ -59,8 +63,12 @@ git checkout -b feature/my-new-feature  # 或 fix/bug-description
 
 **代码规范：**
 
-- 前端：运行 `pnpm check` 和 `pnpm lint`
-- Rust：运行 `cargo fmt --manifest-path ./src-tauri/Cargo.toml` 和 `cargo clippy --manifest-path ./src-tauri/Cargo.toml -- -D warnings`
+- 前端：运行 `pnpm check` 和 `pnpm lint`；涉及构建配置、依赖、按需加载或新增界面文案时补跑 `pnpm build`
+- Rust：运行 `cargo fmt --manifest-path ./src-tauri/Cargo.toml`、`cargo clippy --manifest-path ./src-tauri/Cargo.toml -- -D warnings` 和相关的 `cargo test --manifest-path ./src-tauri/Cargo.toml`
+- 界面文案：同步 `messages/en.json` 和 `messages/zh-CN.json`，不手改生成的 `src/lib/paraglide/`；新增文案后若检查缺少消息导出，先运行 `pnpm build` 再检查
+- 按改动验证鼠标和快捷键触发、静默与工具栏模式、输出及设置持久化；AI 改动还需验证流式回复和取消。PR 中说明实际验证的平台及未覆盖项
+
+格式化只针对修改文件，例如 `pnpm exec prettier --write <变更文件>`，避免顺带改写整个仓库。
 
 ### 4. 提交更改
 
@@ -88,8 +96,9 @@ git push origin feature/my-new-feature
 ### 改进现有文档
 
 1. 发现错误或不清楚的地方
-2. 修改相应的 `.md` 文件
-3. 提交 PR
+2. 修改 `site/guide/` 与 `site/zh-CN/guide/` 中对应的文档，保持中英文说明一致
+3. 在 TextGO Hub 根目录运行 `pnpm install`，再运行 `pnpm exec prettier --check <变更文件>` 和 `pnpm build`，检查格式、链接和站点构建
+4. 提交 PR
 
 ### 翻译文档到其他语言
 
