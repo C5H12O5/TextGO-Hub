@@ -207,6 +207,9 @@ watch(result, () => {
     </div>
 
     <div class="demo-stage">
+      <div class="demo-backdrop" aria-hidden="true">
+        <div class="demo-mesh"></div>
+      </div>
       <div class="document-window">
         <div class="document-titlebar">
           <span class="window-controls" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -355,15 +358,31 @@ watch(result, () => {
   isolation: isolate;
 }
 
-.demo-stage::before {
+.demo-backdrop {
   position: absolute;
   z-index: -1;
-  inset: 76px 30px 60px;
-  border-radius: 50%;
-  background: var(--vp-home-hero-image-background-image);
-  filter: blur(65px);
-  opacity: 0.15;
+  inset: -32px -32px 0;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 57% 62% at 51% 51%, #000 23%, transparent 89%);
+}
+
+.demo-backdrop::before {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 47% 44%, var(--vp-c-brand-3), transparent 68%),
+    radial-gradient(ellipse at 77% 66%, var(--vp-c-brand-3), transparent 60%);
+  filter: blur(16px);
+  opacity: 0.1;
   content: '';
+}
+
+.demo-mesh {
+  position: absolute;
+  inset: 0;
+  background: var(--vp-c-brand-3);
+  mask: url('../assets/home-demo-mesh.svg') center / max(100%, 560px) 100% no-repeat;
+  opacity: 0.16;
 }
 
 .document-window,
@@ -701,6 +720,10 @@ button:focus-visible {
 @media (max-width: 639px) {
   .demo-stage {
     height: 410px;
+  }
+  .demo-backdrop {
+    right: -20px;
+    left: -20px;
   }
   .document-window {
     top: 28px;
