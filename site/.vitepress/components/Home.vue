@@ -31,7 +31,7 @@ const copy = computed(() =>
         features: [
           {
             title: '快捷触发',
-            details: '键盘快捷键、鼠标双击、Shift + 点击或拖拽选中，每种方式独立配置。',
+            details: '键盘快捷键、鼠标双击、Shift 扩展选中或拖拽选中，每种方式独立配置。',
             icon: PhKeyboard
           },
           { title: '灵活模式', details: '直接执行动作，或呼出工具栏后选择。', icon: PhLightning },
