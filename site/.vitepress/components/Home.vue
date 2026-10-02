@@ -84,8 +84,11 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
   <div class="textgo-home">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="hero-intro">
-        <h1 id="home-title">
-          <span class="hero-name">TextGO</span>
+        <h1 id="home-title" :aria-label="`TextGO ${copy.title}`">
+          <span class="hero-name" aria-hidden="true">
+            <span>Text</span>
+            <span class="hero-name-go"><span class="hero-name-go-text">GO</span></span>
+          </span>
           <span class="hero-title">
             {{ copy.title }}
             <Underline class="hero-underline" aria-hidden="true" />
@@ -121,6 +124,14 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
 </template>
 
 <style scoped>
+@font-face {
+  font-family: 'TextGO Wordmark';
+  src: url('/fonts/manrope-textgo-800.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
 .textgo-home {
   max-width: 1280px;
   margin: 0 auto;
@@ -153,13 +164,61 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
 }
 
 .hero-name {
+  display: flex;
+  align-items: center;
+  gap: 0.34em;
   width: fit-content;
-  font-size: 1.15em;
-  line-height: 1.15;
-  color: var(--vp-home-hero-name-color);
-  background: var(--vp-home-hero-name-background);
-  background-clip: text;
-  -webkit-background-clip: text;
+  padding-block: 0.12em;
+  color: var(--vp-c-text-1);
+  font-family: 'TextGO Wordmark', var(--vp-font-family-base);
+  font-size: 1.5em;
+  font-weight: 800;
+  font-variant-ligatures: none;
+  line-height: 1;
+  letter-spacing: 0;
+  transform: translateY(-0.1em);
+}
+
+.hero-name-go {
+  position: relative;
+  display: inline-grid;
+  isolation: isolate;
+  color: var(--vp-c-bg);
+  font-size: 0.8em;
+  transform: translate(-0.055em, -0.045em) rotate(-5deg);
+}
+
+.hero-name-go-text,
+.hero-name-go::before,
+.hero-name-go::after {
+  background: color-mix(in srgb, var(--vp-c-brand-3), var(--vp-button-brand-bg));
+  clip-path: polygon(0 0, calc(100% - 0.64em) 0, 100% 50%, calc(100% - 0.64em) 100%, 0 100%);
+}
+
+.hero-name-go-text {
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: 0.095em 0.6em 0.13em 0.17em;
+  letter-spacing: 0.035em;
+}
+
+.hero-name-go::before,
+.hero-name-go::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+}
+
+.hero-name-go::before {
+  opacity: 0.1176;
+  transform: translate(-0.2em, 0.09em);
+}
+
+.hero-name-go::after {
+  opacity: 0.28;
+  transform: translate(-0.1em, 0.045em);
 }
 
 .hero-title {
@@ -242,7 +301,7 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
 }
 .feature-heading > svg {
   flex-shrink: 0;
-  color: var(--vp-c-text-2);
+  color: var(--vp-c-brand-3);
 }
 .feature-card h2 {
   font-size: 16px;
