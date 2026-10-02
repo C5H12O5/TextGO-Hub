@@ -1,51 +1,7 @@
 ---
 layout: home
-
-hero:
-  name: TextGO
-  text: 全能文本处理工具
-  tagline: 让每一次选中，都直达所需动作
-  image:
-    src: /icon_512x512.png
-    alt: TextGO
-  actions:
-    - theme: brand
-      text: 立即下载
-      link: https://github.com/C5H12O5/TextGO/releases/latest
-    - theme: alt
-      text: 快速开始
-      link: /zh-CN/guide/getting-started
-    - theme: alt
-      text: 获取扩展
-      link: /zh-CN/extensions
-
-features:
-  - title: 快捷触发
-    details: 可通过键盘快捷键、鼠标双击、Shift+点击或拖拽选中触发，每种方式独立配置规则
-  - title: 灵活模式
-    details: 支持立即执行或工具栏交互两大模式，自由切换应对不同场景
-  - title: 个性外观
-    details: 支持自定义 SVG 工具栏图标，并可分别自定义浅色和深色主题
-  - title: 开箱即用
-    details: 内置丰富的文本类型和处理动作，简单配置后即可使用
-  - title: 支持扩展
-    details: 支持通过正则表达式、机器学习模型、脚本或接入本地/在线 AI 等方式扩展能力
-  - title: 跨平台
-    details: 原生支持 macOS 和 Windows，在各平台上提供一致的用户体验
+markdownStyles: false
+description: 让每一次选中，都直达所需动作。适用于 macOS 和 Windows 的原生开源文本处理工具。
 ---
 
-<script setup>
-import { onMounted } from 'vue'
-import { data as release } from '../.vitepress/data/release.data'
-
-onMounted(() => {
-  const downloadBtn = document.querySelector('a.VPButton.brand[href*="releases/latest"]')
-  if (downloadBtn && release.version) {
-    downloadBtn.textContent = `立即下载 ${release.version}`
-  }
-})
-</script>
-
-<ClientOnly>
-  <Home />
-</ClientOnly>
+<Home />

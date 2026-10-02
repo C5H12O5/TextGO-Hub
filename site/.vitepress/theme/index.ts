@@ -1,7 +1,7 @@
-import { Underline } from '@theojs/lumen';
 import type { EnhanceAppContext } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import { h } from 'vue';
+import Home from '../components/Home.vue';
 import Scripts from '../components/Scripts.vue';
 import Searchers from '../components/Searchers.vue';
 import { useLanguagePreference } from './language';
@@ -18,7 +18,7 @@ export default {
     }
   },
   enhanceApp: ({ app }: EnhanceAppContext) => {
-    app.component('Home', Underline);
+    app.component('Home', Home);
     app.component('Scripts', Scripts);
     app.component('Searchers', Searchers);
   }
