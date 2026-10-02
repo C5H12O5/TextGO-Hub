@@ -185,7 +185,7 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
   isolation: isolate;
   color: var(--vp-c-bg);
   font-size: 0.8em;
-  transform: translate(-0.055em, -0.045em) rotate(-5deg);
+  transform: translate(-0.13em, -0.045em) rotate(-5deg);
 }
 
 .hero-name-go-text,

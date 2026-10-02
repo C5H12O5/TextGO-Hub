@@ -366,6 +366,12 @@ watch(result, () => {
   content: '';
 }
 
+.document-window,
+.selection-toolbar,
+.result-window {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .document-window {
   position: absolute;
   top: 38px;
@@ -459,7 +465,7 @@ watch(result, () => {
   display: flex;
   position: absolute;
   z-index: 2;
-  top: 205px;
+  top: 178px;
   left: 104px;
   align-items: center;
   height: 34px;
@@ -470,6 +476,8 @@ watch(result, () => {
   box-shadow:
     0 4px 14px #0000001a,
     0 16px 24px -16px #00000040;
+  /* Share the naming toolbar's tilt pivot across all action widths. */
+  transform-origin: 117px center;
   transform: rotateX(8deg) rotateY(-12deg) rotateZ(-2deg) translateZ(55px);
 }
 
@@ -709,7 +717,7 @@ button:focus-visible {
     line-height: 24px;
   }
   .selection-toolbar {
-    top: 190px;
+    top: 174px;
     left: 40px;
     transform: rotateX(5deg) rotateY(-5deg) rotateZ(-1deg) translateZ(20px);
   }
@@ -752,8 +760,19 @@ button:focus-visible {
   }
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .home-demo:hover .document-window,
+  .home-demo:hover .selection-toolbar,
+  .home-demo:hover .result-window {
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .scenario-options button {
+  .scenario-options button,
+  .document-window,
+  .selection-toolbar,
+  .result-window {
     transition: none;
   }
   .result-window {
