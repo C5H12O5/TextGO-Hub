@@ -47,6 +47,7 @@ Matches all text without recognition.
 
 - Regular Expression: Match specific text using custom regular expressions
 - Classification Model: Classify text using trained machine learning models
+- JavaScript: Use a script to check selected text and its source application
 
 #### 2. Execute Action
 
@@ -151,4 +152,4 @@ When triggered after text selection, a **floating toolbar appears** for choosing
 - You want to preview results before choosing
 - You are unsure which action to use
 
-Configure toolbar size, position, maximum action count, and hiding behavior under "Settings" > "Display Settings". See [Toolbar Settings](./appearance.md#toolbar-settings).
+Configure toolbar size, position and offsets, maximum action count, and hiding behavior under "Settings" > "Display Settings". See [Toolbar Settings](./appearance.md#toolbar-settings).

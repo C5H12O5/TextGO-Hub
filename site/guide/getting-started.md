@@ -96,9 +96,9 @@ Rules with "Save result to history" enabled store their results in the history w
 
 The settings pages group related options:
 
-- **Custom Recognitions**: Manage classification models and regular expressions
+- **Custom Recognitions**: Manage classification models, regular expressions, and [JavaScript recognition scripts](./javascript-recognition.md)
 - **Custom Actions**: Configure AI conversations, script execution, and web searches
-- **Display Settings**: Adjust [toolbar size, position, hiding behavior, and popup word wrap](./appearance.md#toolbar-settings)
+- **Display Settings**: Adjust [toolbar size, position and offsets, hiding behavior, and popup word wrap](./appearance.md#toolbar-settings)
 - **Mouse Settings**: Configure text selection, cursor behavior, and long-press triggers
 - **General Settings**: Set the language, [theme](./appearance.md), history retention, behavior, and permissions
 

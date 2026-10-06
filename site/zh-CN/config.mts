@@ -28,7 +28,8 @@ export default defineConfig({
             text: '自定义识别',
             items: [
               { text: '分类模型', link: '/zh-CN/guide/train-models' },
-              { text: '正则表达式', link: '/zh-CN/guide/write-regexps' }
+              { text: '正则表达式', link: '/zh-CN/guide/write-regexps' },
+              { text: 'JavaScript 脚本', link: '/zh-CN/guide/javascript-recognition' }
             ]
           },
           {

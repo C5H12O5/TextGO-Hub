@@ -41,7 +41,8 @@ export default defineConfig({
             text: 'Custom Recognitions',
             items: [
               { text: 'Classification Models', link: '/guide/train-models' },
-              { text: 'Regular Expressions', link: '/guide/write-regexps' }
+              { text: 'Regular Expressions', link: '/guide/write-regexps' },
+              { text: 'JavaScript', link: '/guide/javascript-recognition' }
             ]
           },
           {
