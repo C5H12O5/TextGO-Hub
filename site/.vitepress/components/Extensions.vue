@@ -4,6 +4,7 @@ import { useData } from 'vitepress';
 import { computed, nextTick, ref, shallowRef, useId } from 'vue';
 import type { Extension } from '../types';
 import Icon from './Icon.vue';
+import SearchHighlight from './SearchHighlight.vue';
 
 const props = withDefaults(
   defineProps<{
@@ -92,6 +93,29 @@ const confirmInstall = () => {
 // filter states
 const filterInput = ref('');
 const filterTags = ref<string[]>([]);
+const searchTerms = computed(() => [...new Set(filterInput.value.toLowerCase().split(/\s+/).filter(Boolean))]);
+const searchPattern = computed(() => {
+  const terms = [...searchTerms.value]
+    .sort((a, b) => b.length - a.length)
+    .map((term) => term.replace(/[.*+?^$(){}|[\]\\]/g, '\\$&'));
+  return terms.length ? new RegExp('(' + terms.join('|') + ')', 'gi') : null;
+});
+
+const emptyHint = computed(() => {
+  const isChinese = lang.value.startsWith('zh');
+  if (filterTags.value.length > 0) {
+    return searchTerms.value.length > 0
+      ? isChinese
+        ? '试试更简短的关键词，或再次点击已选标签来放宽筛选。'
+        : 'Try fewer keywords, or click a selected tag again to broaden your results.'
+      : isChinese
+        ? '再次点击已选标签，即可放宽筛选范围。'
+        : 'Click a selected tag again to broaden your results.';
+  }
+  return isChinese
+    ? '试试其他关键词，也可以搜索标签或使用空格组合多个关键词。'
+    : 'Try different keywords or tags. Use spaces to combine multiple keywords.';
+});
 
 // all available tags
 const allTags = computed(() => {
@@ -130,9 +154,11 @@ const items = computed(() => {
     .filter((item) => {
       if (!item.name) return false;
 
-      // filter by input value
-      const search = filterInput.value.toLowerCase();
-      if (search && !item.name.toLowerCase().includes(search) && !item.description.toLowerCase().includes(search)) {
+      // Match every keyword across the name, description, tags and optional group.
+      const searchableText = [item.name, item.description, ...item.tags, props.groupBy?.(item) || '']
+        .join(' ')
+        .toLowerCase();
+      if (!searchTerms.value.every((term) => searchableText.includes(term))) {
         return false;
       }
 
@@ -224,8 +250,12 @@ const itemGroups = computed(() => {
     <!-- Items -->
     <div v-if="items.length > 0">
       <section v-for="group in itemGroups" :key="group.label || 'items'" :class="group.label ? 'mt-8 first:mt-0' : ''">
-        <h2 v-if="group.label" class="m-0! border-0! pt-2! text-sm! leading-6! tracking-wide! text-(--vp-c-text-2)">
-          {{ group.label }}
+        <h2
+          v-if="group.label"
+          class="m-0! flex items-center gap-2 border-0! pt-2! text-sm! leading-6! tracking-wide! text-(--vp-c-text-2)"
+        >
+          <span><SearchHighlight :text="group.label" :pattern="searchPattern" /></span>
+          <span class="text-xs font-normal tracking-normal tabular-nums">{{ group.items.length }}</span>
         </h2>
         <div
           v-for="item in group.items"
@@ -240,7 +270,7 @@ const itemGroups = computed(() => {
                 target="_blank"
                 class="min-w-0 font-semibold wrap-anywhere text-(--vp-c-brand-1) no-underline! hover:underline!"
               >
-                {{ item.name }}
+                <SearchHighlight :text="item.name" :pattern="searchPattern" />
               </a>
               <button
                 v-for="tag in item.tags"
@@ -255,11 +285,11 @@ const itemGroups = computed(() => {
                     : 'bg-(--vp-c-bg-soft)! text-(--vp-c-text-2) hover:bg-(--vp-c-divider)! hover:text-(--vp-c-text-1)'
                 ]"
               >
-                {{ tag }}
+                <SearchHighlight :text="tag" :pattern="searchPattern" />
               </button>
             </div>
             <div v-if="item.description" class="mt-1 text-sm wrap-anywhere text-(--vp-c-text-2)">
-              {{ item.description }}
+              <SearchHighlight :text="item.description" :pattern="searchPattern" />
             </div>
           </div>
           <div
@@ -285,8 +315,10 @@ const itemGroups = computed(() => {
         </div>
       </section>
     </div>
-    <div v-else class="flex min-h-28 items-center justify-center px-4 py-6 text-center">
-      <p class="m-0! text-sm leading-6! text-(--vp-c-text-2)">{{ props.emptyText }}</p>
+    <div v-else class="flex min-h-44 flex-col items-center justify-center px-4 py-8 text-center">
+      <PhMagnifyingGlass aria-hidden="true" focusable="false" class="mb-3 size-7 text-(--vp-c-text-3)" />
+      <p class="m-0! text-base font-medium">{{ props.emptyText }}</p>
+      <p class="mt-2! mb-0! max-w-md text-sm leading-6! text-(--vp-c-text-2)">{{ emptyHint }}</p>
     </div>
   </div>
 

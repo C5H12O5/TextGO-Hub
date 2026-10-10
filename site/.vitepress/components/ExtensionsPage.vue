@@ -23,7 +23,9 @@ const categories = computed(() => [
     icon: PhCode,
     component: Scripts,
     count: scripts.filter((item) => item.locales[lang.value]?.name).length,
-    filterText: isChinese.value ? '搜索脚本名称或描述…' : 'Search scripts by name or description...',
+    filterText: isChinese.value
+      ? '搜索名称、描述、标签或脚本语言…'
+      : 'Search names, descriptions, tags or languages...',
     emptyText: isChinese.value ? '未找到匹配的脚本' : 'No scripts found'
   },
   {
@@ -32,7 +34,7 @@ const categories = computed(() => [
     icon: PhGlobe,
     component: Searchers,
     count: searchers.filter((item) => item.locales[lang.value]?.name).length,
-    filterText: isChinese.value ? '搜索网站名称或描述…' : 'Search websites by name or description...',
+    filterText: isChinese.value ? '搜索名称、描述或标签…' : 'Search names, descriptions or tags...',
     emptyText: isChinese.value ? '未找到匹配的网站' : 'No websites found'
   }
 ]);
