@@ -674,7 +674,7 @@ textarea:focus {
   flex-wrap: wrap;
   gap: 4px 16px;
   min-height: 40px;
-  color: var(--vp-c-text-3);
+  color: var(--vp-c-text-2);
   font-size: 12px;
   line-height: 20px;
 }
@@ -693,6 +693,11 @@ textarea:focus {
 button:focus-visible {
   outline: 2px solid var(--vp-c-brand-1);
   outline-offset: 3px;
+}
+
+textarea:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: -2px;
 }
 
 @keyframes show-result {
@@ -718,8 +723,11 @@ button:focus-visible {
 }
 
 @media (max-width: 639px) {
+  .scenario-options button {
+    min-height: 44px;
+  }
   .demo-stage {
-    height: 410px;
+    height: 440px;
   }
   .demo-backdrop {
     right: -20px;
@@ -743,11 +751,13 @@ button:focus-visible {
     top: 174px;
     left: 40px;
     transform: rotateX(5deg) rotateY(-5deg) rotateZ(-1deg) translateZ(20px);
+    height: auto;
   }
   .selection-toolbar button {
     gap: 4px;
     padding-right: 6px;
     padding-left: 6px;
+    min-height: 44px;
   }
   .result-window {
     top: 171px;
@@ -756,11 +766,22 @@ button:focus-visible {
     transform: rotateX(3deg) rotateY(-4deg) rotateZ(-1deg) translateZ(20px);
   }
   .translation-window {
-    top: 190px;
+    top: 174px;
   }
   .demo-footer {
     min-height: 44px;
     text-align: center;
+  }
+  .demo-footer button,
+  .translation-actions button {
+    min-height: 44px;
+  }
+  .result-titlebar {
+    height: 44px;
+  }
+  .result-controls button {
+    width: 40px;
+    height: 40px;
   }
 }
 

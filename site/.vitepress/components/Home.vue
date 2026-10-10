@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {
   PhAppleLogo,
+  PhBookOpenText,
   PhDesktop,
   PhDownloadSimple,
   PhKeyboard,
@@ -100,8 +101,14 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
             <PhDownloadSimple :size="18" weight="bold" aria-hidden="true" />
             <span>{{ downloadText }}</span>
           </VPButton>
-          <VPButton theme="alt" :text="copy.guide" :href="withBase(`${localePath}/guide/getting-started`)" />
-          <VPButton theme="alt" :text="copy.extensions" :href="withBase(`${localePath}/extensions`)" />
+          <VPButton theme="alt" :href="withBase(`${localePath}/guide/getting-started`)">
+            <PhBookOpenText :size="18" weight="bold" aria-hidden="true" />
+            <span>{{ copy.guide }}</span>
+          </VPButton>
+          <VPButton theme="alt" :href="withBase(`${localePath}/extensions`)">
+            <PhPuzzlePiece :size="18" weight="bold" aria-hidden="true" />
+            <span>{{ copy.extensions }}</span>
+          </VPButton>
         </div>
         <p class="hero-platforms">
           <span><PhAppleLogo :size="16" weight="fill" aria-hidden="true" />macOS</span>
@@ -114,7 +121,7 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
     <section class="home-features" :aria-label="isChinese ? 'TextGO 功能' : 'TextGO features'">
       <article v-for="feature in copy.features" :key="feature.title" class="feature-card">
         <div class="feature-heading">
-          <component :is="feature.icon" :size="22" aria-hidden="true" />
+          <span class="feature-icon"><component :is="feature.icon" :size="22" aria-hidden="true" /></span>
           <h2>{{ feature.title }}</h2>
         </div>
         <p>{{ feature.details }}</p>
@@ -135,7 +142,7 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
 .textgo-home {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 44px 64px 0;
+  padding: 32px 64px 0;
 }
 
 .home-hero {
@@ -143,7 +150,7 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 28px;
-  padding-bottom: 48px;
+  padding-bottom: 32px;
 }
 
 .hero-intro {
@@ -226,6 +233,7 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
   isolation: isolate;
   width: fit-content;
   color: var(--vp-c-text-1);
+  text-wrap: balance;
 }
 
 .hero-underline {
@@ -247,10 +255,12 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
 }
 
 .hero-tagline {
+  max-width: 28em;
   margin-top: 12px;
   color: var(--vp-c-text-2);
   font-size: 24px;
   line-height: 36px;
+  text-wrap: balance;
 }
 
 .hero-actions {
@@ -260,9 +270,11 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
   margin-top: 28px;
 }
 
-.hero-actions .hero-download {
+.hero-actions :deep(.VPButton) {
   display: inline-flex;
+  min-height: 44px;
   align-items: center;
+  justify-content: center;
   gap: 6px;
 }
 
@@ -271,7 +283,7 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
   align-items: center;
   gap: 20px;
   margin-top: 14px;
-  color: var(--vp-c-text-3);
+  color: var(--vp-c-text-2);
   font-size: 13px;
   line-height: 20px;
 }
@@ -289,9 +301,9 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
 
 .feature-card {
   padding: 24px;
-  border: 1px solid var(--vp-c-bg-soft);
-  border-radius: 12px;
-  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 65%, var(--vp-c-bg));
 }
 
 .feature-heading {
@@ -299,9 +311,15 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
   align-items: center;
   gap: 12px;
 }
-.feature-heading > svg {
+.feature-icon {
+  display: grid;
   flex-shrink: 0;
-  color: var(--vp-c-brand-3);
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
 }
 .feature-card h2 {
   font-size: 16px;
@@ -309,7 +327,7 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
   line-height: 24px;
 }
 .feature-card p {
-  margin-top: 16px;
+  margin-top: 12px;
   color: var(--vp-c-text-2);
   font-size: 14px;
   line-height: 24px;
@@ -350,6 +368,10 @@ a:focus-visible {
   .hero-name,
   .hero-title {
     margin: 0 auto;
+  }
+  .hero-tagline {
+    margin-right: auto;
+    margin-left: auto;
   }
   .hero-actions,
   .hero-platforms {
