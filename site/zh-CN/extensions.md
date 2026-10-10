@@ -9,6 +9,8 @@ next: false
 pageClass: wide-page
 ---
 
+<ExtensionsPage>
+
 # 扩展
 
-<ExtensionsPage />
+</ExtensionsPage>

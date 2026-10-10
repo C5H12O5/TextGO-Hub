@@ -92,36 +92,41 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="mt-6">
-    <div
-      ref="tabList"
-      role="tablist"
-      :aria-label="isChinese ? '扩展类型' : 'Extension types'"
-      class="flex w-full gap-1 rounded-xl bg-(--vp-c-bg-soft) p-1 sm:inline-flex sm:w-auto"
-      @keydown="onTabKeydown"
-    >
-      <button
-        v-for="category in categories"
-        :id="`${tabGroupId}-${category.id}-tab`"
-        :key="category.id"
-        type="button"
-        role="tab"
-        :aria-selected="activeCategory === category.id"
-        :aria-controls="`${tabGroupId}-${category.id}-panel`"
-        :tabindex="activeCategory === category.id ? 0 : -1"
-        :class="[
-          'flex min-h-11 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-lg px-2.5! py-2! text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1) motion-reduce:transition-none sm:flex-none sm:gap-2 sm:px-4!',
-          activeCategory === category.id
-            ? 'bg-(--vp-c-brand-soft)! text-(--vp-c-brand-2)'
-            : 'text-(--vp-c-text-2) hover:bg-(--vp-c-divider)! hover:text-(--vp-c-text-1)'
-        ]"
-        @click="selectCategory(category.id)"
+  <div>
+    <header class="flex flex-wrap items-center gap-x-6 gap-y-4">
+      <div class="shrink-0">
+        <slot />
+      </div>
+      <div
+        ref="tabList"
+        role="tablist"
+        :aria-label="isChinese ? '扩展类型' : 'Extension types'"
+        class="ml-auto flex max-w-full min-w-0 grow gap-1 rounded-xl bg-(--vp-c-bg-soft) p-1 sm:grow-0"
+        @keydown="onTabKeydown"
       >
-        <component :is="category.icon" aria-hidden="true" focusable="false" class="size-4.5 shrink-0" />
-        <span>{{ category.label }}</span>
-        <span class="min-w-4 text-xs tabular-nums">{{ category.count }}</span>
-      </button>
-    </div>
+        <button
+          v-for="category in categories"
+          :id="`${tabGroupId}-${category.id}-tab`"
+          :key="category.id"
+          type="button"
+          role="tab"
+          :aria-selected="activeCategory === category.id"
+          :aria-controls="`${tabGroupId}-${category.id}-panel`"
+          :tabindex="activeCategory === category.id ? 0 : -1"
+          :class="[
+            'flex min-h-11 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-lg px-2.5! py-2! text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1) motion-reduce:transition-none sm:flex-none sm:gap-2 sm:px-4!',
+            activeCategory === category.id
+              ? 'bg-(--vp-c-brand-soft)! text-(--vp-c-brand-2)'
+              : 'text-(--vp-c-text-2) hover:bg-(--vp-c-divider)! hover:text-(--vp-c-text-1)'
+          ]"
+          @click="selectCategory(category.id)"
+        >
+          <component :is="category.icon" aria-hidden="true" focusable="false" class="size-4.5 shrink-0" />
+          <span>{{ category.label }}</span>
+          <span class="min-w-4 text-xs tabular-nums">{{ category.count }}</span>
+        </button>
+      </div>
+    </header>
 
     <section
       v-for="category in categories"
