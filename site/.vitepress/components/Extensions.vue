@@ -237,10 +237,10 @@ const itemGroups = computed(() => {
           :aria-pressed="filterTags.includes(tag)"
           @click="toggleTag(tag)"
           :class="[
-            'rounded-md px-2! py-1.5! text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1) motion-reduce:transition-none sm:py-0.5!',
+            'cursor-pointer rounded-md px-2! py-1.5! text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1) motion-reduce:transition-none sm:py-0.5!',
             filterTags.includes(tag)
               ? 'bg-(--vp-c-brand-soft)! text-(--vp-c-brand-2)!'
-              : 'bg-(--vp-button-alt-bg)! hover:bg-(--vp-c-divider)!'
+              : 'bg-(--vp-c-bg-soft)! text-(--vp-c-text-2) hover:bg-(--vp-c-default-soft)! hover:text-(--vp-c-text-1)'
           ]"
         >
           {{ tag }}
