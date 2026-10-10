@@ -9,10 +9,6 @@ next: false
 pageClass: wide-page
 ---
 
-# 脚本
+# 扩展
 
-<Scripts empty-text="未找到匹配的脚本" filter-text="按名称或描述筛选…" />
-
-# 网站
-
-<Searchers empty-text="未找到匹配的网站" filter-text="按名称或描述筛选…" />
+<ExtensionsPage />

@@ -9,10 +9,6 @@ next: false
 pageClass: wide-page
 ---
 
-# Scripts
+# Extensions
 
-<Scripts empty-text="No scripts found" />
-
-# Websites
-
-<Searchers empty-text="No websites found" />
+<ExtensionsPage />

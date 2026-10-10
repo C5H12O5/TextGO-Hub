@@ -191,6 +191,7 @@ const itemGroups = computed(() => {
         <input
           v-model="filterInput"
           type="search"
+          :aria-label="props.filterText"
           :placeholder="props.filterText"
           class="w-full rounded-md border! border-(--vp-c-divider)! py-2! pr-3! pl-10! shadow-xs transition-colors focus:border-(--vp-c-brand-1)! motion-reduce:transition-none"
         />
