@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T extends Extension">
-import { PhClipboardText, PhFunnel, PhInfo } from '@phosphor-icons/vue';
+import { PhClipboardText, PhFunnel, PhInfo, PhMagnifyingGlass } from '@phosphor-icons/vue';
 import { useData } from 'vitepress';
 import { computed, nextTick, ref, shallowRef, useId } from 'vue';
 import type { Extension } from '../types';
@@ -103,17 +103,12 @@ const allTags = computed(() => {
   return Array.from(tags).sort();
 });
 
-// add tag to filter
-const addTag = (tag: string) => {
-  if (!filterTags.value.includes(tag)) {
-    filterTags.value.push(tag);
-  }
-};
-
-// remove tag from filter
-const removeTag = (tag: string) => {
+// toggle tag filter
+const toggleTag = (tag: string) => {
   const index = filterTags.value.indexOf(tag);
-  if (index > -1) {
+  if (index === -1) {
+    filterTags.value.push(tag);
+  } else {
     filterTags.value.splice(index, 1);
   }
 };
@@ -187,25 +182,37 @@ const itemGroups = computed(() => {
   <div class="mt-6 mb-12">
     <!-- Filters -->
     <div class="mb-4 space-y-3">
-      <input
-        v-model="filterInput"
-        type="search"
-        :placeholder="props.filterText"
-        class="w-full rounded-md border! border-(--vp-c-divider)! px-3! py-2! shadow-xs transition-colors focus:border-(--vp-c-brand-1)!"
-      />
+      <div class="group relative">
+        <PhMagnifyingGlass
+          aria-hidden="true"
+          focusable="false"
+          class="pointer-events-none absolute top-1/2 left-3 size-4.5 -translate-y-1/2 text-(--vp-c-text-2) transition-colors group-focus-within:text-(--vp-c-brand-1) motion-reduce:transition-none"
+        />
+        <input
+          v-model="filterInput"
+          type="search"
+          :placeholder="props.filterText"
+          class="w-full rounded-md border! border-(--vp-c-divider)! py-2! pr-3! pl-10! shadow-xs transition-colors focus:border-(--vp-c-brand-1)! motion-reduce:transition-none"
+        />
+      </div>
       <div class="flex flex-wrap items-center gap-2">
-        <PhFunnel weight="thin" class="size-6 opacity-80" />
-        <output aria-live="polite" class="mr-1 -ml-1.5 shrink-0 text-sm tabular-nums opacity-50">
-          ({{ items.length }})
-        </output>
+        <div class="mr-1 flex shrink-0 items-center gap-1.5 text-(--vp-c-text-2)">
+          <PhFunnel aria-hidden="true" focusable="false" class="size-4.5 shrink-0" />
+          <output aria-live="polite" aria-atomic="true" class="min-w-8 text-center text-sm tabular-nums">
+            <span class="sr-only">{{ lang.startsWith('zh') ? '筛选结果：' : 'Results: ' }}</span>
+            ({{ items.length }})
+          </output>
+        </div>
         <button
           v-for="tag in allTags"
           :key="tag"
-          @click="filterTags.includes(tag) ? removeTag(tag) : addTag(tag)"
+          type="button"
+          :aria-pressed="filterTags.includes(tag)"
+          @click="toggleTag(tag)"
           :class="[
-            'rounded-md px-2! py-0.5! text-sm font-medium shadow-xs transition-all active:scale-95',
+            'rounded-md px-2! py-1.5! text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1) motion-reduce:transition-none sm:py-0.5!',
             filterTags.includes(tag)
-              ? 'bg-(--vp-c-brand-1)! text-(--vp-button-alt-bg)!'
+              ? 'bg-(--vp-c-brand-soft)! text-(--vp-c-brand-2)!'
               : 'bg-(--vp-button-alt-bg)! hover:bg-(--vp-c-divider)!'
           ]"
         >
@@ -216,46 +223,58 @@ const itemGroups = computed(() => {
     <!-- Items -->
     <div v-if="items.length > 0">
       <section v-for="group in itemGroups" :key="group.label || 'items'" :class="group.label ? 'mt-8 first:mt-0' : ''">
-        <h4 v-if="group.label" class="m-0! pt-2 tracking-wide! opacity-50">
+        <h2 v-if="group.label" class="m-0! border-0! pt-2! text-sm! leading-6! tracking-wide! text-(--vp-c-text-2)">
           {{ group.label }}
-        </h4>
+        </h2>
         <div
           v-for="item in group.items"
           :key="item.path"
-          class="flex items-center gap-3 border-b border-(--vp-c-divider) py-3 last:border-b-0"
+          class="grid grid-cols-[2rem_minmax(0,1fr)_2.75rem] items-center gap-x-3 gap-y-1 border-b border-(--vp-c-divider) py-3 last:border-b-0 sm:flex sm:gap-3"
         >
           <Icon :icon="item.icon" class="size-8" />
-          <div class="flex-2">
-            <div class="flex items-center gap-2">
+          <div class="min-w-0 sm:flex-2">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
               <a
                 :href="`https://github.com/C5H12O5/TextGO-Hub/blob/main/${item.path.split('/').slice(-3).join('/')}`"
                 target="_blank"
-                class="font-semibold text-(--vp-c-brand-1) no-underline! hover:underline!"
+                class="min-w-0 font-semibold wrap-anywhere text-(--vp-c-brand-1) no-underline! hover:underline!"
               >
                 {{ item.name }}
               </a>
-              <span
+              <button
                 v-for="tag in item.tags"
                 :key="tag"
-                @click="addTag(tag)"
-                class="cursor-pointer rounded-md bg-(--vp-sidebar-bg-color) px-1.5 py-0.5 text-xs opacity-80 transition-all hover:opacity-100 active:scale-95"
+                type="button"
+                :aria-pressed="filterTags.includes(tag)"
+                @click="toggleTag(tag)"
+                :class="[
+                  'cursor-pointer rounded-md px-1.5! py-0.5! text-xs whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1) motion-reduce:transition-none',
+                  filterTags.includes(tag)
+                    ? 'bg-(--vp-c-brand-soft)! text-(--vp-c-brand-2)!'
+                    : 'bg-(--vp-c-bg-soft)! text-(--vp-c-text-2) hover:bg-(--vp-c-divider)! hover:text-(--vp-c-text-1)'
+                ]"
               >
                 {{ tag }}
-              </span>
+              </button>
             </div>
-            <div v-if="item.description" class="mt-1 text-sm opacity-60">{{ item.description }}</div>
+            <div v-if="item.description" class="mt-1 text-sm wrap-anywhere text-(--vp-c-text-2)">
+              {{ item.description }}
+            </div>
           </div>
-          <div v-if="item.tip" class="mr-2 flex flex-1 items-center justify-end gap-0.5 opacity-60">
-            <PhInfo class="size-4 shrink-0" />
-            <span class="text-xs italic">{{ item.tip }}</span>
+          <div
+            v-if="item.tip"
+            class="col-start-2 row-start-2 flex min-w-0 items-start gap-1 text-(--vp-c-text-2) sm:mr-2 sm:max-w-1/3 sm:shrink-0 sm:justify-end"
+          >
+            <PhInfo aria-hidden="true" focusable="false" class="mt-0.5 size-4 shrink-0" />
+            <span class="text-xs leading-5">{{ item.tip }}</span>
           </div>
           <button
             type="button"
             :aria-label="`${installConsentText.confirm}: ${item.name}`"
             @click="requestInstall(item, $event)"
-            class="rounded-md p-1! transition-all hover:bg-(--vp-button-alt-bg)! active:scale-95"
+            class="col-start-3 row-start-1 shrink-0 rounded-md p-2.5! text-(--vp-c-text-2) transition-all hover:bg-(--vp-c-brand-soft)! hover:text-(--vp-c-brand-1) focus-visible:bg-(--vp-c-brand-soft)! focus-visible:text-(--vp-c-brand-1) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1) active:scale-95 motion-reduce:transition-none sm:p-1!"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6 opacity-80">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6">
               <path
                 fill="currentColor"
                 d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4.18C9.6 1.84 10.7 1 12 1s2.4.84 2.82 2zm-7 0a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M7 7V5H5v14h14V5h-2v2zm5 11l-5-5h3V9h4v4h3z"
@@ -265,8 +284,8 @@ const itemGroups = computed(() => {
         </div>
       </section>
     </div>
-    <div v-else class="flex items-center justify-center py-4">
-      <p class="text-sm opacity-50">{{ props.emptyText }}</p>
+    <div v-else class="flex min-h-28 items-center justify-center px-4 py-6 text-center">
+      <p class="m-0! text-sm leading-6! text-(--vp-c-text-2)">{{ props.emptyText }}</p>
     </div>
   </div>
 
