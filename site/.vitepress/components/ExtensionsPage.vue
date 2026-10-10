@@ -2,8 +2,6 @@
 import { PhCode, PhGlobe } from '@phosphor-icons/vue';
 import { useData, useRouter } from 'vitepress';
 import { computed, onMounted, onUnmounted, ref, useId } from 'vue';
-import { data as scripts } from '../data/scripts.data';
-import { data as searchers } from '../data/searchers.data';
 import Scripts from './Scripts.vue';
 import Searchers from './Searchers.vue';
 
@@ -22,7 +20,6 @@ const categories = computed(() => [
     label: isChinese.value ? '脚本' : 'Scripts',
     icon: PhCode,
     component: Scripts,
-    count: scripts.filter((item) => item.locales[lang.value]?.name).length,
     filterText: isChinese.value
       ? '搜索名称、描述、标签或脚本语言…'
       : 'Search names, descriptions, tags or languages...',
@@ -33,7 +30,6 @@ const categories = computed(() => [
     label: isChinese.value ? '网站' : 'Websites',
     icon: PhGlobe,
     component: Searchers,
-    count: searchers.filter((item) => item.locales[lang.value]?.name).length,
     filterText: isChinese.value ? '搜索名称、描述或标签…' : 'Search names, descriptions or tags...',
     emptyText: isChinese.value ? '未找到匹配的网站' : 'No websites found'
   }
@@ -123,7 +119,6 @@ onUnmounted(() => {
         >
           <component :is="category.icon" aria-hidden="true" focusable="false" class="size-4.5 shrink-0" />
           <span>{{ category.label }}</span>
-          <span class="min-w-4 text-xs tabular-nums">{{ category.count }}</span>
         </button>
       </div>
     </header>
