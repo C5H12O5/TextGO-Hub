@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import * as phosphor from '@phosphor-icons/vue';
 import { computed, type Component } from 'vue';
+import { extensionIcons } from './extensionIcons';
 
 export type IconProps = {
   /** Icon name or base64-encoded SVG data URL. */
@@ -10,13 +10,6 @@ export type IconProps = {
 };
 
 const props = defineProps<IconProps>();
-
-// mapping of phosphor icons
-const phosphorIcons = Object.fromEntries(
-  Object.entries(phosphor).filter(([name]) => {
-    return name.startsWith('Ph');
-  })
-) as Record<string, Component>;
 
 /**
  * Decode base64 SVG data URL to SVG HTML string.
@@ -50,7 +43,7 @@ const iconComponent = computed(() => {
     return props.icon as Component;
   }
   if (!isBase64SVG.value) {
-    return phosphorIcons[`Ph${props.icon as string}`];
+    return extensionIcons[`Ph${props.icon as string}`];
   }
   return null;
 });

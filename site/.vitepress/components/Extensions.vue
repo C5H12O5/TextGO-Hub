@@ -26,7 +26,7 @@ const { lang } = useData();
 
 // extension installation consent
 const installConsentDialogId = useId();
-const installConsentDialog = ref<HTMLElement>();
+const installConsentDialog = ref<HTMLDialogElement>();
 const installTrigger = ref<HTMLElement>();
 const pendingInstall = shallowRef<T>();
 const isInstallConsentDialogOpen = ref(false);
@@ -59,6 +59,20 @@ const restoreInstallTriggerFocus = async () => {
   installTrigger.value?.focus();
 };
 
+const trapInstallConsentFocus = (event: KeyboardEvent) => {
+  const buttons = installConsentDialog.value?.querySelectorAll<HTMLButtonElement>('button:not(:disabled)');
+  if (!buttons?.length) return;
+
+  const first = buttons[0];
+  const last = buttons[buttons.length - 1];
+  const boundary = event.shiftKey ? first : last;
+
+  if (document.activeElement === boundary) {
+    event.preventDefault();
+    (event.shiftKey ? last : first).focus();
+  }
+};
+
 const requestInstall = async (item: T, event: MouseEvent) => {
   installTrigger.value = event.currentTarget as HTMLElement;
 
@@ -70,11 +84,12 @@ const requestInstall = async (item: T, event: MouseEvent) => {
   pendingInstall.value = item;
   isInstallConsentDialogOpen.value = true;
   await nextTick();
-  installConsentDialog.value?.focus();
+  installConsentDialog.value?.showModal();
 };
 
 const cancelInstall = () => {
   pendingInstall.value = undefined;
+  installConsentDialog.value?.close();
   isInstallConsentDialogOpen.value = false;
   void restoreInstallTriggerFocus();
 };
@@ -84,6 +99,7 @@ const confirmInstall = () => {
   if (item === undefined) return;
 
   pendingInstall.value = undefined;
+  installConsentDialog.value?.close();
   isInstallConsentDialogOpen.value = false;
   window.localStorage.setItem(installConsentStorageKey, installConsentGrantedValue);
   props.installHandler(item);
@@ -324,21 +340,19 @@ const itemGroups = computed(() => {
   </div>
 
   <Teleport to="body">
-    <div
+    <dialog
       v-if="isInstallConsentDialogOpen"
-      class="fixed inset-0 z-1000 flex items-center justify-center bg-black/50 px-4"
+      ref="installConsentDialog"
+      role="alertdialog"
+      aria-modal="true"
+      :aria-labelledby="`${installConsentDialogId}-title`"
+      :aria-describedby="`${installConsentDialogId}-description`"
+      class="fixed inset-0 m-0 h-full max-h-none w-full max-w-none items-center justify-center border-0 bg-transparent p-4 backdrop:bg-black/50 open:flex"
       @click.self="cancelInstall"
-      @keydown.esc.prevent.stop="cancelInstall"
+      @cancel.prevent="cancelInstall"
+      @keydown.tab="trapInstallConsentFocus"
     >
-      <section
-        ref="installConsentDialog"
-        role="alertdialog"
-        aria-modal="true"
-        :aria-labelledby="`${installConsentDialogId}-title`"
-        :aria-describedby="`${installConsentDialogId}-description`"
-        tabindex="-1"
-        class="w-full max-w-120 rounded-xl bg-(--vp-c-bg) p-6 text-(--vp-c-text-1) shadow-2xl outline-none"
-      >
+      <div class="w-full max-w-120 rounded-xl bg-(--vp-c-bg) p-6 text-(--vp-c-text-1) shadow-2xl">
         <div class="flex items-start gap-4">
           <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-(--vp-c-brand-soft)">
             <PhClipboardText class="size-6 text-(--vp-c-brand-1)" />
@@ -356,20 +370,21 @@ const itemGroups = computed(() => {
         <div class="mt-6 flex justify-end gap-3">
           <button
             type="button"
-            class="rounded-md bg-(--vp-button-alt-bg) px-4! py-2! text-sm font-medium transition-colors hover:bg-(--vp-button-alt-hover-bg)"
+            autofocus
+            class="rounded-md bg-(--vp-button-alt-bg) px-4! py-2! text-sm font-medium transition-colors hover:bg-(--vp-button-alt-hover-bg) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1)"
             @click="cancelInstall"
           >
             {{ installConsentText.cancel }}
           </button>
           <button
             type="button"
-            class="rounded-md bg-(--vp-button-brand-bg) px-4! py-2! text-sm font-medium text-(--vp-button-brand-text) transition-colors hover:bg-(--vp-button-brand-hover-bg)"
+            class="rounded-md bg-(--vp-button-brand-bg) px-4! py-2! text-sm font-medium text-(--vp-button-brand-text) transition-colors hover:bg-(--vp-button-brand-hover-bg) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1)"
             @click="confirmInstall"
           >
             {{ installConsentText.confirm }}
           </button>
         </div>
-      </section>
-    </div>
+      </div>
+    </dialog>
   </Teleport>
 </template>
