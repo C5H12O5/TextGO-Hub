@@ -610,7 +610,9 @@ textarea {
   background: transparent;
   resize: none;
 }
-textarea:focus {
+/* Demo editors stay borderless for automatic, pointer, and keyboard focus. */
+textarea:focus,
+textarea:focus-visible {
   outline: none;
 }
 
@@ -693,11 +695,6 @@ textarea:focus {
 button:focus-visible {
   outline: 2px solid var(--vp-c-brand-1);
   outline-offset: 3px;
-}
-
-textarea:focus-visible {
-  outline: 2px solid var(--vp-c-brand-1);
-  outline-offset: -2px;
 }
 
 @keyframes show-result {
