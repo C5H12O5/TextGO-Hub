@@ -173,7 +173,7 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
 
 .hero-name {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 0.34em;
   width: fit-content;
   padding-block: 0.12em;
@@ -193,40 +193,31 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
   isolation: isolate;
   color: var(--vp-c-bg);
   font-size: 0.8em;
-  transform: translate(-0.13em, -0.045em) rotate(-5deg);
-}
-
-.hero-name-go-text,
-.hero-name-go::before,
-.hero-name-go::after {
-  background: color-mix(in srgb, var(--vp-c-brand-3), var(--vp-button-brand-bg));
-  clip-path: polygon(0 0, calc(100% - 0.64em) 0, 100% 50%, calc(100% - 0.64em) 100%, 0 100%);
+  --go-fill: color-mix(in srgb, var(--vp-c-brand-3), var(--vp-button-brand-bg));
+  margin-left: 0.06em;
+  /* Lean forward on the baseline; the lift centers the block on the cap height of "Text". */
+  transform: translateY(-0.085em) skewX(-10deg);
 }
 
 .hero-name-go-text {
   position: relative;
   z-index: 1;
   display: block;
-  padding: 0.095em 0.6em 0.13em 0.17em;
+  padding: 0.1em 0.27em 0.12em 0.25em;
   letter-spacing: 0.035em;
 }
 
-.hero-name-go::before,
-.hero-name-go::after {
+.hero-name-go::before {
   position: absolute;
   inset: 0;
+  border-radius: 0.09em;
+  background: var(--go-fill);
+  /* Two crisp slivers trailing horizontally behind the block. */
+  box-shadow:
+    -0.13em 0 0 color-mix(in srgb, var(--go-fill) 36%, transparent),
+    -0.26em 0 0 color-mix(in srgb, var(--go-fill) 15%, transparent);
   pointer-events: none;
   content: '';
-}
-
-.hero-name-go::before {
-  opacity: 0.1176;
-  transform: translate(-0.2em, 0.09em);
-}
-
-.hero-name-go::after {
-  opacity: 0.28;
-  transform: translate(-0.1em, 0.045em);
 }
 
 .hero-title {
