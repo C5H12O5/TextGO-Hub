@@ -120,10 +120,11 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
 
     <section class="home-features" :aria-label="isChinese ? 'TextGO 功能' : 'TextGO features'">
       <article v-for="feature in copy.features" :key="feature.title" class="feature-card">
-        <div class="feature-heading">
-          <span class="feature-icon"><component :is="feature.icon" :size="22" aria-hidden="true" /></span>
-          <h2>{{ feature.title }}</h2>
-        </div>
+        <component :is="feature.icon" class="feature-watermark" :size="128" weight="light" aria-hidden="true" />
+        <span class="feature-icon"
+          ><component :is="feature.icon" :size="24" weight="duotone" aria-hidden="true"
+        /></span>
+        <h2>{{ feature.title }}</h2>
         <p>{{ feature.details }}</p>
       </article>
     </section>
@@ -300,37 +301,75 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
 }
 
 .feature-card {
+  --feature-wash: var(--vp-c-brand-soft);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 24px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 16px;
-  background: color-mix(in srgb, var(--vp-c-bg-soft) 65%, var(--vp-c-bg));
+  /* A brand wash that starts behind the icon and fades into the card surface. */
+  background:
+    radial-gradient(140% 90% at 0% 0%, var(--feature-wash), transparent 55%),
+    color-mix(in srgb, var(--vp-c-bg-soft) 65%, var(--vp-c-bg));
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+.dark .feature-card {
+  --feature-wash: color-mix(in srgb, var(--vp-c-brand-3) 6%, transparent);
+}
+.feature-card:hover {
+  border-color: color-mix(in srgb, var(--vp-c-brand-3) 45%, var(--vp-c-divider));
+  box-shadow: 0 12px 28px -18px color-mix(in srgb, var(--vp-c-brand-3) 60%, transparent);
 }
 
-.feature-heading {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
 .feature-icon {
   display: grid;
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   place-items: center;
-  border-radius: 10px;
-  background: var(--vp-c-brand-soft);
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--vp-c-brand-3) 26%, transparent),
+    color-mix(in srgb, var(--vp-c-brand-3) 10%, transparent)
+  );
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--vp-c-brand-3) 22%, transparent);
   color: var(--vp-c-brand-1);
 }
+
+/* The card's own icon, oversized and faint, fills the empty corner beside the icon chip. */
+.feature-watermark {
+  position: absolute;
+  z-index: -1;
+  top: -22px;
+  right: -14px;
+  color: var(--vp-c-brand-3);
+  opacity: 0.08;
+  pointer-events: none;
+  transform: rotate(10deg);
+  transition:
+    opacity 0.25s,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.feature-card:hover .feature-watermark {
+  opacity: 0.14;
+  transform: rotate(6deg) scale(1.06);
+}
+
 .feature-card h2 {
-  font-size: 16px;
+  margin-top: 14px;
+  font-size: 17px;
   font-weight: 600;
   line-height: 24px;
 }
 .feature-card p {
-  margin-top: 12px;
+  margin-top: 6px;
   color: var(--vp-c-text-2);
   font-size: 14px;
-  line-height: 24px;
+  line-height: 22px;
+  text-wrap: pretty;
 }
 
 a:focus-visible {
@@ -406,7 +445,30 @@ a:focus-visible {
     gap: 12px;
   }
   .feature-card {
-    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 16px;
+    padding: 20px;
+  }
+  .feature-icon {
+    grid-row: 1 / span 2;
+  }
+  .feature-card h2 {
+    margin-top: 0;
+  }
+  .feature-card p {
+    margin-top: 4px;
+  }
+  .feature-watermark {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .feature-watermark {
+    transition: none;
   }
 }
 </style>
