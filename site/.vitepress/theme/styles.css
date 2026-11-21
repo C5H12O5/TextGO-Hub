@@ -7,11 +7,6 @@
   --docsearch-search-button-background: #f6f6f7;
 
   --lm-Underline-bg: var(--vp-c-brand-3);
-  --vp-button-brand-border: transparent;
-  --vp-button-brand-hover-border: transparent;
-  --vp-button-brand-active-border: transparent;
-  --vp-button-brand-hover-text: var(--vp-button-brand-text);
-  --vp-button-brand-active-text: var(--vp-button-brand-text);
 }
 
 :root:not(.dark) {
@@ -22,7 +17,6 @@
 
   --vp-button-brand-text: #ffffff;
   --vp-button-brand-bg: #155bb5;
-  --vp-button-brand-hover-bg: #114e9d;
   --vp-button-brand-active-bg: #0e4387;
 }
 
@@ -34,8 +28,152 @@
 
   --vp-button-brand-text: #111827;
   --vp-button-brand-bg: #d4a017;
-  --vp-button-brand-hover-bg: #e2ae28;
   --vp-button-brand-active-bg: #bf8c0c;
+}
+
+/*
+ * macOS look shared with the TextGO app (`src/styles/macos.css`): system font, concentric rounded
+ * corners, raised push buttons, accent focus rings, translucent menus and sheets. Colors always come
+ * from the VitePress theme, so light and dark modes keep the site's brand colors.
+ */
+:root,
+:root[lang] {
+  --vp-font-family-base:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB',
+    ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --vp-font-family-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+}
+
+:root {
+  --tg-radius-selector: 5px;
+  --tg-radius-field: 8px;
+  --tg-radius-box: 12px;
+  --tg-radius-sheet: calc(var(--tg-radius-box) * 1.5);
+
+  --tg-control-fill: color-mix(in oklab, var(--vp-c-bg), #fff 16%);
+  --tg-control-edge: color-mix(in oklab, var(--vp-c-text-1) 18%, transparent);
+  --tg-control-shadow: 0 1px 1px rgb(0 0 0 / 0.06);
+  --tg-control-pressed: color-mix(in oklab, var(--tg-control-fill), var(--vp-c-text-1) 12%);
+  --tg-focus-ring: color-mix(in oklab, var(--vp-c-brand-1) 50%, transparent);
+  --tg-field-ring: color-mix(in oklab, var(--vp-c-brand-1) 25%, transparent);
+  --tg-border: color-mix(in oklab, var(--vp-c-text-1) 15%, transparent);
+  --tg-separator: color-mix(in oklab, var(--vp-c-text-1) 8%, transparent);
+  --tg-track: color-mix(in oklab, var(--vp-c-text-1) 6%, transparent);
+  /* selection fill, like the app's `emphasis` color: menu highlights, sidebar selection, checked states */
+  --tg-emphasis: var(--vp-button-brand-bg);
+  --tg-emphasis-content: var(--vp-button-brand-text);
+  /* list surfaces: striped rows and a soft gradient header */
+  --tg-surface-150: color-mix(in oklab, var(--vp-c-bg) 50%, var(--vp-c-bg-soft) 50%);
+  --tg-header-gradient: linear-gradient(135deg, rgb(255 255 255 / 0.2) 0%, rgb(0 0 0 / 0) 100%);
+  /* translucent window materials */
+  --tg-material: color-mix(in oklab, var(--vp-c-bg-elv) 86%, transparent);
+  --tg-material-filter: blur(24px) saturate(1.8);
+  --tg-menu-shadow: 0 12px 32px -6px rgb(0 0 0 / 0.3);
+  --tg-sheet-shadow: 0 0 0 1px rgb(0 0 0 / 0.08), 0 24px 64px -12px rgb(0 0 0 / 0.4);
+  --tg-sheet-backdrop: rgb(0 0 0 / 0.2);
+
+  /* push buttons: raised fill with a 1px edge, no hover state, darken while pressed */
+  --vp-button-brand-border: var(--tg-control-edge);
+  --vp-button-brand-hover-border: var(--tg-control-edge);
+  --vp-button-brand-active-border: var(--tg-control-edge);
+  --vp-button-brand-hover-bg: var(--vp-button-brand-bg);
+  --vp-button-brand-hover-text: var(--vp-button-brand-text);
+  --vp-button-brand-active-text: var(--vp-button-brand-text);
+
+  --vp-button-alt-border: var(--tg-control-edge);
+  --vp-button-alt-hover-border: var(--tg-control-edge);
+  --vp-button-alt-active-border: var(--tg-control-edge);
+  --vp-button-alt-bg: var(--tg-control-fill);
+  --vp-button-alt-hover-bg: var(--tg-control-fill);
+  --vp-button-alt-active-bg: var(--tg-control-pressed);
+}
+
+html:root .VPButton {
+  font-weight: 500;
+  box-shadow: var(--tg-control-shadow);
+}
+html:root .VPButton:is(.medium, .big) {
+  border-radius: var(--tg-radius-field);
+}
+html:root .VPButton:focus-visible {
+  outline: 2px solid var(--tg-focus-ring);
+  outline-offset: 1px;
+}
+
+/* nav menus (language, more): translucent menu material, hovered item in the selection color */
+html:root .VPMenu {
+  border-color: color-mix(in oklab, var(--vp-c-text-1) 10%, transparent);
+  border-radius: var(--tg-radius-box);
+  background-color: var(--tg-material);
+  -webkit-backdrop-filter: var(--tg-material-filter);
+  backdrop-filter: var(--tg-material-filter);
+  box-shadow: var(--tg-menu-shadow);
+}
+html:root .VPMenuLink .link {
+  border-radius: var(--tg-radius-selector);
+  transition: none;
+}
+html:root .VPMenuLink .link:hover {
+  background-color: var(--tg-emphasis);
+  color: var(--tg-emphasis-content);
+}
+
+/* local search: a sheet on the window material with a light dimming layer */
+html:root .VPLocalSearchBox .backdrop {
+  background: var(--tg-sheet-backdrop);
+}
+html:root .VPLocalSearchBox .shell {
+  border-radius: var(--tg-radius-sheet);
+  background: color-mix(in oklab, var(--vp-local-search-bg) 92%, transparent);
+  -webkit-backdrop-filter: var(--tg-material-filter);
+  backdrop-filter: var(--tg-material-filter);
+  box-shadow: var(--tg-sheet-shadow);
+}
+html:root .VPLocalSearchBox .search-bar {
+  border-color: var(--tg-control-edge);
+  border-radius: var(--tg-radius-field);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+html:root .VPLocalSearchBox .search-bar:focus-within {
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 80%, transparent);
+  box-shadow: 0 0 0 3px var(--tg-field-ring);
+}
+@media (max-width: 767px) {
+  html:root .VPLocalSearchBox .shell {
+    border-radius: 0;
+  }
+}
+
+/* sidebar: fill the current page like the app's settings sidebar */
+html:root .VPSidebar .VPSidebarItem.is-link.is-active > .item {
+  margin-inline: -10px;
+  padding-inline: 10px;
+  border-radius: var(--tg-radius-field);
+  background-color: var(--tg-emphasis);
+}
+html:root .VPSidebar .VPSidebarItem.is-link.is-active > .item .link > .text {
+  color: var(--tg-emphasis-content);
+}
+html:root .VPSidebar .VPSidebarItem.is-active > .item > .indicator {
+  background-color: transparent;
+}
+
+/* code blocks share the app's container radius */
+@media (min-width: 640px) {
+  html:root .vp-doc div[class*='language-'] {
+    border-radius: var(--tg-radius-box);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --tg-material: var(--vp-c-bg-elv);
+  }
+  html:root .VPLocalSearchBox .shell {
+    background: var(--vp-local-search-bg);
+  }
 }
 
 .VPHero .tagline {

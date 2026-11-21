@@ -317,28 +317,32 @@ watch(result, () => {
   justify-self: center;
 }
 
+/* segmented control, shared with the extension categories */
 .scenario-options {
   display: flex;
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
   width: fit-content;
   max-width: 100%;
-  padding: 4px;
+  padding: 2px;
   margin: 0 auto;
-  border-radius: 9px;
-  background: var(--vp-c-bg-soft);
+  border-radius: var(--tg-radius-field);
+  background: var(--tg-track);
 }
 
 .scenario-options button {
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 5px 12px;
+  border: 1px solid transparent;
+  border-radius: calc(var(--tg-radius-field) - 2px);
   color: var(--vp-c-text-2);
   font-size: 12px;
+  font-weight: 500;
   line-height: 20px;
   white-space: nowrap;
   transition:
     color 0.2s,
     background-color 0.2s,
+    border-color 0.2s,
     box-shadow 0.2s;
 }
 
@@ -346,9 +350,10 @@ watch(result, () => {
   color: var(--vp-c-text-1);
 }
 .scenario-options button[aria-pressed='true'] {
-  background: var(--vp-c-bg);
+  border-color: var(--tg-control-edge);
+  background: var(--tg-control-fill);
   color: var(--vp-c-text-1);
-  box-shadow: 0 1px 4px #0000000d;
+  box-shadow: var(--tg-control-shadow);
 }
 
 .demo-stage {
@@ -522,6 +527,7 @@ watch(result, () => {
 }
 .selection-toolbar button:hover {
   background: var(--vp-c-default-soft);
+  color: var(--vp-c-brand-1);
 }
 
 .result-window {
@@ -693,8 +699,8 @@ textarea:focus-visible {
   color: var(--vp-c-brand-1);
 }
 button:focus-visible {
-  outline: 2px solid var(--vp-c-brand-1);
-  outline-offset: 3px;
+  outline: 2px solid var(--tg-focus-ring);
+  outline-offset: 1px;
 }
 
 @keyframes show-result {

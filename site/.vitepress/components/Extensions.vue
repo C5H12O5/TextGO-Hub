@@ -1,7 +1,14 @@
 <script setup lang="ts" generic="T extends Extension">
-import { PhClipboardText, PhFunnel, PhInfo, PhMagnifyingGlass } from '@phosphor-icons/vue';
+import {
+  PhClipboardText,
+  PhDownloadSimple,
+  PhFunnel,
+  PhInfo,
+  PhLightbulb,
+  PhMagnifyingGlass
+} from '@phosphor-icons/vue';
 import { useData } from 'vitepress';
-import { computed, nextTick, ref, shallowRef, useId } from 'vue';
+import { computed, nextTick, ref, shallowRef, useId, type Component } from 'vue';
 import type { Extension } from '../types';
 import Icon from './Icon.vue';
 import SearchHighlight from './SearchHighlight.vue';
@@ -9,13 +16,19 @@ import SearchHighlight from './SearchHighlight.vue';
 const props = withDefaults(
   defineProps<{
     data: T[];
+    /** List title used when items are not grouped. */
+    title?: string;
+    /** List icon used when a group has no icon of its own. */
+    icon?: Component;
     emptyText?: string;
     filterText?: string;
     groupBy?: (item: T) => string;
     groupOrder?: string[];
+    groupIcons?: Record<string, Component>;
     installHandler: (item: T) => void;
   }>(),
   {
+    title: '',
     emptyText: 'No items found',
     filterText: 'Filter by name or description...'
   }
@@ -23,6 +36,12 @@ const props = withDefaults(
 
 // current language
 const { lang } = useData();
+const isChinese = computed(() => lang.value.startsWith('zh'));
+const listText = computed(() =>
+  isChinese.value
+    ? { install: '安装', results: '筛选结果：', viewSource: '在 GitHub 上查看源码' }
+    : { install: 'Install', results: 'Results: ', viewSource: 'View source on GitHub' }
+);
 
 // extension installation consent
 const installConsentDialogId = useId();
@@ -118,17 +137,16 @@ const searchPattern = computed(() => {
 });
 
 const emptyHint = computed(() => {
-  const isChinese = lang.value.startsWith('zh');
   if (filterTags.value.length > 0) {
     return searchTerms.value.length > 0
-      ? isChinese
+      ? isChinese.value
         ? '试试更简短的关键词，或再次点击已选标签来放宽筛选。'
         : 'Try fewer keywords, or click a selected tag again to broaden your results.'
-      : isChinese
+      : isChinese.value
         ? '再次点击已选标签，即可放宽筛选范围。'
         : 'Click a selected tag again to broaden your results.';
   }
-  return isChinese
+  return isChinese.value
     ? '试试其他关键词，也可以搜索标签或使用空格组合多个关键词。'
     : 'Try different keywords or tags. Use spaces to combine multiple keywords.';
 });
@@ -193,7 +211,7 @@ const items = computed(() => {
 // group items first, then sort within each group
 const itemGroups = computed(() => {
   if (!props.groupBy) {
-    return [{ label: '', items: [...items.value].sort((a, b) => a.sort - b.sort) }];
+    return [{ label: props.title, items: [...items.value].sort((a, b) => a.sort - b.sort) }];
   }
 
   const groups = new Map<string, typeof items.value>();
@@ -218,73 +236,63 @@ const itemGroups = computed(() => {
     items: groupItems.sort((a, b) => a.sort - b.sort)
   })).sort((a, b) => orderIndex(a.label) - orderIndex(b.label) || a.label.localeCompare(b.label));
 });
+
+// group header icon, falling back to the list icon
+const groupIcon = (label: string) => props.groupIcons?.[label] ?? props.icon;
 </script>
 
 <template>
-  <div class="mt-6 mb-12">
+  <div class="extensions">
     <!-- Filters -->
-    <div class="mb-4 space-y-3">
-      <div class="group relative">
-        <PhMagnifyingGlass
-          aria-hidden="true"
-          focusable="false"
-          class="pointer-events-none absolute top-1/2 left-3 size-4.5 -translate-y-1/2 text-(--vp-c-text-2) transition-colors group-focus-within:text-(--vp-c-brand-1) motion-reduce:transition-none"
-        />
-        <input
-          v-model="filterInput"
-          type="search"
-          :aria-label="props.filterText"
-          :placeholder="props.filterText"
-          class="w-full rounded-md border! border-(--vp-c-divider)! py-2! pr-3! pl-10! shadow-xs transition-colors focus:border-(--vp-c-brand-1)! motion-reduce:transition-none"
-        />
+    <div class="filters">
+      <div class="search-field">
+        <PhMagnifyingGlass aria-hidden="true" focusable="false" class="search-icon" />
+        <input v-model="filterInput" type="search" :aria-label="props.filterText" :placeholder="props.filterText" />
       </div>
-      <div class="flex flex-wrap items-center gap-2">
-        <div class="mr-1 flex shrink-0 items-center gap-1.5 text-(--vp-c-text-2)">
-          <PhFunnel aria-hidden="true" focusable="false" class="size-4.5 shrink-0" />
-          <output aria-live="polite" aria-atomic="true" class="min-w-8 text-center text-sm tabular-nums">
-            <span class="sr-only">{{ lang.startsWith('zh') ? '筛选结果：' : 'Results: ' }}</span>
-            ({{ items.length }})
+      <div class="tag-filters">
+        <div class="result-count">
+          <PhFunnel aria-hidden="true" focusable="false" class="result-count-icon" />
+          <output aria-live="polite" aria-atomic="true">
+            <span class="sr-only">{{ listText.results }}</span
+            >{{ items.length }}
           </output>
         </div>
         <button
           v-for="tag in allTags"
           :key="tag"
           type="button"
+          class="tag-filter"
           :aria-pressed="filterTags.includes(tag)"
           @click="toggleTag(tag)"
-          :class="[
-            'cursor-pointer rounded-md px-2! py-1.5! text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1) motion-reduce:transition-none sm:py-0.5!',
-            filterTags.includes(tag)
-              ? 'bg-(--vp-c-brand-soft)! text-(--vp-c-brand-2)!'
-              : 'bg-(--vp-c-bg-soft)! text-(--vp-c-text-2) hover:bg-(--vp-c-default-soft)! hover:text-(--vp-c-text-1)'
-          ]"
         >
           {{ tag }}
         </button>
       </div>
     </div>
     <!-- Items -->
-    <div v-if="items.length > 0">
-      <section v-for="group in itemGroups" :key="group.label || 'items'" :class="group.label ? 'mt-8 first:mt-0' : ''">
-        <h2
-          v-if="group.label"
-          class="m-0! mb-2! flex items-center gap-2 border-0! pt-2! text-sm! leading-6! tracking-wide! text-(--vp-c-text-2)"
-        >
-          <span><SearchHighlight :text="group.label" :pattern="searchPattern" /></span>
-        </h2>
-        <div class="rounded-lg border border-(--vp-c-divider) px-3 sm:px-4">
-          <div
-            v-for="item in group.items"
-            :key="item.path"
-            class="grid grid-cols-[2rem_minmax(0,1fr)_2.75rem] items-center gap-x-3 gap-y-1 border-b border-(--vp-c-divider) py-3 last:border-b-0 sm:flex sm:gap-3"
-          >
-            <Icon :icon="item.icon" class="size-8" />
-            <div class="min-w-0 sm:flex-2">
-              <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+    <div v-if="items.length > 0" class="groups">
+      <section v-for="group in itemGroups" :key="group.label || 'items'" class="list">
+        <header v-if="group.label" class="list-header">
+          <component
+            :is="groupIcon(group.label)"
+            v-if="groupIcon(group.label)"
+            aria-hidden="true"
+            focusable="false"
+            class="list-icon"
+          />
+          <h2 class="list-title"><SearchHighlight :text="group.label" :pattern="searchPattern" /></h2>
+          <span class="list-count" aria-hidden="true">{{ group.items.length }}</span>
+        </header>
+        <ul class="rows">
+          <li v-for="item in group.items" :key="item.path" class="row">
+            <span class="row-icon" aria-hidden="true"><Icon :icon="item.icon" class="size-6" /></span>
+            <div class="row-main">
+              <div class="row-title">
                 <a
                   :href="`https://github.com/C5H12O5/TextGO-Hub/blob/main/${item.path.split('/').slice(-3).join('/')}`"
                   target="_blank"
-                  class="min-w-0 font-semibold wrap-anywhere text-(--vp-c-brand-1) no-underline! hover:underline!"
+                  :title="listText.viewSource"
+                  class="row-name"
                 >
                   <SearchHighlight :text="item.name" :pattern="searchPattern" />
                 </a>
@@ -292,50 +300,41 @@ const itemGroups = computed(() => {
                   v-for="tag in item.tags"
                   :key="tag"
                   type="button"
+                  class="tag"
                   :aria-pressed="filterTags.includes(tag)"
                   @click="toggleTag(tag)"
-                  :class="[
-                    'cursor-pointer rounded-md px-1.5! py-0.5! text-xs whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1) motion-reduce:transition-none',
-                    filterTags.includes(tag)
-                      ? 'bg-(--vp-c-brand-soft)! text-(--vp-c-brand-2)!'
-                      : 'bg-(--vp-c-bg-soft)! text-(--vp-c-text-2) hover:bg-(--vp-c-divider)! hover:text-(--vp-c-text-1)'
-                  ]"
                 >
                   <SearchHighlight :text="tag" :pattern="searchPattern" />
                 </button>
               </div>
-              <div v-if="item.description" class="mt-1 text-sm wrap-anywhere text-(--vp-c-text-2)">
+              <p v-if="item.description" class="row-description">
                 <SearchHighlight :text="item.description" :pattern="searchPattern" />
-              </div>
+              </p>
             </div>
-            <div
-              v-if="item.tip"
-              class="col-start-2 row-start-2 flex min-w-0 items-start gap-1 text-(--vp-c-text-2) sm:mr-2 sm:max-w-1/3 sm:shrink-0 sm:justify-end"
-            >
-              <PhInfo aria-hidden="true" focusable="false" class="mt-0.5 size-4 shrink-0" />
-              <span class="text-xs leading-5">{{ item.tip }}</span>
-            </div>
+            <p v-if="item.tip" class="row-tip">
+              <PhInfo aria-hidden="true" focusable="false" class="row-tip-icon" />
+              <span>{{ item.tip }}</span>
+            </p>
             <button
               type="button"
-              :aria-label="`${installConsentText.confirm}: ${item.name}`"
+              class="push-button install-button"
+              :aria-label="`${listText.install} ${item.name}`"
               @click="requestInstall(item, $event)"
-              class="col-start-3 row-start-1 shrink-0 rounded-md p-2.5! text-(--vp-c-text-2) transition-all hover:bg-(--vp-c-brand-soft)! hover:text-(--vp-c-brand-1) focus-visible:bg-(--vp-c-brand-soft)! focus-visible:text-(--vp-c-brand-1) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1) active:scale-95 motion-reduce:transition-none sm:p-1!"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6">
-                <path
-                  fill="currentColor"
-                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4.18C9.6 1.84 10.7 1 12 1s2.4.84 2.82 2zm-7 0a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M7 7V5H5v14h14V5h-2v2zm5 11l-5-5h3V9h4v4h3z"
-                />
-              </svg>
+              <PhDownloadSimple aria-hidden="true" focusable="false" weight="bold" class="install-icon" />
+              <span class="install-label">{{ listText.install }}</span>
             </button>
-          </div>
-        </div>
+          </li>
+        </ul>
       </section>
     </div>
-    <div v-else class="flex min-h-44 flex-col items-center justify-center px-4 py-8 text-center">
-      <PhMagnifyingGlass aria-hidden="true" focusable="false" class="mb-3 size-7 text-(--vp-c-text-3)" />
-      <p class="m-0! text-base font-medium">{{ props.emptyText }}</p>
-      <p class="mt-2! mb-0! max-w-md text-sm leading-6! text-(--vp-c-text-2)">{{ emptyHint }}</p>
+    <div v-else class="list empty">
+      <PhMagnifyingGlass aria-hidden="true" focusable="false" class="empty-icon" />
+      <p class="empty-title">{{ props.emptyText }}</p>
+      <p class="empty-hint">
+        <PhLightbulb aria-hidden="true" focusable="false" class="empty-hint-icon" />
+        <span>{{ emptyHint }}</span>
+      </p>
     </div>
   </div>
 
@@ -347,40 +346,25 @@ const itemGroups = computed(() => {
       aria-modal="true"
       :aria-labelledby="`${installConsentDialogId}-title`"
       :aria-describedby="`${installConsentDialogId}-description`"
-      class="fixed inset-0 m-0 h-full max-h-none w-full max-w-none items-center justify-center border-0 bg-transparent p-4 backdrop:bg-black/50 open:flex"
+      class="sheet-dialog"
       @click.self="cancelInstall"
       @cancel.prevent="cancelInstall"
       @keydown.tab="trapInstallConsentFocus"
     >
-      <div class="w-full max-w-120 rounded-xl bg-(--vp-c-bg) p-6 text-(--vp-c-text-1) shadow-2xl">
-        <div class="flex items-start gap-4">
-          <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-(--vp-c-brand-soft)">
-            <PhClipboardText class="size-6 text-(--vp-c-brand-1)" />
-          </div>
-          <div>
-            <h2 :id="`${installConsentDialogId}-title`" class="m-0 text-lg font-semibold">
-              {{ installConsentText.title }}
-            </h2>
-            <div :id="`${installConsentDialogId}-description`" class="mt-2 text-sm leading-6 text-(--vp-c-text-2)">
-              <p class="m-0">{{ installConsentText.description }}</p>
-              <p class="mt-2 mb-0">{{ installConsentText.question }}</p>
-            </div>
-          </div>
+      <div class="sheet">
+        <h2 :id="`${installConsentDialogId}-title`" class="sheet-title">
+          <PhClipboardText aria-hidden="true" focusable="false" class="sheet-title-icon" />
+          <span>{{ installConsentText.title }}</span>
+        </h2>
+        <div :id="`${installConsentDialogId}-description`" class="sheet-body">
+          <p>{{ installConsentText.description }}</p>
+          <p>{{ installConsentText.question }}</p>
         </div>
-        <div class="mt-6 flex justify-end gap-3">
-          <button
-            type="button"
-            autofocus
-            class="rounded-md bg-(--vp-button-alt-bg) px-4! py-2! text-sm font-medium transition-colors hover:bg-(--vp-button-alt-hover-bg) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1)"
-            @click="cancelInstall"
-          >
+        <div class="sheet-actions">
+          <button type="button" autofocus class="push-button" @click="cancelInstall">
             {{ installConsentText.cancel }}
           </button>
-          <button
-            type="button"
-            class="rounded-md bg-(--vp-button-brand-bg) px-4! py-2! text-sm font-medium text-(--vp-button-brand-text) transition-colors hover:bg-(--vp-button-brand-hover-bg) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1)"
-            @click="confirmInstall"
-          >
+          <button type="button" class="push-button push-button-submit" @click="confirmInstall">
             {{ installConsentText.confirm }}
           </button>
         </div>
@@ -388,3 +372,468 @@ const itemGroups = computed(() => {
     </dialog>
   </Teleport>
 </template>
+
+<style scoped>
+/* Mirrors the TextGO app's macOS list: see `List.svelte` and `src/styles/macos.css` in the app. */
+.extensions {
+  margin: 24px 0 48px;
+}
+
+/* filters */
+.filters {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.search-field {
+  position: relative;
+}
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 11px;
+  width: 16px;
+  height: 16px;
+  color: var(--vp-c-text-3);
+  pointer-events: none;
+  translate: 0 -50%;
+  transition: color 0.2s;
+}
+.search-field:focus-within .search-icon {
+  color: var(--vp-c-brand-1);
+}
+.search-field input {
+  width: 100%;
+  height: 36px;
+  padding: 0 12px 0 34px;
+  border: 1px solid var(--tg-control-edge);
+  border-radius: var(--tg-radius-field);
+  background-color: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  font-size: 14px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.search-field input:focus {
+  border-color: color-mix(in oklab, var(--vp-c-brand-1) 80%, transparent);
+  box-shadow: 0 0 0 3px var(--tg-field-ring);
+  outline: none;
+}
+
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.result-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 44px;
+  margin-right: 2px;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  line-height: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.result-count-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* filter tags: raised push buttons that take the selection fill while on, like the app's check boxes */
+.tag-filter {
+  height: 24px;
+  padding: 0 8px;
+  border: 1px solid var(--tg-control-edge);
+  border-radius: calc(var(--tg-radius-field) - 2px);
+  background-color: var(--tg-control-fill);
+  box-shadow: var(--tg-control-shadow);
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 22px;
+  white-space: nowrap;
+}
+.tag-filter:hover {
+  color: var(--vp-c-text-1);
+}
+.tag-filter:active {
+  background-color: var(--tg-control-pressed);
+}
+.tag-filter[aria-pressed='true'] {
+  border-color: var(--tg-emphasis);
+  background-color: var(--tg-emphasis);
+  color: var(--tg-emphasis-content);
+}
+.tag-filter[aria-pressed='true']:active {
+  background-color: color-mix(in oklab, var(--tg-emphasis), #000 10%);
+}
+
+/* lists: bordered container with a gradient header and striped rows */
+.groups {
+  display: grid;
+  gap: 24px;
+}
+.list {
+  overflow: hidden;
+  border: 1px solid var(--tg-border);
+  border-radius: var(--tg-radius-box);
+  background-color: var(--vp-c-bg);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+.list-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 4px 12px;
+  border-bottom: 1px solid var(--tg-border);
+  background-color: var(--tg-surface-150);
+  background-image: var(--tg-header-gradient);
+  color: var(--vp-c-text-2);
+  text-shadow: 0 1px rgb(0 0 0 / 0.05);
+}
+.list-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.list-title {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: normal;
+}
+.list-count {
+  min-width: 22px;
+  margin-left: auto;
+  padding: 0 6px;
+  border-radius: 999px;
+  background-color: var(--tg-track);
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  text-shadow: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  margin: 0;
+  padding: 10px 12px 10px 14px;
+}
+.row:nth-child(even) {
+  background-color: var(--tg-surface-150);
+}
+
+.row-icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  place-items: center;
+  color: var(--vp-c-text-1);
+}
+
+.row-main {
+  min-width: 0;
+  flex: 2 1 0;
+}
+.row-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+}
+.row-name {
+  min-width: 0;
+  border-radius: 3px;
+  color: var(--vp-c-text-1);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22px;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+.row-name:hover {
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.row-description {
+  margin: 2px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
+}
+
+/* row tags: ghost badges */
+.tag {
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--tg-radius-selector);
+  background-color: var(--tg-track);
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+.tag:hover {
+  background-color: color-mix(in oklab, var(--vp-c-text-1) 11%, transparent);
+  color: var(--vp-c-text-1);
+}
+.tag[aria-pressed='true'] {
+  background-color: var(--tg-emphasis);
+  color: var(--tg-emphasis-content);
+}
+
+.row-tip {
+  display: flex;
+  max-width: 33%;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: 4px;
+  margin: 0 4px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  line-height: 18px;
+}
+.row-tip-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* push buttons: raised fill with a 1px edge, no hover state, darken while pressed */
+.push-button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--tg-control-edge);
+  border-radius: var(--tg-radius-field);
+  background-color: var(--tg-control-fill);
+  box-shadow: var(--tg-control-shadow);
+  color: var(--vp-c-text-1);
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.push-button:active {
+  background-color: var(--tg-control-pressed);
+}
+.push-button-submit {
+  background-color: var(--tg-emphasis);
+  color: var(--tg-emphasis-content);
+}
+.push-button-submit:active {
+  background-color: color-mix(in oklab, var(--tg-emphasis), var(--vp-c-text-1) 12%);
+}
+.install-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--vp-c-brand-1);
+}
+
+:is(.tag-filter, .tag, .row-name, .push-button):focus-visible {
+  outline: 2px solid var(--tg-focus-ring);
+  outline-offset: 1px;
+}
+
+/* empty state */
+.empty {
+  display: flex;
+  min-height: 176px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  text-align: center;
+}
+.empty-icon {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 12px;
+  color: var(--vp-c-text-3);
+}
+.empty-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.empty-hint {
+  display: flex;
+  max-width: 28rem;
+  align-items: flex-start;
+  gap: 4px;
+  margin: 8px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 22px;
+  text-align: left;
+}
+.empty-hint-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* install consent: a sheet with large concentric corners and a light dimming layer */
+.sheet-dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 16px;
+  border: 0;
+  background: transparent;
+  color: var(--vp-c-text-1);
+}
+.sheet-dialog[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sheet-dialog::backdrop {
+  background-color: var(--tg-sheet-backdrop);
+}
+.sheet {
+  display: flex;
+  width: 100%;
+  max-width: 440px;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  border-radius: var(--tg-radius-sheet);
+  background-color: var(--vp-c-bg-elv);
+  box-shadow: var(--tg-sheet-shadow);
+  animation: sheet-in 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.dark .sheet {
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.1),
+    0 24px 64px -12px rgb(0 0 0 / 0.6);
+}
+.sheet-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.sheet-title-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--vp-c-brand-1);
+}
+.sheet-body {
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 22px;
+}
+.sheet-body p {
+  margin: 0;
+}
+.sheet-body p + p {
+  margin-top: 8px;
+}
+.sheet-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+.sheet-actions .push-button {
+  min-width: 80px;
+  height: 32px;
+  padding: 0 14px;
+  font-size: 14px;
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+}
+
+@media (max-width: 639px) {
+  .search-field input {
+    height: 44px;
+    font-size: 16px;
+  }
+  .tag-filter {
+    height: 32px;
+    line-height: 30px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr) auto;
+    gap: 4px 12px;
+    padding: 12px;
+  }
+  .row-icon {
+    grid-row: 1;
+  }
+  .row-tip {
+    grid-column: 2 / -1;
+    grid-row: 2;
+    max-width: none;
+    margin: 0;
+  }
+  .install-button {
+    grid-column: 3;
+    grid-row: 1;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+  }
+  .install-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .install-label {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-icon,
+  .search-field input {
+    transition: none;
+  }
+  .sheet {
+    animation: none;
+  }
+}
+</style>

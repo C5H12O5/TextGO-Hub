@@ -89,15 +89,15 @@ onUnmounted(() => {
 
 <template>
   <div>
-    <header class="flex flex-wrap items-center gap-x-6 gap-y-4">
-      <div class="shrink-0">
+    <header class="page-header">
+      <div class="page-title">
         <slot />
       </div>
       <div
         ref="tabList"
         role="tablist"
         :aria-label="isChinese ? '扩展类型' : 'Extension types'"
-        class="ml-auto flex max-w-full min-w-0 grow gap-1 rounded-xl bg-(--vp-c-bg-soft) p-1 sm:grow-0"
+        class="segmented"
         @keydown="onTabKeydown"
       >
         <button
@@ -106,18 +106,13 @@ onUnmounted(() => {
           :key="category.id"
           type="button"
           role="tab"
+          class="segment"
           :aria-selected="activeCategory === category.id"
           :aria-controls="`${tabGroupId}-${category.id}-panel`"
           :tabindex="activeCategory === category.id ? 0 : -1"
-          :class="[
-            'flex min-h-11 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-lg px-2.5! py-2! text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--vp-c-brand-1) motion-reduce:transition-none sm:flex-none sm:gap-2 sm:px-4!',
-            activeCategory === category.id
-              ? 'bg-(--vp-c-brand-soft)! text-(--vp-c-brand-2)'
-              : 'text-(--vp-c-text-2) hover:bg-(--vp-c-divider)! hover:text-(--vp-c-text-1)'
-          ]"
           @click="selectCategory(category.id)"
         >
-          <component :is="category.icon" aria-hidden="true" focusable="false" class="size-4.5 shrink-0" />
+          <component :is="category.icon" aria-hidden="true" focusable="false" class="segment-icon" />
           <span>{{ category.label }}</span>
         </button>
       </div>
@@ -131,7 +126,97 @@ onUnmounted(() => {
       role="tabpanel"
       :aria-labelledby="`${tabGroupId}-${category.id}-tab`"
     >
-      <component :is="category.component" :empty-text="category.emptyText" :filter-text="category.filterText" />
+      <component
+        :is="category.component"
+        :title="category.label"
+        :icon="category.icon"
+        :empty-text="category.emptyText"
+        :filter-text="category.filterText"
+      />
     </section>
   </div>
 </template>
+
+<style scoped>
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+}
+.page-title {
+  flex-shrink: 0;
+}
+
+/* segmented control: recessed track with the selected segment raised like a push button */
+.segmented {
+  display: flex;
+  max-width: 100%;
+  min-width: 0;
+  flex-grow: 1;
+  gap: 2px;
+  margin-left: auto;
+  padding: 2px;
+  border-radius: var(--tg-radius-field);
+  background-color: var(--tg-track);
+}
+.segment {
+  display: flex;
+  min-width: 0;
+  min-height: 40px;
+  flex: 1 1 0;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: calc(var(--tg-radius-field) - 2px);
+  color: var(--vp-c-text-2);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.segment:hover {
+  color: var(--vp-c-text-1);
+}
+.segment[aria-selected='true'] {
+  border-color: var(--tg-control-edge);
+  background-color: var(--tg-control-fill);
+  box-shadow: var(--tg-control-shadow);
+  color: var(--vp-c-text-1);
+}
+.segment:focus-visible {
+  outline: 2px solid var(--tg-focus-ring);
+  outline-offset: 1px;
+}
+.segment-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.segment[aria-selected='true'] .segment-icon {
+  color: var(--vp-c-brand-1);
+}
+
+@media (min-width: 640px) {
+  .segmented {
+    flex-grow: 0;
+  }
+  .segment {
+    min-height: 28px;
+    flex: none;
+    padding: 0 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .segment {
+    transition: none;
+  }
+}
+</style>

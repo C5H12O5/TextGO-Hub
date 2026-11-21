@@ -298,7 +298,7 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
   overflow: hidden;
   padding: 24px;
   border: 1px solid var(--vp-c-divider);
-  border-radius: 16px;
+  border-radius: var(--tg-radius-sheet);
   /* A brand wash that starts behind the icon and fades into the card surface. */
   background:
     radial-gradient(140% 90% at 0% 0%, var(--feature-wash), transparent 55%),
@@ -320,7 +320,7 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
   width: 44px;
   height: 44px;
   place-items: center;
-  border-radius: 12px;
+  border-radius: var(--tg-radius-box);
   background: linear-gradient(
     135deg,
     color-mix(in srgb, var(--vp-c-brand-3) 26%, transparent),
@@ -364,8 +364,8 @@ const downloadText = computed(() => `${copy.value.download}${release.version ? `
 }
 
 a:focus-visible {
-  outline: 2px solid var(--vp-c-brand-1);
-  outline-offset: 4px;
+  outline: 2px solid var(--tg-focus-ring);
+  outline-offset: 1px;
 }
 
 @media (max-width: 1100px) {
