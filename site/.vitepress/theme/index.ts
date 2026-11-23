@@ -1,6 +1,7 @@
 import type { EnhanceAppContext } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import { defineAsyncComponent, h } from 'vue';
+import ExtensionsSkeleton from '../components/ExtensionsSkeleton.vue';
 import { useLanguagePreference } from './language';
 
 import '@theojs/lumen/style';
@@ -21,7 +22,12 @@ export default {
     );
     app.component(
       'ExtensionsPage',
-      defineAsyncComponent(() => import('../components/ExtensionsPage.vue'))
+      defineAsyncComponent({
+        loader: () => import('../components/ExtensionsPage.vue'),
+        // Client-side navigation would otherwise leave the page blank until the extension data arrives.
+        loadingComponent: ExtensionsSkeleton,
+        delay: 0
+      })
     );
     app.component(
       'Scripts',
